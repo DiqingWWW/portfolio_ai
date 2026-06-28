@@ -17,8 +17,8 @@
   ],
   "tokens": ["Token JSON", "Grayscale Base", "Chroma Accent", "Fluid Switches"],
   "assets": {
-    "cover": "/assets/images/monolith-design-system/cover.jpg",
-    "hover": "/assets/images/monolith-design-system/hover.jpg",
+    "cover": "./cover.jpg",
+    "hover": "./hover.jpg",
     "gallery": []
   }
 }

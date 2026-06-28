@@ -18,8 +18,8 @@
   ],
   "tokens": ["Z-Index-Depth", "Physics-snapping", "Framer Motion", "Draggable Grid"],
   "assets": {
-    "cover": "/assets/images/orbit-spatial-os/cover.jpg",
-    "hover": "/assets/images/orbit-spatial-os/hover.jpg",
+    "cover": "./cover.jpg",
+    "hover": "./hover.jpg",
     "gallery": []
   }
 }

@@ -17,6 +17,7 @@ import {
   buildTagIndex,
   getProjectsForTag,
   getAllProjects,
+  getProjectAssets,
   profile,
   navigation,
   designTokens,
@@ -116,12 +117,18 @@ export default function Home() {
   const [isHmiHovered, setIsHmiHovered] = useState(false);
   const [isAiHovered, setIsAiHovered] = useState(false);
 
-  // Thumbnail image helpers — use project cover assets
-  const dsThumb = dsProjects[0]?.assets.cover ?? "";
-  const hmiImages = hmiProjects.slice(0, 3).map((p) => p.assets.cover);
-  const aiImages = aiProjects.slice(0, 2).map((p) => p.assets.cover);
-  // Reuse first HMI project cover for AI center card (matches original visual)
-  const aiCenterImg = hmiProjects[0]?.assets.cover ?? aiProjects[2]?.assets.cover ?? "";
+  // Thumbnail image helpers — resolve relative paths to public URLs
+  const dsAssets = dsProjects[0] ? getProjectAssets(dsProjects[0]) : { cover: "", hover: "", gallery: [] as string[] };
+  const hmiAssets = hmiProjects.slice(0, 3).map((p) => getProjectAssets(p));
+  const aiAssets = aiProjects.slice(0, 2).map((p) => getProjectAssets(p));
+  const aiCenterAssets = hmiProjects[0]
+    ? getProjectAssets(hmiProjects[0])
+    : aiProjects[2] ? getProjectAssets(aiProjects[2]) : { cover: "", hover: "", gallery: [] as string[] };
+
+  const dsThumb = dsAssets.cover;
+  const hmiImages = hmiAssets.map((a) => a.cover);
+  const aiImages = aiAssets.map((a) => a.cover);
+  const aiCenterImg = hmiAssets[0]?.cover ?? aiCenterAssets.cover;
 
   return (
     <div data-component="Page" className="relative h-screen w-full overflow-hidden bg-[#f5f5f5] text-[#373737] font-sans">

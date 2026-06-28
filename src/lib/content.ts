@@ -67,3 +67,24 @@ export function getProjectsForTag(tagId: string): ProjectData[] {
 export function getAllProjects(): ProjectData[] {
   return projects;
 }
+
+// Resolve relative asset path (./cover.jpg) to public URL
+// Images are copied to public/assets/images/<projectId>/ at build time
+export function resolveAsset(projectId: string, relativePath: string): string {
+  // Strip leading ./ if present
+  const filename = relativePath.replace(/^\.\//, "");
+  return `/assets/images/${projectId}/${filename}`;
+}
+
+// Return all resolved asset paths for a project
+export function getProjectAssets(project: ProjectData): {
+  cover: string;
+  hover: string;
+  gallery: string[];
+} {
+  return {
+    cover: resolveAsset(project.id, project.assets.cover),
+    hover: resolveAsset(project.id, project.assets.hover),
+    gallery: project.assets.gallery.map((p) => resolveAsset(project.id, p)),
+  };
+}

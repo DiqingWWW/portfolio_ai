@@ -1,25 +1,20 @@
 #!/bin/bash
 # ================================================================
-# Portfolio AI — Production Build & Deploy Script
+# Portfolio AI — Production Build
 # ================================================================
 set -e
+cd "$(dirname "$0")"
 
 echo "📦 Installing dependencies..."
-npm install
+npm install --silent
 
 echo ""
-echo "🔨 Building for production..."
+echo "🖼️  Copying project assets to public/..."
+node scripts/copy-project-assets.mjs
+
+echo ""
+echo "🔨 Building Next.js..."
 npm run build
 
 echo ""
 echo "✅ Build successful!"
-echo ""
-echo "📁 Project is ready for Vercel deployment."
-echo "   Deploy directory: $(pwd)"
-echo ""
-echo "   Vercel settings:"
-echo "     Framework:     Next.js"
-echo "     Root Directory: portfolio_ai"
-echo "     Build Command: next build"
-echo "     Output Dir:    .next"
-echo "     Node Version:  22.x"

@@ -17,8 +17,8 @@
   ],
   "tokens": ["Generative UI", "Stream compilation", "Atomic Components", "Interactive Canvas"],
   "assets": {
-    "cover": "/assets/images/muse-ai-canvas/cover.jpg",
-    "hover": "/assets/images/muse-ai-canvas/hover.jpg",
-    "gallery": ["/assets/images/muse-ai-canvas/career-laptop.jpg", "/assets/images/muse-ai-canvas/travel-ticket.jpg"]
+    "cover": "./cover.jpg",
+    "hover": "./hover.jpg",
+    "gallery": ["./career-laptop.jpg", "./travel-ticket.jpg"]
   }
 }

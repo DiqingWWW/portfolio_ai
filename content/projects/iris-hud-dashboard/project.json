@@ -17,8 +17,8 @@
   ],
   "tokens": ["HMI Controls", "Telemetry Arc", "ADAS Lane Assister", "Vector HUD"],
   "assets": {
-    "cover": "/assets/images/iris-hud-dashboard/cover.jpg",
-    "hover": "/assets/images/iris-hud-dashboard/hover.jpg",
-    "gallery": ["/assets/images/iris-hud-dashboard/dark-map.jpg", "/assets/images/iris-hud-dashboard/lane-assist.jpg", "/assets/images/iris-hud-dashboard/light-calendar.jpg"]
+    "cover": "./cover.jpg",
+    "hover": "./hover.jpg",
+    "gallery": ["./dark-map.jpg", "./lane-assist.jpg", "./light-calendar.jpg"]
   }
 }

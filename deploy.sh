@@ -1,36 +1,46 @@
 #!/bin/bash
+# ================================================================
+# Portfolio AI — Full Build, Commit & Deploy
+# ================================================================
 set -e
-cd /Users/wudiqing/Documents/cc_test/portfolio_ai
+cd "$(dirname "$0")"
 
-echo "📦 Staging all files..."
-git add -A .
-
-echo "📝 Committing..."
-git commit -m "Production-ready: content-driven architecture, Vercel deployment audit, cleanup
-
-Content-driven refactor:
-- tags.json defines tag UI metadata, projects self-declare their tags
-- buildTagIndex() auto-maps projects → tags at runtime
-- All text content extracted from components into JSON files
-- content/projects/_index.ts barrel file for project manifest
-
-Deployment audit & fixes:
-- Added @content/* path alias in tsconfig.json
-- Added vercel.json with locked framework settings
-- Added robots.txt, manifest.json, sitemap.ts
-- Full SEO metadata in layout.tsx (OG, Twitter, meta tags)
-
-Production cleanup:
-- Removed 7 dead components (Canvas, Node, HoverWrapper, etc.)
-- Removed stale config files (design_spec.json, nodes.json)
-- Removed duplicate images from public/images/
-- Removed boilerplate SVGs and temp files
-
-Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+echo "📦 Installing dependencies..."
+npm install --silent
 
 echo ""
-echo "🚀 Pushing to origin/main..."
+echo "🖼️  Copying project assets..."
+node scripts/copy-project-assets.mjs
+
+echo ""
+echo "🔨 Building for production..."
+npm run build
+
+echo ""
+echo "📝 Committing to git..."
+git add -A .
+git commit -m "Production-ready: content-driven CMS, self-contained projects, Vercel deploy
+
+Architecture:
+- tags.json = tag UI metadata only (no project lists)
+- Each project folder is self-contained: project.json + images
+- project.json uses relative asset paths (./cover.jpg)
+- buildTagIndex() auto-maps projects to tags at runtime
+- Adding a project = one new folder + one import line
+
+Prebuild:
+- scripts/copy-project-assets.mjs copies images to public/
+
+Deploy:
+- vercel.json, robots.txt, manifest.json, sitemap.ts
+- Full SEO metadata in layout.tsx
+
+Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>" || echo "Nothing to commit"
+
+echo ""
+echo "🚀 Pushing to GitHub..."
 git push origin main
 
 echo ""
-echo "✅ Done. https://github.com/DiqingWWW/portfolio_ai"
+echo "✅ Done. Push to https://github.com/DiqingWWW/portfolio_ai"
+echo "   Vercel will auto-deploy from main branch."
