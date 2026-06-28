@@ -1,0 +1,69 @@
+{
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "background": "#F4F4F4"
+  },
+
+  "nodes": [
+    {
+      "id": "design_system",
+      "type": "text",
+      "label": "Design System",
+      "position": { "x": 850, "y": 230 },
+      "size": 110
+    },
+
+    {
+      "id": "about",
+      "type": "text",
+      "label": "About Me",
+      "position": { "x": 330, "y": 350 },
+      "size": 110
+    },
+
+    {
+      "id": "hmi",
+      "type": "text",
+      "label": "HMI",
+      "position": { "x": 1440, "y": 300 },
+      "size": 110
+    },
+
+    {
+      "id": "hero",
+      "type": "hero",
+      "label": "Hi, I'm Diqing",
+      "subtitle": "A Product Designer+ AI Builder",
+      "position": { "x": 570, "y": 500 },
+      "size": 200
+    },
+
+    {
+      "id": "folder",
+      "type": "folder",
+      "label": "Projects",
+      "position": { "x": 1200, "y": 480 },
+      "size": 260,
+      "zIndex": 10
+    },
+
+    {
+      "id": "ai_related",
+      "type": "text",
+      "label": "AI Related",
+      "position": { "x": 690, "y": 840 },
+      "size": 110,
+      "icon": "sparkle"
+    },
+
+    {
+      "id": "profile_card",
+      "type": "card",
+      "label": "DiqingWWW",
+      "position": { "x": 1400, "y": 730 },
+      "size": 170,
+      "zIndex": 5
+    }
+  ]
+}
