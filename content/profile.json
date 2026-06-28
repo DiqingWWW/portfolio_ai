@@ -1,0 +1,62 @@
+{
+  "name": {
+    "first": "Diqing",
+    "full": "Diqing Wu"
+  },
+  "title": "PRODUCT DESIGNER + SYSTEM DEVELOPER",
+  "heroPrefix": "Hi, I'm ",
+  "heroSubtitle": "A Product Designer + AI Builder",
+  "heroSubtitleMobile": "Product Designer + AI Builder",
+  "bio": "I build digital spaces that bridge high-fidelity spatial design and AI agent technology. I view user interfaces as physical cognitive extensions, where responsive layouts, deliberate negative space, and custom micro-interactions combine to make complex technologies accessible.",
+  "philosophy": {
+    "heading": "My Philosophy",
+    "body": "The best interfaces feel invisible. By leveraging consistent grids, responsive proportions, and organic tactile animations, I design cognitive workspaces that adapt to user focus and action."
+  },
+  "aiThinking": {
+    "heading": "AI Hybrid Thinking",
+    "body": "AI is not just a feature; it is a collaborative partner. I focus on generative UI systems that build tailored, responsive web interfaces dynamically in response to natural language goals."
+  },
+  "competenciesHeading": "Competencies",
+  "chronologyHeading": "Chronology",
+  "skills": [
+    { "name": "Interaction Design", "level": "Senior / Fluid Motion" },
+    { "name": "Design Systems", "level": "Tokens / Cross-Platform Architecture" },
+    { "name": "HMI & Spatial UI", "level": "Automotive Cockpits & AR HUDs" },
+    { "name": "AI Orchestration", "level": "Generative UI / Prompt Engineering" },
+    { "name": "Prototypes (React)", "level": "High-fidelity Framer Motion / Code" }
+  ],
+  "experience": [
+    {
+      "year": "2024 - Present",
+      "role": "Lead Product Designer & AI Orchestrator",
+      "company": "Cognitive Interfaces Lab",
+      "description": "Architecting semantic interfaces that adapt dynamically based on LLM orchestration layers."
+    },
+    {
+      "year": "2022 - 2024",
+      "role": "Senior HMI Designer",
+      "company": "NextGen Mobility Systems",
+      "description": "Designed and prototyped multi-screen dashboard cockpits and augmented-reality heads-up displays (AR HUD) for electric vehicles."
+    },
+    {
+      "year": "2020 - 2022",
+      "role": "Interaction Designer",
+      "company": "Aura Design Studio",
+      "description": "Created highly accessible, animation-rich desktop design systems and micro-interaction foundations."
+    }
+  ],
+  "github": {
+    "username": "DiqingWWW",
+    "displayName": "Deethin",
+    "handle": "@Deethin3251",
+    "bio": "Product Designer + AI learner/builder",
+    "commits": "324 commits",
+    "url": "https://github.com/DiqingWWW",
+    "contributionsLabel": "Contributions (last year)",
+    "statusLabel": "active"
+  },
+  "footer": {
+    "updated": "Updated Today",
+    "cv": "Curriculum Vitae"
+  }
+}

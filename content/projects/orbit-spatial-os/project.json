@@ -1,0 +1,25 @@
+{
+  "id": "orbit-spatial-os",
+  "title": "Orbit Spatial OS",
+  "tags": ["design-system", "ai-related"],
+  "metadata": {
+    "type": "Spatial Operating System Concept",
+    "version": "v1.4.2",
+    "year": "2025"
+  },
+  "descriptions": {
+    "short": "An infinite digital canvas layout designed to facilitate human-AI collaborative workflows.",
+    "detail": "Orbit focuses on fluid spatial drag physics. In this system, files, prompts, and tool results behave like interactive organic nodes on an unconstrained design canvas. It implements advanced viewport constraints, spring-based momentum snapping, and layout-preserving dock states."
+  },
+  "specs": [
+    { "label": "COGNITIVE STACK", "val": "LLM Orchestration" },
+    { "label": "TARGET INGRESS", "val": "Desktop / AR Canvas" },
+    { "label": "MOTION CURVE", "val": "cubic-bezier(0.16, 1, 0.3, 1)" }
+  ],
+  "tokens": ["Z-Index-Depth", "Physics-snapping", "Framer Motion", "Draggable Grid"],
+  "assets": {
+    "cover": "/assets/images/orbit-spatial-os/cover.jpg",
+    "hover": "/assets/images/orbit-spatial-os/hover.jpg",
+    "gallery": []
+  }
+}

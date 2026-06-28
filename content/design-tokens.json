@@ -1,0 +1,46 @@
+{
+  "heading": "Monolith Design Tokens",
+  "intro": "Design systems are living architectures. This interactive token panel showcases the foundational colors, segmented controllers, and micro-interaction behaviors developed for Diqing's personal projects.",
+  "palettes": {
+    "mono": [
+      { "name": "Canvas", "hex": "#F5F5F5", "usage": "Body background, minimalist layout margins" },
+      { "name": "Charcoal Primary", "hex": "#373737", "usage": "Main headings, high contrast text blocks" },
+      { "name": "Slate Neutral", "hex": "#737373", "usage": "Secondary metadata, subheaders" },
+      { "name": "Silver Border", "hex": "#E5E5E5", "usage": "Subtle lines, grid markers, layout borders" }
+    ],
+    "brand": [
+      { "name": "macOS Folder Blue", "hex": "#107ECF", "usage": "Primary visual anchor elements" },
+      { "name": "Folder Sky Highlight", "hex": "#4CB1FB", "usage": "Gradients, highlight active markers" },
+      { "name": "Ambient Indigo", "hex": "#6366F1", "usage": "Spatial focus indicators" },
+      { "name": "Cognitive Star Gold", "hex": "#FBBF24", "usage": "AI features & decorative accents" }
+    ]
+  },
+  "labels": {
+    "colors": "01 / Color Palettes",
+    "widgets": "02 / Responsive Micro-Widgets",
+    "layers": "03 / Layer Depth Index",
+    "tabMono": "Grayscale",
+    "tabBrand": "Chroma",
+    "copyButton": "copy"
+  },
+  "widgets": {
+    "typeA": {
+      "label": "CONTROL TYPE A / FLUID TABS",
+      "heading": "Dynamic UI States",
+      "tabs": ["Active", "Pending", "Archived"],
+      "caption": "LayoutId triggers layout animations instantly"
+    },
+    "typeB": {
+      "label": "CONTROL TYPE B / ORGANIC RESPONSES",
+      "heading": "Tactile Micro-Switch",
+      "slider": "SCALE_RATIO",
+      "toggle": "ANIM_ENG",
+      "caption": "Organic easing feels comfortable and lightweight"
+    }
+  },
+  "layerIndex": {
+    "heading": "03 / Layer Depth Index",
+    "status": "SYSTEM.ENGIN_ONLINE",
+    "body": "Our layout nodes rely on an incremental depth-of-field spatial stacking index. Absolute layers stack from the grid substrate (Z-0) up to modal triggers (Z-50), keeping layout hierarchies clear and preventing overlaps."
+  }
+}

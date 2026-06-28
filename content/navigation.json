@@ -1,0 +1,17 @@
+{
+  "tagline": "This website is made by Google AI Studio + Claude Code + Vercel",
+  "exploreCanvas": "EXPLORE_CANVAS",
+  "workspaceGallery": "WORKSPACE GALLERY",
+  "mobileTip": "Tap any node below to inspect interactive workspace logs",
+  "closeButton": "CLOSE",
+  "folderHeading": "diqing_wu_projects/",
+  "folderDescription": "Explore the selected works of Diqing Wu. Click any directory listing below to open detailed project blueprints, metrics, and token frameworks.",
+  "folderBackButton": "BACK_TO_DIRECTORY",
+  "folderDesignTokensLabel": "DESIGN UTILITIES APPLIED",
+  "folderInstruction": "Click to explore work (4 items)",
+  "folderBadge": "WORKSPACE",
+  "peekCards": [
+    { "label": "01 / ORBIT_HMI", "version": "v1.4.2" },
+    { "label": "02 / COGNITIVE_MAP", "status": "SYSTEM.ACTIVE", "textLine": "Prompt => SyntheticUI" }
+  ]
+}

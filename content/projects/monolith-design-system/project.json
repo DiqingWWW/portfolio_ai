@@ -1,0 +1,24 @@
+{
+  "id": "monolith-design-system",
+  "title": "Monolith Design System",
+  "tags": ["design-system"],
+  "metadata": {
+    "type": "Strict Token-Driven Design Language",
+    "year": "2024"
+  },
+  "descriptions": {
+    "short": "Flexible, ultra-minimal grayscale and chroma token schemas for high-scale enterprise applications.",
+    "detail": "Monolith ensures strict pixel alignment and uniform visual pacing. Built around a strict grayscale base and accent chrome colors, it guarantees deep spatial contrast, standard touch-target sizing (44px mobile / 32px desktop), and immediate sliding layout highlights."
+  },
+  "specs": [
+    { "label": "BASE GRID SCALE", "val": "8px spacing system" },
+    { "label": "TYPOGRAPHY", "val": "System Helvetica regular / bold" },
+    { "label": "TRANSITION BASE", "val": "300ms spring damping" }
+  ],
+  "tokens": ["Token JSON", "Grayscale Base", "Chroma Accent", "Fluid Switches"],
+  "assets": {
+    "cover": "/assets/images/monolith-design-system/cover.jpg",
+    "hover": "/assets/images/monolith-design-system/hover.jpg",
+    "gallery": []
+  }
+}

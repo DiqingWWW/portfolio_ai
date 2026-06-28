@@ -1,0 +1,50 @@
+[
+  {
+    "id": "design-system",
+    "label": "Design System",
+    "icon": "layers",
+    "color": "indigo",
+    "sortOrder": 1,
+    "windowTitle": "design_system_tokens.json",
+    "hoverLayout": "single-thumbnail",
+    "hoverSummary": [
+      "build 0 to 1 design system within 6 month",
+      "85%+component usage rate, save up to 50% time/cost",
+      "Lecture at the annual Honda Technical Forum in 2025",
+      "Upgrading and applying to the global team"
+    ]
+  },
+  {
+    "id": "about-me",
+    "label": "About Me",
+    "icon": "user",
+    "color": "sky",
+    "sortOrder": 2,
+    "windowTitle": "diqing_wu_bio.md",
+    "hoverLayout": "text-only",
+    "hoverSummary": [
+      "Master of Fine Arts, California College of the Arts, USA",
+      "5+ year experience in product design",
+      "Curious and proactive individuals"
+    ]
+  },
+  {
+    "id": "hmi",
+    "label": "HMI",
+    "icon": "gauge",
+    "color": "emerald",
+    "sortOrder": 3,
+    "windowTitle": "hmi_automotive_concept.exe",
+    "hoverLayout": "fan-three"
+  },
+  {
+    "id": "ai-related",
+    "label": "AI Related",
+    "icon": "cpu",
+    "color": "amber",
+    "sortOrder": 4,
+    "windowTitle": "cognitive_agents_playground.py",
+    "hoverLayout": "fan-three-with-icons",
+    "hasSparkle": true
+  }
+]

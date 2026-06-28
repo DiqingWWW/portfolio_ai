@@ -16,3 +16,11 @@ This project follows a strict separation of responsibilities:
 5. Keep the project data-driven (`design_spec.json`, `nodes.json`).
 6. Prefer semantic merge over file replacement.
 7. Explain every modified file after each synchronization.
+8. When uncertain, preserve the current implementation instead of inventing a new one. Never "improve" the design unless explicitly requested
+9. Different visual contexts should not be generalized into global design language.
+
+If a visual element exists only inside a specific component in the AI Studio reference (for example, the GitHub preview card inside MacOSFolder), it should only be replicated within the corresponding component.
+
+Do not promote local visual patterns into shared components or global design tokens.
+
+Always preserve the original visual scope of each reference.

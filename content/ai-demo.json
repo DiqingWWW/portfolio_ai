@@ -1,0 +1,53 @@
+{
+  "heading": "AI-Native Cognitive Sandbox",
+  "intro": "Designing for the future of Generative Interfaces. Rather than designing static components, I architect structured system specifications that allow AI engines to build and compile custom interfaces in real-time.",
+  "labels": {
+    "prompts": "01 / SELECT GENERATIVE TARGET",
+    "compiler": "02 / INTERACTION COMPILER",
+    "canvas": "03 / LIVE GENERATIVE CANVAS VIEW"
+  },
+  "prompts": [
+    {
+      "id": "music",
+      "label": "Smart-home music widget",
+      "promptText": "Generate a compact tactile music card with play state, responsive volume, and glowing ambient backdrop."
+    },
+    {
+      "id": "habit",
+      "label": "Habit log interface",
+      "promptText": "Design a responsive weekly checklist tracking routine completions with dynamic percentage status."
+    },
+    {
+      "id": "calc",
+      "label": "Retro calculator layout",
+      "promptText": "Build a miniature functional summing counter styled with tactile buttons and a digital matrix readout."
+    }
+  ],
+  "compileSteps": [
+    "INGESTING NATURAL LANGUAGE INTENT...",
+    "EXTRACTING COMPONENT ATOMIC SCHEMA...",
+    "TAILORING TAILWIND DESIGN SYSTEM TOKENS...",
+    "STREAMING COMPACT REACT TSX CONTENT...",
+    "MOUNTING COMPONENT INTO DYNAMIC CANVAS VIEW..."
+  ],
+  "compiler": {
+    "buttonLabel": "SYNTHESIZE SELECTION",
+    "logsHeading": "LOGS / SHADOW_DOM_COMPILER",
+    "successMessage": "DYNAMIC REACT INTERACTION RENDERED SUCCESSFULLY. READY.",
+    "placeholder": "Select a prompt template above and click Synthesize to inspect compiling steps."
+  },
+  "loadingHint": "ASSEMBLING UI NODES...",
+  "placeholder": "Ready to render canvas template.",
+  "musicWidget": {
+    "trackName": "Spatial Resonance",
+    "trackInfo": "Track 04 / Ambient Loop"
+  },
+  "habitWidget": {
+    "title": "Weekly Habits",
+    "dayLabels": ["Mon", "Tue", "Wed", "Thu", "Fri"]
+  },
+  "calcWidget": {
+    "label": "Sum Matrix",
+    "resetLabel": "RST"
+  }
+}

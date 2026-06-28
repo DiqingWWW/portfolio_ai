@@ -1,0 +1,16 @@
+{
+  "name": "Diqing Wu — Portfolio",
+  "short_name": "Diqing Wu",
+  "description": "Product Designer + AI Builder",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#f5f5f5",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

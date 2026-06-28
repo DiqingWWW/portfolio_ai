@@ -1,0 +1,24 @@
+{
+  "id": "muse-ai-canvas",
+  "title": "Muse AI Canvas",
+  "tags": ["ai-related", "design-system"],
+  "metadata": {
+    "type": "Generative UI Agent System",
+    "year": "2025"
+  },
+  "descriptions": {
+    "short": "Translating natural language intent into functional, custom-styled web interfaces.",
+    "detail": "Muse reads conversational objectives and compiles complete interactive elements inside a sandboxed viewport. The compiler translates the generated structure into responsive CSS utility tokens, enabling fully functional sliders, habit cards, and mini dashboards to appear on demand."
+  },
+  "specs": [
+    { "label": "COMPILING SPEEDS", "val": "2.8s dynamic synthesis" },
+    { "label": "TOKEN RESOLUTION", "val": "Tailwind CSS v4 standard" },
+    { "label": "INTERACTIVES", "val": "Sum calculators, music, habits" }
+  ],
+  "tokens": ["Generative UI", "Stream compilation", "Atomic Components", "Interactive Canvas"],
+  "assets": {
+    "cover": "/assets/images/muse-ai-canvas/cover.jpg",
+    "hover": "/assets/images/muse-ai-canvas/hover.jpg",
+    "gallery": ["/assets/images/muse-ai-canvas/career-laptop.jpg", "/assets/images/muse-ai-canvas/travel-ticket.jpg"]
+  }
+}

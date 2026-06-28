@@ -1,0 +1,28 @@
+{
+  "heading": "HMI Cockpit System Prototype",
+  "intro": "Active prototyping for in-vehicle instrumentation (HMI) and Head-Up Displays (HUD). This module simulates telemetry rendering, thermal climate matrices, and active lane ADAS tracking.",
+  "gauge": {
+    "speedLabel": "SPEED",
+    "speedUnit": "KM/H"
+  },
+  "accelerateLabel": "TAP TO ACCELERATE (THRUST)",
+  "systemLog": {
+    "idle": "SYSTEM_OK",
+    "burst": "BURST_THRUST_ENGAGED"
+  },
+  "climate": {
+    "heading": "Cabin Comfort Matrix",
+    "zone": "ZONE_01",
+    "tempLabel": "TEMPERATURE",
+    "loopStatus": "Climate loop: ECO AUTO",
+    "activeLabel": "ACTIVE"
+  },
+  "adas": {
+    "heading": "ADAS Spatial Radar",
+    "runningLabel": "RUNNING",
+    "standbyLabel": "STANDBY",
+    "carLabel": "CAR: 18m",
+    "sensorLock": "Sensor lock: 99.4%",
+    "fps": "FPS: 60.0"
+  }
+}
