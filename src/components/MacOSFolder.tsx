@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { Code, Sparkles, Map } from "lucide-react";
+import { Code, Map, Globe, Send, Check, Compass, ArrowUpRight } from "lucide-react";
 import type { ProfileContent, NavigationContent } from "@/types/content";
 
 const GithubIcon = ({ className }: { className?: string }) => (
@@ -30,123 +30,223 @@ export default function MacOSFolder({
 }: MacOSFolderProps) {
   return (
     <div className="relative select-none" data-component="MacOSFolder">
-      <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="relative flex flex-col items-center justify-center">
-        <motion.div onClick={onClick} whileHover="hover" initial="idle"
-          className="relative w-64 h-48 cursor-pointer group" style={{ perspective: 1000, top: "-30px" }}>
-          <div className="absolute inset-0 w-full h-full pointer-events-none">
-            <svg viewBox="0 0 256 192" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-md">
-              <defs>
-                <linearGradient id="folderBackGrad" x1="128" y1="8" x2="128" y2="188" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="#2ca0f5" /><stop offset="100%" stopColor="#0b72c4" />
-                </linearGradient>
-              </defs>
-              <path d="M 16 8 L 90 8 C 100 8 112 32 122 32 L 240 32 Q 252 32 252 44 L 252 176 Q 252 188 240 188 L 16 188 Q 4 188 4 176 L 4 20 Q 4 8 16 8 Z" fill="url(#folderBackGrad)" />
-            </svg>
+      {/* Slow float container for the folder and its overlapping items */}
+      <motion.div
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="relative flex flex-col items-center justify-center"
+      >
+        {/* Interactive Folder Node */}
+        <motion.div
+          onClick={onClick}
+          whileHover="hover"
+          initial="idle"
+          className="relative w-[340px] h-[240px] cursor-pointer"
+          style={{ perspective: 1200 }}
+        >
+          {/* TILTED BADGE 1 (LEFT SIDE - 2026 EDITION) — hardcoded decorative */}
+          <motion.div
+            variants={{
+              idle: { x: -35, y: 15, rotate: -12, scale: 0.95 },
+              hover: { x: -45, y: 10, rotate: -16, scale: 1.02 },
+            }}
+            transition={{ type: "spring", stiffness: 260, damping: 18 }}
+            className="absolute left-[-45px] top-[15px] w-48 bg-workspace-text text-white border border-neutral-800 rounded-xl p-3.5 shadow-2xl z-40 pointer-events-none flex flex-col justify-between h-20"
+          >
+            <div className="text-[10px] font-mono tracking-widest text-neutral-400 font-bold uppercase">
+              2026 Edition
+            </div>
+            <div className="flex items-center justify-between mt-2 pt-2 border-t border-neutral-800/60">
+              <span className="text-xs font-mono text-neutral-300">@Deethin</span>
+              <div className="flex gap-1.5 text-neutral-400">
+                <Globe className="w-3.5 h-3.5" />
+                <Send className="w-3.5 h-3.5" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* FOLDER BACK LAYER */}
+          <div className="absolute inset-0 w-full h-full pointer-events-none rounded-2xl rounded-tl-none overflow-hidden z-10 shadow-md">
+            {/* Bright-blue back plate */}
+            <div className="absolute inset-0 bg-workspace-accent" />
           </div>
 
-          {/* Peek Card 1 */}
-          {peekCards[0] && (
-            <motion.div variants={{ idle: { y: 0, rotate: -2, scale: 0.95 }, hover: { y: -38, rotate: -8, scale: 1.02 } }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
-              className="absolute top-4 left-6 w-52 h-36 bg-blue-950/95 border border-blue-800/80 rounded-lg p-3 shadow-sm pointer-events-none flex flex-col justify-between text-blue-100">
-              <div className="flex items-center justify-between border-b border-blue-800/80 pb-1.5">
-                <span className="text-[9px] font-mono tracking-wider text-blue-300">{peekCards[0].label}</span>
-                <Code className="w-3 h-3 text-blue-400" />
-              </div>
-              <div className="flex-1 py-1 flex flex-col justify-center gap-1">
-                <div className="h-1.5 w-3/4 bg-blue-800 rounded-full" />
-                <div className="h-1.5 w-1/2 bg-blue-900 rounded-full" />
-                <div className="flex items-center gap-1 mt-1">
-                  <div className="w-2 h-2 rounded-full bg-indigo-500" />
-                  <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                  <div className="w-2 h-2 rounded-full bg-amber-500" />
-                </div>
-              </div>
-              <span className="text-[8px] font-mono text-blue-300 self-end">{peekCards[0].version}</span>
-            </motion.div>
-          )}
+          {/* FOLDER BACK TAB (Offset to matching layout) */}
+          <div className="absolute top-[-20px] left-0 w-[140px] h-[24px] bg-workspace-accent rounded-t-xl z-10 pointer-events-none shadow-sm" />
 
-          {/* Peek Card 2 */}
-          {peekCards[1] && (
-            <motion.div variants={{ idle: { y: 0, rotate: 1, scale: 0.95 }, hover: { y: -48, rotate: 6, scale: 1.02 } }}
-              transition={{ type: "spring", stiffness: 220, damping: 14 }}
-              className="absolute top-4 left-8 w-52 h-36 bg-neutral-900 border border-neutral-800 rounded-lg p-3 shadow-md pointer-events-none flex flex-col justify-between text-neutral-200">
-              <div className="flex items-center justify-between border-b border-neutral-800 pb-1.5">
-                <span className="text-[9px] font-mono tracking-wider text-neutral-500">{peekCards[1].label}</span>
-                <Sparkles className="w-3 h-3 text-amber-400 animate-pulse" />
-              </div>
-              <div className="flex-1 flex flex-col justify-center space-y-1">
-                <div className="text-[9px] font-mono text-emerald-400">{peekCards[1].textLine}</div>
-                <div className="flex items-center gap-1">
-                  <div className="h-1 w-8 bg-neutral-700 rounded-full" />
-                  <div className="w-1 h-1 rounded-full bg-emerald-400" />
-                  <div className="h-1 w-12 bg-neutral-700 rounded-full" />
-                </div>
-              </div>
-              <span className="text-[8px] font-mono text-neutral-500">{peekCards[1].status}</span>
-            </motion.div>
-          )}
-
-          {/* Folder Front Cover */}
+          {/* DOCUMENT INSIDE PEEKING OUT */}
           <motion.div
-            variants={{ idle: { rotateX: 0, y: 0, boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)" },
-              hover: { rotateX: -16, y: 2, boxShadow: "0 25px 35px -10px rgba(0,0,0,0.15), 0 15px 15px -10px rgba(0,0,0,0.12)" } }}
-            transition={{ type: "spring", stiffness: 200, damping: 16 }}
-            style={{ transformOrigin: "bottom center", transformStyle: "preserve-3d" }}
-            className="absolute bottom-[4px] left-[4px] w-[248px] h-[156px] bg-gradient-to-b from-[#56bffa] via-[#2096eb] to-[#0a72c4] rounded-2xl border-t border-[#b3e3ff]/50 flex flex-col justify-between p-4 shadow-xl select-none shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]">
+            variants={{
+              idle: { y: 12, rotate: 1, scale: 0.96 },
+              hover: { y: -24, rotate: -2, scale: 0.99 },
+            }}
+            transition={{ type: "spring", stiffness: 220, damping: 16 }}
+            className="absolute top-[-8px] left-[16px] right-[16px] h-[200px] bg-white rounded-xl p-4 shadow-sm pointer-events-none flex flex-col justify-between border border-workspace-border/50 z-20"
+          >
+            <div className="flex items-center justify-between border-b border-neutral-100 pb-2">
+              <span className="text-[9px] font-mono font-bold tracking-wider text-neutral-400">INDEX // DIQING_WU_WORK</span>
+              <Compass className="w-3.5 h-3.5 text-workspace-accent" />
+            </div>
+            <div className="flex-1 py-3 flex flex-col justify-center gap-1.5">
+              {peekCards.map((card, i) => (
+                <div key={i} className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono font-bold text-neutral-800">{card.label}</span>
+                  {card.status && (
+                    <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded ${
+                      card.status === "SYSTEM.ACTIVE"
+                        ? "text-emerald-600 bg-emerald-50"
+                        : "text-workspace-accent bg-sky-50"
+                    }`}>
+                      {card.status}
+                    </span>
+                  )}
+                  {card.version && (
+                    <span className="text-[9px] font-mono text-workspace-accent bg-sky-50 px-1.5 py-0.5 rounded">
+                      {card.version}
+                    </span>
+                  )}
+                </div>
+              ))}
+              {peekCards.length === 0 && (
+                <>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-mono font-bold text-neutral-800">01. Orbit Spatial OS</span>
+                    <span className="text-[9px] font-mono text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">100% DONE</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-mono font-bold text-neutral-800">02. HMI Automotive Concept</span>
+                    <span className="text-[9px] font-mono text-workspace-accent bg-sky-50 px-1.5 py-0.5 rounded">ACTIVE</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-mono font-bold text-neutral-800">03. Cognitive AI Agent Lab</span>
+                    <span className="text-[9px] font-mono text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded">STABLE</span>
+                  </div>
+                </>
+              )}
+            </div>
+            <div className="flex items-center justify-between text-[8px] font-mono text-neutral-400 pt-2 border-t border-neutral-50">
+              <span>SYSTEM: READY</span>
+              <span>{peekCards.length || 4} COMPOSITIONS</span>
+            </div>
+          </motion.div>
+
+          {/* FOLDER FRONT COVER */}
+          <motion.div
+            variants={{
+              idle: {
+                rotateX: 0,
+                y: 0,
+                boxShadow: "0 12px 30px -8px rgba(0, 0, 0, 0.15)",
+              },
+              hover: {
+                rotateX: -14,
+                y: 4,
+                boxShadow: "0 24px 45px -12px rgba(0, 0, 0, 0.22)",
+              },
+            }}
+            transition={{ type: "spring", stiffness: 220, damping: 15 }}
+            style={{
+              transformOrigin: "bottom center",
+              transformStyle: "preserve-3d",
+            }}
+            className="absolute bottom-0 left-0 right-0 h-[190px] bg-gradient-to-b from-workspace-accent via-[#1E86D9] to-[#0F75C2] rounded-2xl border-t border-white/20 flex flex-col justify-between p-5 z-30 shadow-xl"
+          >
+            {/* Soft inner highlight */}
             <div className="absolute inset-0 bg-white/5 rounded-2xl pointer-events-none" />
+
+            {/* Folder Label/Icon */}
             <div className="flex justify-between items-start">
               <div className="p-1.5 bg-white/10 rounded-lg backdrop-blur-sm">
-                <Map className="w-4 h-4 text-white/95" />
+                <Map className="w-4 h-4 text-white" />
               </div>
-              <span className="text-[10px] font-mono font-medium tracking-widest text-sky-100/90 bg-white/10 px-2 py-0.5 rounded-full backdrop-blur-sm">{folderBadge}</span>
+              <span className="text-[9px] font-mono font-bold tracking-widest text-sky-100 bg-white/10 px-2 py-0.5 rounded-full backdrop-blur-sm">
+                {folderBadge}
+              </span>
             </div>
+
             <div className="space-y-1">
-              <h3 className="text-sm font-bold tracking-tight text-white/95 font-sans">{folderTitle}</h3>
-              <p className="text-[10px] text-sky-100/70 font-mono">{folderInstruction}</p>
+              <h3 className="text-base font-extrabold tracking-tight text-white font-sans">
+                {folderTitle}
+              </h3>
+              <p className="text-[10px] text-sky-100/80 font-mono">
+                {folderInstruction}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* TILTED BADGE 2 (RIGHT SIDE - SKILLS SELECTOR CARD) — hardcoded decorative */}
+          <motion.div
+            variants={{
+              idle: { x: 45, y: 35, rotate: 8, scale: 0.95 },
+              hover: { x: 55, y: 30, rotate: 12, scale: 1.02 },
+            }}
+            transition={{ type: "spring", stiffness: 260, damping: 18 }}
+            className="absolute right-[-50px] bottom-[25px] w-64 bg-workspace-text text-white border border-neutral-800 rounded-xl p-4 shadow-2xl z-40 pointer-events-none flex flex-col gap-2.5"
+          >
+            {/* Skill Item 1 - Active/Checked */}
+            <div className="flex items-center justify-between text-xs font-sans tracking-wide">
+              <span className="font-semibold text-neutral-100">&spades; System Design</span>
+              <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                <Check className="w-2.5 h-2.5 text-neutral-900 stroke-[3]" />
+              </div>
+            </div>
+
+            {/* Skill Item 2 */}
+            <div className="flex items-center justify-between text-xs font-sans tracking-wide text-neutral-400">
+              <span>&spades; Smart Cockpit (HMI)</span>
+              <div className="w-4 h-4 rounded-full border border-neutral-700" />
+            </div>
+
+            {/* Skill Item 3 */}
+            <div className="flex items-center justify-between text-xs font-sans tracking-wide text-neutral-400">
+              <span>&spades; Generative AI & Agents</span>
+              <div className="w-4 h-4 rounded-full border border-neutral-700" />
             </div>
           </motion.div>
         </motion.div>
 
-        {/* Floating GitHub Card */}
-        <motion.div whileHover={{ scale: 1.04, y: -4, x: 2 }} transition={{ type: "spring", stiffness: 300, damping: 15 }}
-          className="absolute w-64 bg-white/95 backdrop-blur-sm border rounded-xl shadow-xl p-3 flex flex-col gap-2.5 cursor-pointer z-20 hover:border-neutral-300"
-          style={{ right: "-100px", bottom: "-50px", borderColor: "#FFFFFF" }}
-          onClick={(e) => { e.stopPropagation(); window.open(github.url, "_blank"); }}>
+        {/* DRAGGABLE / FLOATING GITHUB PROFILE CARD */}
+        <motion.div
+          whileHover={{ scale: 1.03, y: -2 }}
+          transition={{ type: "spring", stiffness: 300, damping: 18 }}
+          className="absolute w-60 bg-white border border-workspace-border rounded-xl shadow-xl p-3 flex flex-col gap-2.5 cursor-pointer z-50 hover:border-neutral-300"
+          style={{ right: "-90px", bottom: "-75px" }}
+          onClick={(e) => {
+            e.stopPropagation();
+            window.open(github.url, "_blank");
+          }}
+        >
+          {/* Card Top Titlebar */}
           <div className="flex items-center justify-between border-b border-neutral-100 pb-2">
             <div className="flex items-center gap-1.5">
               <GithubIcon className="w-4 h-4 text-neutral-800" />
-              <span className="text-[11px] font-mono font-bold text-neutral-800">{github.username}</span>
+              <span className="text-[10px] font-mono font-bold text-neutral-800">{github.username}</span>
             </div>
             <div className="flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-[9px] font-mono text-neutral-400">{github.statusLabel}</span>
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="relative w-11 h-11 rounded-full bg-neutral-100 border border-neutral-200 flex items-center justify-center overflow-hidden flex-shrink-0">
-              <div className="absolute inset-0 bg-gradient-to-tr from-sky-400 to-indigo-500 opacity-80" />
-              <Code className="w-5 h-5 text-white z-10" />
+
+          {/* User Bio Block */}
+          <div className="flex items-center gap-2.5">
+            <div className="relative w-9 h-9 rounded-full bg-neutral-100 border border-workspace-border flex items-center justify-center overflow-hidden flex-shrink-0">
+              <div className="absolute inset-0 bg-gradient-to-tr from-sky-400 to-workspace-accent opacity-80" />
+              <Code className="w-4 h-4 text-white z-10" />
             </div>
+
             <div className="flex flex-col min-w-0">
-              <h4 className="text-[12px] font-bold text-neutral-800 truncate leading-tight">{github.displayName}</h4>
-              <span className="text-[10px] text-neutral-400 font-mono leading-tight">{github.handle}</span>
-              <p className="text-[9px] text-neutral-600 truncate mt-0.5 leading-tight">{github.bio}</p>
+              <h4 className="text-[11px] font-bold text-neutral-800 truncate leading-tight flex items-center gap-1">
+                {github.displayName} <ArrowUpRight className="w-2.5 h-2.5 text-neutral-400" />
+              </h4>
+              <span className="text-[9px] text-neutral-400 font-mono leading-tight">{github.handle}</span>
             </div>
           </div>
-          <div className="flex flex-col gap-1">
-            <div className="flex justify-between items-center text-[8px] text-neutral-400 font-mono">
-              <span>{github.contributionsLabel}</span>
-              <span className="text-emerald-600">{github.commits}</span>
-            </div>
-            <div className="grid grid-cols-12 gap-[2px]">
-              {Array.from({ length: 24 }).map((_, i) => {
-                const intensities = ["bg-neutral-100", "bg-emerald-100", "bg-emerald-300", "bg-emerald-500"];
-                const c = intensities[Math.floor(Math.sin(i * 1.5) * 2) + 2] || intensities[0];
-                return <div key={i} className={`h-2 rounded-[1px] ${c}`} />;
-              })}
-            </div>
+
+          {/* Contributions list */}
+          <div className="flex justify-between items-center text-[8px] text-neutral-400 font-mono mt-0.5">
+            <span>{github.contributionsLabel}</span>
+            <span className="text-emerald-600 font-bold">{github.commits}</span>
           </div>
         </motion.div>
       </motion.div>

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Sparkles, ArrowDown, User, Layers, Gauge, Cpu, Info } from "lucide-react";
 
+import { siteConfig } from "@/config/site";
 import FloatingWindow from "@/components/FloatingWindow";
 import MacOSFolder from "@/components/MacOSFolder";
 import AboutMeContent from "@/components/AboutMeContent";
@@ -13,7 +14,6 @@ import AIContent from "@/components/AIContent";
 import FolderContent from "@/components/FolderContent";
 import HoverImage from "@/components/Hover/HoverImage";
 import {
-  tagDefinitions,
   buildTagIndex,
   getProjectsForTag,
   getAllProjects,
@@ -23,6 +23,7 @@ import {
   designTokens,
   aiDemo,
   hmiDemo,
+  nodes,
 } from "@/lib/content";
 import type { FolderProject } from "@/types/content";
 
@@ -42,15 +43,15 @@ function toFolderProjects(): FolderProject[] {
 
 // Vector Icons
 const OpenAIIcon = () => (
-  <div className="w-10 h-10 flex items-center justify-center bg-white rounded-xl border border-neutral-200/50 shadow-md">
-    <svg viewBox="0 0 24 24" className="w-6 h-6 fill-neutral-800">
+  <div className="w-10 h-10 flex items-center justify-center bg-white rounded-xl border border-workspace-border shadow-md">
+    <svg viewBox="0 0 24 24" className="w-6 h-6 fill-workspace-text">
       <path d="M21.1 11.2a4.4 4.4 0 0 0-1.8-3.5 4.3 4.3 0 0 0-4.7-.2c-.3-.2-.8-.3-1.2-.4a4.4 4.4 0 0 0-7.8 2.2 4.3 4.3 0 0 0-1.8 3.5 4.4 4.4 0 0 0 4.1 4.3c.3.2.8.3 1.2.4a4.4 4.4 0 0 0 7.8-2.2c.7-.1 1.3-.4 1.8-.8a4.4 4.4 0 0 0 2.4-3.3zm-8.3 6.3a3 3 0 0 1-2 .7 3 3 0 0 1-3-3v-4l3.5 2a1.5 1.5 0 0 0 2.2-1.3V8l3.5 2v4a3 3 0 0 1-3 3.1c-.4.1-.8 0-1.2-.1zm-4-5l-3.5-2a3 3 0 0 1 1-3.6 3 3 0 0 1 3.9.6l3.5 2v4a1.5 1.5 0 0 0-2.2 1.3l-2.7-1.5v-.8zM7 11a1.5 1.5 0 0 0 1.5-1.5V7l3.5 2v4c0 .8-.7 1.5-1.5 1.5H9c-.8 0-1.5-.7-1.5-1.5V11zm9.3 2.5l-3.5-2V7.5a1.5 1.5 0 0 0-2.2-1.3l2.7 1.5v.8l3.5 2a3 3 0 0 1-1 3.6 3 3 0 0 1-3.9-.6zm1.2-4l-3.5-2v-4a3 3 0 0 1 2-.7 3 3 0 0 1 3 3v4l-1.5-1.1c-.7-.5-1.5-.5-2.2.3l-2.2 2.2V9.5zm2 5l-3.5-2v-4a1.5 1.5 0 0 0-2.2-1.3l2.7 1.5v.8l3.5 2a3 3 0 0 1-1 3.6 3 3 0 0 1-3.9-.6z" />
     </svg>
   </div>
 );
 
 const GeminiIcon = () => (
-  <div className="w-10 h-10 flex items-center justify-center bg-white rounded-xl border border-neutral-200/50 shadow-md">
+  <div className="w-10 h-10 flex items-center justify-center bg-white rounded-xl border border-workspace-border shadow-md">
     <svg viewBox="0 0 24 24" className="w-7 h-7">
       <defs>
         <linearGradient id="geminiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -64,7 +65,7 @@ const GeminiIcon = () => (
 );
 
 const ClaudeIcon = () => (
-  <div className="w-10 h-10 flex items-center justify-center bg-[#cc785c] rounded-xl border border-neutral-200/20 shadow-md">
+  <div className="w-10 h-10 flex items-center justify-center bg-[#cc785c] rounded-xl border border-transparent shadow-md">
     <svg viewBox="0 0 24 24" className="w-6 h-6 fill-none stroke-white stroke-[2.2]" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19M8 3.5l8 17M16 3.5l-8 17M3.5 8l17 8M3.5 16l17-8" />
     </svg>
@@ -131,41 +132,109 @@ export default function Home() {
   const aiCenterImg = hmiAssets[0]?.cover ?? aiCenterAssets.cover;
 
   return (
-    <div data-component="Page" className="relative h-screen w-full overflow-hidden bg-[#f5f5f5] text-[#373737] font-sans">
-      <div className="absolute inset-0 grid-bg pointer-events-none opacity-85 z-0" />
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 pointer-events-none z-10 hidden md:block text-[10px] font-mono text-neutral-400 text-center">
-        {navigation.tagline}
+    <div data-component="Page" className="relative h-screen w-full overflow-hidden bg-workspace-bg text-workspace-text font-sans">
+      {/* Figma-like Canvas Substrate Grid */}
+      <div className="absolute inset-0 grid-bg pointer-events-none opacity-80 z-0" />
+
+      {/* ---- HEADER BAR ---- */}
+      <div className="absolute top-0 inset-x-0 h-14 border-b border-workspace-border/50 flex justify-between items-center px-10 text-[11px] font-mono tracking-widest text-workspace-muted uppercase z-30 select-none bg-workspace-bg/80 backdrop-blur-sm">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-workspace-accent animate-pulse" />
+          <span>{siteConfig.header.left}</span>
+        </div>
+        <div className="hidden md:block font-bold absolute left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
+          {siteConfig.header.center}
+        </div>
+        <div>{siteConfig.header.year}</div>
       </div>
 
-      {/* DESKTOP CANVAS VIEW */}
+      {/* ---- GIANT WATERMARK ---- */}
+      <div className="absolute pointer-events-none select-none z-0 text-center w-full" style={{ top: nodes.watermark.y, left: "50%", transform: "translateX(-50%)" }}>
+        <h1 className="text-[12vw] font-sans font-black tracking-[-0.05em] text-workspace-text/10 uppercase leading-none">
+          {siteConfig.watermark}
+        </h1>
+      </div>
+
+      {/* ------------------------------------ */}
+      {/* DESKTOP CANVAS VIEW (>= 768px)       */}
+      {/* ------------------------------------ */}
       <div className="hidden md:block absolute inset-0 z-10 pointer-events-none">
 
+        {/* Left-side Branding Statement Block */}
+        <div
+          className="absolute select-text z-20 w-[26%] min-w-[160px] max-w-[280px] pointer-events-auto flex flex-col gap-2 lg:gap-3"
+          style={{ top: nodes.brandingBlock.y, left: nodes.brandingBlock.x }}
+        >
+          <div className="text-xs md:text-sm lg:text-base xl:text-lg font-black tracking-tight leading-snug text-workspace-text uppercase font-sans">
+            {profile.brandingStatement}
+          </div>
+          <div className="h-0.5 w-8 lg:w-12 bg-workspace-accent" />
+          <p className="text-[10px] lg:text-xs text-workspace-muted font-mono leading-relaxed">
+            {profile.brandingDescription}
+          </p>
+        </div>
+
+        {/* Right-side Name Accent Block */}
+        <div
+          className="absolute text-right select-text z-20 pointer-events-auto block w-[35%] min-w-[180px]"
+          style={{ top: nodes.nameBlock.y, right: "4%" }}
+        >
+          <div className="text-2xl md:text-3xl xl:text-4xl font-black tracking-tight leading-none text-workspace-text font-sans whitespace-nowrap">
+            {profile.nameDisplay}
+          </div>
+          <div className="text-[10px] lg:text-xs text-workspace-muted font-mono leading-relaxed mt-2 lg:mt-3 whitespace-nowrap">
+            {profile.roleDisplay}
+          </div>
+        </div>
+
         {/* DESIGN SYSTEM NODE */}
-        <div className="absolute top-[12%] left-1/2 -translate-x-1/2 pointer-events-auto flex flex-col items-center z-20"
-          onMouseEnter={() => setIsDsHovered(true)} onMouseLeave={() => setIsDsHovered(false)}>
+        <div
+          className={`absolute pointer-events-auto flex flex-col items-center transition-all duration-200 ${isDsHovered ? "z-30" : "z-20"}`}
+          style={{ top: nodes.designSystem.y, left: nodes.designSystem.x, transform: "translateX(-50%)" }}
+          onMouseEnter={() => setIsDsHovered(true)}
+          onMouseLeave={() => setIsDsHovered(false)}
+        >
           <div className="relative">
-            <motion.button onClick={() => openWindow("ds")} whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="cursor-pointer font-['Helvetica',_sans-serif] font-normal text-[#373737] hover:text-blue-600 hover:underline underline-offset-4 decoration-2 decoration-blue-600 select-none text-2xl tracking-wide transition-all">
-              {dsTag?.tag.label}
+            <motion.button
+              id="node-design-system"
+              onClick={() => openWindow("ds")}
+              whileHover={{ scale: 1.04 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="cursor-pointer bg-white border border-workspace-border/80 px-4 py-2 rounded-xl text-[11px] font-mono font-bold tracking-wider text-workspace-text uppercase flex items-center gap-2 hover:border-workspace-accent hover:text-workspace-accent transition-all shadow-sm"
+            >
+              <span className="w-2 h-2 rounded-full bg-workspace-accent" />
+              <span>{dsTag?.tag.label}</span>
             </motion.button>
+
+            {/* Thumbnail Pop Up on the Right */}
             {dsTag?.tag.hoverLayout === "single-thumbnail" && (
               <AnimatePresence>
                 {isDsHovered && dsThumb && (
-                  <motion.div initial={{ opacity: 0, scale: 0.85, x: 15, rotate: 0 }} animate={{ opacity: 1, scale: 1, x: 0, rotate: 3 }}
-                    exit={{ opacity: 0, scale: 0.85, x: 15, rotate: 0 }} transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute left-[calc(100%+24px)] top-1/2 -translate-y-1/2 pointer-events-none w-[200px] rounded-xl overflow-hidden shadow-lg border border-neutral-200/50 bg-white">
+                  <motion.div
+                    key="ds-thumbnail-popup"
+                    initial={{ opacity: 0, scale: 0.85, x: 15, rotate: 0 }}
+                    animate={{ opacity: 1, scale: 1, x: 0, rotate: 3 }}
+                    exit={{ opacity: 0, scale: 0.85, x: 15, rotate: 0 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute left-[calc(100%+24px)] top-1/2 -translate-y-1/2 pointer-events-none w-[200px] rounded-xl overflow-hidden shadow-lg border border-workspace-border/50 bg-white"
+                  >
                     <HoverImage asset={dsThumb} alt="Design System Thumbnail" />
                   </motion.div>
                 )}
               </AnimatePresence>
             )}
           </div>
+
           <AnimatePresence>
             {isDsHovered && dsTag?.tag.hoverSummary && (
-              <motion.div initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }}
+              <motion.div
+                key="ds-stats-popup"
+                initial={{ opacity: 0, y: -4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="font-mono text-[12px] text-neutral-400 mt-3.5 tracking-wide flex flex-col gap-1.5 max-w-[420px] pointer-events-none whitespace-nowrap select-none">
+                className="font-mono text-[11px] text-workspace-muted mt-3.5 tracking-wide flex flex-col gap-1.5 w-56 sm:w-64 md:w-72 lg:w-80 pointer-events-none whitespace-normal select-none bg-white/95 backdrop-blur-sm p-3.5 border border-workspace-border/80 rounded-xl shadow-md animate-fade-in z-30"
+              >
                 {dsTag.tag.hoverSummary.map((b, i) => <div key={i}>- {b}</div>)}
               </motion.div>
             )}
@@ -173,18 +242,32 @@ export default function Home() {
         </div>
 
         {/* ABOUT ME NODE */}
-        <div className="absolute top-[28%] left-[12%] pointer-events-auto flex flex-col items-start z-20"
-          onMouseEnter={() => setIsAboutHovered(true)} onMouseLeave={() => setIsAboutHovered(false)}>
-          <motion.button onClick={() => openWindow("about")} whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="cursor-pointer font-['Helvetica',_sans-serif] font-normal text-[#373737] hover:text-blue-600 hover:underline underline-offset-4 decoration-2 decoration-blue-600 select-none text-2xl transition-all">
-            {aboutTag?.tag.label}
+        <div
+          className={`absolute pointer-events-auto flex flex-col items-start transition-all duration-200 ${isAboutHovered ? "z-30" : "z-20"}`}
+          style={{ top: nodes.aboutMe.y, left: nodes.aboutMe.x }}
+          onMouseEnter={() => setIsAboutHovered(true)}
+          onMouseLeave={() => setIsAboutHovered(false)}
+        >
+          <motion.button
+            id="node-about-me"
+            onClick={() => openWindow("about")}
+            whileHover={{ scale: 1.04 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="cursor-pointer bg-white border border-workspace-border/80 px-4 py-2 rounded-xl text-[11px] font-mono font-bold tracking-wider text-workspace-text uppercase flex items-center gap-2 hover:border-workspace-accent hover:text-workspace-accent transition-all shadow-sm"
+          >
+            <span className="w-2 h-2 rounded-full bg-workspace-accent" />
+            <span>{aboutTag?.tag.label}</span>
           </motion.button>
           <AnimatePresence>
             {isAboutHovered && aboutTag?.tag.hoverSummary && (
-              <motion.div initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }}
+              <motion.div
+                key="about-stats-popup"
+                initial={{ opacity: 0, y: -4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="font-mono text-[12px] text-neutral-400 mt-3.5 tracking-wide flex flex-col gap-1.5 max-w-[420px] pointer-events-none whitespace-nowrap select-none">
+                className="font-mono text-[11px] text-workspace-muted mt-3.5 tracking-wide flex flex-col gap-1.5 w-56 sm:w-64 md:w-72 lg:w-80 pointer-events-none whitespace-normal select-none bg-white/95 backdrop-blur-sm p-3.5 border border-workspace-border/80 rounded-xl shadow-md animate-fade-in z-30"
+              >
                 {aboutTag.tag.hoverSummary.map((b, i) => <div key={i}>- {b}</div>)}
               </motion.div>
             )}
@@ -192,33 +275,41 @@ export default function Home() {
         </div>
 
         {/* HMI NODE */}
-        <div className="absolute top-[32%] right-[18%] pointer-events-auto flex flex-col items-center z-20"
-          onMouseEnter={() => setIsHmiHovered(true)} onMouseLeave={() => setIsHmiHovered(false)}>
+        <div
+          className={`absolute pointer-events-auto flex flex-col items-center transition-all duration-200 ${isHmiHovered ? "z-30" : "z-20"}`}
+          style={{ top: nodes.hmi.y, left: nodes.hmi.x, transform: "translateX(-50%)" }}
+          onMouseEnter={() => setIsHmiHovered(true)}
+          onMouseLeave={() => setIsHmiHovered(false)}
+        >
           <div className="relative">
             {hmiTag?.tag.hoverLayout === "fan-three" && (
               <AnimatePresence>
                 {isHmiHovered && (
-                  <motion.div initial={{ opacity: 0, scale: 0.8, y: 15 }} animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.8, y: 15 }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute bottom-[calc(100%+24px)] left-1/2 -translate-x-1/2 pointer-events-none flex items-center justify-center h-[130px] w-[260px]">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, y: 15 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, y: 15 }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute bottom-[calc(100%+24px)] left-1/2 -translate-x-1/2 pointer-events-none flex items-center justify-center h-[130px] w-[260px]"
+                  >
                     {hmiImages[0] && (
                       <motion.div initial={{ x: 0, rotate: 0, scale: 0.9 }} animate={{ x: -50, rotate: -12, scale: 1 }}
                         exit={{ x: 0, rotate: 0, scale: 0.9 }} transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute w-[120px] rounded-xl overflow-hidden shadow-md border border-neutral-200/50 bg-white origin-bottom z-10">
+                        className="absolute w-[120px] rounded-xl overflow-hidden shadow-md border border-workspace-border/50 bg-white origin-bottom z-10">
                         <HoverImage asset={hmiImages[0]} alt="HMI" />
                       </motion.div>
                     )}
                     {hmiImages[1] && (
                       <motion.div initial={{ x: 0, rotate: 0, scale: 0.9 }} animate={{ x: 50, rotate: 12, scale: 1 }}
                         exit={{ x: 0, rotate: 0, scale: 0.9 }} transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute w-[120px] rounded-xl overflow-hidden shadow-md border border-neutral-200/50 bg-white origin-bottom z-10">
+                        className="absolute w-[120px] rounded-xl overflow-hidden shadow-md border border-workspace-border/50 bg-white origin-bottom z-10">
                         <HoverImage asset={hmiImages[1]} alt="HMI" />
                       </motion.div>
                     )}
                     {hmiImages[2] && (
                       <motion.div initial={{ y: 5, rotate: 0, scale: 0.95 }} animate={{ y: -8, rotate: 0, scale: 1.05 }}
                         exit={{ y: 5, rotate: 0, scale: 0.95 }} transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute w-[125px] rounded-xl overflow-hidden shadow-lg border border-neutral-300/60 bg-white z-20">
+                        className="absolute w-[125px] rounded-xl overflow-hidden shadow-lg border border-workspace-border/60 bg-white z-20">
                         <HoverImage asset={hmiImages[2]} alt="HMI" />
                       </motion.div>
                     )}
@@ -226,52 +317,72 @@ export default function Home() {
                 )}
               </AnimatePresence>
             )}
-            <motion.button onClick={() => openWindow("hmi")} whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="cursor-pointer font-['Helvetica',_sans-serif] font-normal text-[#373737] hover:text-blue-600 hover:underline underline-offset-4 decoration-2 decoration-blue-600 select-none text-2xl transition-all">
-              {hmiTag?.tag.label}
+            <motion.button
+              id="node-hmi"
+              onClick={() => openWindow("hmi")}
+              whileHover={{ scale: 1.04 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="cursor-pointer bg-white border border-workspace-border/80 px-4 py-2 rounded-xl text-[11px] font-mono font-bold tracking-wider text-workspace-text uppercase flex items-center gap-2 hover:border-workspace-accent hover:text-workspace-accent transition-all shadow-sm"
+            >
+              <span className="w-2 h-2 rounded-full bg-workspace-accent" />
+              <span>{hmiTag?.tag.label}</span>
             </motion.button>
           </div>
-        </div>
 
-        {/* HERO TITLE */}
-        <div className="absolute top-[48%] left-[16%] flex flex-col justify-center select-text z-30 pointer-events-auto">
-          <h1 className="text-6xl font-sans tracking-tight text-neutral-800 leading-tight">
-            {profile.heroPrefix}<span className="font-bold">{profile.name.first}</span>
-          </h1>
-          <p className="text-2xl font-sans font-light text-neutral-500 mt-1 tracking-wide">
-            {profile.heroSubtitle}
-          </p>
+          <AnimatePresence>
+            {isHmiHovered && hmiTag?.tag.hoverLayout === "fan-three" && (
+              <motion.div
+                key="hmi-stats-popup"
+                initial={{ opacity: 0, y: -4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="font-mono text-[11px] text-workspace-muted mt-3.5 tracking-wide flex flex-col gap-1.5 w-56 sm:w-64 md:w-72 lg:w-80 pointer-events-none whitespace-normal select-none bg-white/95 backdrop-blur-sm p-3.5 border border-workspace-border/80 rounded-xl shadow-md animate-fade-in z-30"
+              >
+                <div>- Prototyping in-vehicle telemetry & cockpit HUDs</div>
+                <div>- Real-time speedometer simulation with thermal matrices</div>
+                <div>- Spatial Lane Assist and ADAS tracking dashboard</div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* AI RELATED NODE */}
-        <div className="absolute top-[72%] left-[28%] translate-x-[10px] translate-y-[30px] pointer-events-auto flex flex-col items-start z-20"
-          onMouseEnter={() => setIsAiHovered(true)} onMouseLeave={() => setIsAiHovered(false)}>
+        <div
+          className={`absolute pointer-events-auto flex flex-col items-center transition-all duration-200 ${isAiHovered ? "z-30" : "z-20"}`}
+          style={{ top: nodes.aiRelated.y, left: nodes.aiRelated.x }}
+          onMouseEnter={() => setIsAiHovered(true)}
+          onMouseLeave={() => setIsAiHovered(false)}
+        >
           <div className="relative">
             {aiTag?.tag.hoverLayout === "fan-three-with-icons" && (
               <AnimatePresence>
                 {isAiHovered && (
-                  <motion.div initial={{ opacity: 0, scale: 0.8, x: -20, y: 15 }} animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.8, x: -20, y: 15 }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute bottom-[calc(100%+20px)] right-[20px] pointer-events-none flex items-center justify-center h-[120px] w-[240px]">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, x: -20, y: 15 }}
+                    animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, x: -20, y: 15 }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute bottom-[calc(100%+20px)] right-[20px] pointer-events-none flex items-center justify-center h-[120px] w-[240px]"
+                  >
                     {aiImages[0] && (
                       <motion.div initial={{ x: 0, rotate: 0, scale: 0.9 }} animate={{ x: -45, y: 6, rotate: -18, scale: 1 }}
                         exit={{ x: 0, rotate: 0, scale: 0.9 }} transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute w-[90px] rounded-xl overflow-hidden shadow-md border border-neutral-200/50 bg-white origin-bottom-right z-10">
+                        className="absolute w-[90px] rounded-xl overflow-hidden shadow-md border border-workspace-border/50 bg-white origin-bottom-right z-10">
                         <HoverImage asset={aiImages[0]} alt="AI" />
                       </motion.div>
                     )}
                     {aiImages[1] && (
                       <motion.div initial={{ x: 0, rotate: 0, scale: 0.9 }} animate={{ x: 45, y: 4, rotate: 12, scale: 1 }}
                         exit={{ x: 0, rotate: 0, scale: 0.9 }} transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute w-[90px] rounded-xl overflow-hidden shadow-md border border-neutral-200/50 bg-white origin-bottom-left z-10">
+                        className="absolute w-[90px] rounded-xl overflow-hidden shadow-md border border-workspace-border/50 bg-white origin-bottom-left z-10">
                         <HoverImage asset={aiImages[1]} alt="AI" />
                       </motion.div>
                     )}
                     {aiCenterImg && (
                       <motion.div initial={{ y: 5, rotate: 0, scale: 0.95 }} animate={{ y: -6, rotate: -3, scale: 1.05 }}
                         exit={{ y: 5, rotate: 0, scale: 0.95 }} transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute w-[95px] rounded-xl overflow-hidden shadow-lg border border-neutral-300/60 bg-white z-20">
+                        className="absolute w-[95px] rounded-xl overflow-hidden shadow-lg border border-workspace-border/60 bg-white z-20">
                         <HoverImage asset={aiCenterImg} alt="AI" />
                       </motion.div>
                     )}
@@ -294,17 +405,43 @@ export default function Home() {
                 </motion.div>
               )}
             </AnimatePresence>
-            <motion.button onClick={() => openWindow("ai")} whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="cursor-pointer font-['Helvetica',_sans-serif] font-normal text-[#373737] hover:text-blue-600 hover:underline underline-offset-4 decoration-2 decoration-blue-600 select-none text-2xl flex items-center gap-1 transition-all">
+            <motion.button
+              id="node-ai-related"
+              onClick={() => openWindow("ai")}
+              whileHover={{ scale: 1.04 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="cursor-pointer bg-white border border-workspace-border/80 px-4 py-2 rounded-xl text-[11px] font-mono font-bold tracking-wider text-workspace-text uppercase flex items-center gap-2 hover:border-workspace-accent hover:text-workspace-accent transition-all shadow-sm"
+            >
+              <span className="w-2 h-2 rounded-full bg-workspace-accent" />
               <span>{aiTag?.tag.label}</span>
               {aiTag?.tag.hasSparkle && <Sparkles className="w-5 h-5 text-amber-500 animate-pulse" />}
             </motion.button>
+
+            {/* Stats list hover text pop up for AI Cognitive */}
+            <AnimatePresence>
+              {isAiHovered && aiTag?.tag.hoverLayout === "fan-three-with-icons" && (
+                <motion.div
+                  key="ai-stats-popup"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute left-1/2 -translate-x-1/2 md:translate-x-0 md:left-[calc(100%+16px)] top-[calc(100%+48px)] md:top-[-30px] font-mono text-[11px] text-workspace-muted tracking-wide flex flex-col gap-1.5 w-56 sm:w-64 md:w-72 lg:w-80 pointer-events-none whitespace-normal select-none bg-white/95 backdrop-blur-sm p-3.5 border border-workspace-border/80 rounded-xl shadow-md animate-fade-in z-30"
+                >
+                  <div>- AI-native spec & generative interface architectures</div>
+                  <div>- Real-time prompt-to-widget compilation sandboxes</div>
+                  <div>- Tactile interaction controllers with active outputs</div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
 
         {/* MAC OS FOLDER */}
-        <div className="absolute top-[42%] right-[22%] pointer-events-auto">
+        <div
+          className="absolute pointer-events-auto"
+          style={{ top: nodes.folder.y, left: nodes.folder.x, transform: "translate(-50%, -50%)" }}
+        >
           <MacOSFolder
             onClick={() => openWindow("projects")}
             folderTitle={navigation.folderBadge === "WORKSPACE" ? "diqing_wu_projects" : navigation.folderHeading}
@@ -316,15 +453,27 @@ export default function Home() {
         </div>
 
         {/* DOWN ARROW */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-60">
-          <span className="text-[9px] font-mono tracking-widest text-neutral-400">{navigation.exploreCanvas}</span>
+        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-60">
+          <span className="text-[9px] font-mono tracking-widest text-workspace-muted">{navigation.exploreCanvas}</span>
           <motion.div animate={{ y: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
-            <ArrowDown className="w-4 h-4 text-neutral-400" />
+            <ArrowDown className="w-4 h-4 text-workspace-muted" />
           </motion.div>
         </div>
       </div>
 
-      {/* DRAGGABLE OS WINDOWS LAYER */}
+      {/* ---- FOOTER BAR ---- */}
+      <div className="absolute bottom-0 inset-x-0 h-12 border-t border-workspace-border/50 hidden md:flex justify-between items-center px-10 text-[10px] font-mono tracking-wider text-workspace-muted bg-workspace-bg/80 backdrop-blur-sm z-30 select-none">
+        <div>{navigation.footerLeft}</div>
+        <div className="flex items-center gap-4">
+          <span>{navigation.footerCenterLeft}</span>
+          <span>{"•"}</span>
+          <span>{navigation.footerCenterRight}</span>
+        </div>
+      </div>
+
+      {/* ------------------------------------ */}
+      {/* DRAGGABLE OS WINDOWS LAYER           */}
+      {/* ------------------------------------ */}
       <div className="hidden md:block absolute inset-0 z-20 pointer-events-none">
         <AnimatePresence>
           <FloatingWindow id="about" title={aboutTag?.tag.windowTitle ?? ""} isOpen={openWindows.about}
@@ -361,30 +510,32 @@ export default function Home() {
         </AnimatePresence>
       </div>
 
-      {/* MOBILE VIEW */}
+      {/* ------------------------------------ */}
+      {/* MOBILE CANVAS & ADAPTIVE VIEW        */}
+      {/* ------------------------------------ */}
       <div className="md:hidden flex flex-col h-full overflow-y-auto p-6 z-10 relative">
-        <div className="pt-8 pb-6 border-b border-neutral-200/60 select-text">
-          <h1 className="text-5xl font-sans tracking-tight text-neutral-800 leading-tight">
+        <div className="pt-8 pb-6 border-b border-workspace-border select-text">
+          <h1 className="text-5xl font-sans tracking-tight text-workspace-text leading-tight">
             {profile.heroPrefix}<span className="font-bold">{profile.name.first}</span>
           </h1>
-          <p className="text-xl font-sans font-light text-neutral-500 mt-1">{profile.heroSubtitleMobile}</p>
-          <p className="text-[10px] font-mono text-neutral-400 mt-2.5">{navigation.tagline}</p>
+          <p className="text-xl font-sans font-light text-workspace-muted mt-1">{profile.heroSubtitleMobile}</p>
+          <p className="text-[10px] font-mono text-workspace-muted mt-2.5">{navigation.tagline}</p>
         </div>
-        <div className="my-4 p-3 bg-neutral-100 rounded-lg flex items-center gap-2 text-[10px] font-mono text-neutral-500">
+        <div className="my-4 p-3 bg-neutral-100 rounded-lg flex items-center gap-2 text-[10px] font-mono text-workspace-muted">
           <Info className="w-3.5 h-3.5 text-sky-500" />
           <span>{navigation.mobileTip}</span>
         </div>
         <div className="grid grid-cols-2 gap-3.5 py-4">
-          <button onClick={() => openWindow("about")} className="p-4 bg-white border border-neutral-200 rounded-xl flex flex-col justify-between h-28 text-left hover:border-sky-500/40 transition-colors">
-            <User className="w-5 h-5 text-sky-500" /><span className="text-xs font-bold text-neutral-800">{aboutTag?.tag.label}</span></button>
-          <button onClick={() => openWindow("ds")} className="p-4 bg-white border border-neutral-200 rounded-xl flex flex-col justify-between h-28 text-left hover:border-sky-500/40 transition-colors">
-            <Layers className="w-5 h-5 text-indigo-500" /><span className="text-xs font-bold text-neutral-800">{dsTag?.tag.label}</span></button>
-          <button onClick={() => openWindow("hmi")} className="p-4 bg-white border border-neutral-200 rounded-xl flex flex-col justify-between h-28 text-left hover:border-sky-500/40 transition-colors">
-            <Gauge className="w-5 h-5 text-emerald-500" /><span className="text-xs font-bold text-neutral-800">{hmiTag?.tag.label}</span></button>
-          <button onClick={() => openWindow("ai")} className="p-4 bg-white border border-neutral-200 rounded-xl flex flex-col justify-between h-28 text-left hover:border-sky-500/40 transition-colors">
-            <Cpu className="w-5 h-5 text-amber-500 animate-pulse" /><span className="text-xs font-bold text-neutral-800">{aiTag?.tag.label}</span></button>
+          <button onClick={() => openWindow("about")} className="p-4 bg-white border border-workspace-border rounded-xl flex flex-col justify-between h-28 text-left hover:border-workspace-accent/40 transition-colors">
+            <User className="w-5 h-5 text-sky-500" /><span className="text-xs font-bold text-workspace-text">{aboutTag?.tag.label}</span></button>
+          <button onClick={() => openWindow("ds")} className="p-4 bg-white border border-workspace-border rounded-xl flex flex-col justify-between h-28 text-left hover:border-workspace-accent/40 transition-colors">
+            <Layers className="w-5 h-5 text-indigo-500" /><span className="text-xs font-bold text-workspace-text">{dsTag?.tag.label}</span></button>
+          <button onClick={() => openWindow("hmi")} className="p-4 bg-white border border-workspace-border rounded-xl flex flex-col justify-between h-28 text-left hover:border-workspace-accent/40 transition-colors">
+            <Gauge className="w-5 h-5 text-emerald-500" /><span className="text-xs font-bold text-workspace-text">{hmiTag?.tag.label}</span></button>
+          <button onClick={() => openWindow("ai")} className="p-4 bg-white border border-workspace-border rounded-xl flex flex-col justify-between h-28 text-left hover:border-workspace-accent/40 transition-colors">
+            <Cpu className="w-5 h-5 text-amber-500 animate-pulse" /><span className="text-xs font-bold text-workspace-text">{aiTag?.tag.label}</span></button>
         </div>
-        <div className="py-8 flex flex-col items-center justify-center border-t border-neutral-200/60 mt-4 gap-4">
+        <div className="py-8 flex flex-col items-center justify-center border-t border-workspace-border mt-4 gap-4">
           <MacOSFolder onClick={() => openWindow("projects")}
             folderTitle={navigation.folderBadge === "WORKSPACE" ? "diqing_wu_projects" : navigation.folderHeading}
             folderInstruction={navigation.folderInstruction}
@@ -392,7 +543,7 @@ export default function Home() {
             peekCards={navigation.peekCards}
             github={profile.github}
           />
-          <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest mt-12">{navigation.workspaceGallery}</span>
+          <span className="text-[10px] font-mono text-workspace-muted uppercase tracking-widest mt-12">{navigation.workspaceGallery}</span>
         </div>
         <AnimatePresence>
           {Object.entries(openWindows).filter(([, isOpen]) => isOpen).map(([id]) => {
@@ -410,7 +561,7 @@ export default function Home() {
             return (
               <motion.div key={`mobile-sheet-${id}`} initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "100%" }}
                 transition={{ type: "spring", damping: 25, stiffness: 220 }}
-                className="fixed inset-x-0 bottom-0 h-[85vh] bg-white rounded-t-2xl border-t border-neutral-300 shadow-2xl z-50 flex flex-col">
+                className="fixed inset-x-0 bottom-0 h-[85vh] bg-white rounded-t-2xl border-t border-workspace-border shadow-2xl z-50 flex flex-col">
                 <div className="flex items-center justify-between px-5 py-4 border-b border-neutral-100 bg-neutral-50 rounded-t-2xl">
                   <span className="text-[10px] font-mono text-neutral-500 font-bold">{title}</span>
                   <button onClick={() => closeWindow(id)}

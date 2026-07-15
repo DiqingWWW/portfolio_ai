@@ -42,5 +42,10 @@
     "heading": "03 / Layer Depth Index",
     "status": "SYSTEM.ENGIN_ONLINE",
     "body": "Our layout nodes rely on an incremental depth-of-field spatial stacking index. Absolute layers stack from the grid substrate (Z-0) up to modal triggers (Z-50), keeping layout hierarchies clear and preventing overlaps."
-  }
+  },
+  "kpiCards": [
+    { "value": "85%+", "label": "Component Reuse", "color": "blue" },
+    { "value": "45%+", "label": "Cost Reduction", "color": "emerald" },
+    { "value": "0 to 1", "label": "In 6 Months", "color": "amber" }
+  ]
 }

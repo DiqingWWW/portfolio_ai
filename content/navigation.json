@@ -1,5 +1,8 @@
 {
   "tagline": "This website is made by Google AI Studio + Claude Code + Vercel",
+  "footerLeft": "Diqing Wu — Interactive Workspace",
+  "footerCenterLeft": "Click objects to inspect logs",
+  "footerCenterRight": "Workspace Environment v2.8",
   "exploreCanvas": "EXPLORE_CANVAS",
   "workspaceGallery": "WORKSPACE GALLERY",
   "mobileTip": "Tap any node below to inspect interactive workspace logs",

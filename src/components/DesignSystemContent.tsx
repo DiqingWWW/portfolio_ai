@@ -30,6 +30,28 @@ export default function DesignSystemContent({ tokens }: DesignSystemContentProps
           <h2 className="text-base font-bold tracking-tight">{tokens.heading}</h2>
         </div>
         <p className="text-xs text-neutral-500 leading-relaxed">{tokens.intro}</p>
+
+        {/* KPI Stat Cards */}
+        {tokens.kpiCards && tokens.kpiCards.length > 0 && (
+          <div className="grid grid-cols-3 gap-2 pt-2">
+            {tokens.kpiCards.map((card) => {
+              const colorStyles: Record<string, { bg: string; border: string; text: string }> = {
+                blue: { bg: "bg-[#2E94E3]/5", border: "border-[#2E94E3]/15", text: "text-[#2E94E3]" },
+                emerald: { bg: "bg-emerald-50", border: "border-emerald-200/50", text: "text-emerald-600" },
+                amber: { bg: "bg-amber-50", border: "border-amber-200/50", text: "text-amber-600" },
+              };
+              const c = colorStyles[card.color] || colorStyles.blue;
+              return (
+                <div key={card.label} className={`${c.bg} ${c.border} border rounded-xl p-2 text-center`}>
+                  <span className={`block text-lg font-black ${c.text} leading-none`}>{card.value}</span>
+                  <span className="text-[9px] font-mono font-bold text-neutral-500 uppercase tracking-tight mt-1 block">
+                    {card.label}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       {/* Color Tokens Section */}

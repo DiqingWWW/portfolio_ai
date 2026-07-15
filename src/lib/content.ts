@@ -9,6 +9,7 @@ import navigation from '@content/navigation.json';
 import designTokens from '@content/design-tokens.json';
 import aiDemo from '@content/ai-demo.json';
 import hmiDemo from '@content/hmi-demo.json';
+import nodes from '@content/nodes.json';
 import type {
   TagDefinition,
   ProjectData,
@@ -21,7 +22,7 @@ import type {
 } from '@/types/content';
 
 // ---- Re-export all content ----
-export { profile, navigation, designTokens, aiDemo, hmiDemo };
+export { profile, navigation, designTokens, aiDemo, hmiDemo, nodes };
 export type {
   TagDefinition,
   ProjectData,

@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains-mono",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -68,13 +81,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#f5f5f5" />
+        <meta name="theme-color" content="#FAF7F2" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"

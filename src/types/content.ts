@@ -80,6 +80,10 @@ export interface GitHubProfile {
 export interface ProfileContent {
   name: { first: string; full: string };
   title: string;
+  brandingStatement: string;
+  brandingDescription: string;
+  nameDisplay: string;
+  roleDisplay: string;
   heroPrefix: string;
   heroSubtitle: string;
   heroSubtitleMobile: string;
@@ -104,6 +108,9 @@ export interface PeekCardContent {
 
 export interface NavigationContent {
   tagline: string;
+  footerLeft: string;
+  footerCenterLeft: string;
+  footerCenterRight: string;
   exploreCanvas: string;
   workspaceGallery: string;
   mobileTip: string;
@@ -122,6 +129,12 @@ export interface DesignToken {
   name: string;
   hex: string;
   usage: string;
+}
+
+export interface KpiCard {
+  value: string;
+  label: string;
+  color: string;
 }
 
 export interface DesignTokensContent {
@@ -159,6 +172,7 @@ export interface DesignTokensContent {
     status: string;
     body: string;
   };
+  kpiCards: KpiCard[];
 }
 
 // ---- AI Demo ----
@@ -238,4 +252,21 @@ export interface FolderDecoration {
     status?: string;
     textLine?: string;
   }[];
+}
+
+// ---- Node Positions (canvas layout) ----
+export interface NodePosition {
+  x: string;
+  y: string;
+}
+
+export interface NodePositions {
+  designSystem: NodePosition;
+  aboutMe: NodePosition;
+  hmi: NodePosition;
+  aiRelated: NodePosition;
+  folder: NodePosition;
+  brandingBlock: NodePosition;
+  nameBlock: NodePosition;
+  watermark: NodePosition;
 }

@@ -42,11 +42,11 @@ export default function FloatingWindow({
       drag
       dragMomentum={false}
       dragElastic={0.05}
-      className={`absolute ${width} ${height} flex flex-col bg-white/95 backdrop-blur-md rounded-xl border border-neutral-200 shadow-2xl overflow-hidden focus:outline-none pointer-events-auto`}
+      className={`absolute ${width} ${height} flex flex-col bg-white rounded-xl border border-workspace-border/80 shadow-2xl overflow-hidden focus:outline-none pointer-events-auto`}
       data-component="FloatingWindow"
     >
-      {/* Title Bar */}
-      <div className="flex items-center justify-between px-4 py-3 bg-neutral-50/80 border-b border-neutral-200 select-none cursor-grab active:cursor-grabbing">
+      {/* Title Bar styled like OS window chrome */}
+      <div className="window-drag-handle flex items-center justify-between px-4 py-3 bg-workspace-bg border-b border-workspace-border/60 select-none cursor-grab active:cursor-grabbing">
         {/* Mock OS Window Controls */}
         <div className="flex items-center space-x-1.5">
           <button
@@ -63,17 +63,19 @@ export default function FloatingWindow({
           <div className="w-3 h-3 rounded-full bg-[#27c93f] flex items-center justify-center" />
         </div>
 
-        {/* Title */}
-        <div className="text-xs font-mono tracking-wider text-neutral-500 font-medium">
-          {title}
+        {/* Title styled as slide deck metadata */}
+        <div className="text-[10px] font-mono tracking-widest text-workspace-muted font-bold uppercase">
+          WORKSPACE // {title.replace(/\.[a-z0-9]+$/i, "").replace(/_/g, " ")}
         </div>
 
-        {/* Small UI detail */}
-        <div className="w-6 h-1 bg-neutral-200 rounded-full" />
+        {/* Small UI detail resembling a page tab */}
+        <div className="text-[9px] font-mono text-workspace-muted/30 font-medium">
+          PAGE.LOG
+        </div>
       </div>
 
       {/* Content Area */}
-      <div className="flex-1 overflow-y-auto p-6 text-[#373737] select-text">
+      <div className="flex-1 overflow-y-auto p-6 text-workspace-text select-text bg-white">
         {children}
       </div>
     </motion.div>
