@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://diqingwu.com";
+export const dynamic = "force-static";
 
+export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: baseUrl,
+      url: "https://diqingwu.com",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
