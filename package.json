@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "assets:prepare": "node scripts/copy-project-assets.mjs",
     "content:text-expression": "node scripts/sync-text-expression.mjs",
     "dev": "next dev",
-    "build": "next build",
-    "prebuild": "node scripts/copy-project-assets.mjs",
+    "build": "npm run assets:prepare && next build",
     "start": "next start",
     "lint": "eslint",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
