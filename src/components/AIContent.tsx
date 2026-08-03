@@ -4,14 +4,17 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Sparkles, Terminal, Cpu, RefreshCw, Music, CheckSquare } from "lucide-react";
 import type { AIDemoContent } from "@/types/content";
+import type { ProjectData } from "@/types/content";
+import ProjectEvidenceLink from "@/components/ProjectEvidenceLink";
 
 type PromptType = "music" | "habit" | "calc";
 
 interface AIContentProps {
   demo: AIDemoContent;
+  project?: ProjectData;
 }
 
-export default function AIContent({ demo }: AIContentProps) {
+export default function AIContent({ demo, project }: AIContentProps) {
   const [selectedPrompt, setSelectedPrompt] = useState<PromptType>("music");
   const [isCompiling, setIsCompiling] = useState<boolean>(false);
   const [compileStep, setCompileStep] = useState<number>(0);
@@ -25,13 +28,15 @@ export default function AIContent({ demo }: AIContentProps) {
 
   useEffect(() => {
     if (!isCompiling) return;
-    if (compileStep < demo.compileSteps.length) {
-      const timer = setTimeout(() => setCompileStep((prev) => prev + 1), 700);
-      return () => clearTimeout(timer);
-    } else {
+    const timer = setTimeout(() => {
+      if (compileStep < demo.compileSteps.length) {
+        setCompileStep((prev) => prev + 1);
+        return;
+      }
       setIsCompiling(false);
       setSynthesizedWidget(selectedPrompt);
-    }
+    }, 700);
+    return () => clearTimeout(timer);
   }, [isCompiling, compileStep, selectedPrompt, demo.compileSteps.length]);
 
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -47,6 +52,7 @@ export default function AIContent({ demo }: AIContentProps) {
 
   return (
     <div className="space-y-6 select-text" data-component="AIContent">
+      {project && <ProjectEvidenceLink project={project} label="Independent project evidence" />}
       <div className="space-y-1 border-b border-neutral-100 pb-4">
         <div className="flex items-center gap-2 text-neutral-800">
           <Sparkles className="w-5 h-5 text-amber-500 animate-pulse" />

@@ -1,0 +1,26 @@
+{
+  "id": "honda-hmi-design-system",
+  "title": "Honda HMI Design System",
+  "tags": ["design-system", "hmi"],
+  "metadata": {
+    "type": "Professional Project",
+    "year": "2024",
+    "role": "Lead Product Designer"
+  },
+  "descriptions": {
+    "short": "A scalable HMI design system connecting brand language, interaction rules, reusable components, and adaptive delivery.",
+    "detail": "Built an HMI design system from 0 to 1 in six months, covering foundations, a three-layer token architecture, 20+ components, adaptation rules, documentation, and design-to-code collaboration across products and teams."
+  },
+  "specs": [
+    { "label": "Scope", "val": "Mobile + In-vehicle HMI" },
+    { "label": "Contribution", "val": "0→1 system building" },
+    { "label": "Status", "val": "Shipped professional work" }
+  ],
+  "tokens": ["Design Systems", "HMI", "Cross-platform", "Design-to-code"],
+  "assets": {
+    "cover": "./cover2.png",
+    "hover": "./visual-language_EN.jpg",
+    "gallery": ["./logo-and-icons_EN.jpg", "./tokens-and-components_EN.jpg", "./design-to-code_EN.jpg", "./responsive-theme-adaptation.gif", "./vehicle-language-adaptation.gif"]
+  },
+  "detailHref": "/work/honda-hmi-design-system"
+}

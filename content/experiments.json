@@ -1,0 +1,34 @@
+[
+  {
+    "id": "orbit-spatial-os",
+    "title": "Orbit Spatial OS",
+    "category": "Spatial interface concept",
+    "description": "An exploratory infinite-canvas interface for arranging files, prompts, and tool outputs as draggable spatial nodes.",
+    "status": "Generated concept · Not client work",
+    "assets": { "cover": "/assets/images/orbit-spatial-os/cover.jpg", "gallery": ["/assets/images/orbit-spatial-os/hover.jpg"] }
+  },
+  {
+    "id": "iris-hud-dashboard",
+    "title": "Iris HUD Dashboard",
+    "category": "Automotive interface concept",
+    "description": "A visual exploration of navigation, vehicle status, and driver-assistance information across HUD and dashboard surfaces.",
+    "status": "Generated concept · Not client work",
+    "assets": { "cover": "/assets/images/iris-hud-dashboard/cover.jpg", "gallery": ["/assets/images/iris-hud-dashboard/lane-assist.jpg", "/assets/images/iris-hud-dashboard/dark-map.jpg"] }
+  },
+  {
+    "id": "muse-ai-canvas",
+    "title": "Muse AI Canvas",
+    "category": "Generative-interface concept",
+    "description": "A prompt-to-interface study exploring how natural-language intent might produce small interactive widgets and responsive layouts.",
+    "status": "Generated concept · Not a shipped AI product",
+    "assets": { "cover": "/assets/images/muse-ai-canvas/cover.jpg", "gallery": ["/assets/images/muse-ai-canvas/career-laptop.jpg", "/assets/images/muse-ai-canvas/travel-ticket.jpg"] }
+  },
+  {
+    "id": "monolith-design-system",
+    "title": "Monolith Design System",
+    "category": "Design-system study",
+    "description": "A visual study of grayscale foundations, accent tokens, control states, spacing, and motion behavior.",
+    "status": "Generated concept · Not a production design system",
+    "assets": { "cover": "/assets/images/monolith-design-system/cover.jpg", "gallery": ["/assets/images/monolith-design-system/hover.jpg"] }
+  }
+]

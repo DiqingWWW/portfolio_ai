@@ -4,12 +4,15 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Palette, MousePointer, Layers, Check } from "lucide-react";
 import type { DesignTokensContent } from "@/types/content";
+import type { ProjectData } from "@/types/content";
+import ProjectEvidenceLink from "@/components/ProjectEvidenceLink";
 
 interface DesignSystemContentProps {
   tokens: DesignTokensContent;
+  project?: ProjectData;
 }
 
-export default function DesignSystemContent({ tokens }: DesignSystemContentProps) {
+export default function DesignSystemContent({ tokens, project }: DesignSystemContentProps) {
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"mono" | "brand">("mono");
   const [sliderVal, setSliderVal] = useState<number>(45);
@@ -23,6 +26,7 @@ export default function DesignSystemContent({ tokens }: DesignSystemContentProps
 
   return (
     <div className="space-y-8 select-text" data-component="DesignSystemContent">
+      {project && <ProjectEvidenceLink project={project} label="Professional project evidence" />}
       {/* Intro Header */}
       <div className="space-y-2 border-b border-neutral-100 pb-5">
         <div className="flex items-center gap-2 text-neutral-800">

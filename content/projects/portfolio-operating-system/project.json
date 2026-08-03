@@ -1,0 +1,26 @@
+{
+  "id": "portfolio-operating-system",
+  "title": "Building a Portfolio with AI and How It Iterates",
+  "tags": ["ai-related"],
+  "metadata": {
+    "type": "Independent Project",
+    "year": "June 2026–Present",
+    "role": "Product Designer & AI Builder"
+  },
+  "descriptions": {
+    "short": "A working portfolio, content system, and multi-AI workflow built to evolve without losing design intent.",
+    "detail": "What began as an AI-generated interface became a spatial Next.js portfolio, a project–tag content architecture, a bounded diff-sync workflow, and a Portfolio Operating System that keeps visual prototypes, production code, assets, versions, and AI collaborators aligned."
+  },
+  "specs": [
+    { "label": "Result", "val": "Working portfolio system" },
+    { "label": "Architecture", "val": "Projects × tags × assets" },
+    { "label": "Workflow", "val": "Multi-AI diff sync" }
+  ],
+  "tokens": ["AI-assisted Building", "Systems Thinking", "Next.js", "Product Governance"],
+  "assets": {
+    "cover": "./cover.png",
+    "hover": "./first-working-prototype.png",
+    "gallery": ["./first-working-prototype.png"]
+  },
+  "detailHref": "/work/portfolio-operating-system"
+}

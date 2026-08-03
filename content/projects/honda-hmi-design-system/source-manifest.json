@@ -1,0 +1,21 @@
+{
+  "source": "hondasystem",
+  "sourceMaster": "master/case-study-master.md",
+  "sourceHash": "82d0827386e9ad836131103a5c818d69b3ab277068dce303fcca9f53f7390fd9",
+  "generatedFiles": [
+    "case-study.md",
+    "cover1.png",
+    "cover2.png",
+    "visual-language_CN.jpg",
+    "visual-language_EN.jpg",
+    "logo-and-icons_CN.jpg",
+    "logo-and-icons_EN.jpg",
+    "system-architecture.jpg",
+    "tokens-and-components_CN.jpg",
+    "tokens-and-components_EN.jpg",
+    "design-to-code_CN.jpg",
+    "design-to-code_EN.jpg",
+    "responsive-theme-adaptation.gif",
+    "vehicle-language-adaptation.gif"
+  ]
+}

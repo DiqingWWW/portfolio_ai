@@ -1,0 +1,25 @@
+{
+  "projects": [
+    {
+      "id": "text-expression",
+      "sourceDir": "/absolute/path/to/obsidian/字数",
+      "projectDir": "content/projects/lincoln-text-expression",
+      "assets": [
+        { "source": "车辆显示.PNG", "output": "vehicle-empty.png" }
+      ]
+    },
+    {
+      "id": "honda-hmi-design-system",
+      "sourceDir": "/absolute/path/to/obsidian/hondasystem",
+      "projectDir": "content/projects/honda-hmi-design-system",
+      "assets": [
+        { "source": "cover2.png", "output": "cover2.png" },
+        { "source": "visual-language_CN.jpg", "output": "visual-language_CN.jpg" },
+        { "source": "visual-language_EN.jpg", "output": "visual-language_EN.jpg" },
+        { "source": "system-architecture.jpg", "output": "system-architecture.jpg" },
+        { "source": "tokens-and-components_CN.jpg", "output": "tokens-and-components_CN.jpg" },
+        { "source": "tokens-and-components_EN.jpg", "output": "tokens-and-components_EN.jpg" }
+      ]
+    }
+  ]
+}

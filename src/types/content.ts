@@ -24,6 +24,7 @@ export interface ProjectSpec {
 
 export interface ProjectAssets {
   cover: string;
+  coverPosition?: 'center' | 'top';
   hover: string;
   gallery: string[];
 }
@@ -45,6 +46,7 @@ export interface ProjectData {
   specs: ProjectSpec[];
   tokens: string[];
   assets: ProjectAssets;
+  detailHref?: string;
 }
 
 // ---- Runtime index ----
@@ -112,8 +114,9 @@ export interface NavigationContent {
   footerCenterLeft: string;
   footerCenterRight: string;
   exploreCanvas: string;
-  workspaceGallery: string;
-  mobileTip: string;
+  viewSelectedWork: string;
+  exploreCapabilities: string;
+  resetWindows: string;
   closeButton: string;
   folderHeading: string;
   folderDescription: string;
@@ -121,7 +124,21 @@ export interface NavigationContent {
   folderDesignTokensLabel: string;
   folderInstruction: string;
   folderBadge: string;
+  experiments: {
+    label: string;
+    description: string;
+    href: string;
+  };
   peekCards: PeekCardContent[];
+}
+
+export interface ExperimentContent {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  status: string;
+  assets: { cover: string; gallery: string[] };
 }
 
 // ---- Design Tokens ----
@@ -239,6 +256,7 @@ export interface FolderProject {
   detail: string;
   tokens: string[];
   specs: ProjectSpec[];
+  detailHref?: string;
 }
 
 // ---- Folder Decoration (MacOSFolder) ----

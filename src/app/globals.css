@@ -10,6 +10,44 @@
   --color-workspace-border: rgba(26, 26, 26, 0.08);
   --color-workspace-surface: #FFFFFF;
   --color-workspace-grid: rgba(26, 26, 26, 0.02);
+  --color-heading-1: #303030;
+  --font-weight-heading-1: 700;
+  --letter-spacing-heading-1: -0.025em;
+  --color-heading-2: #303030;
+  --font-weight-heading-2: 600;
+  --letter-spacing-heading-2: -0.015em;
+  --color-heading-3: #303030;
+  --font-weight-heading-3: 700;
+  --letter-spacing-heading-3: -0.01em;
+  --color-heading-inverse: #FFFFFF;
+}
+
+h1 {
+  color: var(--color-heading-1) !important;
+  font-weight: var(--font-weight-heading-1) !important;
+  letter-spacing: var(--letter-spacing-heading-1) !important;
+}
+
+/* Decorative display type is intentionally quieter than semantic page headings. */
+h1.workspace-watermark {
+  color: rgba(26, 26, 26, 0.1) !important;
+  letter-spacing: -0.05em !important;
+}
+
+h2 {
+  color: var(--color-heading-2) !important;
+  font-weight: var(--font-weight-heading-2) !important;
+  letter-spacing: var(--letter-spacing-heading-2) !important;
+}
+
+h3 {
+  color: var(--color-heading-3) !important;
+  font-weight: var(--font-weight-heading-3) !important;
+  letter-spacing: var(--letter-spacing-heading-3) !important;
+}
+
+:is(.bg-workspace-text, .bg-neutral-900, .bg-neutral-950) :is(h1, h2, h3) {
+  color: var(--color-heading-inverse) !important;
 }
 
 body {
@@ -18,8 +56,14 @@ body {
   background-color: var(--color-workspace-bg);
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   user-select: none;
+}
+
+body:has(.case-study-page) {
+  overflow: auto;
+  user-select: text;
 }
 
 /* Warm-tone dot-grid substrate */

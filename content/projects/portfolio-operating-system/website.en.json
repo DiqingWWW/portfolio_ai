@@ -1,0 +1,154 @@
+{
+  "slug": "portfolio-operating-system",
+  "eyebrow": "Independent product · June 2026—Present",
+  "title": "Building a Portfolio with AI and How It Iterates",
+  "summary": "I began with an AI-generated interface. The more consequential result was a working portfolio, a content and asset architecture, an incremental multi-AI workflow, and an operating system that lets the product evolve without losing its history or design intent.",
+  "role": "Product Designer & AI Builder",
+  "status": "Ongoing",
+  "disciplines": ["Product design", "Systems thinking", "AI-assisted building", "Next.js"],
+  "liveUrl": "https://portfolio-ai-diqing.vercel.app/",
+  "liveLabel": "Open working deployment",
+  "liveNote": "A working Vercel deployment, not a formal release. Cloudflare was tested but remains unresolved.",
+  "heroImage": {
+    "src": "portfolio-workspace-laptop-mockup-v1.png",
+    "alt": "Portfolio workspace presented on a laptop mockup.",
+    "caption": "Portfolio reconstruction · A presentation mockup of the current product direction, not a separate release or a photographed device."
+  },
+  "evidenceImage": {
+    "src": "first-working-prototype.png",
+    "alt": "The first working portfolio workspace with tag launchers, a central project folder, and identity cards.",
+    "caption": "Source evidence · First working prototype, June 2026. Its labels and numbers document that interface state; they are not current project claims."
+  },
+  "results": [
+    {
+      "label": "Experience",
+      "value": "A working spatial portfolio",
+      "detail": "An experiential workspace paired with conventional routes to real project evidence."
+    },
+    {
+      "label": "System",
+      "value": "Structured content and assets",
+      "detail": "Projects, tags, assets, case studies, and global content now have distinct responsibilities."
+    },
+    {
+      "label": "Method",
+      "value": "A multi-AI integration workflow",
+      "detail": "Visual exploration, bounded code integration, repository history, and verification share one product state."
+    },
+    {
+      "label": "Governance",
+      "value": "A Portfolio Operating System",
+      "detail": "Product boundaries, current implementation, migrations, and AI working rules are recorded for future iterations."
+    }
+  ],
+  "sections": [
+    {
+      "number": "01",
+      "label": "The result",
+      "title": "The durable outcome was continuity—not generated code",
+      "paragraphs": [
+        "The repository evolved from a generated front-end prototype into a product that can accept real projects, structured content, independent case-study routes, and changing deployment configuration without discarding the experience that made the portfolio distinctive.",
+        "I built four kinds of continuity around it: visual changes can be integrated without replacing approved interaction work; content and media have traceable ownership; engineering collaborators inherit the current system before editing it; and versions remain states of one living product rather than disconnected repositories.",
+        "Vercel has hosted a working deployment. Cloudflare was genuinely attempted but is not yet successful. Because the project is ongoing, these are system and release outcomes—not claims about traffic, hiring conversion, or performance improvement."
+      ]
+    },
+    {
+      "number": "02",
+      "label": "The initial bet",
+      "title": "Could AI build the site without taking away creative control?",
+      "paragraphs": [
+        "The project started on June 26, 2026 with a low-budget, locally maintainable workflow: use Google AI Studio for visual exploration, Claude Code for engineering, GitHub as the remote product record, and deployment platforms for publication. DeepSeek API also served as a lower-cost model option for parts of the Claude Code workflow.",
+        "That plan assumed one tool could generate a page and another could simply turn it into a website. AI Studio produced stronger visual directions, while the engineering tools were better at understanding files, components, types, and deployment. The gap between them became the first real design problem."
+      ]
+    },
+    {
+      "number": "03",
+      "label": "The handoff problem",
+      "title": "Full-project handoffs endangered both visual intent and engineering context",
+      "paragraphs": [
+        "Passing complete generated projects back and forth increased modification cost and risked overwriting engineering improvements. Translating everything into a UI specification was safer, but flattened the motion, image relationships, component behavior, and atmosphere that made the prototype valuable.",
+        "The question changed from which AI could make the best website to how multiple AI tools could contribute to one long-term product without losing design intent or repository context at each handoff."
+      ]
+    },
+    {
+      "number": "04",
+      "label": "Workflow decision",
+      "title": "Replace regeneration with bounded diff sync",
+      "paragraphs": [
+        "I kept the running Next.js product and changed the unit of handoff. Approved AI Studio code became visual evidence and code input; the engineering collaborator identified what had changed, traced its dependencies, and integrated only the necessary differences.",
+        "This protected hard-to-specify visual details and the production work already encoded in components, types, content references, and deployment configuration. Each change now had to answer where it belonged, what it depended on, what it might disturb, and how parity would be checked.",
+        "The workflow moved from page generation to state management between AI tools. Generated output became a candidate change inside a continuing product, not a replacement source of truth."
+      ]
+    },
+    {
+      "number": "05",
+      "label": "The system appeared",
+      "title": "A working page was still not a maintainable website",
+      "paragraphs": [
+        "The first implementation exposed concrete failures: generated and local filenames did not align, direct replacement could break existing work, and a rendered HTML page did not reveal where hover media, motion, or component behavior originated. Images existed, but not yet as accountable project assets.",
+        "I began tracing visible behavior back to source components, editing hover and motion at their actual boundaries, and moving media into stable project-owned locations. The first surviving screenshot records the spatial workspace, tag launchers, central folder, and identity cards at the moment the core experience became runnable. It does not prove the content architecture, accessibility, or deployment reliability that came later."
+      ],
+      "media": "evidenceImage"
+    },
+    {
+      "number": "06",
+      "label": "Hero decision",
+      "title": "Tags were discovery paths—not projects",
+      "paragraphs": [
+        "About Me, HMI, AI Related, and Design System appeared as launchers on the landing page. An early generated interpretation turned them into folders or projects in a strict tree. My intended portfolio was a network: a Honda design-system project, for example, could demonstrate HMI, design systems, and systems thinking at the same time.",
+        "I separated reusable Tags from independent Projects. A project owns its identity, display name, content, assets, and case study, and can connect to multiple tags. Tag launchers support interest-led discovery; the Mac OS folder provides an unfiltered route to all work.",
+        "This decision now supports three real projects, multiple entry points, independent case-study pages, and the possibility of future languages and archived experiences sharing stable project identities."
+      ],
+      "diagram": {
+        "items": ["HMI tag", "Design System tag", "AI tag"],
+        "center": "One project",
+        "fallback": "Several interest-based tags can reference one independent project; the project folder remains a separate all-work entry point."
+      }
+    },
+    {
+      "number": "07",
+      "label": "Production reality",
+      "title": "Engineering constraints became part of the design loop",
+      "paragraphs": [
+        "Once the prototype entered Next.js, GitHub, and real deployment environments, looking correct locally was no longer enough. Workspace-root ambiguity, multiple lockfiles, TypeScript failures, broken icon references, and Cloudflare OpenNext compatibility showed that visual quality, build health, content integrity, and platform behavior had to be evaluated together.",
+        "GitHub became more than a deployment handoff: it provided history, rollback context, and a common baseline for AI collaborators. Vercel reached a working deployment but remained difficult to access from some Chinese networks. The Cloudflare path stays documented as unfinished rather than being edited into a success story."
+      ]
+    },
+    {
+      "number": "08",
+      "label": "Living product",
+      "title": "One repository could contain many future states",
+      "paragraphs": [
+        "As iterations accumulated, I had to decide whether v0, v1, and v2 should become separate repositories, long-lived branches, or product states. The portfolio now remains one continuing product: small releases evolve on the main line, while only a genuinely superseded major experience earns an archive route.",
+        "V1 and V2 are future work, not available artifacts, so the current website creates no empty archive links. When a major version is eventually preserved, its entry should explain when it existed, what decisions shaped it, and why it was replaced—not merely offer a nostalgic snapshot."
+      ]
+    },
+    {
+      "number": "09",
+      "label": "Operating system",
+      "title": "A new AI collaborator triggered systemization instead of another rebuild",
+      "paragraphs": [
+        "Google AI Studio currently focuses on visual prototyping. Claude Code and Codex both support code comprehension, integration, debugging, and architecture work; Claude Code was the earlier primary tool inside VS Code, while Codex is becoming the main engineering collaborator because its workspace integration is more complete.",
+        "The stable boundary is more important than the tool list: visual tools explore and express intent; engineering tools absorb approved intent into the existing product; content sources, repository history, diffs, and verification preserve the current state.",
+        "When Codex joined in late July, it did not trigger a redesign. It prompted the creation of the Portfolio OS, Current System, migration plans, audits, and an AI Working Agreement. Together they record durable product boundaries, the actual implementation, temporary change plans, and collaboration rules so the next tool does not have to reinterpret the project from zero."
+      ]
+    },
+    {
+      "number": "10",
+      "label": "Reflection",
+      "title": "AI accelerates output; continuity still has to be designed",
+      "paragraphs": [
+        "The project has produced a working website, a content and asset architecture, a project–tag network, an incremental integration method, a version strategy, and a governance layer for AI collaboration.",
+        "It remains ongoing, so I do not claim traffic, hiring conversion, task-completion, or performance outcomes. Early AI Studio source code, failed replacement comparisons, and scattered AI conversations were not preserved as a complete archive. The first runnable screenshot, current repository, Git history, and system documents are the available evidence.",
+        "My main lesson is that AI does not remove product judgment. The designer still has to define the entities, assign responsibility, make trade-offs, verify the implementation, and preserve decisions for whoever joins next."
+      ]
+    }
+  ],
+  "nextSteps": [
+    "Complete the Cloudflare evaluation and record the adopted deployment platform.",
+    "Recover or reconstruct a trustworthy visual-to-engineering diff comparison.",
+    "Validate all three real case studies across responsive, keyboard, and assistive-technology reading states.",
+    "Add Chinese website content from the same factual master.",
+    "Create contextual V1/V2 archives only after a real major experience is superseded."
+  ]
+}

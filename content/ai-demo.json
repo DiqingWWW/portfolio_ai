@@ -1,6 +1,6 @@
 {
-  "heading": "AI-Native Cognitive Sandbox",
-  "intro": "Designing for the future of Generative Interfaces. Rather than designing static components, I architect structured system specifications that allow AI engines to build and compile custom interfaces in real-time.",
+  "heading": "Interactive Prompt-to-UI Demo",
+  "intro": "A small interaction experiment showing prompt selection and simulated interface compilation. It is not a shipped AI product; the portfolio case study explains the real multi-tool workflow, visual exploration, and diff-sync process behind this website.",
   "labels": {
     "prompts": "01 / SELECT GENERATIVE TARGET",
     "compiler": "02 / INTERACTION COMPILER",

@@ -1,0 +1,25 @@
+{
+  "id": "lincoln-text-expression",
+  "title": "Text Input and Expression in Digital Products",
+  "tags": ["design-system"],
+  "metadata": {
+    "type": "Professional Project · Lincoln",
+    "role": "Interaction Designer"
+  },
+  "descriptions": {
+    "short": "A framework for clearer input limits, validation feedback, and recovery across a vehicle-owner product.",
+    "detail": "Compared identity, nickname, VIN, and community-post inputs to define when counters, validation messages, format help, and recovery states should differ. The work was reviewed with client designers and product managers and shipped without relying on invented outcome metrics."
+  },
+  "specs": [
+    { "label": "Scope", "val": "Profile, VIN, community" },
+    { "label": "Focus", "val": "Input rules + feedback" },
+    { "label": "Status", "val": "Shipped professional work" }
+  ],
+  "tokens": ["Interaction Design", "Content Design", "Validation", "Automotive"],
+  "assets": {
+    "cover": "./cover.png",
+    "hover": "./post-overflow.png",
+    "gallery": ["./profile-name-invalid.png", "./vin-entry.png", "./comment-composer.png"]
+  },
+  "detailHref": "/work/lincoln-text-expression"
+}

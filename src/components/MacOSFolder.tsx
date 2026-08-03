@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { Code, Map, Globe, Send, Check, Compass, ArrowUpRight } from "lucide-react";
 import type { ProfileContent, NavigationContent } from "@/types/content";
 
@@ -28,20 +28,25 @@ export default function MacOSFolder({
   peekCards,
   github,
 }: MacOSFolderProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className="relative select-none" data-component="MacOSFolder">
       {/* Slow float container for the folder and its overlapping items */}
       <motion.div
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        animate={shouldReduceMotion ? undefined : { y: [0, -8, 0] }}
+        transition={shouldReduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
         className="relative flex flex-col items-center justify-center"
       >
         {/* Interactive Folder Node */}
-        <motion.div
+        <motion.button
+          type="button"
           onClick={onClick}
           whileHover="hover"
+          whileFocus="hover"
           initial="idle"
-          className="relative w-[340px] h-[240px] cursor-pointer"
+          aria-label="Open selected projects"
+          className="relative h-[240px] w-[340px] cursor-pointer text-left rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-workspace-accent"
           style={{ perspective: 1200 }}
         >
           {/* TILTED BADGE 1 (LEFT SIDE - 2026 EDITION) — hardcoded decorative */}
@@ -108,20 +113,7 @@ export default function MacOSFolder({
                 </div>
               ))}
               {peekCards.length === 0 && (
-                <>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-mono font-bold text-neutral-800">01. Orbit Spatial OS</span>
-                    <span className="text-[9px] font-mono text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">100% DONE</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-mono font-bold text-neutral-800">02. HMI Automotive Concept</span>
-                    <span className="text-[9px] font-mono text-workspace-accent bg-sky-50 px-1.5 py-0.5 rounded">ACTIVE</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-mono font-bold text-neutral-800">03. Cognitive AI Agent Lab</span>
-                    <span className="text-[9px] font-mono text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded">STABLE</span>
-                  </div>
-                </>
+                <span className="text-[11px] font-mono text-neutral-400">No selected projects configured</span>
               )}
             </div>
             <div className="flex items-center justify-between text-[8px] font-mono text-neutral-400 pt-2 border-t border-neutral-50">
@@ -203,18 +195,19 @@ export default function MacOSFolder({
               <div className="w-4 h-4 rounded-full border border-neutral-700" />
             </div>
           </motion.div>
-        </motion.div>
+        </motion.button>
 
         {/* DRAGGABLE / FLOATING GITHUB PROFILE CARD */}
-        <motion.div
+        <motion.a
+          href={github.url}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Open ${github.username} on GitHub in a new tab`}
           whileHover={{ scale: 1.03, y: -2 }}
           transition={{ type: "spring", stiffness: 300, damping: 18 }}
           className="absolute w-60 bg-white border border-workspace-border rounded-xl shadow-xl p-3 flex flex-col gap-2.5 cursor-pointer z-50 hover:border-neutral-300"
           style={{ right: "-90px", bottom: "-75px" }}
-          onClick={(e) => {
-            e.stopPropagation();
-            window.open(github.url, "_blank");
-          }}
+          onClick={(e) => e.stopPropagation()}
         >
           {/* Card Top Titlebar */}
           <div className="flex items-center justify-between border-b border-neutral-100 pb-2">
@@ -248,7 +241,7 @@ export default function MacOSFolder({
             <span>{github.contributionsLabel}</span>
             <span className="text-emerald-600 font-bold">{github.commits}</span>
           </div>
-        </motion.div>
+        </motion.a>
       </motion.div>
     </div>
   );

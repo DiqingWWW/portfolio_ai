@@ -1,0 +1,21 @@
+{
+  "id": "rubik-studio",
+  "title": "Rubik Studio",
+  "tags": ["ai-related", "hmi"],
+  "metadata": {
+    "type": ""
+  },
+  "descriptions": {
+    "short": "",
+    "detail": ""
+  },
+  "specs": [],
+  "tokens": [],
+  "assets": {
+    "cover": "./rubikstudio.png",
+    "coverPosition": "top",
+    "hover": "./rubikstudio.png",
+    "gallery": []
+  },
+  "detailHref": "/work/rubik-studio"
+}

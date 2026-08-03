@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { siteUrl } from "@/config/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Diqing Wu",
   },
   description:
-    "Portfolio of Diqing Wu — Product Designer & System Developer specialising in HMI, spatial UI, design systems, and AI-native interfaces.",
+    "Diqing Wu is a Product Designer & AI Builder working across automotive HMI, design systems, multimodal interaction, and AI-assisted products.",
   keywords: [
     "product designer",
     "HMI",
@@ -51,14 +52,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://diqingwu.com",
+    url: siteUrl,
     siteName: "Diqing Wu",
     title: "Diqing Wu — Product Designer + AI Builder",
     description:
-      "Portfolio of Diqing Wu — Product Designer & System Developer specialising in HMI, spatial UI, design systems, and AI-native interfaces.",
+      "Selected work by Diqing Wu across automotive HMI, design systems, content interaction, and AI-assisted product building.",
     images: [
       {
-        url: "/assets/images/orbit-spatial-os/cover.jpg",
+        url: "/assets/images/honda-hmi-design-system/cover2.png",
         width: 1200,
         height: 630,
         alt: "Diqing Wu Portfolio",
@@ -69,10 +70,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Diqing Wu — Product Designer + AI Builder",
     description:
-      "Portfolio of Diqing Wu — Product Designer & System Developer.",
-    images: ["/assets/images/orbit-spatial-os/cover.jpg"],
+      "Diqing Wu — Product Designer & AI Builder working across HMI, design systems, and AI-assisted products.",
+    images: ["/assets/images/honda-hmi-design-system/cover2.png"],
   },
-  metadataBase: new URL("https://diqingwu.com"),
+  metadataBase: new URL(siteUrl),
 };
 
 export default function RootLayout({

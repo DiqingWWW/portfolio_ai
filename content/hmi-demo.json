@@ -1,6 +1,6 @@
 {
-  "heading": "HMI Cockpit System Prototype",
-  "intro": "Active prototyping for in-vehicle instrumentation (HMI) and Head-Up Displays (HUD). This module simulates telemetry rendering, thermal climate matrices, and active lane ADAS tracking.",
+  "heading": "Interactive HMI Prototype Demo",
+  "intro": "A capability demonstration for vehicle instrumentation and feedback states. This prototype is not a shipped Honda interface; the Honda Design System case study contains the professional HMI evidence and adaptation work.",
   "gauge": {
     "speedLabel": "SPEED",
     "speedUnit": "KM/H"

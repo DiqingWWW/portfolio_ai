@@ -1,6 +1,6 @@
 {
-  "heading": "Monolith Design Tokens",
-  "intro": "Design systems are living architectures. This interactive token panel showcases the foundational colors, segmented controllers, and micro-interaction behaviors developed for Diqing's personal projects.",
+  "heading": "Interactive Design-System Capability Demo",
+  "intro": "This sandbox demonstrates token, component-state, and micro-interaction thinking. It is a capability demo, not a screen or token library from the Honda client project; open Honda Design System in Projects for the professional case study.",
   "palettes": {
     "mono": [
       { "name": "Canvas", "hex": "#F5F5F5", "usage": "Body background, minimalist layout margins" },
@@ -45,7 +45,7 @@
   },
   "kpiCards": [
     { "value": "85%+", "label": "Component Reuse", "color": "blue" },
-    { "value": "45%+", "label": "Cost Reduction", "color": "emerald" },
+    { "value": "Up to 50%", "label": "Time / Cost Saved", "color": "emerald" },
     { "value": "0 to 1", "label": "In 6 Months", "color": "amber" }
   ]
 }

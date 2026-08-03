@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Folder, ArrowRight, ChevronLeft } from "lucide-react";
+import Link from "next/link";
 import type { FolderProject } from "@/types/content";
 
 interface FolderContentProps {
@@ -11,6 +12,11 @@ interface FolderContentProps {
   backButton: string;
   designTokensLabel: string;
   projects: FolderProject[];
+  experiments: {
+    label: string;
+    description: string;
+    href: string;
+  };
 }
 
 export default function FolderContent({
@@ -19,6 +25,7 @@ export default function FolderContent({
   backButton,
   designTokensLabel,
   projects,
+  experiments,
 }: FolderContentProps) {
   const [selectedProject, setSelectedProject] = useState<FolderProject | null>(null);
 
@@ -36,23 +43,34 @@ export default function FolderContent({
             </div>
             <div className="space-y-3.5">
               {projects.map((proj) => (
-                <motion.div key={proj.id} whileHover={{ scale: 1.015, x: 4 }}
+                <motion.button type="button" key={proj.id} whileHover={{ scale: 1.015, x: 4 }}
                   onClick={() => setSelectedProject(proj)} id={`btn-project-${proj.id}`}
-                  className="p-4 bg-neutral-50 hover:bg-neutral-100/50 border border-neutral-200/60 hover:border-neutral-300 rounded-xl cursor-pointer flex justify-between items-center group transition-colors">
-                  <div className="space-y-1">
+                  className="group flex w-full cursor-pointer items-center justify-between rounded-xl border border-neutral-200/60 bg-neutral-50 p-4 text-left transition-colors hover:border-neutral-300 hover:bg-neutral-100/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent">
+                  <div className="min-w-0 space-y-1">
                     <div className="flex items-center gap-2">
                       <span className="text-[10px] font-mono text-sky-500 font-bold">{proj.num}</span>
                       <h3 className="text-sm font-bold text-neutral-800 leading-tight">{proj.title}</h3>
                     </div>
-                    <span className="block text-[10px] font-mono text-neutral-400 uppercase">{proj.type}</span>
-                    <p className="text-xs text-neutral-600 line-clamp-1 mt-1 leading-normal max-w-md">{proj.desc}</p>
+                    {proj.type && <span className="block text-[10px] font-mono text-neutral-400 uppercase">{proj.type}</span>}
+                    {proj.desc && <p className="text-xs text-neutral-600 line-clamp-1 mt-1 leading-normal max-w-md">{proj.desc}</p>}
                   </div>
                   <div className="w-8 h-8 rounded-full bg-white border border-neutral-200 flex items-center justify-center text-neutral-400 group-hover:text-neutral-800 group-hover:border-neutral-300 transition-colors shadow-sm">
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4" aria-hidden="true" />
                   </div>
-                </motion.div>
+                </motion.button>
               ))}
             </div>
+            <Link
+              href={experiments.href}
+              className="group flex items-center justify-between rounded-xl border border-dashed border-amber-300 bg-amber-50/50 p-4 transition-colors hover:bg-amber-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+            >
+              <div>
+                <span className="font-mono text-[9px] font-bold uppercase tracking-wider text-amber-700">Separate collection</span>
+                <h3 className="mt-1 text-sm font-bold text-neutral-800">{experiments.label}</h3>
+                <p className="mt-1 max-w-md text-xs leading-5 text-neutral-500">{experiments.description}</p>
+              </div>
+              <ArrowRight className="h-4 w-4 shrink-0 text-amber-700 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </Link>
           </motion.div>
         ) : (
           <motion.div key="detail" initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} className="space-y-5">
@@ -65,25 +83,33 @@ export default function FolderContent({
                 <span className="text-xs font-mono text-sky-500 font-bold">PROJECT_{selectedProject.num}</span>
                 <h2 className="text-lg font-black text-neutral-800">{selectedProject.title}</h2>
               </div>
-              <p className="text-xs font-mono text-neutral-400 uppercase">{selectedProject.type}</p>
+              {selectedProject.type && <p className="text-xs font-mono text-neutral-400 uppercase">{selectedProject.type}</p>}
             </div>
-            <p className="text-xs text-neutral-600 leading-relaxed">{selectedProject.detail}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {selectedProject.detail && <p className="text-xs text-neutral-600 leading-relaxed">{selectedProject.detail}</p>}
+            {selectedProject.specs.length > 0 && <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {selectedProject.specs.map((s, idx) => (
                 <div key={idx} className="p-3 bg-neutral-50 border border-neutral-200/60 rounded-xl space-y-1">
                   <span className="block text-[8px] font-mono text-neutral-400 uppercase leading-none">{s.label}</span>
                   <span className="block text-[11px] font-bold text-neutral-700 font-mono truncate">{s.val}</span>
                 </div>
               ))}
-            </div>
-            <div className="space-y-2">
+            </div>}
+            {selectedProject.tokens.length > 0 && <div className="space-y-2">
               <span className="text-[10px] font-mono text-neutral-400">{designTokensLabel}</span>
               <div className="flex flex-wrap gap-1.5">
                 {selectedProject.tokens.map((tok) => (
                   <span key={tok} className="px-2 py-1 bg-sky-50 text-sky-700 border border-sky-100 rounded-md font-mono text-[9px]">{tok}</span>
                 ))}
               </div>
-            </div>
+            </div>}
+            {selectedProject.detailHref && (
+              <Link
+                href={selectedProject.detailHref}
+                className="inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
+              >
+                View project <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

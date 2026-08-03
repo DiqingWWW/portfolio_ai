@@ -1,0 +1,16 @@
+{
+  "source": "字数",
+  "sourceMaster": "master/case-study-master.md",
+  "sourceHash": "efc0ef1d8dc1d73729f268f39e848c767eb26cdfc139362b6fee4695a9bc8dbc",
+  "generatedFiles": [
+    "case-study.md",
+    "vehicle-empty.png",
+    "profile-overview.png",
+    "profile-name-invalid.png",
+    "profile-nickname-invalid.png",
+    "vin-entry.png",
+    "post-overflow.png",
+    "post-topic-limit.png",
+    "comment-composer.png"
+  ]
+}

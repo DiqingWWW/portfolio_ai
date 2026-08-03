@@ -4,12 +4,15 @@ import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Gauge, Sun, Eye, ShieldCheck } from "lucide-react";
 import type { HMIDemoContent } from "@/types/content";
+import type { ProjectData } from "@/types/content";
+import ProjectEvidenceLink from "@/components/ProjectEvidenceLink";
 
 interface HMIContentProps {
   demo: HMIDemoContent;
+  project?: ProjectData;
 }
 
-export default function HMIContent({ demo }: HMIContentProps) {
+export default function HMIContent({ demo, project }: HMIContentProps) {
   const [speed, setSpeed] = useState<number>(42);
   const [temp, setTemp] = useState<number>(68);
   const [isAdasActive, setIsAdasActive] = useState<boolean>(true);
@@ -39,6 +42,7 @@ export default function HMIContent({ demo }: HMIContentProps) {
 
   return (
     <div className="space-y-6 select-text" data-component="HMIContent">
+      {project && <ProjectEvidenceLink project={project} label="Professional HMI evidence" />}
       <div className="space-y-1 border-b border-neutral-100 pb-4">
         <div className="flex items-center gap-2 text-neutral-800">
           <Gauge className="w-5 h-5 text-indigo-500" />

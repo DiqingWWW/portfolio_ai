@@ -32,9 +32,21 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.dev.vars
+
+# local visual-reference and review artifacts
+/.impeccable/
+/googleai/
+
+# local content authoring paths
+/content-sync.local.json
 
 # vercel
 .vercel
+
+# cloudflare
+.open-next/
+cloudflare-env.d.ts
 
 # typescript
 *.tsbuildinfo
