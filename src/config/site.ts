@@ -2,7 +2,7 @@
 // Visual chrome text — separate from content JSON and navigation.
 // Components import what they need; nothing in this file depends on React.
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://deethin.site";
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.deethin.site";
 
 export const siteConfig = {
   header: {

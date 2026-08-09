@@ -1,9 +1,9 @@
 # Current System
 
-Status: Current working snapshot — V1.1 release candidate
+Status: Current deployed snapshot — V1.1
 Snapshot date: 2026-08-09
-Base release: V1.1; this document describes the accepted content-pipeline and case-study
-showcase scope awaiting final Vercel domain verification and production smoke testing.
+Base release: V1.1, deployed from `main` commit `c775fd1`; this document describes the
+accepted content-pipeline and case-study showcase scope verified on the production domain.
 
 This document describes the implementation as it exists. It is descriptive, not a promise
 that every current choice should remain. Durable decisions live in
@@ -165,9 +165,9 @@ the experiential Window interface.
 ## 5. Current deployment
 
 - `vercel.json` configures the current Next.js Vercel build and Vercel remains the production
-  deployment path for this release. `https://deethin.site` is the intended production custom
-  domain; Vercel and Alibaba Cloud DNS verification is still required before it becomes the
-  confirmed public canonical URL.
+  deployment path for this release. `https://www.deethin.site` is the configured production
+  canonical domain, registered through Alibaba Cloud DNS; `https://deethin.site` redirects to
+  it.
 - `open-next.config.ts`, `wrangler.jsonc`, and `public/_headers` are an unverified future
   OpenNext/Cloudflare path; they are not the current production deployment authority.
 - `next.config.ts` contains production options and commented security-header examples.
@@ -249,12 +249,15 @@ shown by the portfolio, not the canonical source for the live workspace theme.
 
 ## 9. Verification baseline
 
-The 2026-08-08 release-preparation check ran:
+The V1.1 release verification ran on 2026-08-09:
 
 - `npm run content:sync`: synchronized Lincoln, Honda, and Portfolio Operating System;
 - `npm run lint`: 0 errors, 2 warnings (raw `<img>` and unused `basename` import);
 - `npm run build`: passed after copying 39 project assets and statically generating all public
   routes.
+- Production smoke test: `https://deethin.site` and its `www` canonical host resolved; homepage,
+  all four project routes, Experiments, responsive mobile Design System dialog, published media,
+  Open Graph URL, and index directives were confirmed.
 
 The build emits a non-blocking warning that Next.js inferred the parent `AI Projects` directory
 as the Turbopack workspace root because both parent and repository lockfiles exist.

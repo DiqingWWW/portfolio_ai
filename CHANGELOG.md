@@ -25,9 +25,12 @@
 
 ### Release and operations
 
-- Set `https://deethin.site` as the production URL fallback for canonical metadata, sitemap,
-  Open Graph, and robots output. Vercel's `NEXT_PUBLIC_SITE_URL` environment variable may
-  override it per deployment environment.
+- Deployed V1.1 from `main` commit `c775fd1` through Vercel and verified the configured Alibaba
+  Cloud domain. `https://deethin.site` redirects to the canonical
+  `https://www.deethin.site`.
+- Set `https://www.deethin.site` as the production URL fallback for canonical metadata, sitemap,
+  Open Graph, and robots output. Vercel's `NEXT_PUBLIC_SITE_URL` environment variable supplies
+  the same value for Production.
 - Kept Vercel as the only production deployment path for V1.1. Unverified OpenNext/Cloudflare
   exploration files are intentionally excluded from this release.
 - Moved private working material and Google AI archives outside the repository and protected
@@ -35,8 +38,6 @@
 
 ### Known follow-up work
 
-- Configure and verify the `deethin.site` custom domain in Vercel and Alibaba Cloud DNS, then
-  perform production desktop/mobile smoke testing.
 - Evaluate a separate China-access architecture only after the Vercel release baseline is
   verified.
 - Improve project-master narrative curation before starting a Chinese-site implementation.

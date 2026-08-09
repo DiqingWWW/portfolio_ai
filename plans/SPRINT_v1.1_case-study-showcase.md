@@ -1,6 +1,6 @@
 # Sprint v1.1 — Case Study Showcase
 
-Status: Release preparation in progress
+Status: Complete — V1.1 deployed and smoke-tested
 Sprint window: 2026-08-05 to 2026-08-18
 Owner capacity: no more than 2 hours/day
 Planning assumption: 90-minute primary sessions, with explicit catch-up and recovery time
@@ -66,8 +66,9 @@ Rules:
 - [x] Review release diff and exclude the future Cloudflare/OpenNext files from the Vercel
   release scope.
 - [x] Remove the untracked editor swap file; it is not part of the release.
-- [ ] Stage the accepted V1.1 scope, commit, and push `main`.
-- [ ] Deploy the accepted commit and complete production desktop/mobile smoke testing.
+- [x] Stage the accepted V1.1 scope, commit, and push `main`.
+- [x] Deploy the accepted commit and complete production desktop/mobile smoke testing on
+  `https://deethin.site`.
 
 ## 4. Experience principles for this sprint
 

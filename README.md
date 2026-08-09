@@ -69,17 +69,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-V1.1 deploys through Vercel. Its intended production domain is `deethin.site`, registered and
+V1.1 deploys through Vercel. Its intended production domain is `www.deethin.site`, registered and
 managed through Alibaba Cloud DNS.
 
 1. Add `deethin.site` and `www.deethin.site` to the Vercel project's **Settings → Domains**.
 2. In Alibaba Cloud DNS, create the exact apex A record and `www` CNAME Vercel displays for
    this project. Do not substitute generic values if Vercel provides project-specific records.
 3. Set the Vercel Production environment variable
-   `NEXT_PUBLIC_SITE_URL=https://deethin.site`, then redeploy after verification succeeds.
+   `NEXT_PUBLIC_SITE_URL=https://www.deethin.site`, then redeploy after verification succeeds.
 4. Confirm `/robots.txt`, `/sitemap.xml`, canonical metadata, Open Graph previews, desktop and
    mobile project routes on the deployed domain.
 
-`https://deethin.site` is also the code fallback so metadata remains coherent before the
-environment variable is configured. The Vercel deployment URL remains useful for preview and
-rollback verification, but is not the preferred public URL.
+`https://www.deethin.site` is also the code fallback so metadata remains coherent before the
+environment variable is configured. `https://deethin.site` redirects to this canonical host.
+The Vercel deployment URL remains useful for preview and rollback verification, but is not the
+preferred public URL.
