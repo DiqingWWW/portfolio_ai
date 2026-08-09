@@ -25,25 +25,38 @@ Current synchronized projects:
 
 - `字数` → `content/projects/lincoln-text-expression/`
 - `hondasystem` → `content/projects/honda-hmi-design-system/`
+- `Portfolio Websites` → `content/projects/portfolio-operating-system/`
 
 Configure machine-local absolute paths in the ignored `content-sync.local.json`, using
 `content-sync.example.json` as the portable structure. After editing either Obsidian master,
 run:
 
 ```bash
-npm run content:text-expression
+npm run content:sync
 ```
 
-The command updates each repository `case-study.md`, copies its approved assets, records the
-master hash in `source-manifest.json`, and regenerates interview pitch/appendix files inside
-the corresponding Obsidian `generated/` folder. Generated files are not authoring sources.
+`npm run content:text-expression` remains as a backward-compatible alias.
+
+The command copies approved assets, records the master hash in `source-manifest.json`, and
+regenerates interview pitch/appendix files inside the corresponding Obsidian `generated/`
+folder. Generated files are not authoring sources.
+
+Repository output depends on the project's configured authoring format:
+
+- `curation-tags` projects generate `case-study.selection.json`. Localized
+  `case-study.en.ts` / `case-study.zh.ts` modules curate and translate those approved source
+  units for the website; no duplicate repository narrative Markdown is generated.
+
+All currently published text-led projects use this curation-tag workflow.
 
 This synchronization prepares content; it does not automatically register a project in the
 current homepage manifest or publish it to a route.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The homepage implementation lives in `src/app/page.tsx`. Project case studies use their own
+localized content modules and page components under `src/components/case-study/`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses [`next/font`](https://nextjs.org/docs/app/getting-started/fonts) to load Inter
+and JetBrains Mono.
 
 ## Learn More
 
@@ -56,6 +69,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+V1.1 deploys through Vercel. Its intended production domain is `deethin.site`, registered and
+managed through Alibaba Cloud DNS.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Add `deethin.site` and `www.deethin.site` to the Vercel project's **Settings → Domains**.
+2. In Alibaba Cloud DNS, create the exact apex A record and `www` CNAME Vercel displays for
+   this project. Do not substitute generic values if Vercel provides project-specific records.
+3. Set the Vercel Production environment variable
+   `NEXT_PUBLIC_SITE_URL=https://deethin.site`, then redeploy after verification succeeds.
+4. Confirm `/robots.txt`, `/sitemap.xml`, canonical metadata, Open Graph previews, desktop and
+   mobile project routes on the deployed domain.
+
+`https://deethin.site` is also the code fallback so metadata remains coherent before the
+environment variable is configured. The Vercel deployment URL remains useful for preview and
+rollback verification, but is not the preferred public URL.

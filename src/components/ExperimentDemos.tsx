@@ -14,9 +14,9 @@ const demos = [
 export default function ExperimentDemos() {
   return (
     <section className="mx-auto max-w-6xl px-5 pb-24 sm:px-8">
-      <div className="border-t border-workspace-border pt-16">
+      <div className="pt-16">
         <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Interactive prototypes · 03</p>
-        <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] sm:text-5xl">Capability demos</h2>
+        <h2 className="page-heading-2 mt-3">Capability demos</h2>
         <p className="mt-5 max-w-3xl text-base leading-7 text-neutral-600">These runnable prototypes demonstrate interaction and implementation exploration. They are not professional project evidence or representations of shipped client interfaces.</p>
       </div>
       <div className="mt-10 grid gap-8">

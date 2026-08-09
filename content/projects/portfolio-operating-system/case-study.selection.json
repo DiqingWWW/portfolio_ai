@@ -1,0 +1,70 @@
+{
+  "sourceTitle": "从 AI 生成网站，到建立 Portfolio Operating System",
+  "sourceMaster": "01_master/master.md",
+  "units": [
+    {
+      "id": "pos-hero-01",
+      "selection": "core",
+      "visualIntent": "Outcome",
+      "visualFormat": "Portfolio reconstruction",
+      "role": "establish the current product and the system-level thesis"
+    },
+    {
+      "id": "pos-hero-02",
+      "selection": "core",
+      "visualIntent": "Outcome",
+      "visualFormat": "Result dashboard",
+      "role": "preview only the currently defensible outputs"
+    },
+    {
+      "id": "pos-decision-01",
+      "selection": "core",
+      "visualIntent": "Decision proof",
+      "visualFormat": "Comparison",
+      "role": "show the first consequential workflow decision"
+    },
+    {
+      "id": "pos-decision-02",
+      "selection": "core",
+      "visualIntent": "Before / After",
+      "visualFormat": "Original screenshot",
+      "role": "use the first working version as the transition from page output to maintainable product"
+    },
+    {
+      "id": "pos-product-01",
+      "selection": "supporting",
+      "visualIntent": "System map",
+      "visualFormat": "Architecture diagram",
+      "role": "explain how a working prototype became a maintained product"
+    },
+    {
+      "id": "pos-os-01",
+      "selection": "core",
+      "visualIntent": "System map",
+      "visualFormat": "Architecture diagram",
+      "role": "show the third decision and the resulting operating model"
+    },
+    {
+      "id": "pos-results-01",
+      "selection": "core",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "Result dashboard",
+      "role": "close on outcomes, designer contribution, and unresolved work"
+    },
+    {
+      "id": "pos-assets-01",
+      "selection": "appendix",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "Asset register",
+      "role": "govern every approved visual from one source"
+    },
+    {
+      "id": "pos-todo-01",
+      "selection": "appendix",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "TODO",
+      "role": "keep missing facts outside public conclusions"
+    }
+  ],
+  "mindmaps": []
+}

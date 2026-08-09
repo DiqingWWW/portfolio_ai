@@ -19,7 +19,16 @@
   --color-heading-3: #303030;
   --font-weight-heading-3: 700;
   --letter-spacing-heading-3: -0.01em;
+  --letter-spacing-heading-4: 0;
   --color-heading-inverse: #FFFFFF;
+  --type-page-h1-size: 60px;
+  --type-page-h1-line-height: 1.04;
+  --type-page-h2-size: 42px;
+  --type-page-h2-line-height: 1.1;
+  --type-page-h3-size: 32px;
+  --type-page-h3-line-height: 1.18;
+  --type-page-h4-size: 18px;
+  --type-page-h4-line-height: 1.45;
 }
 
 h1 {
@@ -46,7 +55,60 @@ h3 {
   letter-spacing: var(--letter-spacing-heading-3) !important;
 }
 
-:is(.bg-workspace-text, .bg-neutral-900, .bg-neutral-950) :is(h1, h2, h3) {
+h4 {
+  color: var(--color-heading-3) !important;
+  font-weight: 700 !important;
+  letter-spacing: var(--letter-spacing-heading-4) !important;
+}
+
+/* Shared page-level hierarchy. Compact window and card headings use local component type. */
+.page-heading-1 {
+  font-size: var(--type-page-h1-size) !important;
+  line-height: var(--type-page-h1-line-height) !important;
+}
+
+.page-heading-2 {
+  font-size: var(--type-page-h2-size) !important;
+  line-height: var(--type-page-h2-line-height) !important;
+}
+
+.page-heading-3 {
+  font-size: var(--type-page-h3-size) !important;
+  line-height: var(--type-page-h3-line-height) !important;
+}
+
+.page-heading-4 {
+  font-size: var(--type-page-h4-size) !important;
+  font-weight: 700 !important;
+  line-height: var(--type-page-h4-line-height) !important;
+}
+
+/* Global case-study roles choose a visual tier independently from the semantic heading tag. */
+.case-study-title {
+  color: var(--color-heading-2) !important;
+  font-size: var(--type-page-h2-size) !important;
+  font-weight: var(--font-weight-heading-2) !important;
+  letter-spacing: var(--letter-spacing-heading-2) !important;
+  line-height: var(--type-page-h2-line-height) !important;
+}
+
+.case-study-section-title {
+  color: var(--color-heading-3) !important;
+  font-size: var(--type-page-h3-size) !important;
+  font-weight: var(--font-weight-heading-3) !important;
+  letter-spacing: var(--letter-spacing-heading-3) !important;
+  line-height: var(--type-page-h3-line-height) !important;
+}
+
+.case-study-subsection-title {
+  color: var(--color-heading-3) !important;
+  font-size: var(--type-page-h4-size) !important;
+  font-weight: 700 !important;
+  letter-spacing: var(--letter-spacing-heading-4) !important;
+  line-height: var(--type-page-h4-line-height) !important;
+}
+
+:is(.bg-workspace-text, .bg-neutral-800, .bg-neutral-900, .bg-neutral-950) :is(h1, h2, h3, h4) {
   color: var(--color-heading-inverse) !important;
 }
 
@@ -72,4 +134,25 @@ body:has(.case-study-page) {
   background-image:
     linear-gradient(to right, var(--color-workspace-grid) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-workspace-grid) 1px, transparent 1px);
+}
+
+@keyframes mobile-header-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 1.25rem)); }
+}
+
+@media (max-width: 767px) {
+  .mobile-header-marquee-track {
+    animation: mobile-header-marquee 18s linear infinite;
+  }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .mobile-header-marquee-track {
+    animation: none;
+  }
+
+  .mobile-header-marquee {
+    text-overflow: ellipsis;
+  }
 }

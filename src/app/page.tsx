@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { Sparkles, ArrowDown, User, Layers, Gauge, Cpu, RotateCcw, X } from "lucide-react";
+import { Sparkles, ArrowDown, RotateCcw, X } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
 import FloatingWindow from "@/components/FloatingWindow";
@@ -11,6 +11,7 @@ import MacOSFolder from "@/components/MacOSFolder";
 import AboutMeContent from "@/components/AboutMeContent";
 import RealProjectsContent from "@/components/RealProjectsContent";
 import WorkSection from "@/components/WorkSection";
+import LandingFooter from "@/components/LandingFooter";
 import LoadingIntro from "@/components/LoadingIntro";
 import FolderContent from "@/components/FolderContent";
 import HoverImage from "@/components/Hover/HoverImage";
@@ -102,6 +103,7 @@ export default function Home() {
   const [topZIndex, setTopZIndex] = useState<number>(10);
   const [layoutVersion, setLayoutVersion] = useState(0);
   const [isMobileViewport, setIsMobileViewport] = useState(false);
+  const [selectedCapability, setSelectedCapability] = useState<string | null>(null);
 
   const focusWindow = useCallback((id: string) => {
     setTopZIndex((currentTop) => {
@@ -194,19 +196,24 @@ export default function Home() {
   const activeMobileWindow = activeMobileWindowId ? getMobileWindowContent(activeMobileWindowId) : null;
 
   return (
-    <main data-component="Page" className="relative min-h-screen w-full overflow-x-hidden bg-workspace-bg text-workspace-text font-sans">
+    <main data-component="Page" className="relative min-h-screen w-full overflow-x-clip bg-workspace-bg text-workspace-text font-sans">
       <LoadingIntro />
-      <section ref={workspaceRef} className="relative h-screen w-full overflow-hidden bg-workspace-bg">
+      <section id="skills" ref={workspaceRef} className="relative w-full overflow-visible bg-workspace-bg md:h-screen md:overflow-hidden">
       {/* Figma-like Canvas Substrate Grid */}
       <div className="absolute inset-0 grid-bg pointer-events-none opacity-80 z-0" />
 
       {/* ---- HEADER BAR ---- */}
-      <div className="absolute top-0 inset-x-0 min-h-14 border-b border-workspace-border/50 flex justify-between items-start gap-6 px-5 py-3 text-[10px] font-mono tracking-widest text-workspace-muted uppercase z-30 select-none bg-workspace-bg/80 backdrop-blur-sm sm:px-10 sm:text-[11px]">
-        <div className="flex max-w-[calc(100%-5rem)] items-start gap-2 leading-4">
-          <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-workspace-accent animate-pulse" />
-          <span>{siteConfig.header.left}</span>
+      <div className="absolute top-0 inset-x-0 flex h-11 items-center justify-between gap-3 overflow-hidden border-b border-workspace-border/50 bg-workspace-bg/95 px-5 text-[10px] font-mono uppercase tracking-widest text-workspace-muted backdrop-blur-sm z-30 select-none sm:px-10 sm:text-[11px] md:h-auto md:min-h-14 md:items-start md:gap-6 md:py-3 md:bg-workspace-bg/80">
+        <div className="flex min-w-0 flex-1 items-center gap-2 overflow-hidden leading-4 md:max-w-[calc(100%-5rem)] md:items-start md:overflow-visible">
+          <span className="h-2 w-2 shrink-0 rounded-full bg-workspace-accent animate-pulse md:mt-1" />
+          <div className="mobile-header-marquee min-w-0 overflow-hidden md:overflow-visible">
+            <div className="mobile-header-marquee-track flex w-max whitespace-nowrap md:block md:w-auto md:whitespace-normal">
+              <span>{siteConfig.header.left}</span>
+              <span className="pl-10 md:hidden" aria-hidden="true">{siteConfig.header.left}</span>
+            </div>
+          </div>
         </div>
-        <div className="pt-0.5">{siteConfig.header.year}</div>
+        <div className="shrink-0 md:pt-0.5">{siteConfig.header.year}</div>
       </div>
 
       {/* ---- GIANT WATERMARK ---- */}
@@ -584,42 +591,48 @@ export default function Home() {
       {/* ------------------------------------ */}
       {/* MOBILE CANVAS & ADAPTIVE VIEW        */}
       {/* ------------------------------------ */}
-      <div className="md:hidden flex flex-col h-full overflow-y-auto p-6 z-10 relative">
-        <div className="pt-8 pb-6 border-b border-workspace-border select-text">
-          <h1 className="text-5xl font-sans tracking-tight text-workspace-text leading-tight">
+      <div className="md:hidden relative z-10 flex flex-col overflow-visible px-6 pb-0 pt-14">
+        <div className="mt-[60px] flex h-[290px] items-start justify-center">
+          <div className="origin-top scale-90">
+            <MacOSFolder onClick={() => openWindow("projects")}
+              folderTitle={navigation.folderBadge === "WORKSPACE" ? "diqing_wu_projects" : navigation.folderHeading}
+              folderInstruction={navigation.folderInstruction}
+              folderBadge={navigation.folderBadge}
+              peekCards={navigation.peekCards}
+              github={profile.github}
+            />
+          </div>
+        </div>
+        <div className="mt-8 pb-7 select-text">
+          <h1 className="page-heading-1 font-sans text-workspace-text">
             {profile.heroPrefix}<span className="font-bold">{profile.name.first}</span>
           </h1>
-          <p className="text-xl font-sans font-light text-workspace-muted mt-1">{profile.heroSubtitleMobile}</p>
-          <p className="text-[10px] font-mono text-workspace-muted mt-2.5">{navigation.tagline}</p>
-        </div>
-        <div className="py-8 flex flex-col items-center justify-center gap-4">
-          <MacOSFolder onClick={() => openWindow("projects")}
-            folderTitle={navigation.folderBadge === "WORKSPACE" ? "diqing_wu_projects" : navigation.folderHeading}
-            folderInstruction={navigation.folderInstruction}
-            folderBadge={navigation.folderBadge}
-            peekCards={navigation.peekCards}
-            github={profile.github}
-          />
-          <a href="#work" className="mt-12 inline-flex min-h-11 items-center gap-2 rounded-lg bg-workspace-text px-4 py-2.5 text-xs font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent">
+          <p className="mt-1 text-xl font-light text-workspace-muted">{profile.heroSubtitleMobile}</p>
+          <p className="mt-2.5 text-[10px] font-mono text-workspace-muted">{navigation.tagline}</p>
+          <a href="#work" className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg bg-workspace-text px-4 py-2.5 text-xs font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent">
             {navigation.viewSelectedWork}<ArrowDown className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
-        <div className="border-t border-workspace-border py-6">
-          <h2 className="mb-4 text-sm font-bold text-workspace-text">{navigation.exploreCapabilities}</h2>
-          <div className="grid grid-cols-2 gap-3.5">
-          <button onClick={() => openWindow("about")} className="p-4 bg-white border border-workspace-border rounded-xl flex flex-col justify-between min-h-24 text-left hover:border-workspace-accent/40 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent">
-            <User className="w-5 h-5 text-sky-500" /><span className="text-xs font-bold text-workspace-text">{aboutTag?.tag.label}</span></button>
-          <button onClick={() => openWindow("ds")} className="p-4 bg-white border border-workspace-border rounded-xl flex flex-col justify-between min-h-24 text-left hover:border-workspace-accent/40 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent">
-            <Layers className="w-5 h-5 text-indigo-500" /><span className="text-xs font-bold text-workspace-text">{dsTag?.tag.label}</span></button>
-          <button onClick={() => openWindow("hmi")} className="p-4 bg-white border border-workspace-border rounded-xl flex flex-col justify-between min-h-24 text-left hover:border-workspace-accent/40 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent">
-            <Gauge className="w-5 h-5 text-emerald-500" /><span className="text-xs font-bold text-workspace-text">{hmiTag?.tag.label}</span></button>
-          <button onClick={() => openWindow("ai")} className="p-4 bg-white border border-workspace-border rounded-xl flex flex-col justify-between min-h-24 text-left hover:border-workspace-accent/40 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent">
-            <Cpu className="w-5 h-5 text-amber-500 animate-pulse" /><span className="text-xs font-bold text-workspace-text">{aiTag?.tag.label}</span></button>
-          </div>
-        </div>
       </div>
       </section>
+      <nav aria-label={navigation.exploreCapabilities} className="sticky top-0 z-40 bg-workspace-bg/95 px-5 backdrop-blur-sm md:hidden">
+        <div className="mx-auto flex max-w-full items-center gap-5 overflow-x-auto">
+          {[
+            { id: "about", label: aboutTag?.tag.label },
+            { id: "ds", label: dsTag?.tag.label },
+            { id: "hmi", label: hmiTag?.tag.label },
+            { id: "ai", label: aiTag?.tag.label },
+          ].map((item) => (
+            <button key={item.id} type="button" onClick={() => { setSelectedCapability(item.id); openWindow(item.id); }}
+              aria-pressed={selectedCapability === item.id}
+              className={`relative min-h-11 shrink-0 px-0.5 text-sm font-normal whitespace-nowrap text-workspace-text transition-colors after:absolute after:inset-x-0 after:bottom-1 after:h-px after:origin-left after:bg-workspace-text after:transition-transform hover:text-workspace-accent focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-workspace-accent ${selectedCapability === item.id ? "after:scale-x-100" : "after:scale-x-0"}`}>
+              {item.label}
+            </button>
+          ))}
+        </div>
+      </nav>
       <WorkSection projects={getAllProjects()} />
+      <LandingFooter content={navigation.landingFooter} />
       {isMobileViewport && createPortal(
         <AnimatePresence>
           {activeMobileWindowId && activeMobileWindow && (

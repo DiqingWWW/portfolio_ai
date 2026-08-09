@@ -1,9 +1,9 @@
 {
   "source": "hondasystem",
-  "sourceMaster": "master/case-study-master.md",
-  "sourceHash": "82d0827386e9ad836131103a5c818d69b3ab277068dce303fcca9f53f7390fd9",
+  "sourceMaster": "01_master/master.md",
+  "sourceHash": "23b02001341c59992c33a2987ba5a6f8066cce501c53fcf7c43e9de3f85701a2",
   "generatedFiles": [
-    "case-study.md",
+    "case-study.selection.json",
     "cover1.png",
     "cover2.png",
     "visual-language_CN.jpg",

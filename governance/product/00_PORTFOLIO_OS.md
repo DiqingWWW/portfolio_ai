@@ -134,6 +134,30 @@ needs and introduced incrementally.
 - One authoritative source should drive each piece of public content where practical;
   duplicated labels and metadata should be reduced deliberately, not through broad rewrites.
 
+### Case-study evidence narratives
+
+**Canonical:** A published case study is a scrolling visual evidence narrative. It may use
+pitch-deck discipline—outcome-first hierarchy, concise proof, visual cadence, and explicit
+takeaways—but it is not required to become a slide sequence or a universal case-study
+template.
+
+- Each project has one factual content master that owns its complete narrative, evidence
+  boundaries, provenance, and internal TODOs.
+- The master records a viewing goal, proof priorities, website inclusion, visual intent, and
+  evidence status for material considered for public presentation.
+- A localized web-content module is a selected, translated expression of the factual master;
+  it cannot become an independent source of facts.
+- A project may compose different semantic narrative units according to the work being shown.
+  These units describe a reader-facing purpose—such as an outcome, decision, capability map,
+  scenario, or result—not a mandatory visual section sequence.
+- Data visualizations, diagrams, process maps, and generated explanatory visuals may clarify
+  verified evidence. They must not fabricate, strengthen, or obscure a claim's evidence
+  boundary.
+
+The detailed authoring and implementation contract is maintained in
+`governance/project-content/00_PROJECT_CONTENT_PIPELINE.md`. Its project-specific patterns
+may evolve through owner-approved work without becoming a universal page template.
+
 ## 6. Design philosophy and language principles
 
 ### Why the homepage is a workspace
@@ -239,7 +263,8 @@ does not authorize implementation in unrelated tasks.
 
 ## 10. Decision governance
 
-- `PORTFOLIO_OS.md` owns durable product, design, content, and engineering boundaries.
+- `governance/product/00_PORTFOLIO_OS.md` owns durable product, design, content, and
+  engineering boundaries.
 - `CURRENT_SYSTEM.md` owns factual descriptions of the current implementation.
 - `MIGRATION_PLAN_*.md` owns temporary execution sequencing and is archived when complete.
 - `AGENTS.md` owns cross-tool AI working rules.

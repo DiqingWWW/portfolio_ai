@@ -1,11 +1,13 @@
 # Current System
 
-Status: V0.2 working snapshot
-Snapshot date: 2026-08-02
-Base commit inspected: `625f07d7151a814a4f881a8be2edb94a09053e72`
+Status: Current working snapshot — V1.1 release candidate
+Snapshot date: 2026-08-09
+Base release: V1.1; this document describes the accepted content-pipeline and case-study
+showcase scope awaiting final Vercel domain verification and production smoke testing.
 
 This document describes the implementation as it exists. It is descriptive, not a promise
-that every current choice should remain. Durable decisions live in `PORTFOLIO_OS.md`; the
+that every current choice should remain. Durable decisions live in
+`governance/product/00_PORTFOLIO_OS.md`; the
 full snapshot audit lives in `audits/engineering-audit-v0.2-2026-08-01.md`.
 
 ## 1. Application architecture
@@ -21,8 +23,8 @@ full snapshot audit lives in `audits/engineering-audit-v0.2-2026-08-01.md`.
   `/work/honda-hmi-design-system`, `/work/lincoln-text-expression`, and
   `/work/portfolio-operating-system`, plus the image-only Rubik Studio project route at
   `/work/rubik-studio`.
-- There are no API routes, route-level loading states, or error boundaries. The portfolio
-  case study is currently a single isolated route rather than a shared project-route system.
+- There are no API routes, route-level loading states, or error boundaries. The three primary
+  case-study routes have dedicated page compositions rather than one shared generic renderer.
 
 ```text
 JSON content
@@ -125,19 +127,36 @@ Project images live with source project content. A prebuild script deletes and r
 `public/assets/images`, copying supported media from every project directory. Runtime asset
 helpers then resolve relative project paths into public URLs.
 
-Two real-project case-study packages are also synchronized from external Obsidian authoring
-folders: `字数` to `content/projects/lincoln-text-expression/`, and `hondasystem` to
-`content/projects/honda-hmi-design-system/`. A local multi-project configuration drives
-`npm run content:text-expression`, which generates the repository case-study copy, copies
-approved assets, records a source hash, and updates derived pitch/appendix files in Obsidian.
-These synchronized packages now supply the homepage project manifest and static case-study
-routes. Their concise `project.json` records drive discovery and link to the longer pages.
+Three real-project packages are synchronized from external Obsidian authoring folders:
+`字数`, `hondasystem`, and `Portfolio Websites`. A local multi-project configuration drives
+`npm run content:sync`, which reads each approved `01_master/master.md`, copies approved assets,
+records a source hash, updates derived pitch/appendix files in Obsidian, and generates a
+`case-study.selection.json` manifest in the repository.
 
-The portfolio-building project has a separate Chinese editorial master, English website
-content, evidence manifest, and prototype asset in
-`content/projects/portfolio-operating-system/`. Its English display is statically rendered
-at `/work/portfolio-operating-system`. It is connected to the homepage project manifest but
-does not establish a universal schema for the other case studies.
+Each project keeps a JSX-free localized content module—currently `case-study.en.ts`; future
+Chinese pages will use `case-study.zh.ts`. The TypeScript modules select and translate source
+units from the manifest while retaining source IDs. Project-specific components compose these
+modules into the corresponding route:
+
+```text
+Obsidian master
+  → content:sync
+  → case-study.selection.json + approved assets
+  → case-study.en.ts
+  → project-specific TSX page
+```
+
+Honda, Lincoln, and Portfolio Operating System now use this curation-tag pipeline. The older
+repository `case-study.md`, `case-study.en.tsx`, and Portfolio OS `website.en.json` artifacts
+were intentionally removed after route references migrated to the new modules. Their concise
+`project.json` records continue to drive homepage discovery and links.
+
+The portfolio-building project follows the same numbered authoring structure:
+`01_master` is its sole factual master, `02_sections` holds source-ID composition briefs,
+`03_references` preserves historical inputs, and `04_assets` owns approved source media. Its
+repository package contains a source-selection manifest, a JSX-free English content module,
+approved publication assets, and a dedicated page at `/work/portfolio-operating-system`. It
+does not establish a universal composition for other project pages.
 
 The homepage now continues below the full-height workspace into a conventional selected-work
 section containing all four real projects. This provides a direct scanning path alongside
@@ -145,12 +164,12 @@ the experiential Window interface.
 
 ## 5. Current deployment
 
-- `vercel.json` configures a Next.js Vercel build.
-- `open-next.config.ts` and `wrangler.jsonc` configure an OpenNext/Cloudflare path.
-- `public/_headers` is present in the working tree.
-- The audited base commit describes a Cloudflare Pages/static-export change, while current
-  uncommitted configuration also includes deployment changes.
-- The canonical production platform is not documented consistently.
+- `vercel.json` configures the current Next.js Vercel build and Vercel remains the production
+  deployment path for this release. `https://deethin.site` is the intended production custom
+  domain; Vercel and Alibaba Cloud DNS verification is still required before it becomes the
+  confirmed public canonical URL.
+- `open-next.config.ts`, `wrangler.jsonc`, and `public/_headers` are an unverified future
+  OpenNext/Cloudflare path; they are not the current production deployment authority.
 - `next.config.ts` contains production options and commented security-header examples.
 
 ## 6. Current design tokens and visual foundations
@@ -168,9 +187,20 @@ Global `@theme` variables currently define:
 | Grid | `rgba(26, 26, 26, 0.02)` |
 | Sans | Inter |
 | Mono | JetBrains Mono |
+| Page H1 | `60px` |
+| Page H2 | `42px` |
+| Page H3 | `32px` |
+| Page H4 | `18px`, bold |
 
-Spacing, radii, shadows, typography scale, z-depth, and most motion values remain inline
-Tailwind/JS choices. Components also use neutral, sky, indigo, emerald, amber, and literal
+Page-level visual roles are shared through `page-heading-1` to `page-heading-4` at 60px, 42px,
+32px, and 18px bold. They are never redefined by page scope. Case-study pages keep semantic
+H1/H2/H3 markup while applying the global `case-study-title`, `case-study-section-title`, and
+`case-study-subsection-title` composition roles. Those roles render actual H2/H3/H4 elements and
+use the complete corresponding styles, including size, line height, weight, and tracking. By
+owner choice, case-study outlines begin at H2; the 60px H1 role remains available for future
+surfaces that explicitly need it. Compact window, card, and control typography remains local.
+Spacing, radii, shadows, the remaining typography scale, z-depth, and most motion values remain
+inline Tailwind/JS choices. Components also use neutral, sky, indigo, emerald, amber, and literal
 colors outside the small workspace token set.
 
 `content/design-tokens.json` drives the Monolith demonstration and KPI cards. It is content
@@ -191,9 +221,9 @@ shown by the portfolio, not the canonical source for the live workspace theme.
 
 1. Oversized homepage client boundary and orchestration component.
 2. Incomplete semantic and keyboard accessibility for the window/folder system.
-3. Current ESLint failure in `AIContent` from synchronous effect state updates.
-4. Raw `<img>` warning and unused asset-script import warning.
-5. No automated tests or visual regression setup.
+3. Raw `<img>` warning in `HoverImage` and unused `basename` import warning in the asset-copy
+   script; current lint has no errors.
+4. No automated tests or visual regression setup.
 
 ### Medium priority
 
@@ -210,19 +240,21 @@ shown by the portfolio, not the canonical source for the live workspace theme.
 
 ### Documentation/configuration drift
 
-- Root README remains create-next-app boilerplate.
+- README retains standard Next.js boilerplate below its project-specific setup and content-sync
+  instructions.
 - Site/navigation content contains duplicated or unused fields.
-- Loader comments do not match manual project discovery.
-- V0.2 and `package.json` version `0.1.0` are not synchronized.
-- Vercel and Cloudflare responsibilities are not clearly distinguished.
+- `package.json` now records the V1.1 release version. The project does not create Git tags for
+  minor releases.
+- The prospective Cloudflare path has not yet been validated against the Vercel deployment.
 
 ## 9. Verification baseline
 
-The 2026-08-01 audit ran ESLint using the bundled workspace Node runtime. Result:
+The 2026-08-08 release-preparation check ran:
 
-- 1 error: synchronous state update inside an effect in `AIContent.tsx`.
-- 1 warning: raw `<img>` use in `HoverImage.tsx`.
-- 1 warning: unused `basename` import in `copy-project-assets.mjs`.
+- `npm run content:sync`: synchronized Lincoln, Honda, and Portfolio Operating System;
+- `npm run lint`: 0 errors, 2 warnings (raw `<img>` and unused `basename` import);
+- `npm run build`: passed after copying 39 project assets and statically generating all public
+  routes.
 
-A production build was not run during the read-only audit because the prebuild script
-deletes and reconstructs generated public assets.
+The build emits a non-blocking warning that Next.js inferred the parent `AI Projects` directory
+as the Turbopack workspace root because both parent and repository lockfiles exist.

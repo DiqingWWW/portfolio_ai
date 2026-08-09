@@ -1,51 +1,11 @@
 {
   "source": "Portfolio Websites",
-  "sourceFiles": [
-    {
-      "path": "Storyline.md",
-      "sha256": "b790c93895561da4f4593460a6954c46915bc28ff436a1d5e76012bfa8439c2f",
-      "role": "Project-specific narrative evidence"
-    },
-    {
-      "path": "Turning an End-to-End Website Build into a Portfolio Case Study.md",
-      "sha256": "92b560b70f16821a4b0d861bd858910ef2bfeed292e67de8a371fd1a01f14128",
-      "role": "Editorial guidance; generic assumptions are not treated as project facts"
-    },
-    {
-      "path": "第一次可运行版本截图.png",
-      "sha256": "9124dbc11b50bf335ac6b549b0ed69f20d659d30a72ced1f2f3e719c86370c18",
-      "role": "First working prototype evidence"
-    }
-  ],
-  "repositoryEvidence": {
-    "firstCommit": "14f7e84",
-    "firstCommitDate": "2026-06-26",
-    "contentArchitectureCommit": "ff2cfd1",
-    "contentArchitectureDate": "2026-06-28"
-  },
-  "derivedAssets": [
-    {
-      "path": "portfolio-workspace-laptop-mockup-v1.png",
-      "sha256": "829d63d9b552809eae2d57ebd490b4149b2e823de7866bb256e60c9599d39e6f",
-      "role": "Portfolio reconstruction used as the website cover; not source evidence"
-    }
-  ],
-  "narrativeVersions": {
-    "master": "case-study.md",
-    "website": "website.en.json",
-    "discoverySummary": "project.json",
-    "websiteCoverage": "The website version retains all 10 major story movements at condensed depth and targets roughly 80% of the master's publishable narrative; the media inventory, evidence administration, and editorial TODO remain master-only."
-  },
+  "sourceMaster": "01_master/master.md",
+  "sourceHash": "05bb88a26af9e9ebc584252117275ea5272ba374b8c48dbeaf916e1ec02f78bc",
   "generatedFiles": [
-    "case-study.md",
-    "website.en.json",
-    "project.json",
+    "case-study.selection.json",
+    "cover.png",
     "first-working-prototype.png",
     "portfolio-workspace-laptop-mockup-v1.png"
-  ],
-  "evidenceLimitations": [
-    "Early AI Studio source code was not retained.",
-    "Failed visual replacement comparisons were not retained.",
-    "AI conversations are dispersed and are not used as primary public evidence."
   ]
 }

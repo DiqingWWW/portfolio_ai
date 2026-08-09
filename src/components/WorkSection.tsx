@@ -7,14 +7,14 @@ import type { ProjectData } from "@/types/content";
 export default function WorkSection({ projects }: { projects: ProjectData[] }) {
   const projectCount = String(projects.length).padStart(2, "0");
   return (
-    <section id="work" className="relative z-10 min-h-screen border-t border-workspace-border bg-workspace-bg px-5 py-20 text-workspace-text sm:px-8 lg:px-12 lg:py-28">
+    <section id="work" className="relative z-10 min-h-screen bg-workspace-bg px-5 py-20 text-workspace-text sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 border-b border-workspace-border pb-12 lg:grid-cols-[1fr_1fr] lg:items-end">
+        <div className="max-w-4xl space-y-6 pb-12">
           <div>
             <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-workspace-accent">Selected work · {projectCount} projects</p>
-            <h2 className="mt-4 text-5xl font-black leading-none tracking-[-0.04em] sm:text-7xl">Real work,<br />clearly presented.</h2>
+            <h2 className="page-heading-2 mt-4">Real work,<br />clearly presented.</h2>
           </div>
-          <p className="max-w-xl text-base leading-7 text-neutral-600 lg:justify-self-end">Professional and independent projects are separated from experiments. Each case study focuses on context, decisions, contribution, evidence, and honest limitations.</p>
+          <p className="max-w-xl text-base leading-7 text-neutral-600">Professional and independent projects are separated from experiments. Each case study focuses on context, decisions, contribution, evidence, and honest limitations.</p>
         </div>
         <div className="grid gap-6 py-10 md:grid-cols-2 xl:grid-cols-4">
           {projects.map((project, index) => (

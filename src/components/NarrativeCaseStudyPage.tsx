@@ -43,18 +43,14 @@ function ProjectFigure({ projectId, block }: { projectId: string; block: Extract
   );
 }
 
-function isWideMedia(src: string) {
-  return /system-architecture|laptop-mockup|cover[12]|first-working-prototype/i.test(src);
-}
-
 function renderBlock(block: NarrativeBlock, projectId: string, key: string) {
   if (block.type === "heading") {
-    if (block.level === 1) return <h1 key={key} className="max-w-5xl text-4xl font-bold leading-[1.06] tracking-[-0.025em] text-[#303030] sm:text-6xl lg:text-7xl">{renderInline(block.text)}</h1>;
-    if (block.level === 2) return <h2 key={key} className="max-w-4xl pt-8 text-2xl font-semibold leading-tight tracking-[-0.015em] text-[#303030] sm:text-4xl">{renderInline(block.text)}</h2>;
-    return <h3 key={key} className="max-w-3xl pt-4 text-xl font-bold leading-snug tracking-[-0.01em] text-[#303030] sm:text-2xl">{renderInline(block.text)}</h3>;
+    if (block.level === 1) return <h2 key={key} className="case-study-title max-w-5xl text-[#303030]">{renderInline(block.text)}</h2>;
+    if (block.level === 2) return <h3 key={key} className="case-study-section-title max-w-4xl pt-8 text-[#303030]">{renderInline(block.text)}</h3>;
+    return <h4 key={key} className="case-study-subsection-title max-w-3xl pt-4 text-[#303030]">{renderInline(block.text)}</h4>;
   }
   if (block.type === "paragraph") return <p key={key} className="max-w-[72ch] text-base leading-8 text-neutral-600 sm:text-lg sm:leading-9">{renderInline(block.text)}</p>;
-  if (block.type === "quote") return <blockquote key={key} className="max-w-4xl border-y border-workspace-border py-5 text-xl font-medium leading-8 text-neutral-700 sm:text-2xl sm:leading-9">{renderInline(block.text)}</blockquote>;
+  if (block.type === "quote") return <blockquote key={key} className="max-w-4xl rounded-2xl bg-[#e9e6e1] p-6 text-xl font-medium leading-8 text-neutral-700 sm:text-2xl sm:leading-9">{renderInline(block.text)}</blockquote>;
   if (block.type === "image") return <ProjectFigure key={key} projectId={projectId} block={block} />;
   if (block.type === "list") {
     const List = block.ordered ? "ol" : "ul";
@@ -115,23 +111,6 @@ function NarrativeFlow({
         </div>,
       );
       index = imageIndex - 1;
-      continue;
-    }
-
-    if (block.type === "image" && next?.type === "image") {
-      output.push(<div key={`media-pair-${index}`} className="grid gap-5 sm:grid-cols-2"><ProjectFigure projectId={projectId} block={block} /><ProjectFigure projectId={projectId} block={next} /></div>);
-      index += 1;
-      continue;
-    }
-
-    if (block.type === "paragraph" && next?.type === "image" && !isWideMedia(next.src)) {
-      output.push(
-        <div key={`text-media-${index}`} className="grid items-start gap-7 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-10">
-          {renderBlock(block, projectId, `paragraph-${index}`)}
-          <ProjectFigure projectId={projectId} block={next} />
-        </div>,
-      );
-      index += 1;
       continue;
     }
 

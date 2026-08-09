@@ -1,0 +1,750 @@
+{
+  "sourceTitle": "Background",
+  "sourceMaster": "01_master/master.md",
+  "units": [
+    {
+      "id": "unit-001",
+      "selection": "core",
+      "visualIntent": "Craft / Visual Design",
+      "visualFormat": "Final showcase",
+      "role": "establish project identity and show the system in a complete HMI experience"
+    },
+    {
+      "id": "unit-002",
+      "selection": "core",
+      "visualIntent": "Craft / Visual Design",
+      "visualFormat": "Final showcase",
+      "role": "state the project promise, role, duration, and tool context"
+    },
+    {
+      "id": "unit-003",
+      "selection": "core",
+      "visualIntent": "Craft / Visual Design",
+      "visualFormat": "Metrics card",
+      "role": "preview the final visual result before the process narrative"
+    },
+    {
+      "id": "unit-004",
+      "selection": "core",
+      "visualIntent": "Craft / Visual Design",
+      "visualFormat": "Original screenshot",
+      "role": "provide a focused cover and reusable final-interface proof"
+    },
+    {
+      "id": "unit-005",
+      "selection": "core",
+      "visualIntent": "Impact / Outcome",
+      "visualFormat": "Metrics card",
+      "role": "establish the intended project scale and qualified headline results"
+    },
+    {
+      "id": "unit-006",
+      "selection": "core",
+      "visualIntent": "Problem Solving",
+      "visualFormat": "Process map",
+      "role": "frame the operational symptoms that triggered the project"
+    },
+    {
+      "id": "unit-007",
+      "selection": "supporting",
+      "visualIntent": "Problem Solving",
+      "visualFormat": "Before / After",
+      "role": "establish the fragmented baseline and its scale"
+    },
+    {
+      "id": "unit-008",
+      "selection": "core",
+      "visualIntent": "Problem Solving",
+      "visualFormat": "Process map",
+      "role": "connect visible inconsistency to company, team, and user consequences"
+    },
+    {
+      "id": "unit-009",
+      "selection": "optional",
+      "visualIntent": "Problem Solving",
+      "visualFormat": "Comparison table",
+      "role": "describe company-level consequences"
+    },
+    {
+      "id": "unit-010",
+      "selection": "optional",
+      "visualIntent": "Problem Solving",
+      "visualFormat": "Comparison table",
+      "role": "describe team-level consequences"
+    },
+    {
+      "id": "unit-011",
+      "selection": "optional",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Comparison table",
+      "role": "describe user-level consequences"
+    },
+    {
+      "id": "unit-012",
+      "selection": "core",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Comparison table",
+      "role": "translate stakeholder symptoms into four design-system objectives"
+    },
+    {
+      "id": "unit-013",
+      "selection": "core",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Process map",
+      "role": "explain why the organization approved a design-system response"
+    },
+    {
+      "id": "unit-014",
+      "selection": "supporting",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Process map",
+      "role": "explain the how I persuaded the leader and asked for resources"
+    },
+    {
+      "id": "unit-015",
+      "selection": "core",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Process map",
+      "role": "further decisions"
+    },
+    {
+      "id": "unit-016",
+      "selection": "supporting",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Process map / Generated infographic",
+      "role": "source reasoning for the infographic; use to derive nodes but do not render this full section"
+    },
+    {
+      "id": "unit-017",
+      "selection": "supporting",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Comparison table / Timeline",
+      "role": "source rationale for phase cards; summarize rather than render all arguments"
+    },
+    {
+      "id": "unit-018",
+      "selection": "supporting",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Process map",
+      "role": "source mapping for solution details; expose only on interaction or a separate follow-up visual"
+    },
+    {
+      "id": "unit-019",
+      "selection": "supporting",
+      "visualIntent": "Impact / Outcome",
+      "visualFormat": "Process map / Metrics card",
+      "role": "source validation logic; show only when a metric is expanded or in the Validation section"
+    },
+    {
+      "id": "unit-020",
+      "selection": "core",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Generated infographic",
+      "role": "provide a generation contract for a future interactive website and pitch-deck infographic"
+    },
+    {
+      "id": "unit-021",
+      "selection": "appendix",
+      "visualIntent": "Innovation / Exploration",
+      "visualFormat": "Generated infographic",
+      "role": "retain the original visual composition as a reference for future interactive generation"
+    },
+    {
+      "id": "unit-022",
+      "selection": "supporting",
+      "visualIntent": "Problem Solving",
+      "visualFormat": "Process map",
+      "role": "show how internal audit and external references shaped the decisions"
+    },
+    {
+      "id": "unit-023",
+      "selection": "supporting",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Comparison table",
+      "role": "explain why a complete home experience was validated before component production"
+    },
+    {
+      "id": "unit-024",
+      "selection": "supporting",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Original screenshot",
+      "role": "demonstrate how the component scope balanced coverage and maintainability"
+    },
+    {
+      "id": "unit-025",
+      "selection": "supporting",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Process map",
+      "role": "show how component documentation turns assets into reusable design knowledge"
+    },
+    {
+      "id": "unit-026",
+      "selection": "core",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Architecture diagram",
+      "role": "introduce the three decisions that defined the system shape and ceiling"
+    },
+    {
+      "id": "unit-027",
+      "selection": "core",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Decision diagram",
+      "role": "preview the choices that defined the system ceiling"
+    },
+    {
+      "id": "unit-028",
+      "selection": "core",
+      "visualIntent": "Craft / Visual Design",
+      "visualFormat": "Original screenshot",
+      "role": "prove how brand qualities became reusable system rules"
+    },
+    {
+      "id": "unit-029",
+      "selection": "core",
+      "visualIntent": "Craft / Visual Design",
+      "visualFormat": "Original screenshot",
+      "role": "show the visual-language extraction in the matching page locale"
+    },
+    {
+      "id": "unit-030",
+      "selection": "core",
+      "visualIntent": "Craft / Visual Design",
+      "visualFormat": "Original screenshot",
+      "role": "show how brand geometry, light, and supplier input shaped icons"
+    },
+    {
+      "id": "unit-031",
+      "selection": "supporting",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Architecture diagram",
+      "role": "show the hierarchy from HMI constraints to executable design resources"
+    },
+    {
+      "id": "unit-032",
+      "selection": "core",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Interactive mindmap",
+      "role": ""
+    },
+    {
+      "id": "unit-033",
+      "selection": "appendix",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Architecture diagram / Mermaid mindmap",
+      "role": "expose the architecture as structured native text that can be rendered and reused"
+    },
+    {
+      "id": "unit-034",
+      "selection": "appendix",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Original screenshot",
+      "role": "retain the approved architecture image as source reference rather than the primary representation"
+    },
+    {
+      "id": "unit-035",
+      "selection": "supporting",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Architecture diagram",
+      "role": "distinguish resources, usage rules, and change rules"
+    },
+    {
+      "id": "unit-036",
+      "selection": "supporting",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Architecture diagram",
+      "role": "show the four asset libraries and their responsibilities"
+    },
+    {
+      "id": "unit-037",
+      "selection": "supporting",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Architecture diagram",
+      "role": "enumerate the shared foundations that stabilize component design"
+    },
+    {
+      "id": "unit-038",
+      "selection": "core",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Architecture diagram",
+      "role": "demonstrate that components encode decisions, not only visual assets"
+    },
+    {
+      "id": "unit-039",
+      "selection": "simplify",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Framework diagram",
+      "role": "explain why a third token layer was worth its governance cost"
+    },
+    {
+      "id": "unit-040",
+      "selection": "core",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Architecture diagram",
+      "role": "connect token layers, component scope, and documentation into one evidence frame"
+    },
+    {
+      "id": "unit-041",
+      "selection": "core",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Architecture diagram",
+      "role": "show a forward-looking component architecture and its explicit trade-off"
+    },
+    {
+      "id": "unit-042",
+      "selection": "core",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Motion demo",
+      "role": "demonstrate size, layout, and theme adaptation as prototype behavior"
+    },
+    {
+      "id": "unit-043",
+      "selection": "core",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Motion demo",
+      "role": "demonstrate configuration and language adaptation as prototype behavior"
+    },
+    {
+      "id": "unit-044",
+      "selection": "optional",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Architecture diagram",
+      "role": "show how reusable assets become predictable behavioral rules"
+    },
+    {
+      "id": "unit-045",
+      "selection": "supporting",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Process map",
+      "role": "show how documentation lowers adoption and knowledge-transfer costs"
+    },
+    {
+      "id": "unit-046",
+      "selection": "core",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Process map",
+      "role": "connect design-system assets to implementation and collaboration"
+    },
+    {
+      "id": "unit-047",
+      "selection": "core",
+      "visualIntent": "Impact / Outcome",
+      "visualFormat": "Metrics card",
+      "role": "evaluate the system using explicit metrics, methods, and evidence limits"
+    },
+    {
+      "id": "unit-048",
+      "selection": "core",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Process map",
+      "role": "connect business objectives, system goals, metrics, methods, and improvement"
+    },
+    {
+      "id": "unit-049",
+      "selection": "core",
+      "visualIntent": "Impact / Outcome",
+      "visualFormat": "Metrics card",
+      "role": "present component reuse with its sampling method and error range"
+    },
+    {
+      "id": "unit-050",
+      "selection": "core",
+      "visualIntent": "Impact / Outcome",
+      "visualFormat": "Metrics card",
+      "role": "present related effort reduction without inflating it into total R&D savings"
+    },
+    {
+      "id": "unit-051",
+      "selection": "supporting",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Framework diagram",
+      "role": "distinguish sharing and promotion from verified global adoption"
+    },
+    {
+      "id": "unit-052",
+      "selection": "supporting",
+      "visualIntent": "Impact / Outcome",
+      "visualFormat": "Timeline",
+      "role": "summarize the intended long-term organizational value"
+    },
+    {
+      "id": "unit-053",
+      "selection": "optional",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Framework diagram",
+      "role": "make individual contribution and collaboration boundaries explicit"
+    },
+    {
+      "id": "unit-054",
+      "selection": "optional",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Framework diagram",
+      "role": "define planning ownership"
+    },
+    {
+      "id": "unit-055",
+      "selection": "optional",
+      "visualIntent": "Craft / Visual Design",
+      "visualFormat": "System map",
+      "role": "define design ownership"
+    },
+    {
+      "id": "unit-056",
+      "selection": "optional",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Framework diagram",
+      "role": "define stakeholder and adoption contribution"
+    },
+    {
+      "id": "unit-057",
+      "selection": "optional",
+      "visualIntent": "Impact / Outcome",
+      "visualFormat": "Metrics card",
+      "role": "summarize value contribution with evidence limits"
+    },
+    {
+      "id": "unit-058",
+      "selection": "core",
+      "visualIntent": "Innovation / Exploration",
+      "visualFormat": "Timeline",
+      "role": "show how the system could evolve beyond first-stage consistency"
+    },
+    {
+      "id": "unit-059",
+      "selection": "core",
+      "visualIntent": "Innovation / Exploration",
+      "visualFormat": "Timeline",
+      "role": "preserve future mobility and AI directions without presenting them as delivered outcomes"
+    },
+    {
+      "id": "unit-060",
+      "selection": "core",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Final showcase",
+      "role": "close with the senior-level meaning of the project"
+    },
+    {
+      "id": "unit-061",
+      "selection": "core",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Final showcase",
+      "role": "condense the project into one senior-level positioning statement"
+    },
+    {
+      "id": "unit-062",
+      "selection": "appendix",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Framework diagram",
+      "role": "keep unresolved facts and evidence collection work out of public conclusions"
+    },
+    {
+      "id": "unit-063",
+      "selection": "appendix",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Framework diagram",
+      "role": "preserve interview follow-ups for deeper discussion"
+    },
+    {
+      "id": "unit-064",
+      "selection": "appendix",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Framework diagram",
+      "role": "preserve source relationships after master consolidation"
+    },
+    {
+      "id": "unit-065",
+      "selection": "appendix",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Timeline",
+      "role": "retain the knowledge-refactor history without placing it in the public story"
+    },
+    {
+      "id": "unit-066",
+      "selection": "appendix",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Timeline",
+      "role": "retain the source transformation record"
+    },
+    {
+      "id": "unit-067",
+      "selection": "appendix",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Timeline",
+      "role": "retain the narrative revision record"
+    },
+    {
+      "id": "unit-068",
+      "selection": "appendix",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "Timeline",
+      "role": "retain detailed change provenance"
+    }
+  ],
+  "mindmaps": [
+    {
+      "id": "unit-032-mindmap-1",
+      "sourceUnit": "unit-032",
+      "selection": "core",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Interactive mindmap",
+      "role": "",
+      "tree": {
+        "label": "Honda HMI Design System",
+        "children": [
+          {
+            "label": "HMI Interaction Framework",
+            "children": [
+              {
+                "label": "驾驶情境与有限注意力",
+                "children": []
+              },
+              {
+                "label": "硬件配置",
+                "children": []
+              },
+              {
+                "label": "分布式座舱",
+                "children": [
+                  {
+                    "label": "中控单屏",
+                    "children": [
+                      {
+                        "label": "横屏",
+                        "children": []
+                      },
+                      {
+                        "label": "竖屏",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "label": "仪表 + 中控 + 副驾屏",
+                    "children": []
+                  },
+                  {
+                    "label": "中控 + 仪表",
+                    "children": [
+                      {
+                        "label": "横竖屏组合",
+                        "children": []
+                      },
+                      {
+                        "label": "HUD",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "label": "联体式座舱",
+                "children": [
+                  {
+                    "label": "三联屏",
+                    "children": []
+                  },
+                  {
+                    "label": "三联屏 + 车控屏",
+                    "children": []
+                  },
+                  {
+                    "label": "二联屏",
+                    "children": []
+                  },
+                  {
+                    "label": "中控 + 副驾连屏",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Design Philosophy",
+            "children": [
+              {
+                "label": "设计原则",
+                "children": [
+                  {
+                    "label": "Safety",
+                    "children": []
+                  },
+                  {
+                    "label": "Comfort",
+                    "children": []
+                  },
+                  {
+                    "label": "Consistency",
+                    "children": []
+                  },
+                  {
+                    "label": "Scalability",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "label": "人机关系",
+                "children": [
+                  {
+                    "label": "用户",
+                    "children": []
+                  },
+                  {
+                    "label": "目的",
+                    "children": []
+                  },
+                  {
+                    "label": "场景",
+                    "children": []
+                  },
+                  {
+                    "label": "行为",
+                    "children": []
+                  },
+                  {
+                    "label": "媒介",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Design Platform",
+            "children": [
+              {
+                "label": "Design Resources",
+                "children": [
+                  {
+                    "label": "Style Library",
+                    "children": []
+                  },
+                  {
+                    "label": "Component Library",
+                    "children": []
+                  },
+                  {
+                    "label": "Icon Library",
+                    "children": []
+                  },
+                  {
+                    "label": "3D UI Model Library",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "label": "Design Guidelines",
+                "children": [
+                  {
+                    "label": "Component Interaction",
+                    "children": [
+                      {
+                        "label": "组件定义",
+                        "children": []
+                      },
+                      {
+                        "label": "组件构成",
+                        "children": []
+                      },
+                      {
+                        "label": "组件类型",
+                        "children": []
+                      },
+                      {
+                        "label": "组件状态",
+                        "children": []
+                      },
+                      {
+                        "label": "常用组合样式",
+                        "children": []
+                      },
+                      {
+                        "label": "使用建议",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Component Visual",
+                    "children": [
+                      {
+                        "label": "尺寸与对齐关系",
+                        "children": []
+                      },
+                      {
+                        "label": "组件框架",
+                        "children": []
+                      },
+                      {
+                        "label": "风格调用规则",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Motion",
+                    "children": [
+                      {
+                        "label": "组件动效规范",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Naming",
+                    "children": [
+                      {
+                        "label": "Token 命名规范",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "label": "Adaptation Rules",
+                "children": [
+                  {
+                    "label": "响应式",
+                    "children": []
+                  },
+                  {
+                    "label": "自适应规则",
+                    "children": [
+                      {
+                        "label": "组件",
+                        "children": []
+                      },
+                      {
+                        "label": "组件模板",
+                        "children": []
+                      },
+                      {
+                        "label": "页面模板",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "label": "屏幕倍数",
+                    "children": []
+                  },
+                  {
+                    "label": "PPI 适配",
+                    "children": []
+                  },
+                  {
+                    "label": "全球化语言与国家适配",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

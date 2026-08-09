@@ -1,0 +1,154 @@
+{
+  "sourceTitle": "林肯之道｜移动端文本输入与信息表达体验优化",
+  "sourceMaster": "01_master/master.md",
+  "units": [
+    {
+      "id": "lincoln-001",
+      "selection": "core",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "HeroOutcome",
+      "role": "establish the project, sole-designer role, version boundary, and higher-level thesis"
+    },
+    {
+      "id": "lincoln-002",
+      "selection": "optional",
+      "visualIntent": "Impact / Outcome",
+      "visualFormat": "Qualified outcome",
+      "role": "state delivered work, approval, implementation limits, and analytics boundary"
+    },
+    {
+      "id": "lincoln-003",
+      "selection": "core",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Capability map",
+      "role": "organize real fields into three transferable text archetypes and six decision dimensions"
+    },
+    {
+      "id": "lincoln-004",
+      "selection": "core",
+      "visualIntent": "Craft / Interaction Detail",
+      "visualFormat": "Original screenshot",
+      "role": "establish the shared controlled-short-text context"
+    },
+    {
+      "id": "lincoln-005",
+      "selection": "core",
+      "visualIntent": "Problem Solving",
+      "visualFormat": "Original screenshot",
+      "role": "show a valid Latin name rejected by current behavior"
+    },
+    {
+      "id": "lincoln-006",
+      "selection": "core",
+      "visualIntent": "Craft / Interaction Detail",
+      "visualFormat": "Original screenshot",
+      "role": "show combined nickname rules and current overflow behavior"
+    },
+    {
+      "id": "lincoln-011",
+      "selection": "core",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Architecture diagram",
+      "role": "connect user-perceived symbols, visible count, validation, storage, and redisplay"
+    },
+    {
+      "id": "lincoln-012",
+      "selection": "supporting",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Qualified test matrix",
+      "role": "make multilingual and emoji counting visible to international reviewers"
+    },
+    {
+      "id": "lincoln-013",
+      "selection": "core",
+      "visualIntent": "Problem Solving",
+      "visualFormat": "Original screenshot",
+      "role": "show preserved long text with missing proposed overflow color"
+    },
+    {
+      "id": "lincoln-014",
+      "selection": "core",
+      "visualIntent": "Problem Solving",
+      "visualFormat": "Original screenshot",
+      "role": "show a confirmed shared allowance between body and inserted topic text"
+    },
+    {
+      "id": "lincoln-015",
+      "selection": "appendix",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "Original screenshot",
+      "role": "retain out-of-scope comment behavior internally without presenting it as authored work"
+    },
+    {
+      "id": "lincoln-016",
+      "selection": "core",
+      "visualIntent": "Problem Solving",
+      "visualFormat": "State / recovery model",
+      "role": "distinguish long-text preservation from short-text hard stop and connect shared allowance to recovery"
+    },
+    {
+      "id": "lincoln-007",
+      "selection": "core",
+      "visualIntent": "Craft / Interaction Detail",
+      "visualFormat": "DecisionBlock",
+      "role": "explain same-limit versus same-rule and short-text strategy"
+    },
+    {
+      "id": "lincoln-008",
+      "selection": "core",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Original screenshot",
+      "role": "show structured identifier input, normalization, scan, and help paths"
+    },
+    {
+      "id": "lincoln-009",
+      "selection": "supporting",
+      "visualIntent": "Impact / Outcome",
+      "visualFormat": "Original screenshot",
+      "role": "connect identifier accuracy to owner-service value"
+    },
+    {
+      "id": "lincoln-010",
+      "selection": "core",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "DecisionBlock",
+      "role": "show why a unique identifier requires special treatment instead of a generic counter"
+    },
+    {
+      "id": "lincoln-017",
+      "selection": "core",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Comparison table",
+      "role": "consolidate archetypes and cross-cutting dimensions into a reusable decision tool"
+    },
+    {
+      "id": "lincoln-019",
+      "selection": "core",
+      "visualIntent": "Impact / Outcome",
+      "visualFormat": "Qualified measurement table",
+      "role": "define metrics by text archetype without presenting plans as achieved results"
+    },
+    {
+      "id": "lincoln-020",
+      "selection": "core",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Closing proposition",
+      "role": "close on the transferable design capability demonstrated by the detail"
+    },
+    {
+      "id": "lincoln-021",
+      "selection": "appendix",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "Source register",
+      "role": "preserve source authority and detailed section notes"
+    },
+    {
+      "id": "lincoln-022",
+      "selection": "appendix",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "TODO register",
+      "role": "retain only unresolved evidence and owner choices"
+    }
+  ],
+  "mindmaps": []
+}

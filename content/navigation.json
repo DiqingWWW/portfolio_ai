@@ -19,6 +19,23 @@
     "description": "Generated concepts and interaction studies, separated from professional project evidence.",
     "href": "/experiments"
   },
+  "landingFooter": {
+    "eyebrow": "Let’s make complex technology feel natural.",
+    "heading": "Product design, interaction craft, and AI-assisted building.",
+    "navigationLabel": "Navigate",
+    "navigation": [
+      { "label": "Contact", "href": "mailto:wudiching@126.com" },
+      { "label": "Projects", "href": "#work" },
+      { "label": "Skills", "href": "#skills" }
+    ],
+    "socialLabel": "Elsewhere",
+    "socials": [
+      { "platform": "github", "label": "GitHub", "href": "https://github.com/DiqingWWW" },
+      { "platform": "x", "label": "X", "href": "https://x.com/deethin3251?s=11" },
+      { "platform": "xiaohongshu", "label": "小红书", "href": "https://xhslink.cn/m/1TOGDsPmngi" }
+    ],
+    "copyright": "Diqing Wu. Designed and built with care."
+  },
   "peekCards": [
     { "label": "01 / HONDA_DS", "version": "0→1" },
     { "label": "02 / PORTFOLIO_AI", "status": "ONGOING", "textLine": "Prompt → Product" }

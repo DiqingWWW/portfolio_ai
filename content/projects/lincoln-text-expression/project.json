@@ -1,14 +1,14 @@
 {
   "id": "lincoln-text-expression",
-  "title": "Text Input and Expression in Digital Products",
+  "title": "Mobile Text Input and Information Expression",
   "tags": ["design-system"],
   "metadata": {
     "type": "Professional Project · Lincoln",
-    "role": "Interaction Designer"
+    "role": "UX Designer"
   },
   "descriptions": {
-    "short": "A framework for clearer input limits, validation feedback, and recovery across a vehicle-owner product.",
-    "detail": "Compared identity, nickname, VIN, and community-post inputs to define when counters, validation messages, format help, and recovery states should differ. The work was reviewed with client designers and product managers and shipped without relying on invented outcome metrics."
+    "short": "Mobile text-input rules defined by the task each piece of content performs.",
+    "detail": "As the external partner’s sole UX designer, I organized name, nickname, VIN, post-body, and topic behavior into controlled short text, a structured unique identifier, and open long text—then defined their counting, validation, and recovery rules."
   },
   "specs": [
     { "label": "Scope", "val": "Profile, VIN, community" },
@@ -19,7 +19,7 @@
   "assets": {
     "cover": "./cover.png",
     "hover": "./post-overflow.png",
-    "gallery": ["./profile-name-invalid.png", "./vin-entry.png", "./comment-composer.png"]
+    "gallery": ["./profile-name-invalid.png", "./vin-entry.png", "./post-topic-limit.png"]
   },
   "detailHref": "/work/lincoln-text-expression"
 }

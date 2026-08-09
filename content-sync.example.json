@@ -4,6 +4,8 @@
       "id": "text-expression",
       "sourceDir": "/absolute/path/to/obsidian/字数",
       "projectDir": "content/projects/lincoln-text-expression",
+      "master": "01_master/master.md",
+      "format": "curation-tags",
       "assets": [
         { "source": "车辆显示.PNG", "output": "vehicle-empty.png" }
       ]
@@ -12,13 +14,34 @@
       "id": "honda-hmi-design-system",
       "sourceDir": "/absolute/path/to/obsidian/hondasystem",
       "projectDir": "content/projects/honda-hmi-design-system",
+      "master": "01_master/master.md",
+      "format": "curation-tags",
       "assets": [
-        { "source": "cover2.png", "output": "cover2.png" },
-        { "source": "visual-language_CN.jpg", "output": "visual-language_CN.jpg" },
-        { "source": "visual-language_EN.jpg", "output": "visual-language_EN.jpg" },
-        { "source": "system-architecture.jpg", "output": "system-architecture.jpg" },
-        { "source": "tokens-and-components_CN.jpg", "output": "tokens-and-components_CN.jpg" },
-        { "source": "tokens-and-components_EN.jpg", "output": "tokens-and-components_EN.jpg" }
+        { "source": "04_assets/images/cover1.png", "output": "cover1.png" },
+        { "source": "04_assets/images/cover2.png", "output": "cover2.png" },
+        { "source": "04_assets/images/visual-language_CN.jpg", "output": "visual-language_CN.jpg" },
+        { "source": "04_assets/images/visual-language_EN.jpg", "output": "visual-language_EN.jpg" },
+        { "source": "04_assets/images/logo-and-icons_CN.jpg", "output": "logo-and-icons_CN.jpg" },
+        { "source": "04_assets/images/logo-and-icons_EN.jpg", "output": "logo-and-icons_EN.jpg" },
+        { "source": "04_assets/images/system-architecture.jpg", "output": "system-architecture.jpg" },
+        { "source": "04_assets/images/tokens-and-components_CN.jpg", "output": "tokens-and-components_CN.jpg" },
+        { "source": "04_assets/images/tokens-and-components_EN.jpg", "output": "tokens-and-components_EN.jpg" },
+        { "source": "04_assets/images/design-to-code_CN.jpg", "output": "design-to-code_CN.jpg" },
+        { "source": "04_assets/images/design-to-code_EN.jpg", "output": "design-to-code_EN.jpg" },
+        { "source": "04_assets/video and  gifs/Result_changes through different sizes and colors.gif", "output": "responsive-theme-adaptation.gif" },
+        { "source": "04_assets/video and  gifs/Result_changes through different car model settings and languages.gif", "output": "vehicle-language-adaptation.gif" }
+      ]
+    },
+    {
+      "id": "portfolio-operating-system",
+      "sourceDir": "/absolute/path/to/obsidian/Portfolio Websites",
+      "projectDir": "content/projects/portfolio-operating-system",
+      "master": "01_master/master.md",
+      "format": "curation-tags",
+      "assets": [
+        { "source": "04_assets/images/cover.png", "output": "cover.png" },
+        { "source": "04_assets/images/first-working-prototype.png", "output": "first-working-prototype.png" },
+        { "source": "04_assets/images/portfolio-workspace-laptop-mockup-v1.png", "output": "portfolio-workspace-laptop-mockup-v1.png" }
       ]
     }
   ]

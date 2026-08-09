@@ -29,7 +29,7 @@ export default function ExperimentsPage() {
       <section className="mx-auto max-w-6xl px-5 pb-12 pt-16 sm:px-8 sm:pt-24">
         <div className="max-w-4xl">
           <div className="mb-5 flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-amber-700"><FlaskConical className="h-4 w-4" aria-hidden="true" /> Separate collection</div>
-          <h1 className="text-4xl font-black leading-none tracking-[-0.055em] sm:text-6xl">Experiments / Concept Work</h1>
+          <h1 className="page-heading-1">Experiments / Concept Work</h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-neutral-600">These pieces are generated concepts, visual studies, or interaction prototypes. They demonstrate exploratory thinking and craft, but they are not presented as shipped client work, validated product outcomes, or production systems.</p>
         </div>
       </section>

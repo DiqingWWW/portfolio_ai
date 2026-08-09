@@ -129,6 +129,22 @@ export interface NavigationContent {
     description: string;
     href: string;
   };
+  landingFooter: {
+    eyebrow: string;
+    heading: string;
+    navigationLabel: string;
+    navigation: Array<{
+      label: string;
+      href: string;
+    }>;
+    socialLabel: string;
+    socials: Array<{
+      platform: string;
+      label: string;
+      href: string;
+    }>;
+    copyright: string;
+  };
   peekCards: PeekCardContent[];
 }
 

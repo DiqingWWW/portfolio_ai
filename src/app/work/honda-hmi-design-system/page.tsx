@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import NarrativeCaseStudyPage from "@/components/NarrativeCaseStudyPage";
-import {
-  caseStudyBlocks,
-  caseStudyTitle,
-} from "@content/projects/honda-hmi-design-system/case-study.en";
+import HondaCaseStudyPage from "@/components/case-study/HondaCaseStudyPage";
+import { caseStudyTitle } from "@content/projects/honda-hmi-design-system/case-study.en";
 
 export const metadata: Metadata = {
   title: caseStudyTitle,
@@ -11,11 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return (
-    <NarrativeCaseStudyPage
-      projectId="honda-hmi-design-system"
-      blocks={caseStudyBlocks}
-      status="Professional project"
-    />
-  );
+  return <HondaCaseStudyPage />;
 }

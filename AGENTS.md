@@ -22,7 +22,8 @@ not disposable decoration.
 Before planning or modifying the application:
 
 1. Read this file completely.
-2. Read `PORTFOLIO_OS.md` for durable product and architecture boundaries.
+2. Read `governance/product/00_PORTFOLIO_OS.md` for durable product and architecture
+   boundaries.
 3. Read `CURRENT_SYSTEM.md` for the implementation actually present now.
 4. Read the active `MIGRATION_PLAN_*.md` only when the task relates to that migration.
 5. Read the latest relevant audit under `audits/` when historical evidence is needed.
@@ -35,7 +36,7 @@ Neither overrides the shared constitution or this agreement.
 
 ## 3. Authority and decision states
 
-Respect the status vocabulary in `PORTFOLIO_OS.md`:
+Respect the status vocabulary in `governance/product/00_PORTFOLIO_OS.md`:
 
 - **Canonical:** do not change without explicit owner approval and a documented decision.
 - **Current:** describe the implementation; may change through a scoped task.
@@ -46,6 +47,42 @@ The documents are initial and expected to evolve. During project work, AI contri
 propose amendments when evidence shows a rule is stale, contradictory, ambiguous, or blocks
 the product unnecessarily. State the evidence, impact, alternatives, and affected files.
 Do not edit a Canonical decision merely because a different pattern is more common.
+
+## 3.1 Rule-document residency and naming
+
+`AGENTS.md` is the only repository-root rule document. Every other rule or protocol document
+must live in the folder that owns its governance scope and use the `00_` filename prefix.
+
+- Product boundaries: `governance/product/00_*.md`
+- Project-content authoring and composition: `governance/project-content/00_*.md`
+- Future rule documents must use an equivalent scope folder under `governance/`.
+- The `00_` prefix is reserved for rule and protocol documents. Plans, audits, research,
+  changelogs, working notes, and ordinary documentation must not use it.
+- Except for tasks written directly into a sprint's daily schedule, every standalone TODO or
+  pending-confirmation document must begin with the `TODO_` prefix. This prefix is also
+  reserved: completed records, plans, audits, research, and ordinary documentation must not
+  use it.
+
+## 3.2 Project content workflow
+
+For every project-content change, follow
+`governance/project-content/00_PROJECT_CONTENT_PIPELINE.md` and use this order:
+
+1. The owner edits the configured Obsidian factual master, or asks an AI to make a scoped edit.
+2. The owner reviews and approves the factual master before website content changes begin.
+3. Run `npm run content:sync`. The sync reads the approved master and generates the repository
+   selection record (for example, `case-study.selection.json`) plus approved project assets. It
+   does **not** author the localized website narrative automatically.
+4. Update the appropriate localized TypeScript content module—currently `case-study.en.ts`, and
+   later `case-study.zh.ts` when the Chinese website exists—from the approved source units.
+   These modules contain selected, localized content and source IDs, but no JSX.
+5. Update the project-specific page composition and its TSX rendering. This layer decides how
+   approved content is presented; it must not silently invent or change factual content.
+6. Run the local site and give the owner the project URL on `http://localhost:3000` for visual
+   review. Owner feedback returns to the correct layer: factual correction to the master,
+   translation/selection correction to the localized module, and presentation correction to TSX.
+7. Only after owner acceptance, run the release verification, review the diff, then commit,
+   push, deploy, and complete a production smoke test when authorized.
 
 ## 4. Non-negotiable product boundaries
 
@@ -187,7 +224,7 @@ Important qualifications:
   evidence, screenshots for visible changes, accessibility/performance implications,
   unresolved questions, and rollback notes.
 - Never merge a PR or deploy without explicit authorization.
-- Review against `PORTFOLIO_OS.md`, task acceptance criteria, and actual diff behavior—not
+- Review against `governance/product/00_PORTFOLIO_OS.md`, task acceptance criteria, and actual diff behavior—not
   merely whether the build passes.
 
 ## 11. Prohibited behavior
@@ -201,6 +238,6 @@ Do not:
 - generalize a component-specific reference into global tokens without evidence;
 - mix unrelated changes into the same task;
 - claim tests, builds, visual review, or browser behavior that was not actually verified;
-- copy one-time prompts into `PORTFOLIO_OS.md`;
+- copy one-time prompts into `governance/product/00_PORTFOLIO_OS.md`;
 - treat audits or migration proposals as automatic authorization;
 - publish secrets, private references, or unverified claims.

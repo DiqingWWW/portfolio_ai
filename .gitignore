@@ -37,6 +37,8 @@ yarn-error.log*
 # local visual-reference and review artifacts
 /.impeccable/
 /googleai/
+/content-workbench/
+*.swp
 
 # local content authoring paths
 /content-sync.local.json

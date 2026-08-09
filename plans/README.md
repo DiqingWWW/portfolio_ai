@@ -18,3 +18,4 @@ revisions within one plan.
 ## Active plans
 
 - [V0.2 three-day launch sprint](./SPRINT_v0.2_launch.md)
+- [V1.1 case-study showcase sprint](./SPRINT_v1.1_case-study-showcase.md)

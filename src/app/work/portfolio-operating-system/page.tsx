@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import NarrativeCaseStudyPage from "@/components/NarrativeCaseStudyPage";
-import {
-  caseStudyBlocks,
-  caseStudyTitle,
-} from "@content/projects/portfolio-operating-system/case-study.en";
+import PortfolioOperatingSystemCaseStudyPage from "@/components/case-study/PortfolioOperatingSystemCaseStudyPage";
+import { caseStudyTitle } from "@content/projects/portfolio-operating-system/case-study.en";
 
 export const metadata: Metadata = {
   title: caseStudyTitle,
@@ -11,11 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return (
-    <NarrativeCaseStudyPage
-      projectId="portfolio-operating-system"
-      blocks={caseStudyBlocks}
-      status="Ongoing independent project"
-    />
-  );
+  return <PortfolioOperatingSystemCaseStudyPage />;
 }
