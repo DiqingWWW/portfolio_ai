@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       "Selected work by Diqing Wu across automotive HMI, design systems, content interaction, and AI-assisted product building.",
     images: [
       {
-        url: "/assets/images/honda-hmi-design-system/cover2.png",
+        url: "/assets/images/honda-hmi-design-system/cover2-display.webp",
         width: 1200,
         height: 630,
         alt: "Diqing Wu Portfolio",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title: "Diqing Wu — Product Designer + AI Builder",
     description:
       "Diqing Wu — Product Designer & AI Builder working across HMI, design systems, and AI-assisted products.",
-    images: ["/assets/images/honda-hmi-design-system/cover2.png"],
+    images: ["/assets/images/honda-hmi-design-system/cover2-display.webp"],
   },
   metadataBase: new URL(siteUrl),
 };

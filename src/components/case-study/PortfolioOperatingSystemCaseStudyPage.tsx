@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowLeft, ArrowRight, Check, CircleAlert } from "lucide-react";
+import ResponsiveProjectImage from "@/components/ResponsiveProjectImage";
 import {
   portfolioCaseStudy,
   portfolioContentBalance,
@@ -42,7 +42,7 @@ function Figure({ media, priority = false }: { media: PortfolioMedia; priority?:
   return (
     <figure data-source-ids={media.sourceIds.join(" ")} className="min-w-0">
       <div className="overflow-hidden rounded-2xl bg-white shadow-[0_26px_70px_-42px_rgba(24,45,61,0.58)]">
-        <Image
+        <ResponsiveProjectImage
           src={`${assetRoot}/${media.src}`}
           alt={media.alt}
           width={media.width}

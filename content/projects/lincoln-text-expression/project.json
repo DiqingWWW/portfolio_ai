@@ -17,9 +17,9 @@
   ],
   "tokens": ["Interaction Design", "Content Design", "Validation", "Automotive"],
   "assets": {
-    "cover": "./cover.png",
-    "hover": "./post-overflow.png",
-    "gallery": ["./profile-name-invalid.png", "./vin-entry.png", "./post-topic-limit.png"]
+    "cover": "./cover-display.webp",
+    "hover": "./post-overflow-display.webp",
+    "gallery": ["./profile-name-invalid-display.webp", "./vin-entry-display.webp", "./post-topic-limit-display.webp"]
   },
   "detailHref": "/work/lincoln-text-expression"
 }

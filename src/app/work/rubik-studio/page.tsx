@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import rubikStudio from "@content/projects/rubik-studio/rubikstudio.png";
+import ResponsiveProjectImage from "@/components/ResponsiveProjectImage";
 
 export const metadata: Metadata = {
   title: "Rubik Studio",
@@ -19,11 +18,13 @@ export default function RubikStudioPage() {
       >
         <ArrowLeft className="h-5 w-5" aria-hidden="true" />
       </Link>
-      <Image
-        src={rubikStudio}
+      <ResponsiveProjectImage
+        src="/assets/images/rubik-studio/rubikstudio-display.webp"
+        mobileSrc="/assets/images/rubik-studio/rubikstudio-mobile.webp"
         alt="Rubik Studio project overview"
-        preload
-        sizes="100vw"
+        width={1440}
+        height={4192}
+        priority
         className="h-auto w-full"
       />
     </main>

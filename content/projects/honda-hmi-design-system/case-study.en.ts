@@ -40,13 +40,13 @@ export const hondaCaseStudy = {
     covers: [
       {
         sourceIds: ["unit-003"],
-        src: "cover1.png",
+        src: "cover1-display.webp",
         alt: "Final HMI interface combining driving, navigation, and media",
         caption: "Three high-frequency tasks organized through one HMI visual and component language. Approved professional project material; not standalone proof of production release.",
       },
       {
         sourceIds: ["unit-004"],
-        src: "cover2.png",
+        src: "cover2-display.webp",
         alt: "Final HMI interface focused on driving and navigation",
         caption: "A focused driving-and-navigation composition used as both cover and final-experience evidence. Approved professional project material.",
       },
@@ -106,8 +106,8 @@ export const hondaCaseStudy = {
         title: "1. Extract the visual language from the brand",
         text: "Rather than inventing a style from scratch, we extracted twilight violet, the coexistence of rounded and angular geometry, and a sense of light from the Honda 0 Series direction. The icon breakpoint concept came from an external supplier and was adopted after internal review; its authorship and incomplete coverage remain explicit.",
         media: [
-          { sourceIds: ["unit-029"], src: "visual-language_EN.jpg", alt: "Brand color and atmosphere exploration", caption: "Brand qualities translated into reusable visual parameters." },
-          { sourceIds: ["unit-030"], src: "logo-and-icons_EN.jpg", alt: "Logo and icon construction language", caption: "Geometry, light, and supplier input connected through one construction logic." },
+          { sourceIds: ["unit-029"], src: "visual-language_EN-display.webp", alt: "Brand color and atmosphere exploration", caption: "Brand qualities translated into reusable visual parameters." },
+          { sourceIds: ["unit-030"], src: "logo-and-icons_EN-display.webp", alt: "Logo and icon construction language", caption: "Geometry, light, and supplier input connected through one construction logic." },
         ] satisfies HondaMedia[],
       },
       {
@@ -116,7 +116,7 @@ export const hondaCaseStudy = {
         text: "The architecture connects the HMI Interaction Framework, Design Philosophy, and Design Platform. Inside the platform, a Global → Style → Semantic token hierarchy manages foundational values, themes, gradients, and stable design intent. The extra layer increased governance cost, but made Honda’s gradient-heavy visual language maintainable.",
         mindmap: systemMindmap.tree,
         media: [
-          { sourceIds: ["unit-040"], src: "tokens-and-components_EN.jpg", alt: "Three-tier tokens and component system", caption: "Global, Style, and Semantic Tokens connected to component scope and documentation." },
+          { sourceIds: ["unit-040"], src: "tokens-and-components_EN-display.webp", alt: "Three-tier tokens and component system", caption: "Global, Style, and Semantic Tokens connected to component scope and documentation." },
         ] satisfies HondaMedia[],
       },
       {
@@ -126,7 +126,7 @@ export const hondaCaseStudy = {
         media: [
           { sourceIds: ["unit-042"], src: "responsive-theme-adaptation.gif", alt: "Component adapting across size, layout, and theme", caption: "Interactive prototype showing size, layout, and theme adaptation; not production software evidence." },
           { sourceIds: ["unit-043"], src: "vehicle-language-adaptation.gif", alt: "Component adapting across vehicle configuration and language", caption: "Interactive prototype showing configuration and language adaptation; not proof that every vehicle shipped it." },
-          { sourceIds: ["unit-046"], src: "design-to-code_EN.jpg", alt: "Design-to-code collaboration proposal", caption: "Token JSON, versioning, and usage checks organized into one design-to-development chain." },
+          { sourceIds: ["unit-046"], src: "design-to-code_EN-display.webp", alt: "Design-to-code collaboration proposal", caption: "Token JSON, versioning, and usage checks organized into one design-to-development chain." },
         ] satisfies HondaMedia[],
       },
     ],

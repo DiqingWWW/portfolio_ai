@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import ResponsiveProjectImage from "@/components/ResponsiveProjectImage";
 import { resolveAsset } from "@/lib/content";
 import type { ProjectData } from "@/types/content";
 
@@ -21,12 +21,10 @@ export default function WorkSection({ projects }: { projects: ProjectData[] }) {
             <article key={project.id} className="group overflow-hidden rounded-3xl border border-workspace-border bg-white">
               <Link href={project.detailHref ?? "#"} className="block h-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-workspace-accent">
                 <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
-                  <Image
+                  <ResponsiveProjectImage
                     src={resolveAsset(project.id, project.assets.cover)}
                     alt={`${project.title} project cover`}
-                    fill
-                    sizes="(max-width:767px) 100vw, (max-width:1279px) 50vw, 25vw"
-                    className={`object-cover transition-transform duration-500 group-hover:scale-[1.03] ${project.assets.coverPosition === "top" ? "object-top" : "object-center"}`}
+                    className={`absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${project.assets.coverPosition === "top" ? "object-top" : "object-center"}`}
                   />
                   <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 font-mono text-[9px] font-bold">{String(index + 1).padStart(2, "0")}</span>
                 </div>

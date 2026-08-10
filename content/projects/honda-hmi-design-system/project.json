@@ -18,9 +18,9 @@
   ],
   "tokens": ["Design Systems", "HMI", "Cross-platform", "Design-to-code"],
   "assets": {
-    "cover": "./cover2.png",
-    "hover": "./visual-language_EN.jpg",
-    "gallery": ["./logo-and-icons_EN.jpg", "./tokens-and-components_EN.jpg", "./design-to-code_EN.jpg", "./responsive-theme-adaptation.gif", "./vehicle-language-adaptation.gif"]
+    "cover": "./cover2-display.webp",
+    "hover": "./visual-language_EN-display.webp",
+    "gallery": ["./logo-and-icons_EN-display.webp", "./tokens-and-components_EN-display.webp", "./design-to-code_EN-display.webp", "./responsive-theme-adaptation.gif", "./vehicle-language-adaptation.gif"]
   },
   "detailHref": "/work/honda-hmi-design-system"
 }

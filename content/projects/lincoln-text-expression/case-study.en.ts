@@ -36,7 +36,7 @@ export const lincolnCaseStudy = {
     evidenceBoundary: "The seven primary screenshots show the application’s current shipped experience. Some details differ from the August 2022 delivery; they therefore evidence observable tasks and states, while authorship is limited to the confirmed responsibilities, rules, and implementation scope.",
     cover: media({
       sourceIds: ["lincoln-001"],
-      src: "cover.png",
+      src: "cover-display.webp",
       alt: "The Lincoln Way vehicle-owner application shown in a phone mockup",
       caption: "Portfolio presentation mockup using the current vehicle-binding entry experience.",
       truthStatus: "Presentation asset; current product screen shown inside a portfolio mockup.",
@@ -63,9 +63,9 @@ export const lincolnCaseStudy = {
     title: "The profile reveals where apparently similar fields diverge",
     summary: "Name and nickname both use a 14-unit limit, but they do not carry the same content responsibility. Name is not displayed externally; nickname becomes the visible identity across product surfaces.",
     media: [
-      media({ sourceIds: ["lincoln-004"], src: "profile-overview.png", alt: "Current profile page showing name and nickname fields", caption: "Name and nickname share one profile surface and the same numeric limit, while serving different identity responsibilities.", truthStatus: "Current shipped evidence; differences from the 2022 delivery remain unresolved." }),
-      media({ sourceIds: ["lincoln-005"], src: "profile-name-invalid.png", alt: "Current name field rejecting the Latin input widisj", caption: "The confirmed rule allows Chinese and Latin letters, so “widisj” should be valid. The current error indicates a mismatch between the rule and implementation.", truthStatus: "Verified intended rule + verified current screenshot; root cause unknown." }),
-      media({ sourceIds: ["lincoln-006"], src: "profile-nickname-invalid.png", alt: "Nickname field displaying its length and special-character guidance", caption: "Nickname allows up to 14 units and underscore, but the combined message does not identify which rule is currently violated.", truthStatus: "Verified current behavior." }),
+      media({ sourceIds: ["lincoln-004"], src: "profile-overview-display.webp", alt: "Current profile page showing name and nickname fields", caption: "Name and nickname share one profile surface and the same numeric limit, while serving different identity responsibilities.", truthStatus: "Current shipped evidence; differences from the 2022 delivery remain unresolved." }),
+      media({ sourceIds: ["lincoln-005"], src: "profile-name-invalid-display.webp", alt: "Current name field rejecting the Latin input widisj", caption: "The confirmed rule allows Chinese and Latin letters, so “widisj” should be valid. The current error indicates a mismatch between the rule and implementation.", truthStatus: "Verified intended rule + verified current screenshot; root cause unknown." }),
+      media({ sourceIds: ["lincoln-006"], src: "profile-nickname-invalid-display.webp", alt: "Nickname field displaying its length and special-character guidance", caption: "Nickname allows up to 14 units and underscore, but the combined message does not identify which rule is currently violated.", truthStatus: "Verified current behavior." }),
     ] satisfies LincolnMedia[],
   }),
   longText: linked({
@@ -91,8 +91,8 @@ export const lincolnCaseStudy = {
       { input: "Tested family / profession sequence", increase: "+2", status: "Exact sample and field remain TODO" },
     ],
     media: [
-      media({ sourceIds: ["lincoln-013"], src: "post-overflow.png", alt: "Post body showing 1009 of 1000 without a clear invalid state", caption: "At 1009/1000, excess text remains available for editing. I proposed an error-color state, which the current implementation does not show.", truthStatus: "Verified current behavior + verified design proposal; publish result unknown." }),
-      media({ sourceIds: ["lincoln-014"], src: "post-topic-limit.png", alt: "Adding a topic near the text limit triggers an upper-limit message", caption: "Topic text is inserted into the body and shares its 1000-unit allowance. At 997/1000, the selected topic no longer fits.", truthStatus: "Verified intended rule and current evidence." }),
+      media({ sourceIds: ["lincoln-013"], src: "post-overflow-display.webp", alt: "Post body showing 1009 of 1000 without a clear invalid state", caption: "At 1009/1000, excess text remains available for editing. I proposed an error-color state, which the current implementation does not show.", truthStatus: "Verified current behavior + verified design proposal; publish result unknown." }),
+      media({ sourceIds: ["lincoln-014"], src: "post-topic-limit-display.webp", alt: "Adding a topic near the text limit triggers an upper-limit message", caption: "Topic text is inserted into the body and shares its 1000-unit allowance. At 997/1000, the selected topic no longer fits.", truthStatus: "Verified intended rule and current evidence." }),
     ] satisfies LincolnMedia[],
     states: [
       { state: "Normal", behavior: "Keep the count low-emphasis so expression remains primary." },
@@ -118,8 +118,8 @@ export const lincolnCaseStudy = {
     decision: "Accept exactly 17 uppercase Latin letters or digits; capitalize letters automatically; prevent illegal and excess input; disable progression while incomplete; and perform final validation on confirmation.",
     evidenceBoundary: "The VIN rules and interaction were within my confirmed delivery scope. The exact scan-failure feedback remains unresolved and is excluded from the public conclusion.",
     media: [
-      media({ sourceIds: ["lincoln-009"], src: "vehicle-empty.png", alt: "Vehicle binding entry point and owner-service value", caption: "Successful binding connects vehicle status, finance, warnings, and service booking, increasing the value of accurate entry.", truthStatus: "Verified current evidence." }),
-      media({ sourceIds: ["lincoln-008"], src: "vin-entry.png", alt: "VIN entry screen with camera scan and find-help", caption: "Manual entry, scan, find-help, normalization, and confirmation state support one exact 17-unit answer.", truthStatus: "Verified delivery scope; scan-failure feedback unresolved." }),
+      media({ sourceIds: ["lincoln-009"], src: "vehicle-empty-display.webp", alt: "Vehicle binding entry point and owner-service value", caption: "Successful binding connects vehicle status, finance, warnings, and service booking, increasing the value of accurate entry.", truthStatus: "Verified current evidence." }),
+      media({ sourceIds: ["lincoln-008"], src: "vin-entry-display.webp", alt: "VIN entry screen with camera scan and find-help", caption: "Manual entry, scan, find-help, normalization, and confirmation state support one exact 17-unit answer.", truthStatus: "Verified delivery scope; scan-failure feedback unresolved." }),
     ] satisfies LincolnMedia[],
   }),
   framework: linked({

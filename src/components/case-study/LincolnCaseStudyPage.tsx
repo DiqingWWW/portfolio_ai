@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import ResponsiveProjectImage from "@/components/ResponsiveProjectImage";
 import {
   lincolnCaseStudy,
   lincolnContentBalance,
@@ -44,13 +44,12 @@ function PhoneFigure({
   return (
     <figure data-source-ids={media.sourceIds.join(" ")} className="mx-auto w-full max-w-[15rem] min-w-0 sm:max-w-[18rem]">
       <div className="overflow-hidden rounded-[1.25rem] bg-white shadow-[0_24px_64px_-36px_rgba(25,18,12,0.58)]">
-        <Image
+        <ResponsiveProjectImage
           src={`${assetRoot}/${media.src}`}
           alt={media.alt}
           width={1206}
           height={2622}
           priority={priority}
-          sizes="(max-width: 640px) 44vw, (max-width: 1024px) 30vw, 288px"
           className="h-auto w-full"
         />
       </div>
@@ -61,16 +60,15 @@ function PhoneFigure({
   );
 }
 
-function HeroPhone({ media, className }: { media: LincolnMedia; className: string }) {
+function HeroPhone({ media, className, priority = false }: { media: LincolnMedia; className: string; priority?: boolean }) {
   return (
     <figure data-source-ids={media.sourceIds.join(" ")} className={className}>
-      <Image
+      <ResponsiveProjectImage
         src={`${assetRoot}/${media.src}`}
         alt={media.alt}
         width={1206}
         height={2622}
-        priority
-        sizes="(max-width: 768px) 39vw, 260px"
+        priority={priority}
         className="h-auto w-full rounded-[1.1rem] shadow-[0_30px_72px_-32px_rgba(0,0,0,0.88)]"
       />
     </figure>
@@ -82,7 +80,7 @@ function PhoneCollage({ media }: { media: readonly LincolnMedia[] }) {
     <div data-source-ids={media.flatMap((item) => item.sourceIds).join(" ")}>
       <div className="relative mx-auto h-[25rem] w-full max-w-[34rem] sm:h-[38rem] lg:h-[42rem]" aria-label="Three current profile states">
         <HeroPhone media={media[0]} className="absolute bottom-0 left-[1%] z-10 w-[42%] -rotate-2" />
-        <HeroPhone media={media[1]} className="absolute left-[29%] top-0 z-20 w-[42%]" />
+        <HeroPhone media={media[1]} className="absolute left-[29%] top-0 z-20 w-[42%]" priority />
         <HeroPhone media={media[2]} className="absolute bottom-[1%] right-[1%] z-30 w-[42%] rotate-2" />
       </div>
       <div className="mx-auto mt-8 grid w-full gap-4 sm:grid-cols-3">
@@ -115,7 +113,7 @@ export default function LincolnCaseStudyPage() {
             </div>
 
             <figure data-source-ids={project.hero.cover.sourceIds.join(" ")} className="mt-12 overflow-hidden rounded-2xl sm:mt-16">
-              <Image src={`${assetRoot}/${project.hero.cover.src}`} alt={project.hero.cover.alt} width={1456} height={1024} priority sizes="(max-width: 1280px) 100vw, 1216px" className="h-auto w-full" />
+              <ResponsiveProjectImage src={`${assetRoot}/${project.hero.cover.src}`} alt={project.hero.cover.alt} width={1200} height={900} priority className="h-auto w-full" />
             </figure>
 
             <div className="mt-14 w-full">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import ResponsiveProjectImage from "@/components/ResponsiveProjectImage";
 import { hondaCaseStudy, hondaContentBalance, type HondaMedia } from "@content/projects/honda-hmi-design-system/case-study.en";
 import InteractiveMindmap from "@/components/case-study/InteractiveMindmap";
 import InteractiveStrategyMap from "@/components/case-study/InteractiveStrategyMap";
@@ -17,8 +18,7 @@ function Figure({ media, priority = false }: { media: HondaMedia; priority?: boo
     <figure data-source-ids={media.sourceIds.join(" ")} className="min-w-0">
       <div className="overflow-hidden rounded-2xl bg-white shadow-[0_24px_60px_-38px_rgba(0,0,0,0.45)]">
         {/* Project media includes GIFs and varied source ratios; preserve their native dimensions. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${assetRoot}/${media.src}`} alt={media.alt} loading={priority ? "eager" : "lazy"} decoding="async" className="h-auto w-full" />
+        <ResponsiveProjectImage src={`${assetRoot}/${media.src}`} alt={media.alt} priority={priority} className="h-auto w-full" />
       </div>
       <figcaption className="mt-3 text-xs leading-5 text-workspace-muted">{media.caption}</figcaption>
     </figure>

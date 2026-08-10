@@ -46,7 +46,7 @@ export const portfolioCaseStudy = {
     boundary: "This is an evolving independent project. It does not yet claim verified traffic, hiring conversion, task-completion, or performance improvements.",
     media: {
       sourceIds: ["pos-hero-01"],
-      src: "cover.png",
+      src: "cover-display.webp",
       alt: "Portfolio workspace displayed on a laptop above a dark sculptural plinth",
       caption: "A presentation image of the current Portfolio workspace, used to establish the product direction. It is not a photographed device or an independent historical release.",
       truthStatus: "Portfolio reconstruction",
@@ -85,7 +85,7 @@ export const portfolioCaseStudy = {
     consequence: "This model supports multiple discovery paths and independent case-study pages while preserving stable project identities for future localization and genuine historical versions.",
     media: {
       sourceIds: ["pos-decision-02"],
-      src: "first-working-prototype.png",
+      src: "first-working-prototype-display.webp",
       alt: "The first working portfolio workspace with tag launchers, a central folder, and identity cards",
       caption: "First working workspace prototype, June 2026. Its interface labels, numbers, and version copy document that moment; they are not current project claims.",
       truthStatus: "Source evidence",

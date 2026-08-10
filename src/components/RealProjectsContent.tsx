@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import ResponsiveProjectImage from "@/components/ResponsiveProjectImage";
 import { resolveAsset } from "@/lib/content";
 import type { ProjectData } from "@/types/content";
 
@@ -18,7 +18,7 @@ export default function RealProjectsContent({ heading, intro, projects }: { head
         {projects.map((project) => (
           <article key={project.id} className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
             <div className="relative aspect-[16/7] overflow-hidden bg-neutral-100">
-              <Image src={resolveAsset(project.id, project.assets.cover)} alt={`${project.title} project cover`} fill sizes="560px" className={`object-cover ${project.assets.coverPosition === "top" ? "object-top" : "object-center"}`} />
+              <ResponsiveProjectImage src={resolveAsset(project.id, project.assets.cover)} alt={`${project.title} project cover`} className={`absolute inset-0 h-full w-full object-cover ${project.assets.coverPosition === "top" ? "object-top" : "object-center"}`} />
             </div>
             <div className="p-4">
               {project.metadata.type && <p className="font-mono text-[9px] font-bold uppercase tracking-wider text-sky-600">{project.metadata.type}</p>}

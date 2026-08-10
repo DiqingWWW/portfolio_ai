@@ -18,9 +18,9 @@
   ],
   "tokens": ["AI-assisted Building", "Systems Thinking", "Next.js", "Product Governance"],
   "assets": {
-    "cover": "./cover.png",
-    "hover": "./first-working-prototype.png",
-    "gallery": ["./first-working-prototype.png"]
+    "cover": "./cover-display.webp",
+    "hover": "./first-working-prototype-display.webp",
+    "gallery": ["./first-working-prototype-display.webp"]
   },
   "detailHref": "/work/portfolio-operating-system"
 }
