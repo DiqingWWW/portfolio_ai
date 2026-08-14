@@ -8,6 +8,7 @@
     "content:text-expression": "node scripts/sync-project-content.mjs text-expression",
     "dev": "next dev",
     "build": "npm run assets:prepare && next build",
+    "build:pages": "STATIC_EXPORT=true npm run build",
     "start": "next start",
     "lint": "eslint",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
