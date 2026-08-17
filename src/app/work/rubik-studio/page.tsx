@@ -19,11 +19,11 @@ export default function RubikStudioPage() {
         <ArrowLeft className="h-5 w-5" aria-hidden="true" />
       </Link>
       <ResponsiveProjectImage
-        src="/assets/images/rubik-studio/rubikstudio-display.webp"
-        mobileSrc="/assets/images/rubik-studio/rubikstudio-mobile.webp"
+        src="/assets/images/rubik-studio/rubikstudio_EN-display.webp"
+        mobileSrc="/assets/images/rubik-studio/rubikstudio_EN-mobile.webp"
         alt="Rubik Studio project overview"
-        width={1440}
-        height={4192}
+        width={736}
+        height={2138}
         priority
         className="h-auto w-full"
       />

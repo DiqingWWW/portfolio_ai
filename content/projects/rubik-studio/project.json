@@ -12,9 +12,9 @@
   "specs": [],
   "tokens": [],
   "assets": {
-    "cover": "./rubikstudio-display.webp",
+    "cover": "./rubikstudio_EN-display.webp",
     "coverPosition": "top",
-    "hover": "./rubikstudio-display.webp",
+    "hover": "./rubikstudio_EN-display.webp",
     "gallery": []
   },
   "detailHref": "/work/rubik-studio"
