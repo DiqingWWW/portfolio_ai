@@ -1,10 +1,10 @@
 # Current System
 
-Status: Current local release candidate — V1.2; deployed baseline remains V1.1
+Status: Current production release — V1.2
 Snapshot date: 2026-08-25
-Base deployment: V1.1 from `main` commit `c775fd1`. The local working tree contains the
-owner-reviewed V1.2 bilingual release candidate; it has not been versioned, committed, pushed,
-deployed, or production-smoke-tested.
+Production deployment: V1.2 from `main` commit `be534f5` at `https://www.deethin.site`.
+The owner accepted the bilingual release, GitHub and Vercel completed the deployment, and the
+production routes and representative localized assets passed smoke testing on 2026-08-25.
 
 This document describes the implementation as it exists. It is descriptive, not a promise
 that every current choice should remain. Durable decisions live in
@@ -250,13 +250,13 @@ shown by the portfolio, not the canonical source for the live workspace theme.
 - README retains standard Next.js boilerplate below its project-specific setup and content-sync
   instructions.
 - Site/navigation content contains duplicated or unused fields.
-- `package.json` now records the V1.1 release version. The project does not create Git tags for
+- `package.json` now records the V1.2 release version. The project does not create Git tags for
   minor releases.
 - The prospective Cloudflare path has not yet been validated against the Vercel deployment.
 
 ## 9. Verification baseline
 
-The local V1.2 release-candidate verification ran on 2026-08-25:
+The V1.2 release verification ran on 2026-08-25:
 
 - owner review completed for both homepages and all four project pages;
 - eleven public local routes loaded directly with no horizontal overflow or loaded-image failures;
@@ -265,7 +265,12 @@ The local V1.2 release-candidate verification ran on 2026-08-25:
 - `npm run lint`: 0 errors and 2 accepted warnings (raw `<img>` plus a temporary PDF capture script);
 - `npx tsc --noEmit`: passed;
 - `npm run build`: passed and generated all English and Chinese project routes;
-- production smoke testing remains pending until deployment is explicitly authorized.
+- GitHub `main` commit `be534f5` deployed successfully through Vercel;
+- all eleven public production routes returned HTTP 200 at `https://www.deethin.site`;
+- Chinese route HTML reported `lang="zh-CN"` and contained the accepted Honda, Lincoln,
+  Portfolio Operating System, and Rubik content;
+- representative Honda `_CN`, Portfolio Operating System iteration, and Rubik `_CN`/`_EN`
+  production assets returned HTTP 200.
 
 The deployed V1.1 verification baseline remains:
 

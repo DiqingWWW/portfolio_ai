@@ -1,6 +1,6 @@
 # Sprint v1.2 — Chinese Content and Bilingual Publishing
 
-Status: Local release candidate complete — publishing deferred by owner
+Status: Complete — V1.2 deployed and production-smoke-tested
 Sprint window: 2026-08-20 to 2026-08-29
 Owner capacity: about 3 hours/day
 Daily rhythm: 1 hour in the afternoon, 2 hours in the evening
@@ -18,7 +18,8 @@ Release target: `1.2.0` after acceptance; no Git tag for this minor release
   parity check against the current reviewed master hash.
 - Local route QA, lint, type checking, and production build pass. Lint retains two accepted
   pre-existing warnings and no errors.
-- No V1.2 version bump, commit, push, deployment, or production smoke test has been authorized.
+- The owner accepted V1.2. Package version `1.2.0` and release commit `be534f5` were pushed to
+  GitHub `main`, deployed by Vercel, and verified at `https://www.deethin.site`.
 
 ## 1. Sprint goal
 
@@ -340,17 +341,21 @@ Date: 2026-08-29
 
 Afternoon — 1 hour:
 
-- [ ] Fix only accepted release blockers and perform final diff review, including untracked PDF,
+- [x] Fix only accepted release blockers and perform final diff review, including untracked PDF,
   output, temporary, and deployment-experiment files.
-- [ ] Obtain owner acceptance before changing the package version or publishing.
+- [x] Obtain owner acceptance before changing the package version or publishing.
 
 Evening — up to 2 hours:
 
-- [ ] Update the package version to `1.2.0` after acceptance.
-- [ ] Commit, push, and deploy only when explicitly authorized; do not use `git add .`.
-- [ ] Smoke-test both locales, all four projects, responsive assets, direct URLs, metadata, locale
+- [x] Update the package version to `1.2.0` after acceptance.
+- [x] Commit, push, and deploy only when explicitly authorized; do not use `git add .`.
+- [x] Smoke-test both locales, all four projects, responsive assets, direct URLs, metadata, locale
   switching, redirects, and rollback path on production.
-- [ ] Record the deployed commit, production URL, known limitations, and next backlog.
+- [x] Record the deployed commit, production URL, known limitations, and next backlog.
+
+Completed early on 2026-08-25. Release commit: `be534f5`. Production URL:
+`https://www.deethin.site`. Immediate pre-release `main` rollback point: `572f87b`; the prior
+recorded V1.1 release baseline remains `c775fd1`.
 
 Acceptance: V1.2 is deployed and smoke-tested, or a release blocker is documented without making
 an unverified release claim.
@@ -367,8 +372,8 @@ an unverified release claim.
 - [x] Mobile and desktop layouts preserve the visual-content floor and complete diagram overviews.
 - [x] Language controls are semantic, keyboard reachable, visibly focused, and understandable.
 - [x] Lint has no new errors; type checking and production build pass.
-- [ ] Owner acceptance occurs before version bump, commit, push, or deployment.
-- [ ] Production smoke testing covers both locales and all published project routes.
+- [x] Owner acceptance occurs before version bump, commit, push, or deployment.
+- [x] Production smoke testing covers both locales and all published project routes.
 
 ## 7. Rollback and change discipline
 
@@ -378,8 +383,8 @@ an unverified release claim.
 - Roll back one project's locale wiring independently if it regresses without removing accepted
   content from other projects.
 - Do not stage untracked PDF, `output/`, `tmp/`, or deployment-experiment files by default.
-- Use the currently deployed V1.1 commit as the release rollback baseline; record the exact commit
-  immediately before an authorized V1.2 deployment.
+- Use immediate pre-release `main` commit `572f87b` as the operational rollback point. The prior
+  recorded V1.1 release baseline is `c775fd1`.
 
 ## 8. Deferred backlog
 

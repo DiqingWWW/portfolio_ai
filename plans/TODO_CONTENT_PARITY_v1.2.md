@@ -1,6 +1,6 @@
 # V1.2 bilingual content parity checklist
 
-Status: Local parity and owner review complete — production release checks pending
+Status: Complete — local parity, owner review, and production release checks passed
 
 This checklist verifies the publishing chain without treating localized modules as factual masters:
 
@@ -35,18 +35,18 @@ silence the failure.
 
 ## Lincoln Text Expression
 
-Status: Pass locally. Chinese and English narratives render through one project composition;
+Status: Pass in production. Chinese and English narratives render through one project composition;
 source-linked content, evidence boundaries, compact phone imagery, locale metadata, and `/zh` route
 were reviewed by the owner.
 
 ## Portfolio Operating System
 
-Status: Pass locally. Both locales use the accepted three-act composition. Internal `truthStatus`
+Status: Pass in production. Both locales use the accepted three-act composition. Internal `truthStatus`
 values remain in structured content but are no longer rendered as public caption prefixes.
 
 ## Rubik Studio
 
-Status: Pass locally. Rubik remains visual-only; English uses `_EN`, Chinese uses `_CN`, both have
+Status: Pass in production. Rubik remains visual-only; English uses `_EN`, Chinese uses `_CN`, both have
 direct routes, metadata alternates, and no invented narrative content.
 
 ## Global release checks
@@ -58,4 +58,6 @@ direct routes, metadata alternates, and no invented narrative content.
 - [x] Chinese and English metadata, alt text, captions, table labels, diagram labels, and ARIA text match the page locale.
 - [x] Mobile and desktop owner review is complete.
 - [x] Lint, type check, and production build pass after local integration.
-- [ ] Production smoke tests pass after an authorized deployment.
+- [x] Production smoke tests pass after an authorized deployment. Eleven public routes and
+  representative localized assets returned HTTP 200 at `https://www.deethin.site` for release
+  commit `be534f5` on 2026-08-25.
