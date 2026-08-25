@@ -46,7 +46,7 @@
     },
     {
       "id": "unit-007",
-      "selection": "supporting",
+      "selection": "simplify",
       "visualIntent": "Problem Solving",
       "visualFormat": "Before / After",
       "role": "establish the fragmented baseline and its scale"
@@ -95,7 +95,7 @@
     },
     {
       "id": "unit-014",
-      "selection": "supporting",
+      "selection": "simplify",
       "visualIntent": "Leadership / Decision Making",
       "visualFormat": "Process map",
       "role": "explain the how I persuaded the leader and asked for resources"
@@ -109,7 +109,7 @@
     },
     {
       "id": "unit-016",
-      "selection": "supporting",
+      "selection": "simplify",
       "visualIntent": "Product Thinking",
       "visualFormat": "Process map / Generated infographic",
       "role": "source reasoning for the infographic; use to derive nodes but do not render this full section"
@@ -123,220 +123,220 @@
     },
     {
       "id": "unit-018",
-      "selection": "supporting",
+      "selection": "simplify",
       "visualIntent": "System Thinking",
       "visualFormat": "Process map",
       "role": "source mapping for solution details; expose only on interaction or a separate follow-up visual"
     },
     {
       "id": "unit-019",
-      "selection": "supporting",
-      "visualIntent": "Impact / Outcome",
-      "visualFormat": "Process map / Metrics card",
-      "role": "source validation logic; show only when a metric is expanded or in the Validation section"
-    },
-    {
-      "id": "unit-020",
       "selection": "core",
       "visualIntent": "Product Thinking",
       "visualFormat": "Generated infographic",
       "role": "provide a generation contract for a future interactive website and pitch-deck infographic"
     },
     {
-      "id": "unit-021",
+      "id": "unit-020",
       "selection": "appendix",
       "visualIntent": "Innovation / Exploration",
       "visualFormat": "Generated infographic",
       "role": "retain the original visual composition as a reference for future interactive generation"
     },
     {
-      "id": "unit-022",
+      "id": "unit-021",
       "selection": "supporting",
       "visualIntent": "Problem Solving",
       "visualFormat": "Process map",
       "role": "show how internal audit and external references shaped the decisions"
     },
     {
-      "id": "unit-023",
+      "id": "unit-022",
       "selection": "supporting",
       "visualIntent": "Product Thinking",
       "visualFormat": "Comparison table",
       "role": "explain why a complete home experience was validated before component production"
     },
     {
-      "id": "unit-024",
+      "id": "unit-023",
       "selection": "supporting",
       "visualIntent": "System Thinking",
       "visualFormat": "Original screenshot",
       "role": "demonstrate how the component scope balanced coverage and maintainability"
     },
     {
-      "id": "unit-025",
+      "id": "unit-024",
       "selection": "supporting",
       "visualIntent": "System Thinking",
       "visualFormat": "Process map",
       "role": "show how component documentation turns assets into reusable design knowledge"
     },
     {
-      "id": "unit-026",
+      "id": "unit-025",
       "selection": "core",
       "visualIntent": "Leadership / Decision Making",
       "visualFormat": "Architecture diagram",
       "role": "introduce the three decisions that defined the system shape and ceiling"
     },
     {
-      "id": "unit-027",
+      "id": "unit-026",
       "selection": "core",
       "visualIntent": "Leadership / Decision Making",
       "visualFormat": "Decision diagram",
       "role": "preview the choices that defined the system ceiling"
     },
     {
-      "id": "unit-028",
+      "id": "unit-027",
       "selection": "core",
       "visualIntent": "Craft / Visual Design",
       "visualFormat": "Original screenshot",
       "role": "prove how brand qualities became reusable system rules"
     },
     {
-      "id": "unit-029",
+      "id": "unit-028",
       "selection": "core",
       "visualIntent": "Craft / Visual Design",
       "visualFormat": "Original screenshot",
       "role": "show the visual-language extraction in the matching page locale"
     },
     {
-      "id": "unit-030",
+      "id": "unit-029",
       "selection": "core",
       "visualIntent": "Craft / Visual Design",
       "visualFormat": "Original screenshot",
       "role": "show how brand geometry, light, and supplier input shaped icons"
     },
     {
-      "id": "unit-031",
+      "id": "unit-030",
       "selection": "supporting",
       "visualIntent": "System Thinking",
       "visualFormat": "Architecture diagram",
       "role": "show the hierarchy from HMI constraints to executable design resources"
     },
     {
-      "id": "unit-032",
+      "id": "unit-031",
       "selection": "core",
       "visualIntent": "System Thinking",
       "visualFormat": "Interactive mindmap",
       "role": ""
     },
     {
-      "id": "unit-033",
+      "id": "unit-032",
       "selection": "appendix",
       "visualIntent": "System Thinking",
       "visualFormat": "Architecture diagram / Mermaid mindmap",
       "role": "expose the architecture as structured native text that can be rendered and reused"
     },
     {
-      "id": "unit-034",
+      "id": "unit-033",
       "selection": "appendix",
       "visualIntent": "System Thinking",
       "visualFormat": "Original screenshot",
       "role": "retain the approved architecture image as source reference rather than the primary representation"
     },
     {
-      "id": "unit-035",
+      "id": "unit-034",
       "selection": "supporting",
       "visualIntent": "System Thinking",
       "visualFormat": "Architecture diagram",
       "role": "distinguish resources, usage rules, and change rules"
     },
     {
-      "id": "unit-036",
+      "id": "unit-035",
       "selection": "supporting",
       "visualIntent": "System Thinking",
       "visualFormat": "Architecture diagram",
       "role": "show the four asset libraries and their responsibilities"
     },
     {
-      "id": "unit-037",
+      "id": "unit-036",
       "selection": "supporting",
       "visualIntent": "System Thinking",
       "visualFormat": "Architecture diagram",
       "role": "enumerate the shared foundations that stabilize component design"
     },
     {
-      "id": "unit-038",
+      "id": "unit-037",
       "selection": "core",
       "visualIntent": "System Thinking",
       "visualFormat": "Architecture diagram",
       "role": "demonstrate that components encode decisions, not only visual assets"
     },
     {
-      "id": "unit-039",
+      "id": "unit-038",
       "selection": "simplify",
       "visualIntent": "System Thinking",
       "visualFormat": "Framework diagram",
       "role": "explain why a third token layer was worth its governance cost"
     },
     {
-      "id": "unit-040",
+      "id": "unit-039",
       "selection": "core",
       "visualIntent": "System Thinking",
       "visualFormat": "Architecture diagram",
       "role": "connect token layers, component scope, and documentation into one evidence frame"
     },
     {
-      "id": "unit-041",
+      "id": "unit-040",
       "selection": "core",
       "visualIntent": "System Thinking",
       "visualFormat": "Architecture diagram",
       "role": "show a forward-looking component architecture and its explicit trade-off"
     },
     {
-      "id": "unit-042",
+      "id": "unit-041",
       "selection": "core",
       "visualIntent": "System Thinking",
       "visualFormat": "Motion demo",
       "role": "demonstrate size, layout, and theme adaptation as prototype behavior"
     },
     {
-      "id": "unit-043",
+      "id": "unit-042",
       "selection": "core",
       "visualIntent": "System Thinking",
       "visualFormat": "Motion demo",
       "role": "demonstrate configuration and language adaptation as prototype behavior"
     },
     {
-      "id": "unit-044",
+      "id": "unit-043",
       "selection": "optional",
       "visualIntent": "System Thinking",
       "visualFormat": "Architecture diagram",
       "role": "show how reusable assets become predictable behavioral rules"
     },
     {
-      "id": "unit-045",
+      "id": "unit-044",
       "selection": "supporting",
       "visualIntent": "Leadership / Decision Making",
       "visualFormat": "Process map",
       "role": "show how documentation lowers adoption and knowledge-transfer costs"
     },
     {
-      "id": "unit-046",
+      "id": "unit-045",
       "selection": "core",
       "visualIntent": "Leadership / Decision Making",
       "visualFormat": "Process map",
       "role": "connect design-system assets to implementation and collaboration"
     },
     {
-      "id": "unit-047",
+      "id": "unit-046",
       "selection": "core",
       "visualIntent": "Impact / Outcome",
       "visualFormat": "Metrics card",
       "role": "evaluate the system using explicit metrics, methods, and evidence limits"
     },
     {
-      "id": "unit-048",
+      "id": "unit-047",
       "selection": "core",
       "visualIntent": "Product Thinking",
       "visualFormat": "Process map",
       "role": "connect business objectives, system goals, metrics, methods, and improvement"
+    },
+    {
+      "id": "unit-048",
+      "selection": "simplify",
+      "visualIntent": "Impact / Outcome",
+      "visualFormat": "Process map / Metrics card",
+      "role": "source validation logic; show only when a metric is expanded or in the Validation section"
     },
     {
       "id": "unit-049",
@@ -481,8 +481,8 @@
   ],
   "mindmaps": [
     {
-      "id": "unit-032-mindmap-1",
-      "sourceUnit": "unit-032",
+      "id": "unit-031-mindmap-1",
+      "sourceUnit": "unit-031",
       "selection": "core",
       "visualIntent": "System Thinking",
       "visualFormat": "Interactive mindmap",

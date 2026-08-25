@@ -51,11 +51,11 @@ const labelTranslations: Record<string, string> = {
   "全球化语言与国家适配": "Language & market adaptation",
 };
 
-function displayLabel(label: string) {
-  return labelTranslations[label] ?? label;
+function displayLabel(label: string, locale: "en" | "zh") {
+  return locale === "en" ? labelTranslations[label] ?? label : label;
 }
 
-function Branch({ node, path, depth = 0 }: { node: MindmapNode; path: string; depth?: number }) {
+function Branch({ node, path, locale, depth = 0 }: { node: MindmapNode; path: string; locale: "en" | "zh"; depth?: number }) {
   const [expanded, setExpanded] = useState(false);
   const hasChildren = node.children.length > 0;
 
@@ -69,7 +69,7 @@ function Branch({ node, path, depth = 0 }: { node: MindmapNode; path: string; de
           onClick={() => setExpanded((current) => !current)}
           className="group flex min-h-10 w-full items-center justify-between gap-3 rounded-xl bg-white px-3 py-2 text-left text-sm font-medium text-neutral-700 shadow-[0_8px_24px_-20px_rgba(0,0,0,0.5)] transition-colors hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent"
         >
-          <span>{displayLabel(node.label)}</span>
+          <span>{displayLabel(node.label, locale)}</span>
           <ChevronDown
             aria-hidden="true"
             className={`h-4 w-4 shrink-0 text-neutral-400 transition-transform ${expanded ? "rotate-180" : ""}`}
@@ -77,14 +77,14 @@ function Branch({ node, path, depth = 0 }: { node: MindmapNode; path: string; de
         </button>
       ) : (
         <span className="block rounded-lg px-3 py-2 text-sm leading-5 text-neutral-600">
-          {displayLabel(node.label)}
+          {displayLabel(node.label, locale)}
         </span>
       )}
 
       {hasChildren && expanded && (
         <ul id={`${path}-children`} className="mt-2 space-y-2 border-l border-neutral-200 pl-3">
           {node.children.map((child, index) => (
-            <Branch key={`${path}-${index}-${child.label}`} node={child} path={`${path}-${index}`} depth={depth + 1} />
+            <Branch key={`${path}-${index}-${child.label}`} node={child} path={`${path}-${index}`} locale={locale} depth={depth + 1} />
           ))}
         </ul>
       )}
@@ -92,7 +92,7 @@ function Branch({ node, path, depth = 0 }: { node: MindmapNode; path: string; de
   );
 }
 
-export default function InteractiveMindmap({ tree }: { tree: MindmapNode }) {
+export default function InteractiveMindmap({ tree, locale, instruction, emptyText }: { tree: MindmapNode; locale: "en" | "zh"; instruction: string; emptyText: string }) {
   const [selectedBranch, setSelectedBranch] = useState<number | null>(() => {
     const designPlatformIndex = tree.children.findIndex((branch) => branch.label === "Design Platform");
     return designPlatformIndex >= 0 ? designPlatformIndex : null;
@@ -102,10 +102,10 @@ export default function InteractiveMindmap({ tree }: { tree: MindmapNode }) {
     <section aria-labelledby="honda-system-map-title" className="aspect-square max-h-[44rem] overflow-hidden rounded-2xl bg-[#ece9e4] p-4 sm:aspect-[16/10] sm:p-6 lg:aspect-[16/9]">
       <div className="mx-auto max-w-3xl text-center">
         <h4 id="honda-system-map-title" className="text-xl font-semibold tracking-[-0.02em] text-neutral-800 sm:text-2xl">
-          {displayLabel(tree.label)}
+          {displayLabel(tree.label, locale)}
         </h4>
         <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-neutral-600">
-          Select one of the three system layers to inspect it.
+          {instruction}
         </p>
       </div>
 
@@ -119,7 +119,7 @@ export default function InteractiveMindmap({ tree }: { tree: MindmapNode }) {
                 onClick={() => setSelectedBranch((current) => current === index ? null : index)}
                 className={`min-h-12 w-full rounded-xl px-3 py-3 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent ${selectedBranch === index ? "bg-neutral-800 text-white" : "bg-white text-neutral-800 hover:bg-neutral-50"}`}
               >
-                {displayLabel(branch.label)}
+                {displayLabel(branch.label, locale)}
               </button>
             </li>
           ))}
@@ -128,12 +128,12 @@ export default function InteractiveMindmap({ tree }: { tree: MindmapNode }) {
         <div className="mt-3 min-h-0 flex-1 overflow-y-auto rounded-xl bg-white/55 p-3">
           {selectedBranch === null ? (
             <p className="flex h-full items-center justify-center px-6 text-center text-sm leading-6 text-neutral-500">
-              The default view keeps the architecture compact. Details appear here only after a layer is selected.
+              {emptyText}
             </p>
           ) : (
             <ul className="space-y-2">
               {tree.children[selectedBranch].children.map((child, childIndex) => (
-                <Branch key={`${selectedBranch}-${child.label}`} node={child} path={`branch-${selectedBranch}-${childIndex}`} />
+                <Branch key={`${selectedBranch}-${child.label}`} node={child} path={`branch-${selectedBranch}-${childIndex}`} locale={locale} />
               ))}
             </ul>
           )}

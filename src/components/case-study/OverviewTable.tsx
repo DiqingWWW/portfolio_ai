@@ -7,9 +7,11 @@ interface OverviewTableProps {
   label: string;
   columns: readonly string[];
   rows: ReadonlyArray<readonly string[]>;
+  enlargeLabel?: string;
+  closeLabel?: string;
 }
 
-export default function OverviewTable({ label, columns, rows }: OverviewTableProps) {
+export default function OverviewTable({ label, columns, rows, enlargeLabel = "Enlarge", closeLabel = "Close expanded" }: OverviewTableProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   return (
@@ -19,17 +21,17 @@ export default function OverviewTable({ label, columns, rows }: OverviewTablePro
       </div>
       <button
         type="button"
-        aria-label={`Enlarge ${label}`}
+        aria-label={`${enlargeLabel}: ${label}`}
         onClick={() => dialogRef.current?.showModal()}
         className="absolute right-2 top-2 inline-flex min-h-11 items-center gap-2 rounded-xl bg-neutral-900 px-3 py-2 text-xs font-semibold text-white shadow-[0_10px_26px_-16px_rgba(0,0,0,0.65)] hover:bg-workspace-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent sm:right-3 sm:top-3"
       >
         <Maximize2 className="h-4 w-4" aria-hidden="true" />
-        <span className="sr-only sm:not-sr-only">Enlarge</span>
+        <span className="sr-only sm:not-sr-only">{enlargeLabel}</span>
       </button>
 
       <dialog
         ref={dialogRef}
-        aria-label={`Expanded ${label}`}
+        aria-label={`${enlargeLabel}: ${label}`}
         onClick={(event) => {
           if (event.target === event.currentTarget) event.currentTarget.close();
         }}
@@ -38,7 +40,7 @@ export default function OverviewTable({ label, columns, rows }: OverviewTablePro
         <div className="mb-3 flex justify-end">
           <button
             type="button"
-            aria-label={`Close expanded ${label}`}
+            aria-label={`${closeLabel}: ${label}`}
             onClick={() => dialogRef.current?.close()}
             className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-neutral-900 text-white hover:bg-workspace-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent"
           >
@@ -53,7 +55,7 @@ export default function OverviewTable({ label, columns, rows }: OverviewTablePro
   );
 }
 
-function TableGraphic({ columns, rows, expanded = false }: Omit<OverviewTableProps, "label"> & { expanded?: boolean }) {
+function TableGraphic({ columns, rows, expanded = false }: Pick<OverviewTableProps, "columns" | "rows"> & { expanded?: boolean }) {
   const columnClass = columns.length === 2
     ? "first:w-[38%] last:w-[62%]"
     : "first:w-[24%] last:w-[32%]";

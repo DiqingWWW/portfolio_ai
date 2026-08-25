@@ -44,14 +44,21 @@ invent a new framing, or make the author sound less senior or less formal than t
 - **Do not:** replace that proposition with `Different text needs different rules.` The slogan is
   broader, less precise, and changes the professional register and reasoning in the master.
 
-The default publishing path is:
+The default bilingual publishing path is:
 
 ```text
 master.md
-  → case-study.en.ts / case-study.zh.ts
+  → case-study.zh.ts
+  → case-study.en.ts
   → ProjectCaseStudyPage.tsx
   → local website review
 ```
+
+The Chinese module is the owner-reviewed website narrative and may refine selection, order, and
+localized expression without changing the approved facts or evidence boundary. The English module
+is then translated from the approved Chinese module. It must preserve the same selected content,
+source IDs, claims, and narrative order; only language and locale-matched assets change. A factual
+correction still returns to `master.md` first.
 
 Targeted local-page edits are allowed when the owner asks for them. Unless the request
 explicitly changes a rule, those edits may change only localized wording, selection,

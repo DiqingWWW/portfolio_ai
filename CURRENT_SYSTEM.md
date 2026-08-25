@@ -1,9 +1,10 @@
 # Current System
 
-Status: Current deployed snapshot — V1.1
-Snapshot date: 2026-08-09
-Base release: V1.1, deployed from `main` commit `c775fd1`; this document describes the
-accepted content-pipeline and case-study showcase scope verified on the production domain.
+Status: Current local release candidate — V1.2; deployed baseline remains V1.1
+Snapshot date: 2026-08-25
+Base deployment: V1.1 from `main` commit `c775fd1`. The local working tree contains the
+owner-reviewed V1.2 bilingual release candidate; it has not been versioned, committed, pushed,
+deployed, or production-smoke-tested.
 
 This document describes the implementation as it exists. It is descriptive, not a promise
 that every current choice should remain. Durable decisions live in
@@ -19,10 +20,9 @@ full snapshot audit lives in `audits/engineering-audit-v0.2-2026-08-01.md`.
 - `src/app/layout.tsx` is the root Server Component and owns fonts and metadata.
 - `src/app/page.tsx` is a 580-line Client Component and imports the complete homepage
   orchestration, content façade, Motion, icons, and all major content components.
-- Current public routes are `/`, `/experiments`, the generated sitemap, three static case studies at
-  `/work/honda-hmi-design-system`, `/work/lincoln-text-expression`, and
-  `/work/portfolio-operating-system`, plus the image-only Rubik Studio project route at
-  `/work/rubik-studio`.
+- English remains at the existing unprefixed routes. Chinese uses `/zh` and matching `/zh/work/...`
+  routes for Honda, Lincoln, Portfolio Operating System, and the visual-only Rubik Studio page.
+  `/experiments` remains one shared English-only collection linked from both homepages.
 - There are no API routes, route-level loading states, or error boundaries. The three primary
   case-study routes have dedicated page compositions rather than one shared generic renderer.
 
@@ -133,23 +133,30 @@ Three real-project packages are synchronized from external Obsidian authoring fo
 records a source hash, updates derived pitch/appendix files in Obsidian, and generates a
 `case-study.selection.json` manifest in the repository.
 
-Each project keeps a JSX-free localized content module—currently `case-study.en.ts`; future
-Chinese pages will use `case-study.zh.ts`. The TypeScript modules select and translate source
-units from the manifest while retaining source IDs. Project-specific components compose these
-modules into the corresponding route:
+Honda, Lincoln, and Portfolio Operating System each keep JSX-free `case-study.zh.ts` and
+`case-study.en.ts` modules. The Chinese module is the owner-reviewed website narrative; English is
+its faithful localized expression. Both retain source IDs, while project-specific components
+compose either locale through one shared presentation layer:
 
 ```text
 Obsidian master
   → content:sync
   → case-study.selection.json + approved assets
+  → case-study.zh.ts
   → case-study.en.ts
-  → project-specific TSX page
+  → shared project-specific TSX composition
 ```
 
 Honda, Lincoln, and Portfolio Operating System now use this curation-tag pipeline. The older
 repository `case-study.md`, `case-study.en.tsx`, and Portfolio OS `website.en.json` artifacts
 were intentionally removed after route references migrated to the new modules. Their concise
 `project.json` records continue to drive homepage discovery and links.
+
+Global profile, navigation, project summaries, shared labels, and language-switch text are
+localized through `src/i18n/dictionary.ts`. The language switch preserves the current route,
+query, and hash where a matching locale route exists. Metadata, canonical URLs, language
+alternates, sitemap entries, document language, alt text, table labels, and ARIA labels are emitted
+per locale. Rubik selects `_EN` media on English routes and `_CN` media on Chinese routes.
 
 The portfolio-building project follows the same numbered authoring structure:
 `01_master` is its sole factual master, `02_sections` holds source-ID composition briefs,
@@ -248,6 +255,19 @@ shown by the portfolio, not the canonical source for the live workspace theme.
 - The prospective Cloudflare path has not yet been validated against the Vercel deployment.
 
 ## 9. Verification baseline
+
+The local V1.2 release-candidate verification ran on 2026-08-25:
+
+- owner review completed for both homepages and all four project pages;
+- eleven public local routes loaded directly with no horizontal overflow or loaded-image failures;
+- Rubik locale assets, canonical URLs, language alternates, and document language were verified;
+- `npm run content:check`: Honda master/selection/localized-content parity passed;
+- `npm run lint`: 0 errors and 2 accepted warnings (raw `<img>` plus a temporary PDF capture script);
+- `npx tsc --noEmit`: passed;
+- `npm run build`: passed and generated all English and Chinese project routes;
+- production smoke testing remains pending until deployment is explicitly authorized.
+
+The deployed V1.1 verification baseline remains:
 
 The V1.1 release verification ran on 2026-08-09:
 

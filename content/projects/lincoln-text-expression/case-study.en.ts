@@ -9,6 +9,12 @@ export type LincolnMedia = SourceLinked & {
   truthStatus: string;
 };
 
+export type LincolnDerivation = SourceLinked & {
+  title: string;
+  summary: string;
+  points: readonly string[];
+};
+
 const approvedSourceIds = new Set(selection.units.map((unit) => unit.id));
 
 function linked<T extends SourceLinked>(value: T): T {
@@ -24,15 +30,19 @@ function media(value: LincolnMedia): LincolnMedia {
   return linked(value);
 }
 
+function derivation(value: LincolnDerivation): LincolnDerivation {
+  return linked(value);
+}
+
 export const lincolnCaseStudy = {
   projectId: "lincoln-text-expression",
   projectName: "The Lincoln Way",
   title: "Optimizing Mobile Text Input and Information Expression",
   status: "Professional project · shipped with qualified evidence",
   hero: linked({
-    sourceIds: ["lincoln-001", "lincoln-002", "lincoln-003"],
+    sourceIds: ["lincoln-001", "lincoln-002"],
     proposition: "Text rules should be defined by the task the content performs—not by the field name or component style.",
-    context: "The Lincoln Way is Lincoln’s mobile application for vehicle status, community communication, related purchases, and official owner services. In August 2022, I worked as the sole UX designer within the external partner’s scope, covering requirements analysis, competitive research, text-rule definition, interaction design, and design specifications. The client product lead reviewed and approved the work.",
+    context: "The client asked us to systematically optimize text-related interactions. The Lincoln Way is Lincoln’s mobile application for vehicle status, community communication, related purchases, and official owner services. In August 2022, I worked as the sole UX designer within the external partner’s scope, covering requirements analysis, competitive research, text-rule definition, interaction design, and design specifications. The client product lead reviewed and approved the work.",
     evidenceBoundary: "The seven primary screenshots show the application’s current shipped experience. Some details differ from the August 2022 delivery; they therefore evidence observable tasks and states, while authorship is limited to the confirmed responsibilities, rules, and implementation scope.",
     cover: media({
       sourceIds: ["lincoln-001"],
@@ -51,27 +61,65 @@ export const lincolnCaseStudy = {
       { label: "Approval", value: "Client product lead", note: "Core rules were approved and implemented; some overflow and body/topic details were only partially implemented." },
       { label: "Evidence boundary", value: "No post-launch analytics access", note: "No completion, efficiency, or conversion uplift is presented as an achieved result." },
     ],
-    archetypes: [
-      { name: "Controlled short text", examples: "Name · nickname", property: "Short, concentrated rules, low editing cost", question: "Should invalid input be prevented, and how should the exact rule be explained?" },
-      { name: "Structured unique identifier", examples: "VIN", property: "One answer, strict length and character set", question: "How can input accuracy and final validation be improved?" },
-      { name: "Open long text", examples: "Post body", property: "No single answer, high user investment, shared allowances", question: "Should excess content be preserved, and how should state, consequence, and recovery be expressed?" },
+    questions: [
+      { name: "Controlled short text", examples: "Name · nickname", property: "When users fill a short form, how should the prompts be optimized?", question: "Show rules on focus and validate while typing—prompt timing matches editing cost." },
+      { name: "Structured unique identifier", examples: "VIN", property: "When the input is unique, how should constraints be applied?", question: "Priority is not counting, but reducing transcription errors and keeping the information correctly identified." },
+      { name: "Open long text", examples: "Post body", property: "When users type long text, what feedback should appear in which situation?", question: "Allowing overflow is deliberate; pair it with an error color and a recovery loop." },
     ],
-    dimensions: ["Content structure", "Length and editing cost", "Answer certainty", "Downstream visibility", "Failure consequence", "Cross-object coupling"],
   }),
-  identityEvidence: linked({
-    sourceIds: ["lincoln-004", "lincoln-005", "lincoln-006"],
-    title: "The profile reveals where apparently similar fields diverge",
-    summary: "Name and nickname both use a 14-unit limit, but they do not carry the same content responsibility. Name is not displayed externally; nickname becomes the visible identity across product surfaces.",
+  shortText: linked({
+    sourceIds: ["lincoln-007", "lincoln-004", "lincoln-005", "lincoln-006", "lincoln-023"],
+    title: "Question 1 · Controlled short text: how should prompts be optimized in short forms?",
+    summary: "Name and nickname both use a 14-unit limit, yet carry different content responsibilities—name permits Chinese and Latin letters and is not displayed externally; nickname permits underscore and carries all external identity display. Invalid nickname disables Save; a valid save produces a success toast and exits the page.",
+    tradeoff: "Name is a real name; from a content-task view it does not actually need a 14-unit limit—real names are short. But because foreign users’ names (Latin spellings) can be longer, we applied the same 14-unit treatment as the nickname, leaving enough input room for users of different languages. Nickname is the opposite: it carries all external identity display, so its rules need to be more explicit.",
+    decision: "The core of short-text limits is not the number but the task the content performs. Name and nickname share the 14-unit ceiling for different reasons: name accommodates longer names; nickname constrains a public identity. The current nickname still accepts input beyond 14, which means the defined rule and the shipped implementation are not fully aligned—these two need to be stated separately.",
+    presentation: "Short-form interaction centers on up-front prompting: when the field gains focus, show the rule and constraints (for example “up to 14 units, underscore allowed”), so users know the boundary before typing; validate in real time while typing so errors can be corrected before submission. Long text is the opposite—it relies more on post-input prompts. A repairable short-text error should state whether length or character rules failed, what the consequence is, and what the user should do next.",
     media: [
       media({ sourceIds: ["lincoln-004"], src: "profile-overview-display.webp", alt: "Current profile page showing name and nickname fields", caption: "Name and nickname share one profile surface and the same numeric limit, while serving different identity responsibilities.", truthStatus: "Current shipped evidence; differences from the 2022 delivery remain unresolved." }),
       media({ sourceIds: ["lincoln-005"], src: "profile-name-invalid-display.webp", alt: "Current name field rejecting the Latin input widisj", caption: "The confirmed rule allows Chinese and Latin letters, so “widisj” should be valid. The current error indicates a mismatch between the rule and implementation.", truthStatus: "Verified intended rule + verified current screenshot; root cause unknown." }),
       media({ sourceIds: ["lincoln-006"], src: "profile-nickname-invalid-display.webp", alt: "Nickname field displaying its length and special-character guidance", caption: "Nickname allows up to 14 units and underscore, but the combined message does not identify which rule is currently violated.", truthStatus: "Verified current behavior." }),
     ] satisfies LincolnMedia[],
+    derivation: derivation({
+      sourceIds: ["lincoln-023"],
+      title: "How short-text forms present and interact",
+      summary: "The experience difference in short-text forms lies mainly in the timing and form of the prompt—prompt granularity should match editing cost.",
+      points: [
+        "Up-front prompt: show the rule when the field gains focus (for example “up to 14 units, underscore allowed”), so users know the boundary before typing rather than discovering the error afterwards.",
+        "Prompt while typing: real-time counting and instant validation show “is it valid, how much is left” as the user types.",
+        "Post-input prompt: validation runs on submission and errors surface together—costly for short text because the user must go back and fix it.",
+      ],
+    }),
+  }),
+  vin: linked({
+    sourceIds: ["lincoln-010", "lincoln-008", "lincoln-009", "lincoln-024"],
+    title: "Question 2 · Structured unique identifier: how should constraints be applied when the input is unique?",
+    summary: "A VIN has exactly 17 uppercase Latin letters or digits and only one correct answer. Incomplete input cannot proceed, input beyond 17 or illegal characters is blocked, Latin letters are normalized to uppercase, and final validation happens on confirmation. The page supports manual entry, camera scan, find-help, and a disabled empty-state confirmation.",
+    tradeoff: "The priority for this kind of field is not a persistent 0/17 counter—one wrong VIN letter points to the wrong vehicle.",
+    decision: "The rule for a unique identifier is decided by “the answer must be unique and accurate.” The design focus is reducing transcription errors, providing scan and find-help, normalizing input, and making it clear whether the user can proceed.",
+    presentation: "A VIN decides whether the information can be correctly identified and linked to the right vehicle. For this kind of information, the reliability and accuracy of the input method matter most.",
+    evidenceBoundary: "The exact scan-failure feedback remains unresolved and is excluded from the public conclusion.",
+    media: [
+      media({ sourceIds: ["lincoln-009"], src: "vehicle-empty-display.webp", alt: "Vehicle binding entry point and owner-service value", caption: "Successful binding connects vehicle status, finance, warnings, and service booking, increasing the value of accurate entry.", truthStatus: "Verified current evidence." }),
+      media({ sourceIds: ["lincoln-008"], src: "vin-entry-display.webp", alt: "VIN entry screen with camera scan and find-help", caption: "Manual entry, scan, find-help, normalization, and confirmation state support one exact 17-unit answer.", truthStatus: "Verified delivery scope; scan-failure feedback unresolved." }),
+    ] satisfies LincolnMedia[],
+    derivation: derivation({
+      sourceIds: ["lincoln-024"],
+      title: "Why unique identifiers are least affected by product positioning",
+      summary: "Among the three archetypes, unique identifiers have their rules set by external standards; the designer’s freedom lies in the input method.",
+      points: [
+        "VINs, ID numbers, order numbers—rules come from external standards: 17 digits, 18 digits, specific character sets.",
+        "The designer’s freedom is not in “how many characters,” but in the input method: how to reduce transcription errors, how to format, when to validate.",
+        "The harder the constraint, the more the design must serve accuracy.",
+      ],
+    }),
   }),
   longText: linked({
-    sourceIds: ["lincoln-011", "lincoln-012", "lincoln-013", "lincoln-014", "lincoln-016"],
-    title: "Open long text requires a recoverable interaction model",
-    summary: "Long text carries substantial user effort. When content exceeds the limit, the interface should preserve that effort, identify the affected allowance, explain the publishing consequence, and restore the valid state coherently.",
+    sourceIds: ["lincoln-011", "lincoln-012", "lincoln-013", "lincoln-014", "lincoln-016", "lincoln-025"],
+    title: "Question 3 · Open long text: what feedback should appear in which situation when users type long text?",
+    summary: "The post body uses a 1,000-unit limit with a live X/1000 count and has no title field. Topic text is inserted into the body and shares the same 1,000-unit allowance, with no independent topic limit. The current app preserves text beyond the limit but does not implement the error-color state I proposed.",
+    tradeoff: "Short text can be stopped at the boundary because editing cost is low; long text has already carried the user’s effort, so overflow must preserve content and let the user edit back to a valid state. The shared body/topic allowance is not an unknown bug; the real design problem is that users cannot see the topic’s cost before selecting it, and whether the prompt is enough to support recovery.",
+    decision: "Long text carries expression effort; limits serve expression—after overflow, the content must be preserved, the consequence explained, and recovery provided, rather than blocked like short text.",
+    presentation: "The body decides whether expression effort is respected and whether information can be fully conveyed and recovered. Allowing users to keep typing beyond the character limit is a deliberate design choice—the more users invest, the less their input should be cut off mid-way; at the same time, overflow must be clearly signaled: the count enters an error color (1009/1000) to tell users they are over and need to trim back. The current implementation preserves overflow text but does not implement the error-color state.",
     countTitle: "One visible character is not a naturally consistent implementation unit",
     countSummary: "The current application reproducibly counts Chinese characters, Latin letters, digits, and spaces as one; line breaks as zero; and different emoji as two, three, or four. Without engineering evidence, the implementation cause remains unknown. The specification must connect the complete chain rather than infer an encoding model.",
     chain: [
@@ -88,39 +136,41 @@ export const lincolnCaseStudy = {
       { input: "😀", increase: "+2", status: "Reproducible" },
       { input: "👍🏽", increase: "+3", status: "Reproducible" },
       { input: "🇨🇳", increase: "+4", status: "Reproducible" },
-      { input: "Tested family / profession sequence", increase: "+2", status: "Exact sample and field remain TODO" },
     ],
     media: [
-      media({ sourceIds: ["lincoln-013"], src: "post-overflow-display.webp", alt: "Post body showing 1009 of 1000 without a clear invalid state", caption: "At 1009/1000, excess text remains available for editing. I proposed an error-color state, which the current implementation does not show.", truthStatus: "Verified current behavior + verified design proposal; publish result unknown." }),
+      media({ sourceIds: ["lincoln-013"], src: "post-overflow-display.webp", alt: "Post body showing 1009 of 1000 without a clear invalid state", caption: "At 1009/1000, overflow text remains editable. I proposed an error-color count state, which the current implementation does not show.", truthStatus: "Verified current behavior + verified design proposal; publish result unknown." }),
       media({ sourceIds: ["lincoln-014"], src: "post-topic-limit-display.webp", alt: "Adding a topic near the text limit triggers an upper-limit message", caption: "Topic text is inserted into the body and shares its 1000-unit allowance. At 997/1000, the selected topic no longer fits.", truthStatus: "Verified intended rule and current evidence." }),
     ] satisfies LincolnMedia[],
+    statesTitle: "Four feedback states define the recovery loop",
+    statesSummary: "The model distinguishes normal entry, early warning, invalid overflow, and the return to a valid publishing state.",
     states: [
       { state: "Normal", behavior: "Keep the count low-emphasis so expression remains primary." },
       { state: "Approaching", behavior: "Increase emphasis before the boundary is reached." },
       { state: "Over limit", behavior: "Preserve content while identifying excess, consequence, and affected object." },
       { state: "Recovered", behavior: "Restore count color, explanation, and publishing state together." },
     ],
-    statesTitle: "Four feedback states define the recovery loop",
-    statesSummary: "The model distinguishes normal entry, early warning, invalid overflow, and the return to a valid publishing state.",
-    allowance: "The shared body/topic allowance is confirmed. The design issue is whether people can predict the topic’s cost before selection and understand how to recover afterward.",
+    allowance: "The shared body/topic allowance is not an unknown bug; the real design problem is whether people can predict the topic’s cost before selection and understand how to recover afterward—the allowance must answer “can users predict the cost, can they recover.”",
+    derivation: derivation({
+      sourceIds: ["lincoln-025"],
+      title: "How product positioning defines “long text”",
+      summary: "What counts as “long text” is decided by product positioning; a character ceiling is the product’s answer to “how much information one expression should carry.”",
+      points: [
+        "In The Lincoln Way, a vehicle-owner service app, a 1000-character post is long text—low frequency, functional.",
+        "On Xiaohongshu, 1000 characters is also the norm, but it is the core carrier of “recommendation notes.”",
+        "When product positioning changes, the definition, allowance, and overflow strategy of long text change together.",
+      ],
+    }),
   }),
-  shortText: linked({
-    sourceIds: ["lincoln-007"],
-    title: "The same maximum does not imply the same rule",
-    summary: "Name permits Chinese and Latin letters and remains private. Nickname also allows underscore and serves as the public identity. Invalid nickname input disables Save; valid input produces a success toast and exits the page.",
-    decision: "Because short text carries little editing investment, input beyond the maximum can be prevented instead of preserving overflow. A repairable error should identify whether length or character rules failed, state the consequence, and explain the next valid action.",
-    implementationBoundary: "The current nickname field still permits input beyond 14 units. The defined rule and final implementation must therefore be reported separately.",
-  }),
-  vin: linked({
-    sourceIds: ["lincoln-008", "lincoln-009", "lincoln-010"],
-    title: "A unique identifier requires specialized treatment",
-    summary: "A VIN has one correct answer, a fixed length, and a controlled character set. Its priority is not a persistent 0/17 counter, but accurate transcription, normalized input, clear progression, and final validation.",
-    decision: "Accept exactly 17 uppercase Latin letters or digits; capitalize letters automatically; prevent illegal and excess input; disable progression while incomplete; and perform final validation on confirmation.",
-    evidenceBoundary: "The VIN rules and interaction were within my confirmed delivery scope. The exact scan-failure feedback remains unresolved and is excluded from the public conclusion.",
-    media: [
-      media({ sourceIds: ["lincoln-009"], src: "vehicle-empty-display.webp", alt: "Vehicle binding entry point and owner-service value", caption: "Successful binding connects vehicle status, finance, warnings, and service booking, increasing the value of accurate entry.", truthStatus: "Verified current evidence." }),
-      media({ sourceIds: ["lincoln-008"], src: "vin-entry-display.webp", alt: "VIN entry screen with camera scan and find-help", caption: "Manual entry, scan, find-help, normalization, and confirmation state support one exact 17-unit answer.", truthStatus: "Verified delivery scope; scan-failure feedback unresolved." }),
-    ] satisfies LincolnMedia[],
+  archetypes: linked({
+    sourceIds: ["lincoln-003"],
+    title: "From three questions to three text archetypes",
+    summary: "Looking back, these are not four fields but three kinds of text tasks—each answers the same question: how will this input be presented, understood, and trusted afterwards?",
+    rows: [
+      ["Controlled short text", "Name, nickname", "Short, concentrated rules, low editing cost", "Should invalid input be prevented? How should the exact rule be explained?"],
+      ["Structured unique identifier", "VIN", "One answer, strict length and character set", "How can input accuracy and final validation be improved?"],
+      ["Open long text", "Post body; comment as boundary reference only", "No single answer, high user investment, shared allowances", "Should excess content be preserved? How should state, consequence, and recovery be expressed?"],
+    ],
+    dimensions: ["Content structure", "Length and editing cost", "Answer certainty", "Downstream visibility", "Failure consequence", "Cross-object coupling"],
   }),
   framework: linked({
     sourceIds: ["lincoln-017"],
@@ -139,8 +189,8 @@ export const lincolnCaseStudy = {
   }),
   validation: linked({
     sourceIds: ["lincoln-019"],
-    title: "A measurement plan—not claimed post-launch results",
-    summary: "As an external partner, I did not retain access to production analytics after delivery. The following measures define how the interaction should be evaluated; they are not presented as achieved outcomes.",
+    title: "Delivered outcome and honest boundary",
+    summary: "The method can be reused, but the outcome must stay bounded: after delivery I had no access to production analytics, so the measures below define how the interaction should be evaluated—they are not achieved results.",
     metrics: [
       { scenario: "Controlled short text", measures: "First-save success · rule recognition · repeated errors", question: "Can people identify the violated rule and repair it immediately?" },
       { scenario: "VIN", measures: "First-entry success · completion time · scan adoption · validation failures", question: "Do specialized input and help reduce transcription cost?" },
@@ -151,7 +201,7 @@ export const lincolnCaseStudy = {
   }),
   closing: linked({
     sourceIds: ["lincoln-020"],
-    statement: "The outcome was not a collection of field limits, but a method for deciding text structure, counting boundaries, input constraints, validation, and recovery.",
+    statement: "The outcome was not a collection of field limits, but a method for deciding text structure, counting boundaries, input constraints, validation, and recovery—because every character-limit decision is ultimately a decision about how information is presented, understood, and trusted.",
   }),
 } as const;
 
@@ -161,7 +211,7 @@ function countTextUnits() {
 
 function countVisualUnits() {
   return 1
-    + projectVisualCount(lincolnCaseStudy.identityEvidence.media)
+    + projectVisualCount(lincolnCaseStudy.shortText.media)
     + 3
     + projectVisualCount(lincolnCaseStudy.longText.media)
     + 1

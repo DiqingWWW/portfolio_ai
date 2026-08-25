@@ -1,7 +1,7 @@
 {
   "source": "字数",
   "sourceMaster": "01_master/master.md",
-  "sourceHash": "988f093594c4dba2b6c4f2ad7824951d420dad329fb4b4d837fa1cac7fcedb1b",
+  "sourceHash": "7d27f617de841af1432593ad73dee5d4af1556c7a5abe7e1ffca18c3441e7f54",
   "generatedFiles": [
     "case-study.selection.json",
     "vehicle-empty.png",

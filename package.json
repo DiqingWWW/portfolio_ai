@@ -1,11 +1,13 @@
 {
   "name": "portfolio_ai",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "assets:prepare": "node scripts/copy-project-assets.mjs",
     "content:sync": "node scripts/sync-project-content.mjs",
+    "content:check": "node scripts/check-content-parity.mjs",
     "content:text-expression": "node scripts/sync-project-content.mjs text-expression",
+    "predev": "npm run assets:prepare",
     "dev": "next dev",
     "build": "npm run assets:prepare && next build",
     "build:pages": "STATIC_EXPORT=true npm run build",

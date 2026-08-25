@@ -7,7 +7,7 @@
       "selection": "core",
       "visualIntent": "Outcome",
       "visualFormat": "Portfolio reconstruction",
-      "role": "establish the current product and the system-level thesis"
+      "role": "establish the project starting point, the cognitive arc, and the initial AI workflow"
     },
     {
       "id": "pos-hero-02",
@@ -17,11 +17,39 @@
       "role": "preview only the currently defensible outputs"
     },
     {
+      "id": "pos-iteration-01",
+      "selection": "core",
+      "visualIntent": "Before / After",
+      "visualFormat": "Original screenshot",
+      "role": "show the prompt-generated first draft and its unprioritized information hierarchy"
+    },
+    {
+      "id": "pos-iteration-02",
+      "selection": "core",
+      "visualIntent": "Decision proof",
+      "visualFormat": "Original screenshot",
+      "role": "show the Impeccable-assisted critique that turns vague unease into a list of locatable problems"
+    },
+    {
+      "id": "pos-iteration-03",
+      "selection": "core",
+      "visualIntent": "Before / After",
+      "visualFormat": "Original screenshot",
+      "role": "show the refined version that rebuilt the project-discovery flow"
+    },
+    {
+      "id": "pos-iteration-04",
+      "selection": "supporting",
+      "visualIntent": "Before / After",
+      "visualFormat": "Original screenshot",
+      "role": "show the window visual language before and after unification"
+    },
+    {
       "id": "pos-decision-01",
       "selection": "core",
       "visualIntent": "Decision proof",
       "visualFormat": "Comparison",
-      "role": "show the first consequential workflow decision"
+      "role": "show the first consequential workflow decision: from full-package handoff to bounded diff sync"
     },
     {
       "id": "pos-decision-02",
@@ -35,7 +63,7 @@
       "selection": "supporting",
       "visualIntent": "System map",
       "visualFormat": "Architecture diagram",
-      "role": "explain how a working prototype became a maintained product"
+      "role": "explain how engineering reality reshaped the design judgment loop"
     },
     {
       "id": "pos-os-01",
@@ -66,5 +94,86 @@
       "role": "keep missing facts outside public conclusions"
     }
   ],
-  "mindmaps": []
+  "mindmaps": [
+    {
+      "id": "pos-os-01-mindmap-1",
+      "sourceUnit": "pos-os-01",
+      "selection": "core",
+      "visualIntent": "System map",
+      "visualFormat": "Architecture diagram",
+      "role": "show the third decision and the resulting operating model",
+      "tree": {
+        "label": "Portfolio Operating System",
+        "children": [
+          {
+            "label": "体验层",
+            "children": [
+              {
+                "label": "空间化 Workspace",
+                "children": []
+              },
+              {
+                "label": "窗口与动效",
+                "children": []
+              },
+              {
+                "label": "常规项目路径",
+                "children": []
+              }
+            ]
+          },
+          {
+            "label": "内容层",
+            "children": [
+              {
+                "label": "Project",
+                "children": []
+              },
+              {
+                "label": "Tag",
+                "children": []
+              },
+              {
+                "label": "Asset",
+                "children": []
+              },
+              {
+                "label": "Case Study",
+                "children": []
+              },
+              {
+                "label": "全局内容",
+                "children": []
+              }
+            ]
+          },
+          {
+            "label": "治理层",
+            "children": [
+              {
+                "label": "Portfolio OS",
+                "children": []
+              },
+              {
+                "label": "Current System",
+                "children": []
+              },
+              {
+                "label": "迁移计划",
+                "children": []
+              },
+              {
+                "label": "审计",
+                "children": []
+              },
+              {
+                "label": "AI Working Agreement",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }

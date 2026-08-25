@@ -5,7 +5,7 @@
 
 import { readdir, mkdir, copyFile, rm } from "fs/promises";
 import { existsSync } from "fs";
-import { join, basename } from "path";
+import { join } from "path";
 
 const CONTENT_DIR = "content/projects";
 const PUBLIC_DIR = "public/assets/images";

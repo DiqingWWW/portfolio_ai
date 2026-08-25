@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteUrl } from "@/config/site";
+import { headers } from "next/headers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -76,13 +77,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const requestHeaders = await headers();
+  const documentLanguage = requestHeaders.get("x-portfolio-locale") === "zh-CN" ? "zh-CN" : "en";
+
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang={documentLanguage} suppressHydrationWarning className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />

@@ -1,0 +1,10 @@
+{
+  "sourceHash": "ed61d58e2255c0898a0d93a37a1586d5aaa16084b10405e6b526933768f0ee7b",
+  "selectionFile": "case-study.selection.json",
+  "localizedModules": [
+    "case-study.zh.ts",
+    "case-study.en.ts"
+  ],
+  "reviewedMindmapSource": "unit-031",
+  "note": "Update only after reconciling the synced master, selection record, Chinese module, English module, and TSX composition."
+}

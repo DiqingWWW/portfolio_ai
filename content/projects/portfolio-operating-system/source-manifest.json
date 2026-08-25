@@ -1,11 +1,19 @@
 {
   "source": "Portfolio Websites",
   "sourceMaster": "01_master/master.md",
-  "sourceHash": "05bb88a26af9e9ebc584252117275ea5272ba374b8c48dbeaf916e1ec02f78bc",
+  "sourceHash": "5dcc38d85b751e1cecaf14e5f3949abc477ef69fa9d5c96eb76f5b7edfc89449",
   "generatedFiles": [
     "case-study.selection.json",
     "cover.png",
     "first-working-prototype.png",
-    "portfolio-workspace-laptop-mockup-v1.png"
+    "portfolio-workspace-laptop-mockup-v1.png",
+    "iteration-01-prompt-draft-desktop.jpg",
+    "iteration-01-prompt-draft-mobile.jpg",
+    "iteration-02-critique-desktop.jpg",
+    "iteration-02-critique-mobile.jpg",
+    "iteration-03-refined-desktop.jpg",
+    "iteration-03-refined-mobile.jpg",
+    "iteration-04-windows-before.png",
+    "iteration-04-windows-after.png"
   ]
 }

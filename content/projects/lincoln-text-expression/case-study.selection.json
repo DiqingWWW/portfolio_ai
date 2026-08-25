@@ -7,7 +7,7 @@
       "selection": "core",
       "visualIntent": "Product Thinking",
       "visualFormat": "HeroOutcome",
-      "role": "establish the project, sole-designer role, version boundary, and higher-level thesis"
+      "role": "establish the project, sole-designer role, client request for systematic text optimization, and the three design questions"
     },
     {
       "id": "lincoln-002",
@@ -17,11 +17,11 @@
       "role": "state delivered work, approval, implementation limits, and analytics boundary"
     },
     {
-      "id": "lincoln-003",
+      "id": "lincoln-007",
       "selection": "core",
-      "visualIntent": "Product Thinking",
-      "visualFormat": "Capability map",
-      "role": "organize real fields into three transferable text archetypes and six decision dimensions"
+      "visualIntent": "Craft / Interaction Detail",
+      "visualFormat": "DecisionBlock",
+      "role": "answer question one: when input has little cost, how should limits work? same-limit versus same-rule and short-text strategy"
     },
     {
       "id": "lincoln-004",
@@ -45,11 +45,46 @@
       "role": "show combined nickname rules and current overflow behavior"
     },
     {
+      "id": "lincoln-023",
+      "selection": "supporting",
+      "visualIntent": "Craft / Interaction Detail",
+      "visualFormat": "Comparison / expandable note",
+      "role": "derive how short-text form presentation and interaction work across contexts; default collapsed, expandable on click"
+    },
+    {
+      "id": "lincoln-010",
+      "selection": "core",
+      "visualIntent": "Leadership / Decision Making",
+      "visualFormat": "DecisionBlock",
+      "role": "answer question two: when the answer is unique, what matters most? why a unique identifier requires special treatment instead of a generic counter"
+    },
+    {
+      "id": "lincoln-008",
+      "selection": "core",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Original screenshot",
+      "role": "show structured identifier input, normalization, scan, and help paths"
+    },
+    {
+      "id": "lincoln-009",
+      "selection": "supporting",
+      "visualIntent": "Impact / Outcome",
+      "visualFormat": "Original screenshot",
+      "role": "connect identifier accuracy to owner-service value"
+    },
+    {
+      "id": "lincoln-024",
+      "selection": "supporting",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Comparison / expandable note",
+      "role": "derive why unique identifiers are least affected by product positioning; default collapsed, expandable on click"
+    },
+    {
       "id": "lincoln-011",
       "selection": "core",
       "visualIntent": "System Thinking",
       "visualFormat": "Architecture diagram",
-      "role": "connect user-perceived symbols, visible count, validation, storage, and redisplay"
+      "role": "answer question three through the counting chain: connect user-perceived symbols, visible count, validation, storage, and redisplay"
     },
     {
       "id": "lincoln-012",
@@ -73,46 +108,25 @@
       "role": "show a confirmed shared allowance between body and inserted topic text"
     },
     {
-      "id": "lincoln-015",
-      "selection": "appendix",
-      "visualIntent": "Evidence boundary",
-      "visualFormat": "Original screenshot",
-      "role": "retain out-of-scope comment behavior internally without presenting it as authored work"
-    },
-    {
       "id": "lincoln-016",
       "selection": "core",
       "visualIntent": "Problem Solving",
       "visualFormat": "State / recovery model",
-      "role": "distinguish long-text preservation from short-text hard stop and connect shared allowance to recovery"
+      "role": "present the four-state recovery model for long text and analyze the shared allowance problem"
     },
     {
-      "id": "lincoln-007",
-      "selection": "core",
-      "visualIntent": "Craft / Interaction Detail",
-      "visualFormat": "DecisionBlock",
-      "role": "explain same-limit versus same-rule and short-text strategy"
+      "id": "lincoln-025",
+      "selection": "supporting",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Comparison / expandable note",
+      "role": "derive how product positioning defines what counts as long text; default collapsed, expandable on click"
     },
     {
-      "id": "lincoln-008",
+      "id": "lincoln-003",
       "selection": "core",
       "visualIntent": "Product Thinking",
-      "visualFormat": "Original screenshot",
-      "role": "show structured identifier input, normalization, scan, and help paths"
-    },
-    {
-      "id": "lincoln-009",
-      "selection": "supporting",
-      "visualIntent": "Impact / Outcome",
-      "visualFormat": "Original screenshot",
-      "role": "connect identifier accuracy to owner-service value"
-    },
-    {
-      "id": "lincoln-010",
-      "selection": "core",
-      "visualIntent": "Leadership / Decision Making",
-      "visualFormat": "DecisionBlock",
-      "role": "show why a unique identifier requires special treatment instead of a generic counter"
+      "visualFormat": "Capability map",
+      "role": "conclude the three questions into three transferable text archetypes and six decision dimensions"
     },
     {
       "id": "lincoln-017",
@@ -134,6 +148,13 @@
       "visualIntent": "Product Thinking",
       "visualFormat": "Closing proposition",
       "role": "close on the transferable design capability demonstrated by the detail"
+    },
+    {
+      "id": "lincoln-015",
+      "selection": "appendix",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "Original screenshot",
+      "role": "retain out-of-scope comment behavior internally without presenting it as authored work"
     },
     {
       "id": "lincoln-021",

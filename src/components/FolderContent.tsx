@@ -17,6 +17,7 @@ interface FolderContentProps {
     description: string;
     href: string;
   };
+  labels: { separateCollection: string; projectPrefix: string; viewProject: string };
 }
 
 export default function FolderContent({
@@ -26,6 +27,7 @@ export default function FolderContent({
   designTokensLabel,
   projects,
   experiments,
+  labels,
 }: FolderContentProps) {
   const [selectedProject, setSelectedProject] = useState<FolderProject | null>(null);
 
@@ -65,7 +67,7 @@ export default function FolderContent({
               className="group flex items-center justify-between rounded-xl border border-dashed border-amber-300 bg-amber-50/50 p-4 transition-colors hover:bg-amber-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
             >
               <div>
-                <span className="font-mono text-[9px] font-bold uppercase tracking-wider text-amber-700">Separate collection</span>
+                <span className="font-mono text-[9px] font-bold uppercase tracking-wider text-amber-700">{labels.separateCollection}</span>
                 <h3 className="mt-1 text-sm font-bold text-neutral-800">{experiments.label}</h3>
                 <p className="mt-1 max-w-md text-xs leading-5 text-neutral-500">{experiments.description}</p>
               </div>
@@ -80,7 +82,7 @@ export default function FolderContent({
             </button>
             <div className="space-y-1.5 pb-4 border-b border-neutral-100">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono text-sky-500 font-bold">PROJECT_{selectedProject.num}</span>
+                <span className="text-xs font-mono text-sky-500 font-bold">{labels.projectPrefix}_{selectedProject.num}</span>
                 <h2 className="text-lg font-black text-neutral-800">{selectedProject.title}</h2>
               </div>
               {selectedProject.type && <p className="text-xs font-mono text-neutral-400 uppercase">{selectedProject.type}</p>}
@@ -107,7 +109,7 @@ export default function FolderContent({
                 href={selectedProject.detailHref}
                 className="inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
               >
-                View project <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                {labels.viewProject} <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             )}
           </motion.div>

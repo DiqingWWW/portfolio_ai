@@ -8,6 +8,10 @@ interface StrategyMapProps {
   rootCauses: readonly string[];
   metrics: readonly string[];
   phases: ReadonlyArray<{ name: string; focus: readonly string[] }>;
+  labels: {
+    open: string; caption: string; dialog: string; close: string; title: string; description: string;
+    columns: readonly (readonly [string, string])[];
+  };
 }
 
 const CANVAS_WIDTH = 1200;
@@ -15,27 +19,28 @@ const CANVAS_HEIGHT = 720;
 
 export default function InteractiveStrategyMap(props: StrategyMapProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const { labels } = props;
 
   return (
     <figure>
       <button
         type="button"
-        aria-label="Open the impact-to-stage strategy map at full size"
+        aria-label={labels.open}
         onClick={() => dialogRef.current?.showModal()}
         className="group relative block w-full overflow-hidden rounded-2xl bg-[#e9e6e1] p-2 shadow-[0_24px_60px_-42px_rgba(0,0,0,0.4)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-workspace-accent sm:p-4"
       >
         <StrategyMapGraphic {...props} />
         <span className="absolute right-4 top-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-neutral-900 px-3 py-2 text-xs font-semibold text-white shadow-[0_10px_26px_-16px_rgba(0,0,0,0.65)] transition-colors group-hover:bg-workspace-accent">
-          <Maximize2 className="h-4 w-4" aria-hidden="true" /> Enlarge
+          <Maximize2 className="h-4 w-4" aria-hidden="true" /> {labels.open}
         </span>
       </button>
       <figcaption className="mt-3 text-xs leading-5 text-workspace-muted">
-        Complete structure shown at a glance. Select the diagram to inspect the full-size version.
+        {labels.caption}
       </figcaption>
 
       <dialog
         ref={dialogRef}
-        aria-label="Expanded impact-to-stage strategy map"
+        aria-label={labels.dialog}
         onClick={(event) => {
           if (event.target === event.currentTarget) event.currentTarget.close();
         }}
@@ -44,7 +49,7 @@ export default function InteractiveStrategyMap(props: StrategyMapProps) {
         <div className="mb-3 flex justify-end">
           <button
             type="button"
-            aria-label="Close expanded strategy map"
+            aria-label={labels.close}
             onClick={() => dialogRef.current?.close()}
             className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-neutral-900 text-white hover:bg-workspace-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent"
           >
@@ -59,7 +64,7 @@ export default function InteractiveStrategyMap(props: StrategyMapProps) {
   );
 }
 
-function StrategyMapGraphic({ impacts, rootCauses, metrics, phases }: StrategyMapProps) {
+function StrategyMapGraphic({ impacts, rootCauses, metrics, phases, labels }: StrategyMapProps) {
   return (
     <svg
       viewBox={`0 0 ${CANVAS_WIDTH} ${CANVAS_HEIGHT}`}
@@ -67,14 +72,14 @@ function StrategyMapGraphic({ impacts, rootCauses, metrics, phases }: StrategyMa
       aria-labelledby="strategy-map-title strategy-map-description"
       className="h-auto w-full"
     >
-      <title id="strategy-map-title">Impact to root cause, Success Metric, and stage plan</title>
-      <desc id="strategy-map-description">Three stakeholder impacts lead to four root causes, four corresponding Success Metrics, and two design-system stages.</desc>
+      <title id="strategy-map-title">{labels.title}</title>
+      <desc id="strategy-map-description">{labels.description}</desc>
       <rect width={CANVAS_WIDTH} height={CANVAS_HEIGHT} rx="28" fill="#e9e6e1" />
 
-      <ColumnSurface x={24} width={242} title="Impact" note="3 stakeholder levels" />
-      <ColumnSurface x={286} width={278} title="Root cause" note="4 causes" />
-      <ColumnSurface x={584} width={278} title="Success Metric" note="1:1 with root cause" />
-      <ColumnSurface x={882} width={294} title="Stage plan" note="Design System 1.0 → 2.0" />
+      <ColumnSurface x={24} width={242} title={labels.columns[0][0]} note={labels.columns[0][1]} />
+      <ColumnSurface x={286} width={278} title={labels.columns[1][0]} note={labels.columns[1][1]} />
+      <ColumnSurface x={584} width={278} title={labels.columns[2][0]} note={labels.columns[2][1]} />
+      <ColumnSurface x={882} width={294} title={labels.columns[3][0]} note={labels.columns[3][1]} />
 
       {impacts.map((impact, index) => (
         <Card key={impact.stakeholder} x={42} y={126 + index * 176} width={206} height={150}>
@@ -98,10 +103,10 @@ function StrategyMapGraphic({ impacts, rootCauses, metrics, phases }: StrategyMa
       ))}
 
       {phases.map((phase, index) => (
-        <Card key={phase.name} x={900} y={160 + index * 248} width={258} height={202}>
-          <SvgLines text={phase.name} x={920} y={196 + index * 248} maxChars={24} fontSize={18} fontWeight={700} fill="#303030" />
+        <Card key={phase.name} x={900} y={160 + index * 248} width={258} height={202} tone={index === 0 ? "purple" : "default"}>
+          <SvgLines text={phase.name} x={920} y={196 + index * 248} maxChars={24} fontSize={18} fontWeight={700} fill={index === 0 ? "#ffffff" : "#303030"} />
           {phase.focus.slice(0, 3).map((focus, focusIndex) => (
-            <SvgLines key={focus} text={focus} x={920} y={242 + index * 248 + focusIndex * 32} maxChars={26} fontSize={15} fill="#5f5f5f" />
+            <SvgLines key={focus} text={focus} x={920} y={242 + index * 248 + focusIndex * 32} maxChars={26} fontSize={15} fill={index === 0 ? "#ffffff" : "#5f5f5f"} />
           ))}
         </Card>
       ))}
@@ -131,10 +136,10 @@ function ColumnSurface({ x, width, title, note }: { x: number; width: number; ti
   );
 }
 
-function Card({ x, y, width, height, emphasis = false, children }: { x: number; y: number; width: number; height: number; emphasis?: boolean; children: React.ReactNode }) {
+function Card({ x, y, width, height, emphasis = false, tone = "default", children }: { x: number; y: number; width: number; height: number; emphasis?: boolean; tone?: "default" | "purple"; children: React.ReactNode }) {
   return (
     <g>
-      <rect x={x} y={y} width={width} height={height} rx="16" fill={emphasis ? "#303030" : "#ffffff"} />
+      <rect x={x} y={y} width={width} height={height} rx="16" fill={tone === "purple" ? "#6750A4" : emphasis ? "#303030" : "#ffffff"} />
       {children}
     </g>
   );

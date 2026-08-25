@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Sparkles, ArrowDown, RotateCcw, X } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
@@ -15,20 +15,18 @@ import LandingFooter from "@/components/LandingFooter";
 import LoadingIntro from "@/components/LoadingIntro";
 import FolderContent from "@/components/FolderContent";
 import HoverImage from "@/components/Hover/HoverImage";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import {
-  buildTagIndex,
-  getProjectsForTag,
-  getAllProjects,
   getProjectAssets,
-  profile,
-  navigation,
+  projects as baseProjects,
   nodes,
 } from "@/lib/content";
-import type { FolderProject } from "@/types/content";
+import { getDictionary, getLocalizedSiteContent, type Locale } from "@/i18n/dictionary";
+import type { FolderProject, ProjectData } from "@/types/content";
 
 // Map ProjectData[] to FolderProject[] for the folder window
-function toFolderProjects(): FolderProject[] {
-  return getAllProjects().map((p, i) => ({
+function toFolderProjects(projects: ProjectData[]): FolderProject[] {
+  return projects.map((p, i) => ({
     id: p.id,
     num: String(i + 1).padStart(2, "0"),
     title: p.title,
@@ -80,19 +78,32 @@ const DEFAULT_POSITIONS = {
   projects: { x: 580, y: 340 },
 };
 
-export default function Home() {
+export function PortfolioHome({ locale = "en" }: { locale?: Locale }) {
+  const pageRef = useRef<HTMLElement>(null);
   const workspaceRef = useRef<HTMLElement>(null);
+  const mobileDialogRef = useRef<HTMLDivElement>(null);
   const openerRefs = useRef<Record<string, HTMLElement | null>>({});
-  const tagIndex = buildTagIndex();
+  const dictionary = getDictionary(locale);
+  const { profile, navigation, tags, projects } = getLocalizedSiteContent(locale, baseProjects);
+  const tagIndex = tags.map((tag) => ({ tag, projects: projects.filter((project) => project.tags.includes(tag.id)) }));
   const dsTag = tagIndex.find((t) => t.tag.id === "design-system");
   const aboutTag = tagIndex.find((t) => t.tag.id === "about-me");
   const hmiTag = tagIndex.find((t) => t.tag.id === "hmi");
   const aiTag = tagIndex.find((t) => t.tag.id === "ai-related");
 
-  const dsProjects = getProjectsForTag("design-system");
-  const hmiProjects = getProjectsForTag("hmi");
-  const aiProjects = getProjectsForTag("ai-related");
-  const folderProjects = toFolderProjects();
+  const dsProjects = projects.filter((project) => project.tags.includes("design-system"));
+  const hmiProjects = projects.filter((project) => project.tags.includes("hmi"));
+  const aiProjects = projects.filter((project) => project.tags.includes("ai-related"));
+  const folderProjects = toFolderProjects(projects);
+  const capabilityCopy = locale === "zh" ? {
+    ds: ["设计系统与交互规则", "关于可扩展基础、可复用组件、输入规则和跨平台一致性的专业项目。"],
+    hmi: ["汽车 HMI", "座舱交互、多模态反馈、区域适配与车载系统设计的专业项目证据。"],
+    ai: ["AI 辅助产品构建", "通过真实独立项目呈现视觉探索、跨工具交接、diff sync 与产品治理。"],
+  } : {
+    ds: ["Design systems and interaction rules", "Professional work on scalable foundations, reusable components, input rules, and cross-platform consistency."],
+    hmi: ["Automotive HMI", "Professional evidence across cockpit interaction, multimodal feedback, regional adaptation, and vehicle-system design."],
+    ai: ["AI-assisted product building", "A real independent project showing visual exploration, cross-tool handoffs, diff sync, and product governance."],
+  };
 
   const [openWindows, setOpenWindows] = useState<Record<string, boolean>>({
     about: false, ds: false, hmi: false, ai: false, projects: false,
@@ -104,6 +115,7 @@ export default function Home() {
   const [layoutVersion, setLayoutVersion] = useState(0);
   const [isMobileViewport, setIsMobileViewport] = useState(false);
   const [selectedCapability, setSelectedCapability] = useState<string | null>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const focusWindow = useCallback((id: string) => {
     setTopZIndex((currentTop) => {
@@ -175,29 +187,57 @@ export default function Home() {
   useEffect(() => {
     if (!activeMobileWindowId) return;
     const previousOverflow = document.body.style.overflow;
+    const page = pageRef.current;
+    const previousAriaHidden = page?.getAttribute("aria-hidden");
     document.body.style.overflow = "hidden";
+    if (page) {
+      page.inert = true;
+      page.setAttribute("aria-hidden", "true");
+    }
     return () => {
       document.body.style.overflow = previousOverflow;
+      if (page) {
+        page.inert = false;
+        if (previousAriaHidden == null) page.removeAttribute("aria-hidden");
+        else page.setAttribute("aria-hidden", previousAriaHidden);
+      }
     };
   }, [activeMobileWindowId]);
 
+  const trapMobileDialogFocus = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== "Tab") return;
+    const focusableElements = mobileDialogRef.current?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+    if (!focusableElements?.length) return;
+    const first = focusableElements[0]!;
+    const last = focusableElements[focusableElements.length - 1]!;
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
   const getMobileWindowContent = (id: string) => {
     if (id === "about") return { title: aboutTag?.tag.windowTitle ?? "", content: <AboutMeContent profile={profile} /> };
-    if (id === "ds") return { title: dsTag?.tag.windowTitle ?? "", content: <RealProjectsContent heading="Design systems and interaction rules" intro="Professional work on scalable foundations, reusable components, input rules, and cross-platform consistency." projects={dsProjects} /> };
-    if (id === "hmi") return { title: hmiTag?.tag.windowTitle ?? "", content: <RealProjectsContent heading="Automotive HMI" intro="Professional evidence across cockpit interaction, multimodal feedback, regional adaptation, and vehicle-system design." projects={hmiProjects} /> };
-    if (id === "ai") return { title: aiTag?.tag.windowTitle ?? "", content: <RealProjectsContent heading="AI-assisted product building" intro="A real independent project showing visual exploration, cross-tool handoffs, diff sync, and product governance." projects={aiProjects} /> };
+    if (id === "ds") return { title: dsTag?.tag.windowTitle ?? "", content: <RealProjectsContent heading={capabilityCopy.ds[0]} intro={capabilityCopy.ds[1]} projects={dsProjects} labels={dictionary.shared} /> };
+    if (id === "hmi") return { title: hmiTag?.tag.windowTitle ?? "", content: <RealProjectsContent heading={capabilityCopy.hmi[0]} intro={capabilityCopy.hmi[1]} projects={hmiProjects} labels={dictionary.shared} /> };
+    if (id === "ai") return { title: aiTag?.tag.windowTitle ?? "", content: <RealProjectsContent heading={capabilityCopy.ai[0]} intro={capabilityCopy.ai[1]} projects={aiProjects} labels={dictionary.shared} /> };
     return {
       title: "diqing_wu_projects/",
       content: <FolderContent heading={navigation.folderHeading} description={navigation.folderDescription}
         backButton={navigation.folderBackButton} designTokensLabel={navigation.folderDesignTokensLabel}
-        projects={folderProjects} experiments={navigation.experiments} />,
+        projects={folderProjects} experiments={navigation.experiments} labels={dictionary.shared} />,
     };
   };
   const activeMobileWindow = activeMobileWindowId ? getMobileWindowContent(activeMobileWindowId) : null;
 
   return (
-    <main data-component="Page" className="relative min-h-screen w-full overflow-x-clip bg-workspace-bg text-workspace-text font-sans">
-      <LoadingIntro />
+    <main ref={pageRef} data-component="Page" className="relative min-h-screen w-full overflow-x-clip bg-workspace-bg text-workspace-text font-sans">
+      <LoadingIntro locale={locale} />
       <section id="skills" ref={workspaceRef} className="relative w-full overflow-visible bg-workspace-bg md:h-screen md:overflow-hidden">
       {/* Figma-like Canvas Substrate Grid */}
       <div className="absolute inset-0 grid-bg pointer-events-none opacity-80 z-0" />
@@ -209,7 +249,7 @@ export default function Home() {
           <div className="mobile-header-marquee min-w-0 overflow-hidden md:overflow-visible">
             <div className="mobile-header-marquee-track flex w-max whitespace-nowrap md:block md:w-auto md:whitespace-normal">
               <span>{siteConfig.header.left}</span>
-              <span className="pl-10 md:hidden" aria-hidden="true">{siteConfig.header.left}</span>
+              <span className="pl-10 md:hidden" aria-hidden="true">{locale === "zh" ? "作品集工作台" : siteConfig.header.left}</span>
             </div>
           </div>
         </div>
@@ -516,6 +556,7 @@ export default function Home() {
             folderBadge={navigation.folderBadge}
             peekCards={navigation.peekCards}
             github={profile.github}
+            locale={locale}
           />
         </div>
 
@@ -558,19 +599,19 @@ export default function Home() {
             onClose={() => closeWindow("ds")} zIndex={windowZIndices.ds} onFocus={() => focusWindow("ds")}
             isActive={windowZIndices.ds === topZIndex} constraintsRef={workspaceRef}
             defaultPosition={DEFAULT_POSITIONS.ds} width="max-w-2xl w-full">
-            <RealProjectsContent heading="Design systems and interaction rules" intro="Professional work on scalable foundations, reusable components, input rules, and cross-platform consistency." projects={dsProjects} />
+            <RealProjectsContent heading={capabilityCopy.ds[0]} intro={capabilityCopy.ds[1]} projects={dsProjects} labels={dictionary.shared} />
           </FloatingWindow>
           <FloatingWindow key={`hmi-${layoutVersion}`} id="hmi" title={hmiTag?.tag.windowTitle ?? ""} isOpen={openWindows.hmi}
             onClose={() => closeWindow("hmi")} zIndex={windowZIndices.hmi} onFocus={() => focusWindow("hmi")}
             isActive={windowZIndices.hmi === topZIndex} constraintsRef={workspaceRef}
             defaultPosition={DEFAULT_POSITIONS.hmi}>
-            <RealProjectsContent heading="Automotive HMI" intro="Professional evidence across cockpit interaction, multimodal feedback, regional adaptation, and vehicle-system design." projects={hmiProjects} />
+            <RealProjectsContent heading={capabilityCopy.hmi[0]} intro={capabilityCopy.hmi[1]} projects={hmiProjects} labels={dictionary.shared} />
           </FloatingWindow>
           <FloatingWindow key={`ai-${layoutVersion}`} id="ai" title={aiTag?.tag.windowTitle ?? ""} isOpen={openWindows.ai}
             onClose={() => closeWindow("ai")} zIndex={windowZIndices.ai} onFocus={() => focusWindow("ai")}
             isActive={windowZIndices.ai === topZIndex} constraintsRef={workspaceRef}
             defaultPosition={DEFAULT_POSITIONS.ai}>
-            <RealProjectsContent heading="AI-assisted product building" intro="A real independent project showing visual exploration, cross-tool handoffs, diff sync, and product governance." projects={aiProjects} />
+            <RealProjectsContent heading={capabilityCopy.ai[0]} intro={capabilityCopy.ai[1]} projects={aiProjects} labels={dictionary.shared} />
           </FloatingWindow>
           <FloatingWindow key={`projects-${layoutVersion}`} id="projects" title="diqing_wu_projects/" isOpen={openWindows.projects}
             onClose={() => closeWindow("projects")} zIndex={windowZIndices.projects} onFocus={() => focusWindow("projects")}
@@ -583,6 +624,7 @@ export default function Home() {
               designTokensLabel={navigation.folderDesignTokensLabel}
               projects={folderProjects}
               experiments={navigation.experiments}
+              labels={dictionary.shared}
             />
           </FloatingWindow>
         </AnimatePresence>
@@ -600,6 +642,7 @@ export default function Home() {
               folderBadge={navigation.folderBadge}
               peekCards={navigation.peekCards}
               github={profile.github}
+              locale={locale}
             />
           </div>
         </div>
@@ -631,23 +674,27 @@ export default function Home() {
           ))}
         </div>
       </nav>
-      <WorkSection projects={getAllProjects()} />
-      <LandingFooter content={navigation.landingFooter} />
+      <WorkSection projects={projects} locale={locale} />
+      <LandingFooter content={navigation.landingFooter} locale={locale} />
+      <div className="fixed right-4 top-14 z-50 rounded-xl border border-workspace-border bg-workspace-bg/95 shadow-sm backdrop-blur-sm md:right-8 md:top-3">
+        <LanguageSwitcher locale={locale} label={dictionary.shared.languageName} />
+      </div>
       {isMobileViewport && createPortal(
         <AnimatePresence>
           {activeMobileWindowId && activeMobileWindow && (
               <motion.div key="mobile-window-overlay" className="fixed inset-0 z-[100] md:hidden"
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                 <button type="button" className="absolute inset-0 h-full w-full bg-neutral-950/20"
-                  aria-label={`Close ${activeMobileWindow.title}`} onClick={() => closeWindow(activeMobileWindowId)} />
-                <motion.div role="dialog" aria-modal="true" aria-label={activeMobileWindow.title}
+                  aria-label={`${navigation.closeButton} ${activeMobileWindow.title}`} onClick={() => closeWindow(activeMobileWindowId)} />
+                <motion.div ref={mobileDialogRef} role="dialog" aria-modal="true" aria-label={activeMobileWindow.title}
                   initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "100%" }}
-                  transition={{ type: "spring", damping: 28, stiffness: 260 }}
+                  transition={shouldReduceMotion ? { duration: 0.01 } : { type: "spring", damping: 28, stiffness: 260 }}
+                  onKeyDown={trapMobileDialogFocus}
                   onClick={(event) => event.stopPropagation()}
                   className="fixed inset-x-0 bottom-0 flex h-[85dvh] flex-col overflow-hidden rounded-t-2xl border-t border-workspace-border bg-white shadow-2xl">
                   <div className="flex h-12 shrink-0 items-center justify-between border-b border-neutral-100 bg-neutral-50 px-4 rounded-t-2xl">
                     <span className="min-w-0 truncate pr-4 text-[10px] font-mono font-bold text-neutral-500">{activeMobileWindow.title}</span>
-                    <button type="button" autoFocus onClick={() => closeWindow(activeMobileWindowId)} aria-label={`Close ${activeMobileWindow.title}`}
+                    <button type="button" autoFocus onClick={() => closeWindow(activeMobileWindowId)} aria-label={`${navigation.closeButton} ${activeMobileWindow.title}`}
                       className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-neutral-600 transition-colors hover:bg-neutral-200 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-workspace-accent">
                       <X className="h-5 w-5" aria-hidden="true" />
                     </button>
@@ -661,4 +708,8 @@ export default function Home() {
       )}
     </main>
   );
+}
+
+export default function Home() {
+  return <PortfolioHome locale="en" />;
 }

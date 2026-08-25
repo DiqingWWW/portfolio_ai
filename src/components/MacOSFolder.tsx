@@ -18,6 +18,7 @@ interface MacOSFolderProps {
   folderBadge: string;
   peekCards: NavigationContent["peekCards"];
   github: ProfileContent["github"];
+  locale?: "en" | "zh";
 }
 
 export default function MacOSFolder({
@@ -27,6 +28,7 @@ export default function MacOSFolder({
   folderBadge,
   peekCards,
   github,
+  locale = "en",
 }: MacOSFolderProps) {
   const shouldReduceMotion = useReducedMotion();
 
@@ -45,7 +47,7 @@ export default function MacOSFolder({
           whileHover="hover"
           whileFocus="hover"
           initial="idle"
-          aria-label="Open selected projects"
+          aria-label={locale === "zh" ? "打开精选项目" : "Open selected projects"}
           className="relative h-[240px] w-[340px] cursor-pointer text-left rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-workspace-accent"
           style={{ perspective: 1200 }}
         >
@@ -59,7 +61,7 @@ export default function MacOSFolder({
             className="absolute left-[-45px] top-[15px] w-48 bg-workspace-text text-white border border-neutral-800 rounded-xl p-3.5 shadow-2xl z-40 pointer-events-none flex flex-col justify-between h-20"
           >
             <div className="text-[10px] font-mono tracking-widest text-neutral-400 font-bold uppercase">
-              2026 Edition
+              {locale === "zh" ? "2026 版" : "2026 Edition"}
             </div>
             <div className="flex items-center justify-between mt-2 pt-2 border-t border-neutral-800/60">
               <span className="text-xs font-mono text-neutral-300">@Deethin</span>
@@ -113,12 +115,12 @@ export default function MacOSFolder({
                 </div>
               ))}
               {peekCards.length === 0 && (
-                <span className="text-[11px] font-mono text-neutral-400">No selected projects configured</span>
+                <span className="text-[11px] font-mono text-neutral-400">{locale === "zh" ? "尚未配置精选项目" : "No selected projects configured"}</span>
               )}
             </div>
             <div className="flex items-center justify-between text-[8px] font-mono text-neutral-400 pt-2 border-t border-neutral-50">
-              <span>SYSTEM: READY</span>
-              <span>{peekCards.length || 4} COMPOSITIONS</span>
+              <span>{locale === "zh" ? "系统：就绪" : "SYSTEM: READY"}</span>
+              <span>{peekCards.length || 4} {locale === "zh" ? "个项目" : "COMPOSITIONS"}</span>
             </div>
           </motion.div>
 
@@ -177,7 +179,7 @@ export default function MacOSFolder({
           >
             {/* Skill Item 1 - Active/Checked */}
             <div className="flex items-center justify-between text-xs font-sans tracking-wide">
-              <span className="font-semibold text-neutral-100">&spades; System Design</span>
+              <span className="font-semibold text-neutral-100">&spades; {locale === "zh" ? "系统设计" : "System Design"}</span>
               <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
                 <Check className="w-2.5 h-2.5 text-neutral-900 stroke-[3]" />
               </div>
@@ -185,13 +187,13 @@ export default function MacOSFolder({
 
             {/* Skill Item 2 */}
             <div className="flex items-center justify-between text-xs font-sans tracking-wide text-neutral-400">
-              <span>&spades; Smart Cockpit (HMI)</span>
+              <span>&spades; {locale === "zh" ? "智能座舱（HMI）" : "Smart Cockpit (HMI)"}</span>
               <div className="w-4 h-4 rounded-full border border-neutral-700" />
             </div>
 
             {/* Skill Item 3 */}
             <div className="flex items-center justify-between text-xs font-sans tracking-wide text-neutral-400">
-              <span>&spades; Generative AI & Agents</span>
+              <span>&spades; {locale === "zh" ? "生成式 AI 与智能体" : "Generative AI & Agents"}</span>
               <div className="w-4 h-4 rounded-full border border-neutral-700" />
             </div>
           </motion.div>
@@ -202,7 +204,7 @@ export default function MacOSFolder({
           href={github.url}
           target="_blank"
           rel="noreferrer"
-          aria-label={`Open ${github.username} on GitHub in a new tab`}
+          aria-label={locale === "zh" ? `在新标签页打开 ${github.username} 的 GitHub` : `Open ${github.username} on GitHub in a new tab`}
           whileHover={{ scale: 1.03, y: -2 }}
           transition={{ type: "spring", stiffness: 300, damping: 18 }}
           className="absolute w-60 bg-white border border-workspace-border rounded-xl shadow-xl p-3 flex flex-col gap-2.5 cursor-pointer z-50 hover:border-neutral-300"

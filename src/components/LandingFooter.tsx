@@ -42,7 +42,7 @@ const iconByPlatform: Record<string, React.ComponentType> = {
   "design-skill": DesignSkillIcon,
 };
 
-export default function LandingFooter({ content }: { content: NavigationContent["landingFooter"] }) {
+export default function LandingFooter({ content, locale = "en" }: { content: NavigationContent["landingFooter"]; locale?: "en" | "zh" }) {
   return (
     <footer id="contact" className="relative z-10 scroll-mt-11 overflow-hidden bg-workspace-bg text-[#242526] md:scroll-mt-0">
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
@@ -73,7 +73,7 @@ export default function LandingFooter({ content }: { content: NavigationContent[
               {content.socials.map((social) => {
                 const Icon = iconByPlatform[social.platform] ?? DesignSkillIcon;
                 return (
-                  <a key={social.platform} href={social.href} target="_blank" rel="noreferrer" aria-label={`${social.label} — opens in a new tab`} className="flex h-11 min-w-11 items-center justify-center px-2 text-[#242526] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#242526]">
+                  <a key={social.platform} href={social.href} target="_blank" rel="noreferrer" aria-label={`${social.label} — ${locale === "zh" ? "在新标签页中打开" : "opens in a new tab"}`} className="flex h-11 min-w-11 items-center justify-center px-2 text-[#242526] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#242526]">
                     <Icon />
                   </a>
                 );
@@ -84,7 +84,7 @@ export default function LandingFooter({ content }: { content: NavigationContent[
 
         <div className="mt-14 flex flex-col gap-2 font-mono text-[10px] leading-5 text-[#242526]/60 sm:flex-row sm:items-center sm:justify-between md:mt-16">
           <p>© {new Date().getFullYear()} {content.copyright}</p>
-          <p>Portfolio workspace / Shanghai</p>
+          <p>{locale === "zh" ? "作品集工作台 / 上海" : "Portfolio workspace / Shanghai"}</p>
         </div>
       </div>
     </footer>
