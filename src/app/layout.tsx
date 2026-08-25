@@ -88,9 +88,6 @@ export default async function RootLayout({
   return (
     <html lang={documentLanguage} suppressHydrationWarning className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#FAF7F2" />
         <meta
