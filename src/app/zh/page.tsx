@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PortfolioHome } from "@/app/page";
+import CuratedHomepage from "@/app/proto/curated-home-v2/CuratedHomepage";
 
 export const metadata: Metadata = {
   title: "Diqing Wu — 产品设计师与 AI 构建者",
@@ -24,5 +24,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PortfolioHome locale="zh" />;
+  return <CuratedHomepage referenceStudy production locale="zh" />;
 }

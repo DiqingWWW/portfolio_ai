@@ -81,5 +81,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       alternates: { languages: { en: `${siteUrl}/work/rubik-studio`, "zh-CN": `${siteUrl}/zh/work/rubik-studio` } },
     },
+    {
+      url: `${siteUrl}/zh/work/autonomous-driving-to-agent`,
+      lastModified: new Date("2026-09-14"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }

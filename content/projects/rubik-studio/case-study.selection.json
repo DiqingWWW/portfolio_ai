@@ -1,0 +1,168 @@
+{
+  "sourceTitle": "Rubik Studio｜让 AI 编程融入开发者工作流",
+  "sourceMaster": "01_master/master.md",
+  "units": [
+    {
+      "id": "rs-overview",
+      "selection": "core",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Prose",
+      "role": "建立产品与个人范围"
+    },
+    {
+      "id": "rs-result",
+      "selection": "core",
+      "visualIntent": "Craft / Visual Design",
+      "visualFormat": "ImageStory",
+      "role": "首先展示整体结果"
+    },
+    {
+      "id": "rs-role",
+      "selection": "core",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "Table",
+      "role": "说明负责范围与既有基础"
+    },
+    {
+      "id": "rs-system",
+      "selection": "core",
+      "visualIntent": "System Thinking",
+      "visualFormat": "ArchitectureDiagram",
+      "role": "理解模块之间的关系"
+    },
+    {
+      "id": "rs-task-entry",
+      "selection": "core",
+      "visualIntent": "Interaction",
+      "visualFormat": "ImageStory",
+      "role": "解释任务入口"
+    },
+    {
+      "id": "rs-capability-path",
+      "selection": "supporting",
+      "visualIntent": "System Thinking",
+      "visualFormat": "InteractiveSteps",
+      "role": "补充长图中的端到端能力版图"
+    },
+    {
+      "id": "rs-code-explanation",
+      "selection": "supporting",
+      "visualIntent": "Interaction",
+      "visualFormat": "ImageStory",
+      "role": "补充代码解释与注释的多步关系"
+    },
+    {
+      "id": "rs-product-advantages",
+      "selection": "optional",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "ImageStory",
+      "role": "保存长图中的产品价值主张但不升级为个人成果"
+    },
+    {
+      "id": "rs-adoption",
+      "selection": "core",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Prose",
+      "role": "解释用户采用结果的边界"
+    },
+    {
+      "id": "rs-adoption-flow",
+      "selection": "core",
+      "visualIntent": "Interaction",
+      "visualFormat": "ProcessMap",
+      "role": "展开可见任务链及未覆盖环节"
+    },
+    {
+      "id": "rs-session",
+      "selection": "core",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Prose",
+      "role": "解释任务连续性"
+    },
+    {
+      "id": "rs-session-sequence",
+      "selection": "core",
+      "visualIntent": "Interaction",
+      "visualFormat": "ImageStory",
+      "role": "会话操作证据"
+    },
+    {
+      "id": "rs-state",
+      "selection": "core",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Prose",
+      "role": "区分状态作用范围"
+    },
+    {
+      "id": "rs-state-matrix",
+      "selection": "core",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "Table",
+      "role": "展示状态分析的具体依据"
+    },
+    {
+      "id": "rs-feedback",
+      "selection": "core",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Prose",
+      "role": "解释反馈粒度"
+    },
+    {
+      "id": "rs-feedback-sequence",
+      "selection": "core",
+      "visualIntent": "Interaction",
+      "visualFormat": "ImageStory",
+      "role": "反馈入口与详细说明的证据"
+    },
+    {
+      "id": "rs-genius",
+      "selection": "supporting",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "ArchitectureDiagram",
+      "role": "连接专业创作场景"
+    },
+    {
+      "id": "rs-transfer",
+      "selection": "optional",
+      "visualIntent": "System Thinking",
+      "visualFormat": "Table",
+      "role": "展示可迁移的设计判断"
+    },
+    {
+      "id": "rs-reflection",
+      "selection": "core",
+      "visualIntent": "Product Thinking",
+      "visualFormat": "Prose",
+      "role": "收束设计理解"
+    },
+    {
+      "id": "rs-pitch-short",
+      "selection": "appendix",
+      "visualIntent": "Interview",
+      "visualFormat": "Prose",
+      "role": "约30秒讲述"
+    },
+    {
+      "id": "rs-pitch-main",
+      "selection": "appendix",
+      "visualIntent": "Interview",
+      "visualFormat": "Prose",
+      "role": "约3分钟讲述"
+    },
+    {
+      "id": "rs-interview-qa",
+      "selection": "appendix",
+      "visualIntent": "Interview",
+      "visualFormat": "Prose",
+      "role": "深入追问与真实回答"
+    },
+    {
+      "id": "rs-evidence-notes",
+      "selection": "appendix",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "Prose",
+      "role": "母版证据底线"
+    }
+  ],
+  "mindmaps": []
+}

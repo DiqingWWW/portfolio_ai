@@ -31,5 +31,11 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    // Cloudflare adapter config. It imports @opennextjs/cloudflare, which is only needed for the
+    // `npm run preview` / `npm run deploy` path and is not an installed dependency, so type-checking
+    // it breaks `next build`. Excluded from the app type check; the OpenNext CLI loads it itself.
+    "open-next.config.ts"
+  ]
 }

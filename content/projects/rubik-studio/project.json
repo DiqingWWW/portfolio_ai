@@ -1,21 +1,21 @@
 {
   "id": "rubik-studio",
-  "title": "Rubik Studio",
+  "title": "Rubik Studio AI Coding Tool",
   "tags": ["ai-related", "hmi"],
   "metadata": {
     "type": ""
   },
   "descriptions": {
-    "short": "",
+    "short": "An internal enterprise AI-assisted programming tool for code development and 3D scene rendering.",
     "detail": ""
   },
   "specs": [],
   "tokens": [],
   "assets": {
-    "cover": "./rubikstudio_EN-display.webp",
-    "coverPosition": "top",
+    "cover": "./cover-spatial-code-edit-v1.png",
+    "coverPosition": "center",
     "hover": "./rubikstudio_EN-display.webp",
     "gallery": []
   },
-  "detailHref": "/work/rubik-studio"
+  "detailHref": "/zh/work/rubik-studio"
 }

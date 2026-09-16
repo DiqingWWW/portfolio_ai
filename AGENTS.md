@@ -166,6 +166,41 @@ Integrate visual intent semantically into the existing architecture.
 
 ## 8. Change workflow
 
+### 8.1 Comment-driven localhost iteration
+
+The workflow `AI serves a localhost site → the owner reviews it in the browser and leaves
+comments → AI applies the feedback` is a scoped code-change workflow. This rule applies to
+every page, project, prototype, breakpoint, and visual subsystem in this repository. Browser
+screenshots provide context; only the owner's explicit comments grant change scope.
+
+Before editing:
+
+1. Convert every comment into an explicit target, requested property or behavior, and
+   acceptance criterion.
+2. Treat every unmentioned element, content item, interaction, animation, responsive state,
+   route, and file as frozen.
+3. Identify the smallest set of selectors, components, and files that own the requested
+   targets. If a requested result requires changing a shared primitive or any frozen behavior,
+   stop and explain that dependency before editing.
+
+During editing:
+
+1. Make the smallest diff that satisfies the named comments. Do not polish, normalize,
+   redesign, refactor, or "improve" adjacent content unless the owner explicitly includes it.
+2. Do not treat visible surrounding content, reference screenshots, or nearby browser nodes as
+   permission to change them.
+3. When the owner marks an area as finished, preserved, unchanged, or out of scope, do not edit
+   its source or derived behavior.
+
+After editing:
+
+1. Trace every changed line to an owner comment or a disclosed required dependency. Revert any
+   change that cannot be traced this way.
+2. Verify both the requested target and at least one representative neighboring frozen state,
+   including the relevant breakpoint or animation state when applicable.
+3. Report any unavoidable collateral effect explicitly; never silently accept it as part of the
+   iteration.
+
 Before editing:
 
 1. Inspect repository status and affected files.

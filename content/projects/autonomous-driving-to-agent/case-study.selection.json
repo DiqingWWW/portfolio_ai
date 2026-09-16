@@ -1,0 +1,63 @@
+{
+  "sourceTitle": "自动驾驶：人机共驾视角下的 Agent 设计范式",
+  "sourceMaster": "01_master/master.md",
+  "units": [
+    {
+      "id": "adr-thesis-01",
+      "selection": "core",
+      "visualIntent": "用一句核心命题建立研究问题与论证边界",
+      "visualFormat": "editorial hero",
+      "role": "thesis"
+    },
+    {
+      "id": "adr-agent-loop-01",
+      "selection": "core",
+      "visualIntent": "展示 Agent 定义、自动驾驶闭环与高风险特征之间的结构关系",
+      "visualFormat": "full-width diagram",
+      "role": "system model"
+    },
+    {
+      "id": "adr-risk-reference-01",
+      "selection": "core",
+      "visualIntent": "用一组可比较的张力对说明自动驾驶为何是高风险 Agent 参照",
+      "visualFormat": "comparison matrix",
+      "role": "evidence framework"
+    },
+    {
+      "id": "adr-control-continuum-01",
+      "selection": "core",
+      "visualIntent": "把自动化等级重构为控制权和用户角色的连续变化",
+      "visualFormat": "control continuum",
+      "role": "central argument"
+    },
+    {
+      "id": "adr-five-dimensions-01",
+      "selection": "core",
+      "visualIntent": "建立五个相互关联的高风险 Agent 设计维度，而非线性流程",
+      "visualFormat": "radial framework diagram",
+      "role": "design framework"
+    },
+    {
+      "id": "adr-principles-01",
+      "selection": "supporting",
+      "visualIntent": "把研究观点转换为可直接用于 Agent 项目的设计检查框架",
+      "visualFormat": "design principle field guide",
+      "role": "application"
+    },
+    {
+      "id": "adr-conclusion-01",
+      "selection": "core",
+      "visualIntent": "用控制权—风险二维框架收束论点并标记开放问题",
+      "visualFormat": "closing proposition and open questions",
+      "role": "conclusion"
+    },
+    {
+      "id": "adr-assets-01",
+      "selection": "appendix",
+      "visualIntent": "保存图像来源、用途和证据边界",
+      "visualFormat": "asset register",
+      "role": "govern approved visuals"
+    }
+  ],
+  "mindmaps": []
+}

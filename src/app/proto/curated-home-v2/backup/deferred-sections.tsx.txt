@@ -1,0 +1,71 @@
+{/* Backup inventory — intentionally not compiled or rendered.
+    Dependencies from FabricaSections.tsx: styles, copy, profile, locale, projects,
+    SectionHeading, Reveal, revealStyle, ProjectImage, ArrowDown, StudyPricing. */}
+
+<section id="about-me" className={`${styles.section} ${styles.aboutSection}`}>
+  <Reveal className={styles.aboutHeader}>
+    <span className={styles.kicker}><Plus />{copy.aboutLabel}</span>
+    <span className={styles.wordmark}>{profile.name.full}</span>
+    <h2>{copy.aboutTitle}</h2>
+    <p>{copy.aboutIntro}</p>
+  </Reveal>
+  <div className={styles.processRail}>
+    {copy.processLabels.map((label, index) => {
+      const project = projects[index % projects.length];
+      return <article key={label} className={styles.processCard} data-fabrica-reveal style={revealStyle(index)}>
+        <span>{String(index + 1).padStart(2, "0")}</span>
+        <div data-fabrica-parallax><ProjectImage project={project} asset={project.assets.hover || project.assets.cover} alt="" /></div>
+        <h3>{label}</h3>
+      </article>;
+    })}
+  </div>
+  <Reveal className={styles.showreel}>
+    <div className={styles.showreelImage} data-fabrica-parallax>
+      <ProjectImage project={projects.find(project => project.id === "honda-hmi-design-system") ?? projects[0]} asset={(projects.find(project => project.id === "honda-hmi-design-system") ?? projects[0]).assets.hover} alt="" />
+    </div>
+    <span>{copy.showreel}</span><span>©2026</span><ArrowDown aria-hidden="true" />
+  </Reveal>
+</section>
+
+<section className={`${styles.section} ${styles.experienceSection}`}>
+  <SectionHeading label={copy.experiencesLabel} title={copy.experiences} suffix="©2026" />
+  <div className={styles.experienceLead}>
+    <Reveal><strong>—</strong><span>/5</span></Reveal>
+    <Reveal><p>{copy.placeholderBody}</p></Reveal>
+    <Reveal><span className={styles.wordmark}>{profile.name.full}</span><strong>—</strong><p>{copy.placeholder}</p></Reveal>
+  </div>
+  <div className={styles.quotes}>
+    {[0, 1, 2].map(index => <Reveal key={index} className={styles.quoteCard} index={index}>
+      <header><strong>{copy.person}</strong><span>{copy.placeholder}</span></header>
+      <p>{copy.quote}</p>
+    </Reveal>)}
+  </div>
+  <div className={styles.metrics} aria-label={copy.metrics}>
+    {copy.metricLabels.map((label, index) => <Reveal key={label} className={styles.metric} index={index}>
+      <strong>—</strong><p>{label}</p><span>{copy.placeholder}</span>
+    </Reveal>)}
+  </div>
+  <Reveal className={styles.evidenceStatement}>
+    <span className={styles.wordmark}>{profile.name.full}</span>
+    <h3>{profile.philosophy.heading}</h3>
+    <p>{profile.philosophy.body}</p>
+    <p>{profile.aiThinking.body}</p>
+  </Reveal>
+</section>
+
+<section className={`${styles.section} ${styles.pricingSection}`}>
+  <SectionHeading label={copy.pricingLabel} title={copy.pricing} />
+  <StudyPricing locale={locale} />
+  <Reveal className={styles.morePanel}><h3>{copy.more}</h3><p>{copy.moreBody}</p><span>{profile.name.full}</span></Reveal>
+</section>
+
+<section className={`${styles.section} ${styles.faqSection}`}>
+  <SectionHeading title={copy.faq} />
+  <Reveal className={styles.faqIntro}><p>{copy.faqIntro}</p></Reveal>
+  <div className={styles.faqList}>
+    {copy.faqItems.map((item, index) => <details key={item.question} data-fabrica-reveal style={revealStyle(index)}>
+      <summary><span>{item.question}</span><Plus aria-hidden="true" /></summary>
+      <p>{item.answer}</p>
+    </details>)}
+  </div>
+</section>

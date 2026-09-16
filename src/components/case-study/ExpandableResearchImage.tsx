@@ -1,0 +1,12 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { Expand, X } from "lucide-react";
+
+export default function ExpandableResearchImage({ src, alt, width, height, caption, priority = false }: { src: string; alt: string; width: number; height: number; caption?: string; priority?: boolean }) {
+  const [open, setOpen] = useState(false); const closeRef = useRef<HTMLButtonElement>(null); const triggerRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => { if (open) closeRef.current?.focus(); else triggerRef.current?.focus(); }, [open]);
+  useEffect(() => { if (!open) return; const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); }; window.addEventListener("keydown", onKey); return () => window.removeEventListener("keydown", onKey); }, [open]);
+  return <figure><div className="relative overflow-hidden rounded-2xl bg-white shadow-[0_24px_64px_-44px_rgba(14,24,32,0.72)]"><Image src={src} alt={alt} width={width} height={height} priority={priority} sizes="(max-width: 767px) 100vw, 1280px" className="h-auto w-full" /><button ref={triggerRef} type="button" onClick={() => setOpen(true)} className="absolute bottom-3 right-3 inline-flex min-h-11 items-center gap-2 rounded-lg bg-neutral-950/90 px-4 text-xs font-bold text-white hover:bg-workspace-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent" aria-label={`放大查看：${alt}`}><Expand className="h-4 w-4" aria-hidden="true" />放大</button></div>{caption ? <figcaption className="mt-3 text-xs leading-5 text-neutral-500">{caption}</figcaption> : null}{open ? <div role="dialog" aria-modal="true" aria-label={`放大查看：${alt}`} className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-950/90 p-3 sm:p-8" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}><div className="relative max-h-full max-w-[96rem] overflow-auto rounded-2xl bg-white p-2"><Image src={src} alt={alt} width={width} height={height} sizes="100vw" className="h-auto max-h-[88vh] w-auto max-w-none" /><button ref={closeRef} type="button" onClick={() => setOpen(false)} className="sticky bottom-3 left-full inline-flex min-h-11 min-w-11 -translate-x-3 items-center justify-center rounded-lg bg-neutral-950 text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" aria-label="关闭放大图片"><X className="h-5 w-5" aria-hidden="true" /></button></div></div> : null}</figure>;
+}

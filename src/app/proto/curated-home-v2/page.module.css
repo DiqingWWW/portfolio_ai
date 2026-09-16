@@ -1,0 +1,1038 @@
+.page {
+  --paper: #f4f3ee;
+  --ink: #20221f;
+  min-height: 100svh;
+  overflow: clip;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-inter), Arial, sans-serif;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.skipLink {
+  position: fixed;
+  inset-block-start: -5rem;
+  inset-inline-start: 1rem;
+  z-index: 50;
+  padding: 0.8rem 1rem;
+  background: white;
+  color: #171819;
+  text-decoration: none;
+}
+
+.skipLink:focus {
+  inset-block-start: 1rem;
+}
+
+.header {
+  min-height: 82px;
+  padding-inline: 3.2vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 14px;
+}
+
+.header a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 4px;
+  touch-action: manipulation;
+}
+
+.header a:focus-visible,
+.heroCta:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+.identity {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+}
+
+.nav svg,
+.heroCta svg {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+.askLink {
+  margin-inline-start: 36px;
+}
+
+/* Proposed file-tab navigation, isolated from the previous study. */
+.animatedPage {
+  --bookmark-height: 64px;
+}
+
+.bookmarkHeader {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: var(--bookmark-height);
+  min-height: var(--bookmark-height);
+  padding: 8px 20px 0;
+  background: rgb(242 237 222 / .75);
+}
+
+.bookmarkNavigation {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+  height: 100%;
+}
+
+.bookmarkLinks {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.bookmarkTab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 44px;
+  flex: none;
+  min-width: 44px;
+  padding: 0 18px;
+  border-radius: 12px 12px 0 0;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.bookmarkTab[aria-current="location"] {
+  background: var(--color-workspace-bg);
+}
+
+.bookmarkLinks .bookmarkTab:not(.homeTab)[aria-current="location"] {
+  box-shadow: 4px -4px 10px rgb(0 0 0 / .1);
+}
+
+.homeTab {
+  position: relative;
+  isolation: isolate;
+  width: clamp(112px, 14vw, 170px);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -.025em;
+}
+
+.bookmarkHeader .homeTab {
+  background: transparent;
+}
+
+.bookmarkHeader .homeTab[aria-current="location"] {
+  color: #fff;
+}
+
+.homeField {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.homeTab[aria-current="location"] .homeField {
+  visibility: visible;
+}
+
+.bookmarkLabel {
+  display: inline-grid;
+  transition: transform 150ms ease-out;
+}
+
+.bookmarkLabel > span { grid-area: 1 / 1; }
+.bookmarkSizer { visibility: hidden; font-weight: 600; }
+
+.bookmarkHeader[data-reference-study="true"] .bookmarkTab,
+.bookmarkHeader[data-reference-study="true"] .homeTab {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.bookmarkHeader[data-reference-study="true"] .bookmarkTab[aria-current="location"] .bookmarkLabel {
+  transform: scale(1.1);
+  font-weight: 600;
+}
+
+.bookmarkHeader[data-reference-study="true"][data-active-section="studies"]
+  .bookmarkTab[aria-current="location"] {
+  background: #f4f4f2;
+}
+
+.bookmarkTab svg {
+  width: 22px;
+  height: 22px;
+}
+
+.bookmarkHeader .bookmarkTab:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -5px;
+}
+
+.languageControl {
+  position: relative;
+  margin-inline-start: auto;
+  flex: none;
+}
+
+.languageTrigger {
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.languageTrigger[aria-expanded="true"] {
+  background: var(--color-workspace-bg);
+}
+
+/* Proposed: a quiet, trigger-aligned language menu; no layout movement on open. */
+.languageMenu {
+  position: absolute;
+  inset: calc(100% + 8px) 0 auto auto;
+  width: 240px;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--color-workspace-bg);
+  box-shadow: 0 2px 6px rgb(0 0 0 / .06), 0 12px 32px rgb(0 0 0 / .12);
+  transform-origin: top right;
+  transform: translateY(-4px) scale(.97);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 150ms ease-out, transform 150ms cubic-bezier(.32,.72,0,1), visibility 150ms;
+}
+
+.languageMenu[data-open="true"] {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
+.languageMenu[data-instant="true"] {
+  transition: none;
+}
+
+.languageOption {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 48px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.languageOption[aria-checked="true"] {
+  background: rgb(46 148 227 / .1);
+  font-weight: 600;
+}
+
+.languageStatus {
+  margin-inline-start: auto;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.bookmarkHeader .languageOption:focus-visible {
+  outline: 2px solid var(--color-workspace-accent);
+  outline-offset: -2px;
+}
+
+/* Compact-viewport section menu. Dormant until the bookmark row would otherwise wrap. */
+.sectionControl {
+  position: relative;
+  margin-inline-start: auto;
+  flex: none;
+  display: none;
+}
+
+.sectionTrigger {
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.sectionTrigger[aria-expanded="true"] {
+  background: var(--color-workspace-bg);
+}
+
+/* Same optical vocabulary as the language menu; the two never show together. */
+.sectionMenu {
+  position: absolute;
+  inset: calc(100% + 8px) 0 auto auto;
+  width: 240px;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--color-workspace-bg);
+  box-shadow: 0 2px 6px rgb(0 0 0 / .06), 0 12px 32px rgb(0 0 0 / .12);
+  transform-origin: top right;
+  transform: translateY(-4px) scale(.97);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 150ms ease-out, transform 150ms cubic-bezier(.32,.72,0,1), visibility 150ms;
+}
+
+.sectionMenu[data-open="true"] {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
+.sectionMenu[data-instant="true"] {
+  transition: none;
+}
+
+.sectionGroupLabel {
+  display: block;
+  padding: 8px 12px 2px;
+  color: rgb(26 26 26 / .45);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.sectionOption {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 48px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: inherit;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.sectionOption[aria-current="location"] {
+  background: rgb(46 148 227 / .1);
+  font-weight: 600;
+}
+
+.sectionOption svg {
+  width: 16px;
+  height: 16px;
+  margin-inline-start: auto;
+}
+
+.sectionDivider {
+  display: block;
+  height: 1px;
+  margin: 6px 8px;
+  background: rgb(26 26 26 / .08);
+}
+
+.bookmarkHeader .sectionOption:focus-visible {
+  outline: 2px solid var(--color-workspace-accent);
+  outline-offset: -2px;
+}
+
+/* Same optical vocabulary as the hero, with bounded one-time section entrances. */
+.animatedPage [data-scroll-entrance][data-entrance-state] {
+  transition: opacity 320ms cubic-bezier(.16,1,.3,1), transform 400ms cubic-bezier(.16,1,.3,1);
+}
+
+.animatedPage [data-entrance-state="pending"] {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.animatedPage [data-scroll-entrance="project"][data-entrance-state="pending"] {
+  transform: translateY(20px);
+}
+
+.animatedPage [data-entrance-state="instant"] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Fixed viewport-edge defocus: layered masks avoid a hard horizontal boundary. */
+.bottomBlur {
+  position: fixed;
+  z-index: 30;
+  inset: auto 0 0;
+  height: calc(112px + env(safe-area-inset-bottom, 0px));
+  pointer-events: none;
+}
+
+.bottomBlur > div {
+  position: absolute;
+  inset: 0;
+  mask-image: linear-gradient(to bottom, transparent, rgb(0 0 0 / .12) 20%, black 62%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, rgb(0 0 0 / .12) 20%, black 62%);
+}
+
+.bottomBlur > div:nth-child(2) {
+  mask-image: linear-gradient(to bottom, transparent 25%, rgb(0 0 0 / .15) 48%, black 82%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 25%, rgb(0 0 0 / .15) 48%, black 82%);
+}
+
+.bottomBlur > div:nth-child(3) {
+  mask-image: linear-gradient(to bottom, transparent 48%, rgb(0 0 0 / .2) 72%, black);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 48%, rgb(0 0 0 / .2) 72%, black);
+}
+
+.animatedPage :global(#work) a {
+  scroll-margin-block: calc(var(--bookmark-height) + 16px) 88px;
+}
+
+.animatedPage .experience {
+  height: calc(100svh - var(--bookmark-height) - 26px);
+  border-start-start-radius: 0;
+}
+
+/* The study hero is a foreground sheet. Its taller track lets the next chapter travel
+   underneath before the sheet releases and moves out with the visitor's scroll. */
+.studyHeroStage {
+  position: relative;
+  z-index: 20;
+  height: calc(132svh - var(--bookmark-height));
+}
+
+.studyHeroShell {
+  position: sticky;
+  top: var(--bookmark-height);
+  height: calc(100svh - var(--bookmark-height));
+}
+
+.studyHeroStage + :global([data-fabrica-study]) {
+  z-index: 1;
+  margin-top: -1px;
+}
+
+.studyHeroShell .heroBottom {
+  bottom: 88px;
+  display: grid;
+  grid-template-columns: minmax(0, 370px) auto;
+  align-items: end;
+}
+
+.studyHeroShell .heroCta { justify-self: end; }
+
+.studyDisciplineStrip {
+  position: absolute;
+  z-index: 7;
+  right: 32px;
+  bottom: 26px;
+  left: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  height: 52px;
+  overflow: hidden;
+  border-top: 1px solid rgb(16 16 16 / .18);
+  border-top-color: rgb(255 255 255 / .3);
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.studyDisciplineViewport { min-width: 0; overflow: hidden; }
+.studyDisciplineTrack { display: flex; width: max-content; animation: study-discipline-loop 26s linear infinite; }
+.studyDisciplineTrack > div { display: flex; align-items: center; gap: 42px; padding-right: 42px; }
+.studyDisciplineTrack span { white-space: nowrap; font-size: 15px; font-weight: 500; letter-spacing: -.02em; }
+.studyDisciplineTrack span::after { content: "✦"; margin-left: 42px; font-size: 9px; }
+.studyDisciplineStrip > span:last-child { padding-inline: 8px 2px; white-space: nowrap; }
+
+@keyframes study-discipline-loop {
+  to { transform: translateX(-50%); }
+}
+
+.animatedPage :global(#work) {
+  scroll-margin-top: var(--bookmark-height);
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  height: calc(100svh - 108px);
+  min-height: 690px;
+  max-height: 980px;
+  margin-inline: 20px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #171a17;
+  color: #f5f4ef;
+}
+
+.heroField {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #aaabab;
+  pointer-events: none;
+}
+
+.smokeCanvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.grain {
+  position: absolute;
+  inset: -8%;
+  opacity: 0.3;
+  background-image:
+    radial-gradient(circle, rgb(255 255 255 / 54%) 0 0.55px, transparent 0.75px),
+    radial-gradient(circle, rgb(255 255 255 / 24%) 0 0.5px, transparent 0.72px);
+  background-position: 0 0, 3px 2px;
+  background-size: 6px 6px, 9px 9px;
+  mask-image: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 76%) 72%, transparent 100%);
+}
+
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgb(0 0 0 / 14%) 0%, transparent 32%),
+    linear-gradient(0deg, rgb(0 0 0 / 48%) 0%, transparent 44%);
+}
+
+.heroHeading {
+  position: relative;
+  z-index: 2;
+  padding: 40px 38px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.heroHeading h1 {
+  margin: 0;
+  color: #f5f4ef !important;
+  font-size: clamp(96px, 13.9vw, 220px);
+  font-weight: 500 !important;
+  line-height: 0.85;
+  letter-spacing: -0.04em !important;
+  text-wrap: balance;
+  white-space: nowrap;
+}
+
+.heroHeading p {
+  max-width: 180px;
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.heroBottom {
+  position: absolute;
+  z-index: 2;
+  inset: auto 38px 36px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.heroBottom > p {
+  max-width: 370px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  text-wrap: pretty;
+}
+
+.heroCta {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+  touch-action: manipulation;
+}
+
+/* Proposed: reference-led smoke opening, isolated from production and previous study. */
+.experience {
+  min-height: 510px;
+  background: var(--paper);
+}
+
+.experience[data-renderer="fallback"] {
+  background: linear-gradient(165deg, oklch(.21 .035 260), oklch(.61 .19 260) 48%, oklch(.81 .108 234) 62%, oklch(.21 .035 260));
+}
+
+.experience[data-renderer="fallback"] canvas {
+  display: none;
+}
+
+/* A feathered optical blur samples the real DOM/canvas underneath, not a glow dot. */
+.pointerBlur {
+  position: absolute;
+  z-index: 5;
+  inset: 0 auto auto 0;
+  width: clamp(340px, 46vw, 560px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  mask-image: radial-gradient(circle, black 0%, rgb(0 0 0 / .96) 25%, rgb(0 0 0 / .45) 49%, transparent 72%);
+  -webkit-mask-image: radial-gradient(circle, black 0%, rgb(0 0 0 / .96) 25%, rgb(0 0 0 / .45) 49%, transparent 72%);
+}
+
+.pointerBlurSurface {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+/* Proposed cursor states, scoped to the prototype outside its hero. */
+.outsidePointer {
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: 60;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.outsideGlow {
+  position: absolute;
+  inset: 0 auto auto 0;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.15);
+  transition: transform 160ms cubic-bezier(.32,.72,0,1), opacity 120ms ease-out;
+}
+
+.outsideGlow {
+  width: clamp(80px, 9.5vw, 110px);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, oklch(.67 .16 245 / .68) 0%, oklch(.73 .14 240 / .4) 25%, oklch(.8 .1 235 / .12) 48%, transparent 70%);
+  border-radius: 50%;
+  mask-image: radial-gradient(circle, black 0%, rgb(0 0 0 / .96) 25%, rgb(0 0 0 / .45) 49%, transparent 72%);
+  -webkit-mask-image: radial-gradient(circle, black 0%, rgb(0 0 0 / .96) 25%, rgb(0 0 0 / .45) 49%, transparent 72%);
+}
+
+.outsidePointer[data-mode="glow"] .outsideGlow {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(.4);
+}
+
+.outsidePointer[data-mode="hover"] .outsideGlow {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.outsidePointer[data-instant="true"] > div {
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .page[data-custom-pointer="active"],
+  .page[data-custom-pointer="active"] * {
+    cursor: none !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .pointerBlur,
+  .outsidePointer {
+    display: none;
+  }
+}
+
+.statementDock {
+  width: 370px;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.statementCard {
+  position: relative;
+  padding: 22px 24px;
+  border-radius: 12px;
+  color: #202124;
+  transform-origin: center;
+}
+
+.statementSurface {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: oklch(1 0 0);
+  box-shadow: 0 2px 4px oklch(0 0 0 / .04), 0 16px 40px oklch(0 0 0 / .08);
+}
+
+.statementCard p {
+  position: relative;
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.35;
+  letter-spacing: -.025em;
+  font-weight: 400;
+}
+
+.typeLayout {
+  display: grid;
+}
+
+.nameInk {
+  grid-area: 1 / 1;
+}
+
+.introName {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  display: none;
+  gap: .24em;
+  align-items: baseline;
+  transform: translate(-50%, -50%);
+  color: oklch(1 0 0);
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: -.035em;
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.introWord {
+  display: inline-grid;
+}
+
+.experience .heroHeading h1 {
+  color: oklch(1 0 0) !important;
+}
+
+.experience .heroHeading > p {
+  color: oklch(1 0 0);
+}
+
+.typeMeasure,
+.typeInk {
+  grid-area: 1 / 1;
+}
+
+.typeMeasure {
+  visibility: hidden;
+}
+
+.caret {
+  display: inline-block;
+  width: 1.5px;
+  height: .85em;
+  margin-left: 3px;
+  background: currentColor;
+  opacity: 0;
+}
+
+.experience[data-phase="typing"] .caret {
+  opacity: .7;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .animatedPage {
+    --intro-copy: 0;
+  }
+  .animatedPage > .header,
+  .animatedPage .revealCopy,
+  .experience .heroHeading > p {
+    opacity: var(--intro-copy);
+  }
+  .experience:not([data-phase="ready"]) .statementCard {
+    opacity: 0;
+  }
+  .experience:not([data-phase="ready"]) .heroHeading h1 {
+    opacity: 0;
+  }
+  .experience:not([data-phase="ready"]) .heroCta {
+    opacity: 0;
+  }
+  .introName {
+    display: flex;
+    opacity: 0;
+  }
+}
+
+@media (scripting: none) {
+  .experience {
+    background: linear-gradient(165deg, oklch(.21 .035 260), oklch(.61 .19 260) 48%, oklch(.81 .108 234) 62%, oklch(.21 .035 260));
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .header:not(.bookmarkHeader) a:hover,
+  .heroCta:hover {
+    text-decoration: underline;
+  }
+
+  .bookmarkTab:hover .bookmarkLabel {
+    transform: scale(1.1);
+  }
+
+  .languageOption:not([aria-checked="true"]):hover {
+    background: rgb(32 34 31 / .06);
+  }
+}
+
+@media (max-width: 1000px) {
+  .nav {
+    gap: 24px;
+  }
+
+  .askLink {
+    margin-inline-start: 8px;
+  }
+
+  .hero {
+    min-height: 620px;
+  }
+
+  .experience {
+    min-height: 510px;
+  }
+
+  .heroHeading {
+    display: block;
+  }
+
+  .heroHeading p {
+    margin-block-start: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    min-height: 76px;
+    padding-inline: 20px;
+  }
+
+  .animatedPage {
+    --bookmark-height: 60px;
+  }
+
+  .bookmarkHeader {
+    min-height: var(--bookmark-height);
+    padding-inline: 12px;
+  }
+
+  .bookmarkNavigation {
+    gap: 8px;
+  }
+
+  .bookmarkLinks {
+    gap: 2px;
+  }
+
+  .bookmarkTab {
+    padding-inline: 10px;
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .homeTab {
+    width: 76px;
+    font-size: 18px;
+  }
+
+  .identity {
+    font-size: 14px;
+  }
+
+  .nav {
+    gap: 20px;
+    font-size: 13px;
+  }
+
+  .nav a:nth-child(2),
+  .nav a:nth-child(3),
+  .askLink {
+    display: none;
+  }
+
+  .hero {
+    height: calc(100svh - 100px);
+    min-height: 590px;
+    max-height: 790px;
+    margin-inline: 12px;
+    border-radius: 12px;
+  }
+
+  .experience {
+    min-height: 590px;
+  }
+
+  .statementDock {
+    width: 330px;
+  }
+
+  .statementCard {
+    padding: 20px;
+  }
+
+  .introName {
+    font-size: 32px;
+  }
+
+  .heroHeading {
+    padding: 30px 24px;
+  }
+
+  .heroHeading h1 {
+    font-size: clamp(66px, 13.4vw, 96px);
+    line-height: 0.95;
+    white-space: normal;
+  }
+
+  .heroHeading p {
+    margin-block-start: 24px;
+    font-size: 13px;
+  }
+
+  .heroBottom {
+    inset: auto 24px 30px;
+    display: block;
+  }
+
+  .heroBottom > p {
+    max-width: 22ch;
+    font-size: 24px;
+  }
+
+  .heroCta {
+    margin-block-start: 24px;
+    font-size: 13px;
+  }
+
+  .studyHeroShell .heroBottom {
+    inset-inline: 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 18px;
+  }
+
+  .studyHeroShell .heroCta { margin-block-start: 0; }
+  .studyHeroShell .statementDock { width: min(330px, 100%); }
+  .studyDisciplineStrip { right: 22px; left: 12px; gap: 14px; grid-template-columns: minmax(0, 1fr) auto; }
+}
+
+/* Compact viewports keep one row: only the current section stays in the bar, the rest live in Menu. */
+@media (max-width: 560px) {
+  .bookmarkLinks .bookmarkTab:not([aria-current="location"]) {
+    display: none;
+  }
+
+  .languageControl {
+    display: none;
+  }
+
+  .sectionControl {
+    display: block;
+  }
+
+  .homeTab {
+    width: auto;
+    min-width: 76px;
+    font-size: 18px;
+  }
+
+  .bookmarkTab {
+    padding-inline: 12px;
+  }
+
+  .sectionMenu {
+    z-index: 2;
+  }
+
+  .studyHeroShell .heroBottom { grid-template-columns: 1fr; }
+  .studyHeroShell .heroCta { justify-self: end; }
+}
+
+@media (max-width: 360px) {
+  .bookmarkTab {
+    padding-inline: 6px;
+  }
+
+  .homeTab {
+    width: 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .animatedPage [data-entrance-state="pending"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .studyHeroStage { height: auto; }
+  .studyHeroShell { position: relative; top: auto; height: auto; }
+  .studyHeroStage + :global([data-fabrica-study]) { margin-top: 0; }
+
+}

@@ -1,0 +1,22 @@
+{
+  "id": "autonomous-driving-to-agent",
+  "title": "自动驾驶：人机共驾视角下的 Agent 设计范式",
+  "tags": ["ai-related", "hmi"],
+  "metadata": { "type": "Independent Research", "year": "2026", "role": "Product Design Research" },
+  "descriptions": {
+    "short": "从自动驾驶的人机共驾经验出发，研究高风险 Agent 的控制权、信任与行为边界。",
+    "detail": "A Chinese-first design research project using autonomous driving as a reference model for governable Agent action."
+  },
+  "specs": [
+    { "label": "Focus", "val": "Human–Agent control" },
+    { "label": "Framework", "val": "Five design dimensions" },
+    { "label": "Status", "val": "Design research" }
+  ],
+  "tokens": ["Agent Design", "Human–AI Collaboration", "HMI", "Safety"],
+  "assets": {
+    "cover": "./autonomous-driving-agent-relationship.png",
+    "hover": "./study-cover.avif",
+    "gallery": ["./high-risk-agent-five-dimensions.png"]
+  },
+  "detailHref": "/zh/work/autonomous-driving-to-agent"
+}

@@ -19,6 +19,7 @@
   "tokens": ["Design Systems", "HMI", "Cross-platform", "Design-to-code"],
   "assets": {
     "cover": "./cover2-display.webp",
+    "coverVideo": "./cover-loop.mp4",
     "hover": "./visual-language_EN-display.webp",
     "gallery": ["./logo-and-icons_EN-display.webp", "./tokens-and-components_EN-display.webp", "./design-to-code_EN-display.webp", "./responsive-theme-adaptation.gif", "./vehicle-language-adaptation.gif"]
   },

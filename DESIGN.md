@@ -99,6 +99,11 @@ components:
 
 # Design System: Diqing Wu Portfolio
 
+> Status: Current descriptive working reference. Canonical scope, token hierarchy, responsive
+> behavior, motion grammar, design-to-code mapping, and accessibility requirements live in
+> `governance/product/00_DESIGN_SYSTEM_CONTRACT.md`. This file and its sidecar are derived context,
+> not the unique authority for future synchronization.
+
 ## Overview
 
 **Creative North Star: "The Portfolio Operating System"**

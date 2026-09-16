@@ -1,0 +1,42 @@
+{
+  "navigationLabel": "Prototype navigation",
+  "navigation": [
+    { "id": "home", "label": "Home", "labelZh": "首页", "href": "#top" },
+    { "id": "work", "label": "Work", "labelZh": "项目", "href": "#work" },
+    { "id": "library", "label": "Experiments", "labelZh": "实验", "href": "/experiments" },
+    { "id": "about", "label": "About Me", "labelZh": "关于我", "href": "https://www.deethin.site/" }
+  ],
+  "languages": {
+    "label": "Languages",
+    "options": [
+      { "locale": "en", "label": "English" },
+      { "locale": "zh", "label": "中文" }
+    ]
+  },
+  "locales": {
+    "en": {
+      "navigationLabel": "Prototype navigation",
+      "skipLink": "Skip to selected work",
+      "roleLines": ["Product design", "& AI-assisted building"],
+      "heroStatement": "Bridging technology and the people who use it.",
+      "explore": "Explore selected work",
+      "currentLanguage": "Current",
+      "availableLanguage": "Switch to",
+      "menuLabel": "Menu",
+      "menuAriaLabel": "Open section menu",
+      "sectionsLabel": "Sections"
+    },
+    "zh": {
+      "navigationLabel": "原型导航",
+      "skipLink": "跳至精选项目",
+      "roleLines": ["产品设计", "与 AI 辅助构建"],
+      "heroStatement": "Bridging technology and the people who use it.",
+      "explore": "查看精选项目",
+      "currentLanguage": "当前语言",
+      "availableLanguage": "切换至",
+      "menuLabel": "菜单",
+      "menuAriaLabel": "打开页面菜单",
+      "sectionsLabel": "页面"
+    }
+  }
+}

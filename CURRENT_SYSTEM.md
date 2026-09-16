@@ -1,7 +1,7 @@
 # Current System
 
-Status: Current production release — V1.2
-Snapshot date: 2026-08-25
+Status: V2.0 local review candidate; current production remains V1.2
+Snapshot date: 2026-09-14
 Production deployment: V1.2 from `main` commit `be534f5` at `https://www.deethin.site`.
 The owner accepted the bilingual release, GitHub and Vercel completed the deployment, and the
 production routes and representative localized assets passed smoke testing on 2026-08-25.
@@ -18,10 +18,12 @@ full snapshot audit lives in `audits/engineering-audit-v0.2-2026-08-01.md`.
 - Motion 12 supplies component animation and dragging.
 - Lucide React supplies most icons; several brand icons are inline SVG.
 - `src/app/layout.tsx` is the root Server Component and owns fonts and metadata.
-- `src/app/page.tsx` is a 580-line Client Component and imports the complete homepage
-  orchestration, content façade, Motion, icons, and all major content components.
+- `/` and `/zh` now render the V2 Fabrica-derived experiential homepage. The former Workspace
+  homepage remains in `src/app/page.tsx` as `PortfolioHome` for rollback while V2 is
+  under local review.
 - English remains at the existing unprefixed routes. Chinese uses `/zh` and matching `/zh/work/...`
-  routes for Honda, Lincoln, Portfolio Operating System, and the visual-only Rubik Studio page.
+  routes for Honda, Lincoln, Portfolio Operating System, and Rubik Studio. The Chinese-only
+  autonomous-driving-to-Agent research route lives at `/zh/work/autonomous-driving-to-agent`.
   `/experiments` remains one shared English-only collection linked from both homepages.
 - There are no API routes, route-level loading states, or error boundaries. The three primary
   case-study routes have dedicated page compositions rather than one shared generic renderer.
@@ -212,6 +214,12 @@ colors outside the small workspace token set.
 
 `content/design-tokens.json` drives the Monolith demonstration and KPI cards. It is content
 shown by the portfolio, not the canonical source for the live workspace theme.
+
+An isolated Draft component catalogue is available at `/proto/design-system`. It currently
+contains Button, compound Card, TextField, and native Disclosure candidates under
+`src/design-system/`, plus a typed design-to-code registry whose design-tool IDs remain explicitly
+unbound. No accepted page imports these components, and the catalogue does not inherit or promote
+Fabrica Study values.
 
 ## 7. Current animation system
 

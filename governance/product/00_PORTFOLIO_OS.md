@@ -195,6 +195,17 @@ They are not all permanent constitutional rules.
 New exact tokens should be introduced only after comparison and review. Demo-specific
 tokens must not automatically become the website's global tokens.
 
+### Canonical design-system governance
+
+The shared-system scope, source hierarchy, token architecture, responsive contract, motion
+library, design-to-code mapping policy, and accessibility baseline are owned by
+`governance/product/00_DESIGN_SYSTEM_CONTRACT.md`.
+
+All accepted production pages use one shared portfolio design system except for explicitly
+documented project-local or one-off treatments. The unfinished `Fabrica Study` remains an isolated
+Proposed exploration and does not contribute global tokens, components, or motion patterns until
+the owner accepts it and reviews each candidate difference for adoption.
+
 ## 7. Interaction principles
 
 - Interaction should improve comprehension, orientation, feedback, or state expression.
@@ -242,7 +253,7 @@ an approved implementation plan, not as frozen values in this constitution.
 - Formal JSON Schema and referential-integrity validation.
 - Server-rendered `/work/[project]` case-study routes.
 - Lazy-loading heavier demonstrations.
-- A formal semantic motion vocabulary.
+- Exact values and implementation technology for the formal semantic motion vocabulary.
 
 These proposals are documented for evaluation in the migration plan. Their presence here
 does not authorize implementation in unrelated tasks.
@@ -265,6 +276,9 @@ does not authorize implementation in unrelated tasks.
 
 - `governance/product/00_PORTFOLIO_OS.md` owns durable product, design, content, and
   engineering boundaries.
+- `governance/product/00_DESIGN_SYSTEM_CONTRACT.md` owns the shared design-system scope,
+  hierarchy, responsive behavior, motion grammar, design-to-code mapping rules, and accessibility
+  baseline.
 - `CURRENT_SYSTEM.md` owns factual descriptions of the current implementation.
 - `MIGRATION_PLAN_*.md` owns temporary execution sequencing and is archived when complete.
 - `AGENTS.md` owns cross-tool AI working rules.
@@ -295,9 +309,12 @@ must explain the reason and impact and must not silently promote a proposal to C
 - Which deployment platform is canonical, and is a secondary deployment still necessary?
 - Should source assets continue to be copied into a generated public directory?
 - Should project discovery remain an explicit manifest or become deterministic generation?
-- Which current visual foundations should become durable semantic tokens?
+- Which Current repeated visual values should be promoted into the reviewed machine-readable
+  primitive and semantic token registry?
 - Is the Monolith token set illustrative project content, historical work, or a candidate
   for the website's own design system?
+- When the owner accepts `Fabrica Study`, which of its differences should become shared, remain
+  surface-local, or be rejected?
 - What is the intended CV action and source?
 - Is deep-linkable workspace state valuable?
 - When is a conventional `/work` index justified?

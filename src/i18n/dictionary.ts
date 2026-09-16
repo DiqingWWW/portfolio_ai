@@ -172,7 +172,7 @@ const projectOverrides: Record<string, Partial<ProjectData>> = {
     descriptions: { short: "连接品牌语言、交互规则、可复用组件与自适应交付的 HMI 设计系统。", detail: "六个月从 0→1 搭建设计系统，覆盖基础规范、三层 Token 架构、20+ 组件、适配规则、文档与设计到开发协作。" },
     specs: [{ label: "范围", val: "移动端 + 车载 HMI" }, { label: "贡献", val: "0→1 系统搭建" }, { label: "状态", val: "已交付专业项目" }],
     tokens: ["设计系统", "HMI", "跨平台", "设计到开发"],
-    assets: { cover: "./cover2-display.webp", hover: "./visual-language_CN-display.webp", gallery: ["./logo-and-icons_CN-display.webp", "./tokens-and-components_CN-display.webp", "./design-to-code_CN-display.webp", "./responsive-theme-adaptation.gif", "./vehicle-language-adaptation.gif"] },
+    assets: { cover: "./cover2-display.webp", coverVideo: "./cover-loop.mp4", hover: "./visual-language_CN-display.webp", gallery: ["./logo-and-icons_CN-display.webp", "./tokens-and-components_CN-display.webp", "./design-to-code_CN-display.webp", "./responsive-theme-adaptation.gif", "./vehicle-language-adaptation.gif"] },
     detailHref: "/zh/work/honda-hmi-design-system",
   },
   "lincoln-text-expression": { title: "移动端文本输入与信息表达", metadata: { type: "专业项目 · Lincoln", role: "UX 设计师" }, descriptions: { short: "根据每类内容承担的任务定义移动端文本输入规则。", detail: "将姓名、昵称、VIN、帖子正文和话题组织为受控短文本、结构化唯一标识与开放长文本，并定义计数、校验和恢复规则。" }, specs: [{ label: "范围", val: "个人资料、VIN、社区" }, { label: "重点", val: "输入规则 + 反馈" }, { label: "状态", val: "已交付专业项目" }], tokens: ["交互设计", "内容设计", "校验", "汽车"] },
@@ -181,7 +181,7 @@ const projectOverrides: Record<string, Partial<ProjectData>> = {
   "monolith-design-system": { title: "Monolith 设计系统", metadata: { type: "严格的 Token 驱动设计语言", year: "2024" }, descriptions: { short: "面向大型企业应用的灵活、极简灰阶与色彩 Token 架构。", detail: "Monolith 通过灰阶基础、强调色和统一触控尺寸维持像素对齐、视觉节奏与空间对比。" }, specs: [{ label: "基础网格", val: "8px 间距系统" }, { label: "字体", val: "系统 Helvetica 常规 / 粗体" }, { label: "过渡", val: "300ms 弹簧阻尼" }], tokens: ["Token JSON", "灰阶基础", "强调色", "流体切换"] },
   "muse-ai-canvas": { title: "Muse AI 画布", metadata: { type: "生成式 UI 智能体系统", year: "2025" }, descriptions: { short: "把自然语言意图转化为可运行的定制 Web 界面。", detail: "Muse 读取对话目标，在沙盒视口中生成完整交互元素，并将结构编译为响应式 CSS 工具类。" }, specs: [{ label: "编译速度", val: "2.8 秒动态合成" }, { label: "Token 解析", val: "Tailwind CSS v4" }, { label: "交互", val: "计算器、音乐、习惯" }], tokens: ["生成式 UI", "流式编译", "原子组件", "交互画布"] },
   "orbit-spatial-os": { title: "Orbit 空间操作系统", metadata: { type: "空间操作系统概念", version: "v1.4.2", year: "2025" }, descriptions: { short: "用于人机协作工作流的无限数字画布。", detail: "文件、提示词与工具结果作为可交互节点存在于无边界画布中，并具有视口约束、动量吸附和布局保持状态。" }, specs: [{ label: "认知栈", val: "LLM 编排" }, { label: "目标平台", val: "桌面 / AR 画布" }, { label: "运动曲线", val: "cubic-bezier(0.16, 1, 0.3, 1)" }], tokens: ["Z 轴深度", "物理吸附", "Framer Motion", "可拖动画布"] },
-  "rubik-studio": { title: "Rubik Studio", assets: { cover: "./rubikstudio_CN-display.webp", coverPosition: "top", hover: "./rubikstudio_CN-display.webp", gallery: [] } },
+  "rubik-studio": { title: "Rubik Studio AI 代码工具", descriptions: { short: "企业内部使用的代码开发及3D场景渲染的AI辅助编程工具", detail: "" }, assets: { cover: "./cover-spatial-code-edit-v1.png", coverPosition: "center", hover: "./rubikstudio_CN-display.webp", gallery: [] } },
 };
 
 export const dictionaries = {

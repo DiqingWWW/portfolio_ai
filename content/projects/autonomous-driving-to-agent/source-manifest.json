@@ -1,0 +1,15 @@
+{
+  "source": "自动驾驶到Agent",
+  "sourceMaster": "01_master/master.md",
+  "sourceHash": "aea25579e81bf0abece0cbc5c7c0829aefa4da52cdd1f183610edf76c3a35278",
+  "generatedFiles": [
+    "case-study.selection.json",
+    "autonomous-driving-agent-relationship.png",
+    "high-risk-agent-five-dimensions.png",
+    "concept-goal-collaboration.png",
+    "concept-behavior-design.png",
+    "concept-trust-experience.png",
+    "concept-power-ethics.png",
+    "concept-adaptation-learning.png"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "source": "Rubik Stuio",
+  "sourceMaster": "01_master/master.md",
+  "sourceHash": "627816a37c0cba514428a13622e63b699ca78c93b1c05a2258876d734f9b9a4e",
+  "generatedFiles": [
+    "case-study.selection.json",
+    "A01.png",
+    "A02.png",
+    "A04.png",
+    "A07.png",
+    "A08.png",
+    "A09.png",
+    "A11.png",
+    "A12.png",
+    "A16.png",
+    "A17.png",
+    "A18.png",
+    "workspace-layer-breakdown.gif",
+    "session-management-flow.png",
+    "answer-feedback-flow.png",
+    "G01-hero-cockpit-concept.png",
+    "G02-cockpit-engineering-linework.png",
+    "G03-code-explanation-five-step-strip.png",
+    "G04-extended-capabilities-five-card-strip.png",
+    "G05-core-advantages-five-card-strip.png",
+    "G06-geniuscanvas-cockpit-scene.png",
+    "G07-automotive-seat-concept.png",
+    "G08-geniuscanvas-five-highlight-strip.png"
+  ]
+}

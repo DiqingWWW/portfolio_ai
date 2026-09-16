@@ -25,6 +25,8 @@ export interface ProjectSpec {
 export interface ProjectAssets {
   cover: string;
   coverPosition?: 'center' | 'top';
+  /** Optional looping cover film. When set, the Projects grid plays this instead of the still cover. */
+  coverVideo?: string;
   hover: string;
   gallery: string[];
 }

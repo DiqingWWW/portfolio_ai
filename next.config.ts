@@ -1,8 +1,18 @@
+import path from "node:path";
 import type { NextConfig } from "next";
 
 const isStaticExport = process.env.STATIC_EXPORT === "true";
 
 const nextConfig: NextConfig = {
+  // A stray package.json/package-lock.json in the parent directory made Next infer the workspace
+  // root one level too high, which affects file tracing in production builds. Pin it here.
+  turbopack: {
+    root: path.resolve(__dirname),
+  },
+
+  // Browser annotations and local visual review use the loopback IP as well as localhost.
+  allowedDevOrigins: ["127.0.0.1"],
+
   // Cloudflare Pages receives a pre-rendered static export. Vercel keeps the
   // default build path so it remains an independent rollback deployment.
   ...(isStaticExport ? { output: "export" as const, trailingSlash: true } : {}),
