@@ -1,10 +1,10 @@
 # Current System
 
-Status: V2.0 local review candidate; current production remains V1.2
-Snapshot date: 2026-09-14
-Production deployment: V1.2 from `main` commit `be534f5` at `https://www.deethin.site`.
-The owner accepted the bilingual release, GitHub and Vercel completed the deployment, and the
-production routes and representative localized assets passed smoke testing on 2026-08-25.
+Status: V2.0 released to production
+Snapshot date: 2026-09-16
+Production deployment: V2.0 from `main` commit `e3a45f6` at `https://www.deethin.site`.
+The owner accepted the V2 homepage and study scope, GitHub and Vercel completed the deployment,
+and the production routes and representative localized assets passed smoke testing on 2026-09-16.
 
 This document describes the implementation as it exists. It is descriptive, not a promise
 that every current choice should remain. Durable decisions live in
@@ -18,9 +18,11 @@ full snapshot audit lives in `audits/engineering-audit-v0.2-2026-08-01.md`.
 - Motion 12 supplies component animation and dragging.
 - Lucide React supplies most icons; several brand icons are inline SVG.
 - `src/app/layout.tsx` is the root Server Component and owns fonts and metadata.
-- `/` and `/zh` now render the V2 Fabrica-derived experiential homepage. The former Workspace
-  homepage remains in `src/app/page.tsx` as `PortfolioHome` for rollback while V2 is
-  under local review.
+- `/` and `/zh` render the V2 Fabrica-derived experiential homepage. The former Workspace
+  homepage now lives in `src/components/PortfolioHome.tsx` and stays reachable at
+  `/proto/v1-home` and `/zh/proto/v1-home` for review and rollback. It is exported from a
+  component module rather than from `page.tsx` because Next 16 typed routes reject non-route
+  exports from a page module.
 - English remains at the existing unprefixed routes. Chinese uses `/zh` and matching `/zh/work/...`
   routes for Honda, Lincoln, Portfolio Operating System, and Rubik Studio. The Chinese-only
   autonomous-driving-to-Agent research route lives at `/zh/work/autonomous-driving-to-agent`.
@@ -264,6 +266,31 @@ Fabrica Study values.
 
 ## 9. Verification baseline
 
+The V2.0 release verification ran on 2026-09-16:
+
+- owner review completed for the V2 homepage, the Rubik Studio case study, and the Chinese
+  autonomous-driving-to-Agent study;
+- `npm run content:check`: Honda master/selection/localized-content parity passed;
+- `npm run lint`: 0 errors and 3 accepted warnings (unused generated variable in
+  `output/curated-view/content.js`, raw `<img>` in `HoverImage`, and a temporary PDF capture
+  script);
+- `npx tsc --noEmit`: passed with no output;
+- `npm run build`: passed and generated all 26 application routes, including `/`, `/zh`,
+  `/proto/v1-home`, `/zh/proto/v1-home`, `/zh/work/autonomous-driving-to-agent`,
+  `/work/rubik-studio`, and `/zh/work/rubik-studio`;
+- GitHub `main` commit `e3a45f6` deployed successfully through Vercel;
+- fifteen public production routes returned HTTP 200 at `https://www.deethin.site`, including
+  both proto V1 routes, `/experiments`, `/robots.txt`, and `/sitemap.xml`;
+- the Rubik Studio card rendered as “Rubik Studio AI Coding Tool” on `/` and “Rubik Studio AI
+  代码工具” on `/zh`, and both case-study routes emitted the matching `metadata.title` and
+  `og:title`;
+- the Rubik Studio cover at
+  `/assets/images/rubik-studio/cover-spatial-code-edit-v1.png` returned HTTP 200 and matched the
+  committed source byte for byte (SHA-256 `d59d8b5b…`, 1,642,931 bytes);
+- `/zh/work/rubik-studio` no longer referenced `G07-automotive-seat-concept.png`;
+- `/sitemap.xml` listed `/work/rubik-studio`, `/zh/work/rubik-studio`, and
+  `/zh/work/autonomous-driving-to-agent`.
+
 The V1.2 release verification ran on 2026-08-25:
 
 - owner review completed for both homepages and all four project pages;
@@ -292,5 +319,6 @@ The V1.1 release verification ran on 2026-08-09:
   all four project routes, Experiments, responsive mobile Design System dialog, published media,
   Open Graph URL, and index directives were confirmed.
 
-The build emits a non-blocking warning that Next.js inferred the parent `AI Projects` directory
-as the Turbopack workspace root because both parent and repository lockfiles exist.
+`next.config.ts` pins `turbopack.root` to the repository, so the parent `AI Projects` lockfile can
+no longer make Next infer the workspace root one level too high. The former non-blocking
+workspace-root warning no longer appears in the V2.0 build.

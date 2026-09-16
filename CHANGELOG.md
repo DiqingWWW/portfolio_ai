@@ -1,5 +1,56 @@
 # Changelog
 
+## V2.0 — 2026-09-16
+
+### Published scope
+
+- Activated the Fabrica-derived experiential homepage at `/` and `/zh`, replacing the V1
+  Workspace homepage as the production landing page. V1 remains reachable at `/proto/v1-home`
+  and `/zh/proto/v1-home`.
+- Added the Chinese-only autonomous-driving-to-Agent research study at
+  `/zh/work/autonomous-driving-to-agent`, linked from the homepage Study card.
+- Revised the Rubik Studio case study at `/zh/work/rubik-studio`: removed the automotive-seat
+  concept visual from the “场景延伸：从编程辅助到汽车 HMI 创作” section, and replaced the
+  homepage cover with `cover-spatial-code-edit-v1.png` on both locales.
+- Renamed the Rubik Studio project title to “Rubik Studio AI Coding Tool” (English) and
+  “Rubik Studio AI 代码工具” (Chinese) across the homepage cards and both case-study route
+  metadata records.
+- Kept the Experiments section to its heading, supporting copy, and a single link to
+  `/experiments`; removed the About Me composition from the homepage and its navigation.
+
+### Content and case studies
+
+- The V2 homepage reads its copy from `content/prototypes/curated-home.json` and
+  `content/prototypes/fabrica-study.json`, which are runtime dependencies rather than scratch
+  data.
+- The Chinese Rubik narrative continues to be authored in
+  `content/projects/rubik-studio/case-study.zh.ts`; the page composition is
+  `src/components/case-study/RubikStudioPage.tsx`. The English route remains a long-image
+  fallback.
+- Raw image-generation output under `content/projects/rubik-studio/assets/generated/` is kept on
+  disk but deliberately excluded from the release commit; nothing at runtime references it.
+
+### Release and operations
+
+- Deployed V2.0 from `main` commit `e3a45f6` through Vercel. GitHub `main` remains the only
+  production deployment trigger; no manual deploy step is used.
+- `next.config.ts` now pins `turbopack.root` to the repository, and `tsconfig.json` excludes
+  `open-next.config.ts` so the unverified Cloudflare adapter no longer breaks `next build`.
+- Fifteen public production routes returned HTTP 200 at `https://www.deethin.site`, and the
+  Rubik cover asset matched the committed source byte for byte.
+- The unverified OpenNext/Cloudflare path (`open-next.config.ts`, `wrangler.jsonc`,
+  `public/_headers`) and the parallel `src/design-system/` and `/proto/pixel-motion` experiments
+  remain intentionally excluded from this release.
+
+### Known follow-up work
+
+- Evaluate a separate China-access architecture only after the Vercel release baseline is
+  verified.
+- Both locales intentionally link their Rubik Studio homepage card to the Chinese case-study
+  route `/zh/work/rubik-studio`; a dedicated English case study remains future work.
+- `content/projects/rubik-studio/assets/generated/` is still untracked and unignored; consider
+  adding it to `.gitignore` so it cannot be committed by accident.
+
 ## V1.1 — 2026-08-09
 
 ### Published scope
