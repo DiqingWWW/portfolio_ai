@@ -5,7 +5,7 @@ import { autonomousAgentCaseStudy } from "@content/projects/autonomous-driving-t
 export const metadata: Metadata = {
   title: autonomousAgentCaseStudy.title,
   description: autonomousAgentCaseStudy.dek,
-  alternates: { canonical: "/zh/work/autonomous-driving-to-agent" },
+  alternates: { canonical: "/zh/work/autonomous-driving-to-agent", languages: { en: "/work/autonomous-driving-to-agent", "zh-CN": "/zh/work/autonomous-driving-to-agent" } },
   openGraph: {
     title: autonomousAgentCaseStudy.title,
     description: autonomousAgentCaseStudy.dek,
@@ -15,4 +15,4 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page() { return <AutonomousAgentResearchPage />; }
+export default function Page() { return <AutonomousAgentResearchPage locale="zh" />; }

@@ -4,6 +4,7 @@ import type { NextConfig } from "next";
 const isStaticExport = process.env.STATIC_EXPORT === "true";
 
 const nextConfig: NextConfig = {
+  devIndicators: false,
   // A stray package.json/package-lock.json in the parent directory made Next infer the workspace
   // root one level too high, which affects file tracing in production builds. Pin it here.
   turbopack: {

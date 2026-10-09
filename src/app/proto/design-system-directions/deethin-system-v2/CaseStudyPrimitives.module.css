@@ -1,0 +1,9 @@
+/* CSS Modules composition consumes the actual approved class, including its states. */
+.button { composes: button from "./system.module.css"; width:fit-content; font-family:inherit; cursor:pointer; }
+.button:focus-visible { outline: var(--focus-width) solid var(--ds-focus); outline-offset: var(--ds-space-1); }
+.button svg { width: var(--icon-size); height: var(--icon-size); stroke-width: var(--icon-stroke); }
+.decision { min-width: 0; padding: var(--ds-card-padding); border-radius: var(--ds-radius-card); background: var(--component-card-bg); transition: box-shadow var(--ds-motion-fast) var(--ds-ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .decision:hover { box-shadow: var(--ds-shadow-overlay); }
+}
+@media (prefers-reduced-motion: reduce) { .button, .button svg, .decision { transition: none !important; transform:none !important; } }

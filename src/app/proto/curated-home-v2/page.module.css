@@ -391,27 +391,27 @@
 /* Fixed viewport-edge defocus: layered masks avoid a hard horizontal boundary. */
 .bottomBlur {
   position: fixed;
-  z-index: 30;
+  z-index: var(--home-blur-layer);
   inset: auto 0 0;
-  height: calc(112px + env(safe-area-inset-bottom, 0px));
+  height: calc(var(--blur-height) + env(safe-area-inset-bottom, 0px));
   pointer-events: none;
 }
 
 .bottomBlur > div {
   position: absolute;
   inset: 0;
-  mask-image: linear-gradient(to bottom, transparent, rgb(0 0 0 / .12) 20%, black 62%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent, rgb(0 0 0 / .12) 20%, black 62%);
+  mask-image: var(--home-blur-mask-small);
+  -webkit-mask-image: var(--home-blur-mask-small);
 }
 
 .bottomBlur > div:nth-child(2) {
-  mask-image: linear-gradient(to bottom, transparent 25%, rgb(0 0 0 / .15) 48%, black 82%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 25%, rgb(0 0 0 / .15) 48%, black 82%);
+  mask-image: var(--home-blur-mask-medium);
+  -webkit-mask-image: var(--home-blur-mask-medium);
 }
 
 .bottomBlur > div:nth-child(3) {
-  mask-image: linear-gradient(to bottom, transparent 48%, rgb(0 0 0 / .2) 72%, black);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 48%, rgb(0 0 0 / .2) 72%, black);
+  mask-image: var(--home-blur-mask-large);
+  -webkit-mask-image: var(--home-blur-mask-large);
 }
 
 .animatedPage :global(#work) a {
@@ -1004,7 +1004,8 @@
   }
 
   .studyHeroShell .heroBottom { grid-template-columns: 1fr; }
-  .studyHeroShell .heroCta { justify-self: end; }
+  .studyHeroShell .heroBottom .revealCopy { order: -1; }
+  .studyHeroShell .heroCta { justify-self: start; }
 }
 
 @media (max-width: 360px) {

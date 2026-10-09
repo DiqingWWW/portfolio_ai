@@ -1,10 +1,10 @@
 {
   "id": "autonomous-driving-to-agent",
-  "title": "自动驾驶：人机共驾视角下的 Agent 设计范式",
+  "title": "Agent design through the lens of human–machine co-driving",
   "tags": ["ai-related", "hmi"],
   "metadata": { "type": "Independent Research", "year": "2026", "role": "Product Design Research" },
   "descriptions": {
-    "short": "从自动驾驶的人机共驾经验出发，研究高风险 Agent 的控制权、信任与行为边界。",
+    "short": "A study of control, trust and behavioral boundaries for high-risk agents, using human–machine co-driving as a reference.",
     "detail": "A Chinese-first design research project using autonomous driving as a reference model for governable Agent action."
   },
   "specs": [
@@ -18,5 +18,5 @@
     "hover": "./study-cover.avif",
     "gallery": ["./high-risk-agent-five-dimensions.png"]
   },
-  "detailHref": "/zh/work/autonomous-driving-to-agent"
+  "detailHref": "/work/autonomous-driving-to-agent"
 }

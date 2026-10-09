@@ -1,5 +1,5 @@
 {
-  "sourceTitle": "从 AI 生成网站，到建立 Portfolio Operating System",
+  "sourceTitle": "Portfolio AI：一个自我迭代的AI Native 工作系统",
   "sourceMaster": "01_master/master.md",
   "units": [
     {
@@ -7,173 +7,232 @@
       "selection": "core",
       "visualIntent": "Outcome",
       "visualFormat": "Portfolio reconstruction",
-      "role": "establish the project starting point, the cognitive arc, and the initial AI workflow"
+      "role": "establish the product and the central design problem"
     },
     {
       "id": "pos-hero-02",
       "selection": "core",
       "visualIntent": "Outcome",
       "visualFormat": "Result dashboard",
-      "role": "preview only the currently defensible outputs"
+      "role": "distinguish delivered outcomes from pilots before explaining the process"
     },
     {
-      "id": "pos-iteration-01",
-      "selection": "core",
-      "visualIntent": "Before / After",
-      "visualFormat": "Original screenshot",
-      "role": "show the prompt-generated first draft and its unprioritized information hierarchy"
-    },
-    {
-      "id": "pos-iteration-02",
-      "selection": "core",
-      "visualIntent": "Decision proof",
-      "visualFormat": "Original screenshot",
-      "role": "show the Impeccable-assisted critique that turns vague unease into a list of locatable problems"
-    },
-    {
-      "id": "pos-iteration-03",
-      "selection": "core",
-      "visualIntent": "Before / After",
-      "visualFormat": "Original screenshot",
-      "role": "show the refined version that rebuilt the project-discovery flow"
-    },
-    {
-      "id": "pos-iteration-04",
-      "selection": "supporting",
-      "visualIntent": "Before / After",
-      "visualFormat": "Original screenshot",
-      "role": "show the window visual language before and after unification"
-    },
-    {
-      "id": "pos-decision-01",
+      "id": "pos-problem-01",
       "selection": "core",
       "visualIntent": "Decision proof",
       "visualFormat": "Comparison",
-      "role": "show the first consequential workflow decision: from full-package handoff to bounded diff sync"
+      "role": "use an actual failure to establish why the workflow needed redesign"
     },
     {
-      "id": "pos-decision-02",
-      "selection": "core",
-      "visualIntent": "Before / After",
-      "visualFormat": "Original screenshot",
-      "role": "use the first working version as the transition from page output to maintainable product"
-    },
-    {
-      "id": "pos-product-01",
+      "id": "pos-ai-native-01",
       "selection": "supporting",
       "visualIntent": "System map",
-      "visualFormat": "Architecture diagram",
-      "role": "explain how engineering reality reshaped the design judgment loop"
+      "visualFormat": "Comparison",
+      "role": "define AI Native through observable behavior rather than tool branding"
     },
     {
       "id": "pos-os-01",
       "selection": "core",
       "visualIntent": "System map",
       "visualFormat": "Architecture diagram",
-      "role": "show the third decision and the resulting operating model"
+      "role": "introduce the two-part narrative through the operating environment"
+    },
+    {
+      "id": "pos-architecture-01",
+      "selection": "core",
+      "visualIntent": "System map",
+      "visualFormat": "Architecture diagram",
+      "role": "show one shared work environment and where the three kinds of work meet"
+    },
+    {
+      "id": "pos-memory-01",
+      "selection": "supporting",
+      "visualIntent": "System map",
+      "visualFormat": "Comparison",
+      "role": "make the external memory model concrete and disclose its maintenance limits"
+    },
+    {
+      "id": "pos-governance-01",
+      "selection": "supporting",
+      "visualIntent": "Decision proof",
+      "visualFormat": "Architecture diagram",
+      "role": "explain where rules come from, where they belong, and how they are maintained"
+    },
+    {
+      "id": "pos-skills-01",
+      "selection": "supporting",
+      "visualIntent": "Decision proof",
+      "visualFormat": "Comparison",
+      "role": "distinguish prompts, reusable procedures and actual automation"
+    },
+    {
+      "id": "pos-work-production-01",
+      "selection": "supporting",
+      "visualIntent": "System map",
+      "visualFormat": "Architecture diagram",
+      "role": "demonstrate the environment using this case study as a concrete content task"
+    },
+    {
+      "id": "pos-sandbox-01",
+      "selection": "supporting",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "Comparison",
+      "role": "explain isolation without claiming technical sandboxing that does not exist"
+    },
+    {
+      "id": "pos-decision-01",
+      "selection": "supporting",
+      "visualIntent": "Decision proof",
+      "visualFormat": "Comparison",
+      "role": "briefly explain incremental maintenance without making release mechanics the main story"
+    },
+    {
+      "id": "pos-decision-02",
+      "selection": "optional",
+      "visualIntent": "Decision proof",
+      "visualFormat": "Original screenshot",
+      "role": "preserve a concrete information-model decision as supporting evidence"
+    },
+    {
+      "id": "pos-ai-collaboration-01",
+      "selection": "core",
+      "visualIntent": "Decision proof",
+      "visualFormat": "Architecture diagram",
+      "role": "use a Design-workspace delegation to test project continuity and reveal the remaining quality gap"
+    },
+    {
+      "id": "pos-generation-01",
+      "selection": "core",
+      "visualIntent": "Decision proof",
+      "visualFormat": "Comparison",
+      "role": "introduce the second half through generation quality and repeatability"
+    },
+    {
+      "id": "pos-iteration-01",
+      "selection": "supporting",
+      "visualIntent": "Before / After",
+      "visualFormat": "Original screenshot",
+      "role": "retain the real prompt-generated baseline"
+    },
+    {
+      "id": "pos-iteration-02",
+      "selection": "supporting",
+      "visualIntent": "Decision proof",
+      "visualFormat": "Original screenshot",
+      "role": "show the designer directing a skill-assisted critique"
+    },
+    {
+      "id": "pos-iteration-03",
+      "selection": "core",
+      "visualIntent": "Before / After",
+      "visualFormat": "Original screenshot",
+      "role": "show concrete improvement rather than claiming that a skill redesigned the product"
+    },
+    {
+      "id": "pos-iteration-04",
+      "selection": "optional",
+      "visualIntent": "Before / After",
+      "visualFormat": "Original screenshot",
+      "role": "retain interaction-craft evidence without interrupting the main argument"
+    },
+    {
+      "id": "pos-design-system-01",
+      "selection": "core",
+      "visualIntent": "Decision proof",
+      "visualFormat": "Comparison",
+      "role": "make the design-system failure the turning point toward repeatable quality"
+    },
+    {
+      "id": "pos-design-system-02",
+      "selection": "supporting",
+      "visualIntent": "Decision proof",
+      "visualFormat": "Comparison",
+      "role": "show reference selection and tool boundaries without outsourcing taste"
+    },
+    {
+      "id": "pos-design-system-03",
+      "selection": "supporting",
+      "visualIntent": "System map",
+      "visualFormat": "Architecture diagram",
+      "role": "document the accepted working architecture without imposing an unused ideal hierarchy"
+    },
+    {
+      "id": "pos-design-system-04",
+      "selection": "core",
+      "visualIntent": "Decision proof",
+      "visualFormat": "Comparison",
+      "role": "demonstrate how real composition exposes defects invisible in token inventories"
+    },
+    {
+      "id": "pos-product-01",
+      "selection": "supporting",
+      "visualIntent": "Outcome",
+      "visualFormat": "Result dashboard",
+      "role": "state the dated release evidence and keep historical versions distinct"
+    },
+    {
+      "id": "pos-transfer-01",
+      "selection": "core",
+      "visualIntent": "Outcome",
+      "visualFormat": "Comparison",
+      "role": "translate the work into specific AI-product design contributions without claiming unearned business results"
     },
     {
       "id": "pos-results-01",
       "selection": "core",
       "visualIntent": "Evidence boundary",
       "visualFormat": "Result dashboard",
-      "role": "close on outcomes, designer contribution, and unresolved work"
+      "role": "close the problem-solving arc with progress and limits"
+    },
+    {
+      "id": "pos-curation-01",
+      "selection": "appendix",
+      "visualIntent": "System map",
+      "visualFormat": "Comparison",
+      "role": "guide later pitch and website selection without creating a second factual narrative"
+    },
+    {
+      "id": "pos-handoff-contract-01",
+      "selection": "appendix",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "Comparison",
+      "role": "retain the operational handoff contract and technical discovery outside the main narrative"
     },
     {
       "id": "pos-assets-01",
       "selection": "appendix",
       "visualIntent": "Evidence boundary",
       "visualFormat": "Asset register",
-      "role": "govern every approved visual from one source"
+      "role": "retain existing approved media and correct historical versus current labels"
+    },
+    {
+      "id": "pos-sources-01",
+      "selection": "appendix",
+      "visualIntent": "Evidence boundary",
+      "visualFormat": "Evidence register",
+      "role": "separate project evidence from method references and unverified general claims"
     },
     {
       "id": "pos-todo-01",
       "selection": "appendix",
       "visualIntent": "Evidence boundary",
       "visualFormat": "TODO",
-      "role": "keep missing facts outside public conclusions"
+      "role": "preserve unresolved evidence and the approval gate before website edits"
+    },
+    {
+      "id": "pos-narrative-2026-10-08",
+      "selection": "core",
+      "visualIntent": "Three-chapter narrative",
+      "visualFormat": "Narrative and bilingual diagrams",
+      "role": "owner-approved positioning, workflow, infrastructure and local mapping scope"
+    },
+    {
+      "id": "pos-owner-copy-2026-10-09",
+      "selection": "core",
+      "visualIntent": "Preserve owner-edited wording",
+      "visualFormat": "Narrative",
+      "role": "verbatim owner-reviewed Chinese copy and faithful English translation"
     }
   ],
-  "mindmaps": [
-    {
-      "id": "pos-os-01-mindmap-1",
-      "sourceUnit": "pos-os-01",
-      "selection": "core",
-      "visualIntent": "System map",
-      "visualFormat": "Architecture diagram",
-      "role": "show the third decision and the resulting operating model",
-      "tree": {
-        "label": "Portfolio Operating System",
-        "children": [
-          {
-            "label": "体验层",
-            "children": [
-              {
-                "label": "空间化 Workspace",
-                "children": []
-              },
-              {
-                "label": "窗口与动效",
-                "children": []
-              },
-              {
-                "label": "常规项目路径",
-                "children": []
-              }
-            ]
-          },
-          {
-            "label": "内容层",
-            "children": [
-              {
-                "label": "Project",
-                "children": []
-              },
-              {
-                "label": "Tag",
-                "children": []
-              },
-              {
-                "label": "Asset",
-                "children": []
-              },
-              {
-                "label": "Case Study",
-                "children": []
-              },
-              {
-                "label": "全局内容",
-                "children": []
-              }
-            ]
-          },
-          {
-            "label": "治理层",
-            "children": [
-              {
-                "label": "Portfolio OS",
-                "children": []
-              },
-              {
-                "label": "Current System",
-                "children": []
-              },
-              {
-                "label": "迁移计划",
-                "children": []
-              },
-              {
-                "label": "审计",
-                "children": []
-              },
-              {
-                "label": "AI Working Agreement",
-                "children": []
-              }
-            ]
-          }
-        ]
-      }
-    }
-  ]
+  "mindmaps": []
 }

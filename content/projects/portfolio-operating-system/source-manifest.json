@@ -1,7 +1,7 @@
 {
   "source": "Portfolio Websites",
   "sourceMaster": "01_master/master.md",
-  "sourceHash": "5dcc38d85b751e1cecaf14e5f3949abc477ef69fa9d5c96eb76f5b7edfc89449",
+  "sourceHash": "c1290c9050ccb0937fdf729934f073f1013b7a1f8930de5593fc3e5a6f0cc911",
   "generatedFiles": [
     "case-study.selection.json",
     "cover.png",
@@ -14,6 +14,19 @@
     "iteration-03-refined-desktop.jpg",
     "iteration-03-refined-mobile.jpg",
     "iteration-04-windows-before.png",
-    "iteration-04-windows-after.png"
+    "iteration-04-windows-after.png",
+    "design-system-draft-foundations-components.png",
+    "design-system-rigid-page-composition.png",
+    "traditional-workflow-v1_CN.png",
+    "traditional-workflow-v1_EN.png",
+    "ai-workflow-blueprint_CN.png",
+    "ai-workflow-blueprint_EN.png",
+    "ai-workflow-blueprint_CN.svg",
+    "ai-workflow-blueprint_EN.svg",
+    "figma-code-mapping-v1_CN.png",
+    "figma-code-mapping-v1_EN.png",
+    "design-system-intent_CN.jpg",
+    "design-system-intent_EN.jpg",
+    "design-directions-picker.png"
   ]
 }

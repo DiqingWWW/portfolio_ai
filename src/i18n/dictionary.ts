@@ -166,6 +166,7 @@ const tagOverrides: Record<string, Partial<TagDefinition>> = {
 };
 
 const projectOverrides: Record<string, Partial<ProjectData>> = {
+  "autonomous-driving-to-agent": { title: "自动驾驶：人机共驾视角下的 Agent 设计范式", descriptions: { short: "从自动驾驶的人机共驾经验出发，研究高风险 Agent 的控制权、信任与行为边界。", detail: "以自动驾驶为参照，研究可治理的 Agent 行动权。" }, detailHref: "/zh/work/autonomous-driving-to-agent" },
   "honda-hmi-design-system": {
     title: "Honda HMI 设计系统",
     metadata: { type: "专业项目", year: "2024", role: "主导产品设计师" },
@@ -181,7 +182,7 @@ const projectOverrides: Record<string, Partial<ProjectData>> = {
   "monolith-design-system": { title: "Monolith 设计系统", metadata: { type: "严格的 Token 驱动设计语言", year: "2024" }, descriptions: { short: "面向大型企业应用的灵活、极简灰阶与色彩 Token 架构。", detail: "Monolith 通过灰阶基础、强调色和统一触控尺寸维持像素对齐、视觉节奏与空间对比。" }, specs: [{ label: "基础网格", val: "8px 间距系统" }, { label: "字体", val: "系统 Helvetica 常规 / 粗体" }, { label: "过渡", val: "300ms 弹簧阻尼" }], tokens: ["Token JSON", "灰阶基础", "强调色", "流体切换"] },
   "muse-ai-canvas": { title: "Muse AI 画布", metadata: { type: "生成式 UI 智能体系统", year: "2025" }, descriptions: { short: "把自然语言意图转化为可运行的定制 Web 界面。", detail: "Muse 读取对话目标，在沙盒视口中生成完整交互元素，并将结构编译为响应式 CSS 工具类。" }, specs: [{ label: "编译速度", val: "2.8 秒动态合成" }, { label: "Token 解析", val: "Tailwind CSS v4" }, { label: "交互", val: "计算器、音乐、习惯" }], tokens: ["生成式 UI", "流式编译", "原子组件", "交互画布"] },
   "orbit-spatial-os": { title: "Orbit 空间操作系统", metadata: { type: "空间操作系统概念", version: "v1.4.2", year: "2025" }, descriptions: { short: "用于人机协作工作流的无限数字画布。", detail: "文件、提示词与工具结果作为可交互节点存在于无边界画布中，并具有视口约束、动量吸附和布局保持状态。" }, specs: [{ label: "认知栈", val: "LLM 编排" }, { label: "目标平台", val: "桌面 / AR 画布" }, { label: "运动曲线", val: "cubic-bezier(0.16, 1, 0.3, 1)" }], tokens: ["Z 轴深度", "物理吸附", "Framer Motion", "可拖动画布"] },
-  "rubik-studio": { title: "Rubik Studio AI 代码工具", descriptions: { short: "企业内部使用的代码开发及3D场景渲染的AI辅助编程工具", detail: "" }, assets: { cover: "./cover-spatial-code-edit-v1.png", coverPosition: "center", hover: "./rubikstudio_CN-display.webp", gallery: [] } },
+  "rubik-studio": { title: "Rubik Studio AI 代码工具", descriptions: { short: "企业内部使用的代码开发及3D场景渲染的AI辅助编程工具", detail: "" }, assets: { cover: "./cover-spatial-code-edit-v1.png", coverPosition: "center", hover: "./rubikstudio_CN-display.webp", gallery: [] }, detailHref: "/zh/work/rubik-studio" },
 };
 
 export const dictionaries = {

@@ -1,4 +1,8 @@
 import selection from "./case-study.selection.json";
+import {
+  legacyOperatingSystemMindmap,
+  type LegacyOperatingSystemMindmapNode,
+} from "./legacy-operating-system-mindmap";
 
 export interface PortfolioSourceLinked {
   sourceIds: string[];
@@ -12,6 +16,11 @@ export interface PortfolioMedia extends PortfolioSourceLinked {
   width: number;
   height: number;
 }
+
+const selectedMindmaps = selection.mindmaps as Array<{
+  sourceUnit: string;
+  tree: LegacyOperatingSystemMindmapNode;
+}>;
 
 const approvedSourceIds = new Set(selection.units.map((unit) => unit.id));
 
@@ -205,7 +214,7 @@ export const portfolioCaseStudy = {
       title: "Decision 3: from workflow to Portfolio Operating System",
       text: "The experience layer lets the website itself prove spatial organization, interaction, and visual judgment; the content layer lets projects, categories, media, and narratives evolve independently; the governance layer preserves long-term boundaries, current state, and scoped changes so the next AI does not have to re-interpret the whole project.",
       boundary: "The Portfolio Operating System is not a standalone software product; it is a systematic description of the current portfolio experience, content, and collaboration model.",
-      mindmap: selection.mindmaps.find((mindmap) => mindmap.sourceUnit === "pos-os-01")?.tree ?? null,
+      mindmap: selectedMindmaps.find((mindmap) => mindmap.sourceUnit === "pos-os-01")?.tree ?? legacyOperatingSystemMindmap,
     },
     results: {
       title: "What this project proves, and what remains open",

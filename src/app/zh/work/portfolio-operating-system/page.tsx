@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import PortfolioOperatingSystemCaseStudyPage from "@/components/case-study/PortfolioOperatingSystemCaseStudyPage";
-import { caseStudyTitle, portfolioCaseStudy } from "@content/projects/portfolio-operating-system/case-study.zh";
+import CandidatePage from "@/app/proto/portfolio-ai-case-study/CandidatePage";
+import { portfolioCaseStudyCandidateZh as content } from "@content/projects/portfolio-operating-system/case-study.candidate.zh";
 
 export const metadata: Metadata = {
-  title: caseStudyTitle,
-  description: portfolioCaseStudy.hero.summary,
+  title: content.title,
+  description: content.thesis,
   alternates: {
     canonical: "/zh/work/portfolio-operating-system",
     languages: { en: "/work/portfolio-operating-system", "zh-CN": "/zh/work/portfolio-operating-system" },
@@ -12,5 +12,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PortfolioOperatingSystemCaseStudyPage project={portfolioCaseStudy} locale="zh" />;
+  return <CandidatePage content={content} projectRoute />;
 }

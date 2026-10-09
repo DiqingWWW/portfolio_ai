@@ -1,0 +1,36 @@
+.scope {
+  --ds-color-canvas: #faf7f2;
+  --ds-color-surface: #ffffff;
+  --ds-color-surface-subtle: #f2efe9;
+  --ds-color-text: #1a1a1a;
+  --ds-color-text-muted: #737373;
+  --ds-color-action: #2e94e3;
+  --ds-color-action-hover: #187bc4;
+  --ds-color-border: rgb(26 26 26 / 12%);
+  --ds-color-border-strong: rgb(26 26 26 / 28%);
+  --ds-color-danger: #b42318;
+  --ds-color-focus: #0969da;
+  --ds-space-1: 0.25rem;
+  --ds-space-2: 0.5rem;
+  --ds-space-3: 0.75rem;
+  --ds-space-4: 1rem;
+  --ds-space-5: 1.5rem;
+  --ds-space-6: 2rem;
+  --ds-space-7: 3rem;
+  --ds-radius-control: 0.75rem;
+  --ds-radius-surface: 1.25rem;
+  --ds-shadow-raised: 0 12px 32px rgb(26 26 26 / 10%);
+  --ds-duration-feedback: 140ms;
+  --ds-ease-feedback: cubic-bezier(0.32, 0.72, 0, 1);
+
+  color: var(--ds-color-text);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.5;
+  user-select: text;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scope {
+    --ds-duration-feedback: 0ms;
+  }
+}

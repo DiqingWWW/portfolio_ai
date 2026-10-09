@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { CSSProperties } from "react";
+import { portfolioTokens } from "@/design-system/portfolio/tokens";
 import WorkSection from "@/components/WorkSection";
 import { profile, projects } from "@/lib/content";
 import { getLocalizedSiteContent, type Locale } from "@/i18n/dictionary";
@@ -31,7 +33,7 @@ const ArrowDown = () => (
   </svg>
 );
 
-export default function CuratedHomepageV2({ previous = false, locale = "en", referenceStudy = false, production = false }: { previous?: boolean; locale?: Locale; referenceStudy?: boolean; production?: boolean }) {
+export default function CuratedHomepageV2({ previous = false, locale = "en", referenceStudy = false, production = false, screenOnly = false }: { previous?: boolean; locale?: Locale; referenceStudy?: boolean; production?: boolean; screenOnly?: boolean }) {
   const localized = getLocalizedSiteContent(locale, projects);
   const localizedProjects = localized.projects.map(project => ({
     ...project,
@@ -97,12 +99,12 @@ export default function CuratedHomepageV2({ previous = false, locale = "en", ref
             </a>}
           />}
 
-          {referenceStudy ? <FabricaSections projects={localizedProjects} locale={locale} production={production} /> : <WorkSection projects={localizedProjects} locale={locale} scrollEntrances={!previous} />}
+          {!screenOnly && (referenceStudy ? <FabricaSections projects={localizedProjects} locale={locale} production={production} /> : <WorkSection projects={localizedProjects} locale={locale} scrollEntrances={!previous} />)}
         </main>
         {!previous && <>
           {!referenceStudy && <ScrollEntrances />}
-          <div className={styles.bottomBlur} aria-hidden="true">
-            {[4, 8, 16].map(blur => <div key={blur} style={{ backdropFilter: `blur(${blur}px)`, WebkitBackdropFilter: `blur(${blur}px)` }} />)}
+          <div className={styles.bottomBlur} aria-hidden="true" style={portfolioTokens as CSSProperties}>
+            {["small", "medium", "large"].map(size => <div key={size} style={{ backdropFilter: `blur(var(--blur-${size}))`, WebkitBackdropFilter: `blur(var(--blur-${size}))` }} />)}
           </div>
         </>}
     </div>

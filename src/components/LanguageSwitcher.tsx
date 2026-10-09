@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { Locale } from "@/i18n/dictionary";
 
-export default function LanguageSwitcher({ locale, label }: { locale: Locale; label: string }) {
+export default function LanguageSwitcher({ locale, label, className }: { locale: Locale; label: string; className?: string }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -21,7 +21,7 @@ export default function LanguageSwitcher({ locale, label }: { locale: Locale; la
     <button
       type="button"
       onClick={switchLanguage}
-      className="inline-flex min-h-11 items-center rounded-lg px-3 font-mono text-xs font-bold hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent"
+      className={className ?? "inline-flex min-h-11 items-center rounded-lg px-3 font-mono text-xs font-bold hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-workspace-accent"}
     >
       {label}
     </button>

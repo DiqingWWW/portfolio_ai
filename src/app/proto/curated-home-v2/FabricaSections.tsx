@@ -10,6 +10,8 @@ import content from "@content/prototypes/fabrica-study.json";
 import navigation from "@content/navigation.json";
 import { ContactComposer, FabricaMotionController, ServiceAccordion, type ServiceItem } from "./FabricaMotion";
 import styles from "./fabrica.module.css";
+import AIToolsSection from "./AIToolsSection";
+import HomepageSections from "./HomepageSections";
 
 const revealStyle = (index = 0) => ({ "--reveal-delay": `${index * 70}ms` }) as CSSProperties;
 
@@ -59,6 +61,7 @@ function Reveal({ children, className, index = 0 }: { children: ReactNode; class
  * untouched; this file owns only the post-hero experience and can be removed as one rollback.
  */
 export default function FabricaSections({ projects, locale, production = false }: { projects: ProjectData[]; locale: Locale; production?: boolean }) {
+  if (production) return <HomepageSections projects={projects} locale={locale} />;
   const copy = content[locale];
   const { profile } = getLocalizedSiteContent(locale, projects);
   const studyProjects = [autonomousAgentStudy as ProjectData];
@@ -82,15 +85,11 @@ export default function FabricaSections({ projects, locale, production = false }
         .map(asset => resolveAsset(project.id, asset)),
     };
   });
-  const footerLinks = [
-    { label: "Home", href: "#top" },
-    { label: "Work", href: "#work" },
-    { label: "Studies", href: "#studies" },
-    { label: "Experiments", href: "#study-experiments" },
-  ];
 
   return <div className={styles.study} data-fabrica-study>
     <FabricaMotionController />
+
+    {production && <AIToolsSection locale={locale} />}
 
     <section id="work" className={`${styles.section} ${styles.projectsSection}`}>
       <div className={styles.projectsHeader}>
@@ -184,15 +183,5 @@ export default function FabricaSections({ projects, locale, production = false }
       </div>
     </section>
 
-    <footer className={styles.footer}>
-      <Reveal className={styles.footerStatement}><p>{copy.footerStatement}</p><span>{profile.name.full}</span></Reveal>
-      <div className={styles.footerColumns}>
-        <div><h3>{copy.navigation}</h3>{footerLinks.map(link => <a key={link.label} href={link.href}>{link.label}</a>)}</div>
-        <div><h3>{copy.social}</h3>{navigation.landingFooter.socials.map(link => <a key={link.label} href={link.href}>{link.label}</a>)}</div>
-        <a className={styles.footerEmail} href={contactHref}>{recipient}</a>
-      </div>
-      <div className={styles.footerMark}><span>{profile.name.first.toLowerCase()}</span><span>{profile.title}</span></div>
-      <div className={styles.footerLegal}><span>© 2026 {navigation.landingFooter.copyright}</span><a href="#top">{copy.back}<ArrowUpRight /></a></div>
-    </footer>
   </div>;
 }

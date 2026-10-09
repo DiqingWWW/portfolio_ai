@@ -1,0 +1,62 @@
+{
+  "status": "candidate-owner-review",
+  "capturedAt": "2026-10-04",
+  "webRevisionAt": "2026-10-05",
+  "liveFigmaRecheck": "Not completed: official MCP Starter quota exhausted; Figwright plugin disconnected. Snapshot inventory is not proof that a role is absent today.",
+  "sharedWebRegistry": "src/app/proto/design-system-directions/deethin-system-v2/case-study.registry.ts",
+  "figmaFileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+  "figmaPage": { "id": "68:3035", "name": "Example / Deethin Semantic Home" },
+  "candidateFrame": { "id": "226:42", "name": "Candidate / Portfolio AI / Token-bound" },
+  "webReview": {
+    "defaultRoute": "/proto/portfolio-ai-case-study",
+    "comparisonRoute": "/proto/portfolio-ai-case-study/en",
+    "bindingModel": "Figma assets are manually mapped to CSS tokens; the browser is not live-bound to Figma.",
+    "approvedCompositionReferences": [
+      { "name": "Media Stage / Accent surface", "nodeId": "228:4000", "webUsage": "hero media stage only" },
+      { "name": "04 / Evidence / Inverse", "nodeId": "98:3923", "webUsage": "bounded evidence block" },
+      { "name": "05 / Contact + Footer", "nodeId": "98:3924", "webUsage": "closing section" }
+    ],
+    "localLayoutExceptions": [
+      "Responsive type interpolation, stacked responsive tables, and diagram connectors are page-composition rules, not additional Figma styles.",
+      "Horizontal scrolling gallery is an owner-authorized candidate pattern, not a shared component.",
+      "Lower-edge blur, gallery controls, and one-time diagram entrances are candidate interactions; their timing and states are not represented by static Figma styles."
+    ]
+  },
+  "collections": [
+    { "id": "VariableCollectionId:58:7", "name": "Primitive-colors", "variables": 212 },
+    { "id": "VariableCollectionId:82:3166", "name": "dimensions", "variables": 36 },
+    { "id": "VariableCollectionId:91:3846", "name": "Typography", "variables": 13 }
+  ],
+  "semanticColors": [
+    { "css": "--color-surface-canvas", "style": "Neutral/Background/Surface/Canvas/Light", "styleId": "S:8e3dbcff1251061106fcf1adf71cf8784a01e96d,", "variable": "_Light/Neutral/100", "variableId": "VariableID:88:3789" },
+    { "css": "--color-surface-canvas-inverse", "style": "Neutral/Background/Surface/Canvas/Inverse", "styleId": "S:4c66ad8f60a4e6a68a90e892923ca35e9819628a,", "variable": "_Light/Neutral/1000", "variableId": "VariableID:68:2938" },
+    { "css": "--color-surface-card", "style": "Neutral/Background/Surface/Card/Light", "styleId": "S:bce81ed5bf090f9f6c42b46e871b955c7a4da441,", "variable": "_Light/Neutral/0", "variableId": "VariableID:68:2930" },
+    { "css": "--color-surface-card-inverse", "style": "Neutral/Background/Surface/Card/Inverse", "styleId": "S:b2967ad5f3ca3bad9def3c742d8ff55f2a55f3c7,", "variable": "_Light/Neutral/900", "variableId": "VariableID:68:2939" },
+    { "css": "--color-text-primary", "style": "Neutral/Text/Light/Primary", "styleId": "S:e7b2cd263f1d14a394992fe2da2d47a3343471cf,", "variable": "_Light/Neutral/1000", "variableId": "VariableID:68:2938" },
+    { "css": "--color-text-primary-inverse", "style": "Neutral/Text/Inverse/Primary", "styleId": "S:fc2ce90e03fdfea10e96e42eb5c7b3a4de40c04b,", "variable": "_Light/Neutral/0", "variableId": "VariableID:68:2930" },
+    { "css": "--color-text-accent", "style": "Neutral/Text/Light/Accent", "styleId": "S:adc8cecb81721f6a5280d6accc009bc63eecbc6b,", "variable": "_Light/Blue/700", "variableId": "VariableID:68:2849" },
+    { "css": "--color-text-accent-inverse", "style": "Neutral/Text/Inverse/Accent", "styleId": "S:58ee0d5ed575bef1437d0bd88a70dd10a1a79387,", "variable": "_Light/Blue/500", "variableId": "VariableID:68:2847" },
+    { "css": "--color-border-subtle", "style": "Neutral/Border/Subtle/Light", "styleId": "S:48eae52b16d5de596961461f23c8b6b5030331ca,", "variable": "_Light/Neutral/alpha16", "variableId": "VariableID:88:3796" },
+    { "css": "--color-border-subtle-inverse", "style": "Neutral/Border/Subtle/Inverse", "styleId": "S:681caef365a79b1d2c312eeedc643149b8cd3baf,", "variable": "neutral/white-alpha-16", "variableId": "VariableID:84:3655" }
+  ],
+  "directPrimitiveExceptions": [
+    { "css": "--project-surface-accent-soft", "variable": "_Light/Blue/300", "variableId": "VariableID:68:2845", "reason": "Historical candidate role withdrawn by owner on 2026-10-05. Removed from all page consumers and the active V2 extension registry; original Figma primitive is not deleted." },
+    { "css": "--color-surface-accent", "variable": "_Light/Blue/800", "variableId": null, "reason": "Historical candidate role, no longer consumed. Primary CTA composes the approved black V2 button class." },
+    { "css": "--color-text-muted", "variable": "_Light/Neutral/700", "variableId": null, "reason": "Consumes existing V2 --ds-muted. Web role exists; current Figma semantic mapping remains unverified, not proven absent." },
+    { "css": "--color-focus", "variable": null, "variableId": null, "reason": "Consumes existing V2 --ds-focus (#185bc1). The 2026-09-27 Figma audit also records propose/System/Focus/Light via VariableID:68:2850; that differs in value and is not silently equated." }
+  ],
+  "textStyles": [
+    { "name": "Editorial/Section/Compact", "id": "S:58716fc43887499e32bf0cfb1f04df9c69321ed1,", "cssRole": "--type-display" },
+    { "name": "Project/Title", "id": "S:0022b533d37146ba36f1ffb5ff2e2b687643b860,", "cssRole": "--font-size-project-title" },
+    { "name": "Body/Default", "id": "S:0379a93ab50b50d6e822f04bdb6a8b9ddbd6188c,", "cssRole": "--font-size-body" },
+    { "name": "Data/Label", "id": "S:10fb19038ce342c287449c45f26ab8615daddc65,", "cssRole": "--font-size-label" }
+  ],
+  "proposedLocalTextRoles": [
+    { "name": "Data/Label/Strong", "figmaStyleId": null, "fontSizeRole": "--font-size-label", "fontWeightRole": null, "use": "Pending, not used. Candidate labels now consume the captured Data/Label 500 role." }
+  ],
+  "gridStyles": [
+    { "name": "Column/Max", "id": "S:b9276eb03dbd066d2fdfcf1ad3840fca507ab399,", "columns": 12, "gutterVariableId": "VariableID:91:3832", "offsetVariableId": "VariableID:97:3909" },
+    { "name": "Column/Medium", "id": "S:d14e061424c8a607373dfe19df3f6d703c1d7060,", "columns": 6, "gutterVariableId": "VariableID:91:3832", "offsetVariableId": "VariableID:97:3908" },
+    { "name": "Column/Compact", "id": "S:c23c795cf9219b329aeb2c0e433b0ed6d693e0b1,", "columns": 1, "gutterVariableId": "VariableID:91:3830", "offsetVariableId": "VariableID:97:3907" }
+  ]
+}

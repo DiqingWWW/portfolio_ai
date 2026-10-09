@@ -86,6 +86,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date("2026-09-14"),
       changeFrequency: "monthly",
       priority: 0.8,
+      alternates: { languages: { en: `${siteUrl}/work/autonomous-driving-to-agent`, "zh-CN": `${siteUrl}/zh/work/autonomous-driving-to-agent` } },
     },
+    { url: `${siteUrl}/work/autonomous-driving-to-agent`, lastModified: new Date("2026-10-06"), changeFrequency: "monthly", priority: 0.8, alternates: { languages: { en: `${siteUrl}/work/autonomous-driving-to-agent`, "zh-CN": `${siteUrl}/zh/work/autonomous-driving-to-agent` } } },
   ];
 }

@@ -11,7 +11,6 @@ import MacOSFolder from "@/components/MacOSFolder";
 import AboutMeContent from "@/components/AboutMeContent";
 import RealProjectsContent from "@/components/RealProjectsContent";
 import WorkSection from "@/components/WorkSection";
-import LandingFooter from "@/components/LandingFooter";
 import LoadingIntro from "@/components/LoadingIntro";
 import FolderContent from "@/components/FolderContent";
 import HoverImage from "@/components/Hover/HoverImage";
@@ -680,7 +679,6 @@ export function PortfolioHome({ locale = "en" }: { locale?: Locale }) {
         </div>
       </nav>
       <WorkSection projects={projects} locale={locale} />
-      <LandingFooter content={navigation.landingFooter} locale={locale} />
       <div className="fixed right-4 top-14 z-50 rounded-xl border border-workspace-border bg-workspace-bg/95 shadow-sm backdrop-blur-sm md:right-8 md:top-3">
         <LanguageSwitcher locale={locale} label={dictionary.shared.languageName} />
       </div>

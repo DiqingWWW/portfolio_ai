@@ -1,0 +1,50 @@
+/* Generated local registry; scope requires data-design-system. */
+[data-design-system],
+[data-design-system][data-ds-mode="default"] {
+  --ep-color-ink: #141414;
+  --ep-color-white: #ffffff;
+  --ep-color-graphite: #424242;
+  --ep-color-muted: #737373;
+  --ep-color-silver: #d6d6d6;
+  --ep-color-sky: #d7edfe;
+  --ep-color-mint: #d1ffd1;
+  --ep-space-8: 8px;
+  --ep-space-12: 12px;
+  --ep-space-16: 16px;
+  --ep-space-20: 20px;
+  --ep-space-24: 24px;
+  --ep-space-30: 30px;
+  --ep-space-32: 32px;
+  --ep-space-40: 40px;
+  --ep-space-48: 48px;
+  --ep-space-64: 64px;
+  --ep-space-80: 80px;
+  --ep-space-128: 128px;
+  --ep-space-160: 160px;
+  --ep-radius-media: 12px;
+  --ep-radius-card: 20px;
+  --ep-radius-hero: 24px;
+  --ep-radius-button: 24px;
+  --ep-radius-hover: 80px;
+  --ep-radius-mobile-hero: 16px;
+  --ep-border-width: 1px;
+  --ep-type-display: 2.44rem;
+  --ep-type-h1: 2.67rem;
+  --ep-type-h2: 2.22rem;
+  --ep-type-h3: 2rem;
+  --ep-type-h4: 1.78rem;
+  --ep-type-h5: 1.33rem;
+  --ep-type-body: 0.89rem;
+  --ep-type-lead: 1.11rem;
+  --ep-type-control: 16px;
+  --ep-duration-sweep: 600ms;
+  --ep-duration-accordion: 400ms;
+  --ep-ease-standard: cubic-bezier(.4,0,.2,1);
+  --ep-color-error: #a52620;
+  --ep-color-success: #24623d;
+  --ep-surface-canvas: var(--ep-color-white);
+  --ep-text-primary: var(--ep-color-ink);
+  --ep-text-secondary: var(--ep-color-muted);
+  --ep-action-background: var(--ep-color-ink);
+  --ep-action-text: var(--ep-color-white);
+}

@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteUrl } from "@/config/site";
 import { headers } from "next/headers";
+import SiteFooter from "@/design-system/portfolio/SiteFooter";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -95,7 +96,7 @@ export default async function RootLayout({
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
       </head>
-      <body>{children}</body>
+      <body>{children}<SiteFooter locale={documentLanguage === "zh-CN" ? "zh" : "en"} /></body>
     </html>
   );
 }

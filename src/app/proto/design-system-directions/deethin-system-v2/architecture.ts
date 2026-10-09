@@ -1,0 +1,123 @@
+/** Proposed documentation, not authority over the production site or existing Figma file. */
+export const architecture = {
+  sourceRevision: "2dd0fb3 / local working tree inspected 2026-09-26",
+  sourceHashes: { "page.module.css": "a05380ab4be52982dc018be663b7f729cb8e40a1b2506b67ee394d32e8ed716a", "fabrica.module.css": "02ef3145afcd0519cd06fbe6d7646ed5368be19e4f123febc7dfd6b9a324c9b1", "HeroExperience.tsx": "608f7ed18ca8cfda0c7962cce7c35acd8cf3f3179c4b20cf6375898fc42ad8dc", "smoke-renderer.ts": "7ef4902c35dfc7ff113edea82929b7bc5ac073949cc80d371cf650202756a995" },
+  title: "Token & Style Architecture v1.1",
+  intro: "以本地生产主页源码及浏览器实测为证据，以 V2 为可检查的提案。这里先把 Figma 会看到的 variable type、name path、scope、mode 和 alias 分开：Variable 管单值与别名，Style 管组合配方，Component 管结构与状态。本页是手工绑定说明，不宣称 Figma 已同步，也不把任意 JSON 当成 Figma 通用导入格式。",
+  chain: "Primitive-colors / blue / 500 = #0087FB [Light]\nPrimitive-colors / sky / 300 = #73D1F8 [Inverse]\n  ↑ Semantic-Colors / color / text / accent\n    ↑ Component-colors / data-label / text\n      ↑ DataLabel instance · text fill\n\nText Style / Data / Label = family + size + weight + line-height + tracking\nEffect Style / Overlay = shadow layers + offsets + blur + alpha\nPaint Style / Hero / Fallback = gradient stops + angle + positions\n\nModes 是上下文选择器，不是 alias 链的第四级。",
+  collections: [
+    { name: "01 · Primitive-colors", purpose: "原料 / 单一值", summary: "只存色值，不表达用途。所有条目的 Figma variable type 都是 COLOR，只有 Value 一个 mode，scope 留空以避免设计师在组件上直接选原色。", details: ["neutral 系列承担白、纸色、灰、深灰和近黑；brand 系列承担 #73D1F8 / #0087FB。", "半透明边界和阴影保留 RGBA primitive，不要压成不透明灰。", "当前命名混有 neutral/ink 这类角色名与 neutral/900 这类色阶名；下一步完善色板时应统一，但本轮不悄悄改现有 Figma ID。"] },
+    { name: "02 · Semantic-Colors", purpose: "用途 / Light + Inverse", summary: "这一层仍然全是 COLOR；color/text/primary 中的 text 是“给文字使用”，不是 String/Text 变量类型。每个 mode 的值都必须是指向 Primitive-colors 的 VARIABLE_ALIAS，不是手输路径字符串。", details: ["color/surface/* 的 scope 是 FRAME_FILL + SHAPE_FILL；color/text/* 是 TEXT_FILL；color/border/* 是 STROKE_COLOR。", "Light 和 Inverse 切换同一个用途在浅、深背景下应解析到哪个 primitive。", "语义名不写具体颜色：不用 black-text / white-card，而用 text/primary / surface/card。"] },
+    { name: "03 · Foundation / numbers", purpose: "空间、形状、字体、时间", summary: "存储可绑定的 FLOAT / STRING 单值，不与颜色 mode 混在一起。", details: ["spacing/4…128 使用 GAP scope；radius/control=8、card=18、chapter=28 使用 CORNER_RADIUS。", "size/control/min-height=48 使用 WIDTH_HEIGHT；font family 是 STRING，font size / line height / weight 是 FLOAT。", "duration/feedback=150 记录为毫秒，描述中必须写明单位，防止被当成 150px。"] },
+    { name: "04 · Layout / viewport", purpose: "Compact + Wide 独立于色彩", summary: "响应式采样值与 Light / Inverse 是两条独立维度。", details: ["Figma 用 Compact-390 / Wide-1440 记录固定画板采样；网页继续用 clamp 和 breakpoint。", "不要在一个 collection 中创建 Light-Mobile、Light-Desktop、Dark-Mobile、Dark-Desktop，否则颜色与布局无法独立切换。"] },
+    { name: "05 · Component-colors", purpose: "只为真实复用需要加别名", summary: "把组件部位指向语义用途，不指向 hex，也不跳过 Semantic-Colors 直接连 Primitive-colors。", details: ["button/primary/background → color/action/primary/background；project-card/background → color/surface/card。", "data-label/text → color/text/accent；tag/text → color/text/primary。切换父容器 mode 后，组件别名会继续向下解析。", "只有当组件需要独立分叉时才建这层；普通正文直接绑 color/text/primary。"] },
+  ],
+  typeRule: {
+    title: "先分清：variable type ≠ name path ≠ scope",
+    body: [
+      "color/text/primary 是变量名：color 是领域，text 是使用位置，primary 是优先级。它的 Figma variable type 必须是 COLOR，不是 STRING。",
+      "TEXT_FILL 是 scope：它只让这个颜色出现在文字填充的选择器中。同理，color/border/subtle 仍是 COLOR，但 scope 是 STROKE_COLOR。",
+      "如果导入后变量显示为 String/Text，说明导入器把 neutral/ink 当成了文本值，没有建立 VARIABLE_ALIAS。Figma 中已创建变量的 resolved type 不应靠改名修补；重建为 Color，再用变量选择器绑到 primitive。",
+    ],
+  },
+  contexts: [
+    { name: "Light", surface: "浅色上下文", sample: "#F4F4F2 canvas + #FFFFFF card", apply: "适用于首页浅色章节、白色项目卡、输入和普通内容区。父 Frame / Section 设为 Light，text/primary 解析为 #101010。" },
+    { name: "Inverse", surface: "深色上下文", sample: "#101010 canvas + #1D1D1D card", apply: "适用于黑色章节、深灰证据卡和深色舞台。只给该父容器设 Inverse，text/primary 自动解析为白色；不表示全站进入 dark mode。" },
+  ],
+  mappingHeaders: ["语义变量", "Figma type", "Scope", "Light → primitive", "Inverse → primitive", "为什么 / 用在哪"],
+  mappings: [
+    ["color/surface/canvas", "COLOR", "FRAME_FILL, SHAPE_FILL", "neutral/paper · #F4F4F2", "neutral/ink · #101010", "章节的大面积基底；浅色纸面与深色舞台是同一职责的两个 mode。"],
+    ["color/surface/card", "COLOR", "FRAME_FILL, SHAPE_FILL", "neutral/white · #FFFFFF", "neutral/900 · #1D1D1D", "大底上的内容表面；深色环境使用深灰而不是白卡。"],
+    ["color/text/primary", "COLOR", "TEXT_FILL", "neutral/ink · #101010", "neutral/white · #FFFFFF", "主要正文、标题和高优先级信息。text 只是用途分组。"],
+    ["color/text/muted", "COLOR", "TEXT_FILL", "neutral/muted · #686866", "neutral/inverse-muted · #AAAAAA", "辅助说明和 placeholder；不用透明度临时稀释 primary。"],
+    ["color/text/accent", "COLOR", "TEXT_FILL", "blue/500 · #0087FB", "sky/300 · #73D1F8", "浅底 MONO data label 与深底品牌点缀。白底 12px 小字的对比度仍需谨慎。"],
+    ["color/action/primary/background", "COLOR", "FRAME_FILL, SHAPE_FILL", "neutral/ink · #101010", "neutral/white · #FFFFFF", "主要按钮背景；在深色容器内反转为白底。"],
+    ["color/action/primary/text", "COLOR", "TEXT_FILL", "neutral/white · #FFFFFF", "neutral/ink · #101010", "与主按钮背景成对，确保 Light / Inverse 中都有可读对比。"],
+    ["color/border/subtle", "COLOR", "STROKE_COLOR", "neutral/ink-alpha-16", "neutral/white-alpha-16", "结构分隔线和弱边界；保留 alpha，让边界随背景混合。"],
+    ["color/border/control", "COLOR", "STROKE_COLOR", "neutral/boundary · #858581", "neutral/inverse-muted · #AAAAAA", "输入与次级控件的可见边界；不作正文颜色。"],
+    ["color/focus/ring", "COLOR", "STROKE_COLOR", "blue/focus · #185BC1", "blue/500 · #0087FB", "键盘 focus-visible 指示。当前仍是临时映射，应以 Figma 现有 focus 定义为准。"],
+    ["color/feedback/error", "COLOR", "TEXT_FILL, STROKE_COLOR", "red/error · #B42318", "red/error · #B42318", "错误文字与边界。深色 mode 的对比尚未核实，不应直接发布。"],
+    ["color/feedback/success", "COLOR", "TEXT_FILL, STROKE_COLOR", "green/success · #17663B", "green/success · #17663B", "完成状态。待从 Figma 已有色板确认浅/深对应色。"],
+    ["color/feedback/warning", "COLOR", "TEXT_FILL, STROKE_COLOR", "amber/warning · #825300", "amber/warning · #825300", "提醒与待确认状态。待从 Figma 已有色板确认浅/深对应色。"],
+    ["color/effect/shadow", "COLOR", "EFFECT_COLOR", "neutral/ink-alpha-10", "neutral/ink-alpha-45", "只给 overlay / modal effect style 使用。Inverse 阴影是待验证占位，静态卡片不绑它。"],
+  ],
+  manualAlias: "Semantic-Colors / color/text/primary\n  variable type: COLOR\n  scopes: TEXT_FILL\n  Light value: VARIABLE_ALIAS → Primitive-colors / neutral/ink\n  Inverse value: VARIABLE_ALIAS → Primitive-colors / neutral/white\n\nComponent-colors / data-label/text\n  variable type: COLOR\n  Light + Inverse: VARIABLE_ALIAS → Semantic-Colors / color/text/accent",
+  manualSteps: [
+    ["先建 primitive", "在 Primitive-colors 中创建 COLOR 变量，mode 只有 Value。填入 RGBA，scope 留空。"],
+    ["再建 semantic", "在 Semantic-Colors 中创建 color/text/primary，创建时明确选 Color，添加 Light 和 Inverse 两个 mode。"],
+    ["用 alias 选择器绑定", "不要在值里输入 neutral/ink 文字。点击变量图标 / Apply variable，Light 选 Primitive-colors/neutral/ink，Inverse 选 neutral/white。"],
+    ["设 scope", "text/* 用 TEXT_FILL，surface/* 用 FRAME_FILL + SHAPE_FILL，border/* 用 STROKE_COLOR。这一步决定它在哪个 Figma picker 出现。"],
+    ["在父容器切 mode", "浅色章节的 Frame 设 Semantic-Colors=Light；黑色章节的 Frame 设 Inverse。内部文字仍绑同一个 color/text/primary。"],
+    ["最后才建 component alias", "只对 Button、ProjectCard、DataLabel 等稳定复用部位创建 Component-colors，并让它 alias 到 Semantic-Colors。"],
+  ],
+  paletteStatus: [
+    ["已确认的视觉锚点", "#FFFFFF、#F4F4F2、#101010、#1D1D1D、#73D1F8、#0087FB。可先完成 canvas / card / primary text / accent 映射。"],
+    ["可用但需重整命名", "#E4E4DF、#AAAAAA、#858581、#686866 当前分别承担 disabled、inverse muted、boundary、muted。它们应在补齐 neutral scale 时统一为色阶名，语义用途留在 Semantic-Colors。"],
+    ["暂不应锁定", "focus、error、success、warning 及它们的 Inverse 版本尚未与 Figma 现有色板完整对齐。不建议为了“补全”而自动插值出一整条色阶。"],
+  ],
+  styles: [
+    ["Text styles", "Homepage / Hero、Editorial / Section、Project / Title、Body / ZH、Data / Label。字体、字号、字重、行高、tracking 组成一个配方；文本 fill 单独绑定 text/*。不靠字体样式命名暗藏颜色。"],
+    ["Effect styles", "Overlay / Modal：两层真实阴影 0 8 24 / ink 10% + 0 32 80 / ink 16%。Blur 属于 effect，不是灰色色块。网页 z-index 不写入 shadow style。"],
+    ["Paint styles", "Hero / Fallback 用渐变配方；stop 色可来自 primitive / hero-local。单色直接绑定 semantic variable 即可，不强制复制成相同名字的 Paint Style。WebGL 光场不是一条 CSS 渐变。"],
+    ["Layout guides + Auto Layout", "Layout guide 负责辅助列网格；Auto Layout 负责真实 padding、gap、hug/fill、对齐。Component/variant 负责宽窄结构与交互状态。不能用 Grid Style 代替 Auto Layout。"],
+  ],
+  specimens: [
+    { name: "Hero", source: "page.module.css .heroHeading / HeroExperience.tsx / smoke-renderer.ts", status: "Current source → Proposed mapping", rows: [
+      ["Typography", "Inter 500；clamp(96px,13.9vw,220px)；line .85；tracking −.04em。≤700px：clamp(66px,13.4vw,96px)，line .95。", "Text Style / Homepage / Hero；字号进入 Layout，字重进入 Foundation。1440px 画板约 200.16px，390px 画板 66px。"],
+      ["Space / shape", "标题区 padding 40×38px，gap 24px；≤700px padding 30×24px。标题自身没有圆角、边框或阴影。", "Component / hero / heading-padding；Auto Layout 横排→窄屏重排。不用系统文档页的 gutter 去替代主页。"],
+      ["Paint / motion", "白字；WebGL 5 个主调色值。开场 name .65s、popup 2.95s、typing 3.95s，每字42ms；dock 1.35s。", "文字 → text/on-hero；光场归 local/hero，静态 fallback Paint Style；时间线记为 choreography，不泛化为所有组件动画。"],
+    ] },
+    { name: "Section Heading", source: "fabrica.module.css .section / .displayRow / .projectsHeader", status: "Current source → Proposed mapping", rows: [
+      ["Typography", "Inter 600；clamp(84px,11.25vw,144px)；line .92；实际 tracking −.055em。源码局部写−.06em，但全局 !important 经变量覆盖，浏览器实测为准。≤700px：clamp(62px,19vw,112px)。", "Text Style / Editorial / Section；1440px→144px / line132.48 / tracking−7.92px；390px→74.1px / line68.172 / tracking−4.0755px。本规范页 H2 刻意较小，不冒充首页章节尺寸。"],
+      ["Space / layout", "section padding 138×30px；≤1000px inline22px；≤700px 94×16px。displayRow gap30；Work 标题下100px / 窄屏60px。", "Layout / section-padding + Component / section-heading / gap；Work 是局部例外，不强行统一成 128px。"],
+      ["Paint / motion", "ink 文字；标题没有投影。源码 masked title 110%→0，1050ms (.16,1,.3,1)；外层 reveal 800/950ms。", "fill → text/primary；mask + timeline 属于组件动效。V2 演示取消 blur，仅 transform / opacity，属 Proposed 性能取舍。"],
+    ] },
+    { name: "Project Card", source: "fabrica.module.css .project / .projectImage / .projectCaption / .imageArrow", status: "Current source + owner-requested V2 changes", rows: [
+      ["Typography", "源码标题 Inter 18px/600/1.1；继承 tracking −.035em；标签11px/700/.08em，年份13px。V2 用18px/1.25可换行标题，12px MONO data label。", "Text Style / Project / Title 与 Data / Label 分开。MONO 与可读行高属于本轮 Proposed；实际元数据仍来自项目内容。"],
+      ["Space / shape", "源码两列 gap8；封面16:9；radius18；caption padding20×24，小屏inline18。V2 封面4:3、caption20×24、小屏20；cover overlay inset16、gap8。", "4:3 是你要求更大图片后的提案，不假称原站值。Component / project-card 引用 spacing、radius；Auto Layout 标题hug、宽度fill，媒体裁切。"],
+      ["Paint / motion", "白底、无静态投影；源码 cover scale1.06→1.1 /800ms；箭头52px，opacity260ms、scale.75 rotate−20°→rest /500ms。", "V2 cover1→1.04 /800ms；白 tags+箭头同排显现240ms，标题常驻、删除 Read case study。hover/focus/touch/reduced 均有替代状态。"],
+    ] },
+  ],
+  migration: [
+    ["先清点，不重建", "以你现有 Primitive-colors + Semantic-Colors 为候选主库。Portfolio / Semantic / Draft 先做迁移适配层，指向唯一语义来源；确认现有消费者后再讨论退役，绝不这轮删除。"],
+    ["绑定与透明度检查", "逐个记录 stable ID、alias target、type、mode、scope、sourceRevision、Current/Proposed 与 replacement ID。填色只走 semantic/component；text、border、effect alpha 分别核对，禁止循环别名。"],
+    ["三个组件做实", "Hero → SectionHeading → ProjectCard，分别记录图层结构、变量绑定、styles、variants、内容来源。先复刻同一画板静态关键帧，再扩展状态；不是堆一页色块就算设计系统。"],
+    ["验收后再采用", "网页与 Figma 用同一字体文件、内容、图像裁切与宽度（1440 / 390 / 320）比较；关键尺寸建议偏差≤1px、无换行漂移。动效另验时序与降级，不承诺 WebGL 在 Figma 中逐帧完全一致。V1 始终可回看。"],
+  ],
+  sources: [
+    ["Figma · Variables vs styles", "https://help.figma.com/hc/en-us/articles/15871097384471-The-difference-between-variables-and-styles"],
+    ["Figma · Collections and modes", "https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes"],
+    ["W3C · Focus visible", "https://www.w3.org/WAI/WCAG21/Understanding/focus-visible"],
+  ],
+} as const;
+
+export const visualNotes = {
+  colors: "Primary #FFFFFF 是基底，Secondary #101010 是对比，Accent #73D1F8 是品牌点睛。60–30–10 作为构图参考，不是逐屏像素配额，也不等于 primary button 必须白色。Surface / Ink 描述用途，可以指向相同原色。",
+  colorNote: "灰色说明保留 text/muted 职责，不再叫 Secondary。系统状态色不在这组色卡展示；控件暂沿用 V1 的功能色，后续核对 Figma，未擅自覆盖。",
+  gradientTitle: "Hero light field / source palette",
+  gradientNote: "上方完整色带使用主页 CSS fallback 的 165° / 48% / 62% 配方；下方五个色卡来自 smoke-renderer.ts 的真实光场 palette。两者不是同一个算法；Figma 先用静态关键帧或渐变近似，不能只抄五个色值就还原流动光场。",
+  labelTitle: "DATA / LABEL · 2026 / 01",
+  labelNote: "JetBrains Mono · 12px / 500 / 1.6 / .04em。深底使用 #73D1F8；白底按本轮决定使用 #0087FB。#0087FB 与白底对比为 3.58:1，低于普通小字 4.5:1；当前仅作为 Proposed data label，若承担必要信息需要加深或提升字号/字重。说明段落保持 sans 与中性灰。",
+  focus: "Focus 不是可删除的装饰：键盘 Tab、触屏外接键盘都需要知道当前位置。输入框可与 hover 共用深色边界，但 focus-visible 额外保留细 2px 环；普通鼠标/触屏按钮不常驻粗环。浏览器也可能为正在输入的文本框显示焦点，这是有意保留的定位信息。",
+  cardNote: "封面增至 4:3，正文精简为项目类型、年份与标题。白底 tags 与箭头在封面底部同排，hover / focus 出现；触屏常驻。长标题可换行，200% 文字时辅助信息移至正常文流，避免压住图像。",
+  surfaces: [
+    ["Light context", "灰底承托白卡。黑卡用于章节对比；蓝卡只作极少量重点，不替代所有内容背景。"],
+    ["Inverse context", "黑底承托 #1D1D1D 卡片；白色主要用于文字，accent 用于少量 MONO 标记。"],
+  ],
+  radius: [
+    ["Control", "8px", "小型精确控件：输入框、菜单、参数面板。边缘更利落，不让每个小控件都像一张大卡片。"],
+    ["Project", "18px", "中型内容容器：项目封面＋标题、深灰证据卡片。圆角负责成组，不表示可以点击。"],
+    ["Chapter", "28px", "大型章节或独立舞台：与页面形成更明显的空间边界，不套在每个内部元素上。"],
+    ["Action", "pill", "按钮由高度决定胶囊轮廓。它是动作形状，不与卡片圆角竞争；嵌套圆角按内距协调，不盲目18套18。"],
+  ],
+  elevationTitle: "Elevation ≠ stacking order",
+  elevation: "Elevation 是“浮在页面上方”的视觉提示，靠阴影表达；z-index 只是网页重叠顺序，不是阴影大小，也不是 Figma 的坐标深度。静态卡片用明暗表面区分，无需投影。弹窗才使用两层阴影；content 0 / sticky 20 / toast 40 是本地层级约定，native dialog 在浏览器 top layer，不能拿一个更大的 z-index 等同它。",
+  spacingNote: "每项都附局部示意。缩略图展示关系，不把1440px页面强行塞入小卡；控件框模型保留实际尺寸，完整响应式网格见下方。",
+  motionDemos: [
+    ["01 / Icon feedback", "图文按钮", "hover 图标 translate(3px,−3px)，320ms。移出可反向；按下缩至.98；键盘定位立即可见。"],
+    ["02 / Quiet link", "下划线揭示", "hover 下划线 scaleX(0→1)，240ms，左侧为原点。focus 立即显示，触屏始终有线。"],
+    ["03 / Cover reveal", "封面辅助信息", "复用上方真实 ProjectCard：图像800ms、tags240ms、箭头500ms；只改变辅助信息，不隐藏标题与入口。"],
+    ["04 / Editorial mask", "章节文字揭示", "点击重播：translateY(110%→0)，1050ms (.16,1,.3,1)。无循环、无阅读等待；减少动态效果时直接显示。"],
+    ["05 / Evidence stagger", "证据卡片顺序", "点击重播：opacity + translateY(16px→0)，240ms、间隔70ms。帮助理解阅读顺序，不动画尺寸或模糊。"],
+  ],
+} as const;

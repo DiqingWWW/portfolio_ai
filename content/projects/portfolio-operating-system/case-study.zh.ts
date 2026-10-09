@@ -1,4 +1,8 @@
 import selection from "./case-study.selection.json";
+import {
+  legacyOperatingSystemMindmap,
+  type LegacyOperatingSystemMindmapNode,
+} from "./legacy-operating-system-mindmap";
 
 export interface PortfolioSourceLinked {
   sourceIds: string[];
@@ -12,6 +16,11 @@ export interface PortfolioMedia extends PortfolioSourceLinked {
   width: number;
   height: number;
 }
+
+const selectedMindmaps = selection.mindmaps as Array<{
+  sourceUnit: string;
+  tree: LegacyOperatingSystemMindmapNode;
+}>;
 
 const approvedSourceIds = new Set(selection.units.map((unit) => unit.id));
 
@@ -205,7 +214,7 @@ export const portfolioCaseStudy = {
       title: "决策三：从工作流到 Portfolio Operating System",
       text: "体验层让网站本身证明空间组织、交互与视觉判断；内容层使项目、分类、素材和叙事可以独立演进；治理层保存长期边界、当前状态和临时变化，让下一个 AI 不必重新解释整个项目。",
       boundary: "Portfolio Operating System 不是一个独立软件产品，而是对当前作品集体验、内容与协作方式的系统化描述。",
-      mindmap: selection.mindmaps.find((mindmap) => mindmap.sourceUnit === "pos-os-01")?.tree ?? null,
+      mindmap: selectedMindmaps.find((mindmap) => mindmap.sourceUnit === "pos-os-01")?.tree ?? legacyOperatingSystemMindmap,
     },
     results: {
       title: "这个项目证明了什么，以及哪些问题仍然开放",

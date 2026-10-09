@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1490" viewBox="0 0 1100 1490" role="img" aria-label="AI-native 工作流程">
+  <title>AI-native 工作流程</title><desc>Source: pos-narrative-2026-10-08. Deterministic bilingual workflow reconstruction, not an execution log.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#0087fb"/></marker></defs>
+  <rect width="1100" height="1490" fill="#f4f4f2"/>
+  <g font-family="Arial, PingFang SC, Noto Sans CJK SC, sans-serif">
+  <text x="56" y="49" text-anchor="start" fill="#101010" font-size="30" font-weight="600">AI-native 工作流程</text>
+  <text x="226" y="96" text-anchor="middle" fill="#101010" font-size="25" font-weight="600">Human / 人</text><text x="766" y="96" text-anchor="middle" fill="#101010" font-size="25" font-weight="600">AI / 执行</text>
+  <text x="226" y="123" text-anchor="middle" fill="#686866" font-size="15" font-weight="400">目标 · 审美 · 判断 · 最终批准</text><text x="766" y="123" text-anchor="middle" fill="#686866" font-size="17" font-weight="400">探索 · 生成 · 实现 · 重构 · 迭代</text>
+  <path d="M420 140 V1395" stroke="#858581" stroke-width="1" stroke-dasharray="4 8"/>
+  <path d="M396 190 H496" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M766 230 V265" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M496 305 H396" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M226 345 V420 H496" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M766 460 V485 H578 V510" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M766 485 V510" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M766 485 H954 V510" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M496 555 H446 V695 H396" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M226 735 V775 H578 V805" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M766 600 V805" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M954 600 V805" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M496 845 H396" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M320 885 V945 H466 V1040 H496" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M226 885 V1000" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M56 305 H24 V1040 H56" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M56 695 H24" fill="none" stroke="#0087fb" stroke-width="2"  />
+<path d="M226 1080 V1110 H748 Q766 1090 784 1110 H1070 V305 H1036" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M766 1080 V1140" fill="none" stroke="#0087fb" stroke-width="2"  marker-end="url(#arrow)"/>
+<path d="M1036 1040 H1090 V190 H1036" fill="none" stroke="#0087fb" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+<path d="M496 1180 H226 V1290" fill="none" stroke="#0087fb" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+<path d="M396 1330 H496" fill="none" stroke="#0087fb" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+  <rect x="56" y="150" width="340" height="80" rx="8" fill="#101010" stroke="#101010" stroke-width="1.5"/><text x="226" y="182" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="600">目标与意图</text><text x="226" y="209" text-anchor="middle" fill="#f4f4f2" font-size="17" font-weight="400">Strategy · Taste</text>
+<rect x="496" y="150" width="540" height="80" rx="8" fill="#ffffff" stroke="#858581" stroke-width="1.5"/><text x="766" y="182" text-anchor="middle" fill="#101010" font-size="22" font-weight="600">读取共享依据</text><text x="766" y="209" text-anchor="middle" fill="#686866" font-size="17" font-weight="400">事实 / 当前状态 / 适用规则</text>
+<rect x="496" y="265" width="540" height="80" rx="8" fill="#ffffff" stroke="#858581" stroke-width="1.5"/><text x="766" y="297" text-anchor="middle" fill="#101010" font-size="22" font-weight="600">拆解与计划</text><text x="766" y="324" text-anchor="middle" fill="#686866" font-size="17" font-weight="400">明确范围及检查条件</text>
+<rect x="56" y="265" width="340" height="80" rx="8" fill="#101010" stroke="#101010" stroke-width="1.5"/><text x="226" y="297" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="600">确认范围与权限</text><text x="226" y="324" text-anchor="middle" fill="#f4f4f2" font-size="17" font-weight="400">扩大范围时重新确认</text>
+<rect x="496" y="380" width="540" height="80" rx="8" fill="#ffffff" stroke="#858581" stroke-width="1.5"/><text x="766" y="412" text-anchor="middle" fill="#101010" font-size="22" font-weight="600">进入相关工作区</text><text x="766" y="439" text-anchor="middle" fill="#686866" font-size="17" font-weight="400">不必每次从头重做</text>
+<rect x="496" y="510" width="164" height="90" rx="8" fill="#ffffff" stroke="#858581" stroke-width="1.5"/><text x="578" y="542" text-anchor="middle" fill="#101010" font-size="21" font-weight="600">内容区</text><text x="578" y="569" text-anchor="middle" fill="#686866" font-size="16" font-weight="400">整理事实</text>
+<rect x="684" y="510" width="164" height="90" rx="8" fill="#ffffff" stroke="#858581" stroke-width="1.5"/><text x="766" y="542" text-anchor="middle" fill="#101010" font-size="21" font-weight="600">设计区</text><text x="766" y="569" text-anchor="middle" fill="#686866" font-size="16" font-weight="400">Figma / 视觉</text>
+<rect x="872" y="510" width="164" height="90" rx="8" fill="#ffffff" stroke="#858581" stroke-width="1.5"/><text x="954" y="542" text-anchor="middle" fill="#101010" font-size="21" font-weight="600">开发区</text><text x="954" y="569" text-anchor="middle" fill="#686866" font-size="16" font-weight="400">可运行页面</text>
+<rect x="56" y="655" width="340" height="80" rx="8" fill="#101010" stroke="#101010" stroke-width="1.5"/><text x="226" y="687" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="600">批准公开事实</text><text x="226" y="714" text-anchor="middle" fill="#f4f4f2" font-size="17" font-weight="400">内容任务的检查点</text>
+<rect x="496" y="805" width="540" height="80" rx="8" fill="#ffffff" stroke="#858581" stroke-width="1.5"/><text x="766" y="837" text-anchor="middle" fill="#101010" font-size="22" font-weight="600">检查可交回的结果</text><text x="766" y="864" text-anchor="middle" fill="#686866" font-size="17" font-weight="400">来源 / 状态 / 响应式 / 运行</text>
+<rect x="56" y="805" width="340" height="80" rx="8" fill="#101010" stroke="#101010" stroke-width="1.5"/><text x="226" y="837" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="600">最终评审与采用</text><text x="226" y="864" text-anchor="middle" fill="#f4f4f2" font-size="17" font-weight="400">设计成为最后的守门员</text>
+<rect x="496" y="1000" width="540" height="80" rx="8" fill="#ffffff" stroke="#858581" stroke-width="1.5"/><text x="766" y="1032" text-anchor="middle" fill="#101010" font-size="22" font-weight="600">保存接受的结果与决定</text><text x="766" y="1059" text-anchor="middle" fill="#686866" font-size="17" font-weight="400">拒绝的候选不自动成为规则</text>
+<rect x="56" y="1000" width="340" height="80" rx="8" fill="#101010" stroke="#101010" stroke-width="1.5"/><text x="226" y="1032" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="600">指出问题，调整方向</text><text x="226" y="1059" text-anchor="middle" fill="#f4f4f2" font-size="17" font-weight="400">事实 / 视觉 / 实现 → 对应工作区</text>
+<rect x="496" y="1140" width="540" height="80" rx="8" fill="#ffffff" stroke="#858581" stroke-width="1.5"/><text x="766" y="1172" text-anchor="middle" fill="#101010" font-size="22" font-weight="600">本地交付</text><text x="766" y="1199" text-anchor="middle" fill="#686866" font-size="17" font-weight="400">未授权发布时，本轮在此结束</text>
+<rect x="56" y="1290" width="340" height="80" rx="8" fill="#101010" stroke="#101010" stroke-width="1.5"/><text x="226" y="1322" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="600">单独批准发布</text><text x="226" y="1349" text-anchor="middle" fill="#f4f4f2" font-size="17" font-weight="400">只有需要发布时</text>
+<rect x="496" y="1290" width="540" height="80" rx="8" fill="#ffffff" stroke="#858581" stroke-width="1.5"/><text x="766" y="1322" text-anchor="middle" fill="#101010" font-size="22" font-weight="600">授权后发布</text><text x="766" y="1349" text-anchor="middle" fill="#686866" font-size="17" font-weight="400">不属于默认自动执行</text>
+  <text x="225" y="957" text-anchor="middle" fill="#0087fb" font-size="18" font-weight="400">退回</text><text x="392" y="932" text-anchor="middle" fill="#0087fb" font-size="18" font-weight="400">采用</text><text x="500" y="1132" text-anchor="middle" fill="#0087fb" font-size="16" font-weight="400">按反馈重新计划</text>
+  <text x="365" y="1205" text-anchor="middle" fill="#0087fb" font-size="16" font-weight="400">需发布时</text>
+  <text transform="translate(1084 655) rotate(-90)" fill="#0087fb" text-anchor="middle" font-size="16">下轮读取</text>
+  <text x="56" y="1440" text-anchor="start" fill="#686866" font-size="19" font-weight="400">实线：当前协作关系　虚线：条件步骤 / 下轮读取</text>
+  </g></svg>

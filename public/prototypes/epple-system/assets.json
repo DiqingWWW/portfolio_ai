@@ -1,0 +1,44 @@
+[
+  {
+    "file": "hero.webp",
+    "url": "https://vs-epple.de/img-generated/containers/assets/1-startseite/epple-webseite-zuschnitt-v2.jpg/af6202466e835f8f06a91458e8feb174/epple-webseite-zuschnitt-v2.webp",
+    "bytes": 119028,
+    "usage": "Local analytical reference; source ownership retained, broader reuse not verified"
+  },
+  {
+    "file": "service.webp",
+    "url": "https://vs-epple.de/img-generated/containers/assets/2-services/1-lohnverpackung/v2/epple-lohnverpackung-1856x968-v2.jpg/518fffe534773e457dec8998d12bc071/epple-lohnverpackung-1856x968-v2.webp",
+    "bytes": 100618,
+    "usage": "Local analytical reference; source ownership retained, broader reuse not verified"
+  },
+  {
+    "file": "packaging.webp",
+    "url": "https://vs-epple.de/img-generated/containers/assets/3-verpackungsformen/0-verpackungsformen/epple-verpackungsformen1856x969-v2.jpg/3e0c5caad4c9deb2862a5394c10db574/epple-verpackungsformen1856x969-v2.webp",
+    "bytes": 287496,
+    "usage": "Local analytical reference; source ownership retained, broader reuse not verified"
+  },
+  {
+    "file": "inter-regular.ttf",
+    "url": "https://vs-epple.de/build/assets/Inter-Regular-BPx6xqqj.ttf",
+    "bytes": 342732,
+    "usage": "Local analytical reference; source ownership retained, broader reuse not verified"
+  },
+  {
+    "file": "inter-medium.ttf",
+    "url": "https://vs-epple.de/build/assets/Inter-Medium-CWuwCVva.ttf",
+    "bytes": 342936,
+    "usage": "Local analytical reference; source ownership retained, broader reuse not verified"
+  },
+  {
+    "file": "logo.svg",
+    "url": "https://vs-epple.de/assets/epple-logo.svg",
+    "bytes": 2958,
+    "usage": "Local analytical reference; source ownership retained, broader reuse not verified"
+  },
+  {
+    "file": "system-icon.svg",
+    "url": "https://vs-epple.de/assets/7-globals/icons/v2/epple-icon-ganzheitlich-entwickelt-1x1-v2.svg",
+    "bytes": 3506,
+    "usage": "Local analytical reference; source ownership retained, broader reuse not verified"
+  }
+]

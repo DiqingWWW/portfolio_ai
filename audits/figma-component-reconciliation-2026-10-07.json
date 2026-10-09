@@ -1,0 +1,2387 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-07",
+  "status": "local-reconciliation-not-code-connect-publication",
+  "authority": "governance/product/00_DESIGN_SYSTEM_CONTRACT.md#5-design-to-code-mapping",
+  "source": {
+    "provider": "figwright",
+    "fileName": "Portfolio Website",
+    "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+    "fileKeyStatus": "Owner supplied the file URL on 2026-10-07. Live plugin file name and selected variant 291:341 / parent 291:346 corroborate the supplied identity; plugin still does not expose fileKey independently.",
+    "officialCodeConnect": "Selected-node suggestion read still blocked by account tool limit. Publication status unknown. Official publishing is optional for the local Figwright identity map; no Code Connect templates or published mappings created.",
+    "scanScope": "Four live Figma pages; exported TSX AST scan includes routes, prototypes and legacy duplicates, not only design-system components.",
+    "fileUrl": "https://www.figma.com/design/RXVtk9IUr6z8nwfm1sq1MU/Portfolio-Website?node-id=291-341",
+    "confirmedSelection": {
+      "nodeId": "291:341",
+      "name": "Size=Wide, Tone=Inverse",
+      "componentSetId": "291:346",
+      "componentSetName": "V2/Card/Gallery"
+    }
+  },
+  "summary": {
+    "codeExports": 110,
+    "figmaNodes": 123,
+    "figmaFamilies": 22,
+    "localIdentityRows": 6,
+    "codeTargets": 4,
+    "v2Families": 16,
+    "v2IndependentCodeTargets": 1
+  },
+  "components": [
+    {
+      "systemId": "component.action.button",
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "0:1",
+        "pageName": "Page 1",
+        "nodeId": "27:268",
+        "name": "Portfolio/Draft/Action/Button/Small",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Label#27:0": {
+            "type": "TEXT",
+            "defaultValue": "Continue"
+          },
+          "Variant": {
+            "type": "VARIANT",
+            "defaultValue": "Primary",
+            "variantOptions": [
+              "Primary",
+              "Secondary",
+              "Quiet"
+            ]
+          },
+          "Size": {
+            "type": "VARIANT",
+            "defaultValue": "Small",
+            "variantOptions": [
+              "Small"
+            ]
+          },
+          "State": {
+            "type": "VARIANT",
+            "defaultValue": "Default",
+            "variantOptions": [
+              "Default",
+              "Hover",
+              "Focus",
+              "Pressed",
+              "Disabled"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "27:238",
+          "27:240",
+          "27:242",
+          "27:244",
+          "27:246",
+          "27:248",
+          "27:250",
+          "27:252",
+          "27:254",
+          "27:256",
+          "27:258",
+          "27:260",
+          "27:262",
+          "27:264",
+          "27:266"
+        ]
+      },
+      "status": "identity-verified-parity-unverified",
+      "code": {
+        "path": "src/design-system/components/Button/Button.tsx",
+        "exportName": "Button",
+        "exportKind": "named"
+      },
+      "recipeOwner": null,
+      "propertyMappings": [
+        {
+          "designProperty": "Label#27:0",
+          "codeProperty": "children"
+        },
+        {
+          "designProperty": "Variant",
+          "codeProperty": "variant",
+          "values": {
+            "Primary": "primary",
+            "Secondary": "secondary",
+            "Quiet": "quiet"
+          }
+        },
+        {
+          "designProperty": "Size",
+          "codeProperty": "size",
+          "values": {
+            "Small": "small"
+          }
+        },
+        {
+          "designProperty": "State",
+          "codeProperty": "disabled",
+          "values": {
+            "Disabled": true,
+            "Default": false,
+            "Hover": false,
+            "Focus": false,
+            "Pressed": false
+          },
+          "note": "Only Disabled is a React prop. Other states are CSS pseudo-classes; do not invent a state prop."
+        }
+      ],
+      "gaps": [
+        "Code fullWidth has no Figma property.",
+        "Identity correspondence only: visual parity is not approved. Small Figma padding-x=16 versus code space-3; review before synchronization."
+      ]
+    },
+    {
+      "systemId": "component.action.button",
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "0:1",
+        "pageName": "Page 1",
+        "nodeId": "27:299",
+        "name": "Portfolio/Draft/Action/Button/Medium",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Label#27:16": {
+            "type": "TEXT",
+            "defaultValue": "Continue"
+          },
+          "Variant": {
+            "type": "VARIANT",
+            "defaultValue": "Primary",
+            "variantOptions": [
+              "Primary",
+              "Secondary",
+              "Quiet"
+            ]
+          },
+          "Size": {
+            "type": "VARIANT",
+            "defaultValue": "Medium",
+            "variantOptions": [
+              "Medium"
+            ]
+          },
+          "State": {
+            "type": "VARIANT",
+            "defaultValue": "Default",
+            "variantOptions": [
+              "Default",
+              "Hover",
+              "Focus",
+              "Pressed",
+              "Disabled"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "27:269",
+          "27:271",
+          "27:273",
+          "27:275",
+          "27:277",
+          "27:279",
+          "27:281",
+          "27:283",
+          "27:285",
+          "27:287",
+          "27:289",
+          "27:291",
+          "27:293",
+          "27:295",
+          "27:297"
+        ]
+      },
+      "status": "identity-verified-parity-unverified",
+      "code": {
+        "path": "src/design-system/components/Button/Button.tsx",
+        "exportName": "Button",
+        "exportKind": "named"
+      },
+      "recipeOwner": null,
+      "propertyMappings": [
+        {
+          "designProperty": "Label#27:16",
+          "codeProperty": "children"
+        },
+        {
+          "designProperty": "Variant",
+          "codeProperty": "variant",
+          "values": {
+            "Primary": "primary",
+            "Secondary": "secondary",
+            "Quiet": "quiet"
+          }
+        },
+        {
+          "designProperty": "Size",
+          "codeProperty": "size",
+          "values": {
+            "Medium": "medium"
+          }
+        },
+        {
+          "designProperty": "State",
+          "codeProperty": "disabled",
+          "values": {
+            "Disabled": true,
+            "Default": false,
+            "Hover": false,
+            "Focus": false,
+            "Pressed": false
+          },
+          "note": "Only Disabled is a React prop. Other states are CSS pseudo-classes; do not invent a state prop."
+        }
+      ],
+      "gaps": [
+        "Code fullWidth has no Figma property.",
+        "Identity correspondence only: visual parity is not approved. Small Figma padding-x=16 versus code space-3; review before synchronization."
+      ]
+    },
+    {
+      "systemId": "component.action.button",
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "0:1",
+        "pageName": "Page 1",
+        "nodeId": "27:330",
+        "name": "Portfolio/Draft/Action/Button/Large",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Label#27:32": {
+            "type": "TEXT",
+            "defaultValue": "Continue"
+          },
+          "Variant": {
+            "type": "VARIANT",
+            "defaultValue": "Primary",
+            "variantOptions": [
+              "Primary",
+              "Secondary",
+              "Quiet"
+            ]
+          },
+          "Size": {
+            "type": "VARIANT",
+            "defaultValue": "Large",
+            "variantOptions": [
+              "Large"
+            ]
+          },
+          "State": {
+            "type": "VARIANT",
+            "defaultValue": "Default",
+            "variantOptions": [
+              "Default",
+              "Hover",
+              "Focus",
+              "Pressed",
+              "Disabled"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "27:300",
+          "27:302",
+          "27:304",
+          "27:306",
+          "27:308",
+          "27:310",
+          "27:312",
+          "27:314",
+          "27:316",
+          "27:318",
+          "27:320",
+          "27:322",
+          "27:324",
+          "27:326",
+          "27:328"
+        ]
+      },
+      "status": "identity-verified-parity-unverified",
+      "code": {
+        "path": "src/design-system/components/Button/Button.tsx",
+        "exportName": "Button",
+        "exportKind": "named"
+      },
+      "recipeOwner": null,
+      "propertyMappings": [
+        {
+          "designProperty": "Label#27:32",
+          "codeProperty": "children"
+        },
+        {
+          "designProperty": "Variant",
+          "codeProperty": "variant",
+          "values": {
+            "Primary": "primary",
+            "Secondary": "secondary",
+            "Quiet": "quiet"
+          }
+        },
+        {
+          "designProperty": "Size",
+          "codeProperty": "size",
+          "values": {
+            "Large": "large"
+          }
+        },
+        {
+          "designProperty": "State",
+          "codeProperty": "disabled",
+          "values": {
+            "Disabled": true,
+            "Default": false,
+            "Hover": false,
+            "Focus": false,
+            "Pressed": false
+          },
+          "note": "Only Disabled is a React prop. Other states are CSS pseudo-classes; do not invent a state prop."
+        }
+      ],
+      "gaps": [
+        "Code fullWidth has no Figma property.",
+        "Identity correspondence only: visual parity is not approved. Small Figma padding-x=16 versus code space-3; review before synchronization."
+      ]
+    },
+    {
+      "systemId": "component.form.text-field",
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "0:1",
+        "pageName": "Page 1",
+        "nodeId": "27:381",
+        "name": "Portfolio/Draft/Form/Text Field",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Label#27:48": {
+            "type": "TEXT",
+            "defaultValue": "Email address"
+          },
+          "Value#27:55": {
+            "type": "TEXT",
+            "defaultValue": "name@example.com"
+          },
+          "Description#27:62": {
+            "type": "TEXT",
+            "defaultValue": "Use an address you can access."
+          },
+          "Error#27:69": {
+            "type": "TEXT",
+            "defaultValue": "Enter a valid email address."
+          },
+          "Show description#27:76": {
+            "type": "BOOLEAN",
+            "defaultValue": true
+          },
+          "State": {
+            "type": "VARIANT",
+            "defaultValue": "Default",
+            "variantOptions": [
+              "Default",
+              "Focus",
+              "Disabled"
+            ]
+          },
+          "Validation": {
+            "type": "VARIANT",
+            "defaultValue": "Valid",
+            "variantOptions": [
+              "Valid",
+              "Invalid"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "27:343",
+          "27:349",
+          "27:356",
+          "27:362",
+          "27:368",
+          "27:375"
+        ]
+      },
+      "status": "identity-verified-parity-unverified",
+      "code": {
+        "path": "src/design-system/components/TextField/TextField.tsx",
+        "exportName": "TextField",
+        "exportKind": "named"
+      },
+      "recipeOwner": null,
+      "propertyMappings": [
+        {
+          "designProperty": "Label#27:48",
+          "codeProperty": "label"
+        },
+        {
+          "designProperty": "Value#27:55",
+          "codeProperty": "value"
+        },
+        {
+          "designProperty": "Description#27:62",
+          "codeProperty": "description",
+          "condition": "Only when Show description#27:76=true"
+        },
+        {
+          "designProperty": "Error#27:69",
+          "codeProperty": "error",
+          "condition": "Only when Validation=Invalid"
+        },
+        {
+          "designProperty": "State",
+          "codeProperty": "disabled",
+          "values": {
+            "Disabled": true,
+            "Default": false,
+            "Focus": false
+          },
+          "note": "Focus is native browser state, not a prop."
+        }
+      ],
+      "gaps": [
+        "Visual parity and controlled-input event behavior not verified."
+      ]
+    },
+    {
+      "systemId": "component.surface.card",
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "0:1",
+        "pageName": "Page 1",
+        "nodeId": "35:406",
+        "name": "Portfolio/Draft/Surface/Card",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Title#35:88": {
+            "type": "TEXT",
+            "defaultValue": "Composable content"
+          },
+          "Description#35:89": {
+            "type": "TEXT",
+            "defaultValue": "Media, body, title, description, and actions remain independent parts."
+          },
+          "Media label#35:90": {
+            "type": "TEXT",
+            "defaultValue": "Media slot"
+          },
+          "Show media#35:91": {
+            "type": "BOOLEAN",
+            "defaultValue": true
+          },
+          "Show footer#35:92": {
+            "type": "BOOLEAN",
+            "defaultValue": true
+          },
+          "Width": {
+            "type": "VARIANT",
+            "defaultValue": "Wide",
+            "variantOptions": [
+              "Wide",
+              "Compact"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "35:384",
+          "35:395"
+        ]
+      },
+      "status": "identity-verified-parity-unverified",
+      "code": {
+        "path": "src/design-system/components/Card/Card.tsx",
+        "exportName": "Card",
+        "exportKind": "named"
+      },
+      "recipeOwner": null,
+      "propertyMappings": [
+        {
+          "designProperty": "Title#35:88",
+          "codeExport": "CardTitle",
+          "codeProperty": "children"
+        },
+        {
+          "designProperty": "Description#35:89",
+          "codeExport": "CardDescription",
+          "codeProperty": "children"
+        },
+        {
+          "designProperty": "Media label#35:90",
+          "codeExport": "CardMedia",
+          "codeProperty": "children"
+        },
+        {
+          "designProperty": "Show media#35:91",
+          "codeExport": "CardMedia",
+          "codeProperty": "conditional composition"
+        },
+        {
+          "designProperty": "Show footer#35:92",
+          "codeExport": "CardFooter",
+          "codeProperty": "conditional composition"
+        }
+      ],
+      "gaps": [
+        "Width is a container/layout decision, not a Card prop.",
+        "Compound composition requires CardBody and slot content; no fabricated title/width props.",
+        "Visual parity not verified."
+      ]
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "68:3035",
+        "pageName": "Example / Deethin Semantic Home",
+        "nodeId": "98:3939",
+        "name": "Example / Project Card / Visual",
+        "type": "COMPONENT",
+        "properties": {
+          "Index#98:0": {
+            "type": "TEXT",
+            "defaultValue": "01"
+          },
+          "Title#98:1": {
+            "type": "TEXT",
+            "defaultValue": "Honda HMI Design System"
+          },
+          "Meta#98:2": {
+            "type": "TEXT",
+            "defaultValue": "2021—2024 / DESIGN SYSTEM / HMI"
+          },
+          "Tags#98:3": {
+            "type": "TEXT",
+            "defaultValue": "DESIGN SYSTEM / HMI"
+          }
+        },
+        "variantNodeIds": []
+      },
+      "status": "historical-unbound",
+      "code": null,
+      "recipeOwner": null,
+      "propertyMappings": [],
+      "gaps": []
+    },
+    {
+      "systemId": "component.portfolio.project-card",
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "288:333",
+        "name": "V2/Card/Project",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Size": {
+            "type": "VARIANT",
+            "defaultValue": "Wide",
+            "variantOptions": [
+              "Wide",
+              "Compact"
+            ]
+          },
+          "State": {
+            "type": "VARIANT",
+            "defaultValue": "Rest",
+            "variantOptions": [
+              "Rest",
+              "Revealed"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "283:295",
+          "288:309",
+          "288:314",
+          "288:319"
+        ]
+      },
+      "status": "identity-verified-parity-unverified",
+      "code": {
+        "path": "src/design-system/portfolio/ProjectCard.tsx",
+        "exportName": "ProjectCard",
+        "exportKind": "default"
+      },
+      "recipeOwner": null,
+      "propertyMappings": [
+        {
+          "designProperty": "Body.Title#283:46",
+          "codeProperty": "title",
+          "note": "Nested Body TEXT property, not currently exposed by the parent set."
+        }
+      ],
+      "gaps": [
+        "Size maps to responsive container/CSS, not a size prop.",
+        "State maps to hover/focus/touch/reduced-motion behavior. preview=true forces the revealed catalogue specimen only; it is not the runtime interaction state.",
+        "Code project data, media slot and image toggle lack equivalent exposed Figma properties.",
+        "Figma Body.Metadata is bound to Neutral/700; code metadata uses component-label-text. Confirm intended color before parity repair.",
+        "Nested Project Body and Tag have no independent React export."
+      ]
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "291:346",
+        "name": "V2/Card/Gallery",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Size": {
+            "type": "VARIANT",
+            "defaultValue": "Wide",
+            "variantOptions": [
+              "Wide",
+              "Compact"
+            ]
+          },
+          "Tone": {
+            "type": "VARIANT",
+            "defaultValue": "Light",
+            "variantOptions": [
+              "Light",
+              "Inverse"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "291:340",
+          "291:341",
+          "328:477",
+          "328:482"
+        ]
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/portfolio-ai-case-study/CandidatePage.tsx",
+          "src/app/proto/portfolio-ai-case-study/page.module.css"
+        ],
+        "locator": "galleryItem"
+      },
+      "propertyMappings": [],
+      "gaps": []
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "299:377",
+        "name": "V2/Card/Study",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Size": {
+            "type": "VARIANT",
+            "defaultValue": "Wide",
+            "variantOptions": [
+              "Wide",
+              "Compact"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "299:367",
+          "299:368"
+        ]
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/curated-home-v2/HomepageSections.tsx",
+          "src/app/proto/curated-home-v2/homepage.module.css"
+        ],
+        "locator": "studyCard"
+      },
+      "propertyMappings": [],
+      "gaps": []
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "275:279",
+        "name": "V2/Card/Evidence",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Eyebrow#275:43": {
+            "type": "TEXT",
+            "defaultValue": "Result"
+          },
+          "Title#275:44": {
+            "type": "TEXT",
+            "defaultValue": "Working portfolio system"
+          },
+          "Body#275:45": {
+            "type": "TEXT",
+            "defaultValue": "A working portfolio, content system, and multi-AI workflow built to evolve without losing design intent."
+          },
+          "Tone": {
+            "type": "VARIANT",
+            "defaultValue": "Light",
+            "variantOptions": [
+              "Light",
+              "Inverse"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "274:271",
+          "274:275"
+        ]
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/portfolio-ai-case-study/CandidatePage.tsx"
+        ],
+        "locator": "No distinct Evidence export; presentation correspondence remains unverified"
+      },
+      "propertyMappings": [],
+      "gaps": []
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "280:289",
+        "name": "V2/Card/Decision",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "State": {
+            "type": "VARIANT",
+            "defaultValue": "Default",
+            "variantOptions": [
+              "Default",
+              "Hover"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "278:283",
+          "280:286"
+        ]
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/portfolio-ai-case-study/CandidatePage.tsx",
+          "src/app/proto/design-system-directions/deethin-system-v2/CaseStudyPrimitives.module.css"
+        ],
+        "locator": "decision"
+      },
+      "propertyMappings": [],
+      "gaps": []
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "297:364",
+        "name": "V2/Card/Artifact",
+        "type": "COMPONENT",
+        "properties": {},
+        "variantNodeIds": []
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/portfolio-ai-case-study/page.module.css"
+        ],
+        "locator": "Legacy artifacts recipe; current CandidatePage has no matching artifact card usage"
+      },
+      "propertyMappings": [],
+      "gaps": []
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "282:291",
+        "name": "V2/Card/Project Body",
+        "type": "COMPONENT",
+        "properties": {
+          "Title#283:46": {
+            "type": "TEXT",
+            "defaultValue": "Building a Portfolio—and the System That Keeps It Evolving"
+          }
+        },
+        "variantNodeIds": []
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/design-system/portfolio/ProjectCard.tsx",
+          "src/design-system/portfolio/project-card.module.css"
+        ],
+        "locator": "body; internal JSX, not a separate export"
+      },
+      "propertyMappings": [],
+      "gaps": [
+        "Reject fuzzy Card match: Draft compound Card is not Project Body."
+      ]
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "274:269",
+        "name": "V2/Action/Button",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Label#274:39": {
+            "type": "TEXT",
+            "defaultValue": "View project"
+          },
+          "Appearance": {
+            "type": "VARIANT",
+            "defaultValue": "Primary",
+            "variantOptions": [
+              "Primary",
+              "Secondary",
+              "Quiet"
+            ]
+          },
+          "State": {
+            "type": "VARIANT",
+            "defaultValue": "Default",
+            "variantOptions": [
+              "Default",
+              "Hover",
+              "Focus",
+              "Pressed",
+              "Disabled",
+              "Loading"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "274:233",
+          "274:235",
+          "274:237",
+          "274:239",
+          "274:241",
+          "274:243",
+          "274:245",
+          "274:247",
+          "274:249",
+          "274:251",
+          "274:253",
+          "274:255",
+          "274:257",
+          "274:259",
+          "274:261",
+          "274:263",
+          "274:265",
+          "274:267"
+        ]
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/design-system-directions/deethin-system-v2/SystemPage.tsx",
+          "src/app/proto/design-system-directions/deethin-system-v2/system.module.css"
+        ],
+        "locator": "button; composed by CaseStudyPrimitives.module.css"
+      },
+      "propertyMappings": [],
+      "gaps": [
+        "Do not map to Draft Button: different namespace, tokens, six states versus five, and no exported V2 Button.",
+        "Runtime inverse variant has no corresponding Figma Appearance value."
+      ]
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "327:440",
+        "name": "V2/Action/Text Link",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "State": {
+            "type": "VARIANT",
+            "defaultValue": "Default",
+            "variantOptions": [
+              "Default",
+              "Focus"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "327:437",
+          "327:438"
+        ]
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/design-system-directions/deethin-system-v2/SystemPage.tsx",
+          "src/app/proto/design-system-directions/deethin-system-v2/system.module.css"
+        ],
+        "locator": "textLink"
+      },
+      "propertyMappings": [],
+      "gaps": []
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "287:305",
+        "name": "V2/Content/Tag",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Label#287:48": {
+            "type": "TEXT",
+            "defaultValue": "Systems Thinking"
+          },
+          "Tone": {
+            "type": "VARIANT",
+            "defaultValue": "Light",
+            "variantOptions": [
+              "Light",
+              "Inverse"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "285:301",
+          "287:303"
+        ]
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/design-system/portfolio/ProjectCard.tsx",
+          "src/design-system/portfolio/project-card.module.css"
+        ],
+        "locator": "tags span"
+      },
+      "propertyMappings": [],
+      "gaps": [
+        "Reject fuzzy AIContent match: unrelated component."
+      ]
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "324:421",
+        "name": "V2/Form/Text Field",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Label#324:50": {
+            "type": "TEXT",
+            "defaultValue": "Name"
+          },
+          "State": {
+            "type": "VARIANT",
+            "defaultValue": "Default",
+            "variantOptions": [
+              "Default",
+              "Hover",
+              "Focus",
+              "Filled",
+              "Error",
+              "Disabled"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "324:395",
+          "324:396",
+          "324:401",
+          "324:406",
+          "324:411",
+          "324:416"
+        ]
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/design-system-directions/deethin-system-v2/SystemPage.tsx",
+          "src/app/proto/design-system-directions/deethin-system-v2/system.module.css"
+        ],
+        "locator": "field / input"
+      },
+      "propertyMappings": [],
+      "gaps": []
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "327:432",
+        "name": "V2/Feedback/Dialog",
+        "type": "COMPONENT",
+        "properties": {},
+        "variantNodeIds": []
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/design-system-directions/deethin-system-v2/SystemPage.tsx",
+          "src/app/proto/design-system-directions/deethin-system-v2/system.module.css"
+        ],
+        "locator": "dialog"
+      },
+      "propertyMappings": [],
+      "gaps": []
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "327:426",
+        "name": "V2/Feedback/Toast",
+        "type": "COMPONENT",
+        "properties": {},
+        "variantNodeIds": []
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/design-system-directions/deethin-system-v2/SystemPage.tsx",
+          "src/app/proto/design-system-directions/deethin-system-v2/system.module.css"
+        ],
+        "locator": "toast"
+      },
+      "propertyMappings": [],
+      "gaps": []
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "321:394",
+        "name": "V2/Feedback/Empty State",
+        "type": "COMPONENT",
+        "properties": {},
+        "variantNodeIds": []
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/design-system-directions/deethin-system-v2/SystemPage.tsx",
+          "src/app/proto/design-system-directions/deethin-system-v2/system.module.css"
+        ],
+        "locator": "empty"
+      },
+      "propertyMappings": [],
+      "gaps": []
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "327:448",
+        "name": "V2/Content/Disclosure",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "State": {
+            "type": "VARIANT",
+            "defaultValue": "Closed",
+            "variantOptions": [
+              "Closed",
+              "Open"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "327:444",
+          "327:445"
+        ]
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/design-system-directions/deethin-system-v2/SystemPage.tsx",
+          "src/app/proto/design-system-directions/deethin-system-v2/system.module.css"
+        ],
+        "locator": "disclosure"
+      },
+      "propertyMappings": [],
+      "gaps": []
+    },
+    {
+      "systemId": null,
+      "lifecycleState": "draft",
+      "design": {
+        "fileKey": "RXVtk9IUr6z8nwfm1sq1MU",
+        "pageId": "270:42",
+        "pageName": "Components / V2",
+        "nodeId": "327:466",
+        "name": "V2/Content/Section Heading",
+        "type": "COMPONENT_SET",
+        "properties": {
+          "Eyebrow#327:54": {
+            "type": "TEXT",
+            "defaultValue": "01 / OUTCOMES"
+          },
+          "Title#327:55": {
+            "type": "TEXT",
+            "defaultValue": "A website, and a way to keep improving it"
+          },
+          "Body#327:56": {
+            "type": "TEXT",
+            "defaultValue": "The website, its content source chain, and the Design System are three inspectable outcomes. See those first, then how AI participates and how design decisions inform the next revision."
+          },
+          "Size": {
+            "type": "VARIANT",
+            "defaultValue": "Wide",
+            "variantOptions": [
+              "Wide",
+              "Compact"
+            ]
+          },
+          "Tone": {
+            "type": "VARIANT",
+            "defaultValue": "Light",
+            "variantOptions": [
+              "Light",
+              "Inverse"
+            ]
+          }
+        },
+        "variantNodeIds": [
+          "327:453",
+          "327:454",
+          "327:458",
+          "327:462"
+        ]
+      },
+      "status": "recipe-only-unbound",
+      "code": null,
+      "recipeOwner": {
+        "paths": [
+          "src/app/proto/portfolio-ai-case-study/CandidatePage.tsx",
+          "src/app/proto/curated-home-v2/HomepageSections.tsx"
+        ],
+        "locator": "sectionHeading; distinct local compositions, not one shared export"
+      },
+      "propertyMappings": [],
+      "gaps": []
+    }
+  ],
+  "codeOnlyCandidates": [
+    {
+      "path": "src/design-system/portfolio/SiteFooter.tsx",
+      "exportName": "SiteFooter"
+    },
+    {
+      "path": "src/app/proto/curated-home-v2/AIToolsSection.tsx",
+      "exportName": "AIToolsSection"
+    },
+    {
+      "path": "src/app/proto/curated-home-v2/BookmarkNavigation.tsx",
+      "exportName": "BookmarkNavigation"
+    },
+    {
+      "path": "src/app/proto/curated-home-v2/HomepageMotion.tsx",
+      "exportName": "ServiceAccordion"
+    },
+    {
+      "path": "src/app/proto/portfolio-ai-case-study/LiveLaptopPreview.tsx",
+      "exportName": "LiveLaptopPreview"
+    },
+    {
+      "path": "src/design-system/components/Disclosure/Disclosure.tsx",
+      "exportName": "Disclosure"
+    }
+  ],
+  "codeExportInventory": [
+    {
+      "name": "RootLayout",
+      "filePath": "src/app/layout.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "children"
+      ],
+      "propsExtracted": false,
+      "framework": "react"
+    },
+    {
+      "name": "Home",
+      "filePath": "src/app/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "AIContent",
+      "filePath": "src/components/AIContent.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "demo",
+        "project"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "AboutMeContent",
+      "filePath": "src/components/AboutMeContent.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "profile"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "CaseStudyPage",
+      "filePath": "src/components/CaseStudyPage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "content",
+        "hero"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "DesignSystemContent",
+      "filePath": "src/components/DesignSystemContent.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "tokens",
+        "project"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ExperimentDemos",
+      "filePath": "src/components/ExperimentDemos.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "FloatingWindow",
+      "filePath": "src/components/FloatingWindow.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "id",
+        "title",
+        "isOpen",
+        "onClose",
+        "zIndex",
+        "onFocus",
+        "isActive",
+        "constraintsRef",
+        "defaultPosition",
+        "width",
+        "height",
+        "children"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "FolderContent",
+      "filePath": "src/components/FolderContent.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "heading",
+        "description",
+        "backButton",
+        "designTokensLabel",
+        "projects",
+        "experiments",
+        "labels"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "HMIContent",
+      "filePath": "src/components/HMIContent.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "demo",
+        "project"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "LandingFooter",
+      "filePath": "src/components/LandingFooter.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "content",
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "LanguageSwitcher",
+      "filePath": "src/components/LanguageSwitcher.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "locale",
+        "label",
+        "className"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "LoadingIntro",
+      "filePath": "src/components/LoadingIntro.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "MacOSFolder",
+      "filePath": "src/components/MacOSFolder.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "onClick",
+        "folderTitle",
+        "folderInstruction",
+        "folderBadge",
+        "peekCards",
+        "github",
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "NarrativeCaseStudyPage",
+      "filePath": "src/components/NarrativeCaseStudyPage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "projectId",
+        "blocks",
+        "status",
+        "mediaLayout"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "PortfolioHome",
+      "filePath": "src/components/PortfolioHome.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ProjectEvidenceLink",
+      "filePath": "src/components/ProjectEvidenceLink.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "project",
+        "label"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "RealProjectsContent",
+      "filePath": "src/components/RealProjectsContent.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "heading",
+        "intro",
+        "projects",
+        "labels"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ResponsiveProjectImage",
+      "filePath": "src/components/ResponsiveProjectImage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "src",
+        "mobileSrc",
+        "priority",
+        "alt"
+      ],
+      "propsExtracted": false,
+      "framework": "react"
+    },
+    {
+      "name": "WorkSection",
+      "filePath": "src/components/WorkSection.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "projects",
+        "locale",
+        "scrollEntrances"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ExperimentsPage",
+      "filePath": "src/app/experiments/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/zh/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "HoverImage",
+      "filePath": "src/components/Hover/HoverImage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "asset",
+        "alt",
+        "className"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "AgentDimensionLab",
+      "filePath": "src/components/case-study/AgentDimensionLab.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "id",
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "AutonomousAgentResearchPage",
+      "filePath": "src/components/case-study/AutonomousAgentResearchPage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ExpandableResearchImage",
+      "filePath": "src/components/case-study/ExpandableResearchImage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "locale",
+        "src",
+        "alt",
+        "width",
+        "height",
+        "caption",
+        "priority"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "HondaCaseStudyPage",
+      "filePath": "src/components/case-study/HondaCaseStudyPage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "project",
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "InteractiveMindmap",
+      "filePath": "src/components/case-study/InteractiveMindmap.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "tree",
+        "locale",
+        "instruction",
+        "emptyText"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "InteractiveStrategyMap",
+      "filePath": "src/components/case-study/InteractiveStrategyMap.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "impacts",
+        "rootCauses",
+        "metrics",
+        "phases",
+        "labels"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "LincolnCaseStudyPage",
+      "filePath": "src/components/case-study/LincolnCaseStudyPage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "project",
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "OverviewTable",
+      "filePath": "src/components/case-study/OverviewTable.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "label",
+        "columns",
+        "rows",
+        "enlargeLabel",
+        "closeLabel"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "PortfolioOperatingSystemCaseStudyPage",
+      "filePath": "src/components/case-study/PortfolioOperatingSystemCaseStudyPage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "project",
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "RubikStudioPage",
+      "filePath": "src/components/case-study/RubikStudioPage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "DesignSystemScope",
+      "filePath": "src/design-system/foundations/DesignSystemScope.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "className"
+      ],
+      "propsExtracted": false,
+      "framework": "react"
+    },
+    {
+      "name": "HomepagePatterns",
+      "filePath": "src/design-system/portfolio/HomepagePatterns.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "reduced"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ProjectCard",
+      "filePath": "src/design-system/portfolio/ProjectCard.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "project",
+        "title",
+        "image",
+        "preview",
+        "media"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "SiteFooter",
+      "filePath": "src/design-system/portfolio/SiteFooter.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "locale",
+        "specimen"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "AIToolsSection",
+      "filePath": "src/app/proto/curated-home-v2/AIToolsSection.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "BookmarkNavigation",
+      "filePath": "src/app/proto/curated-home-v2/BookmarkNavigation.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "locale",
+        "referenceStudy",
+        "production"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "CuratedHomepageV2",
+      "filePath": "src/app/proto/curated-home-v2/CuratedHomepage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "previous",
+        "locale",
+        "referenceStudy",
+        "production",
+        "screenOnly"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "FabricaHeroStage",
+      "filePath": "src/app/proto/curated-home-v2/FabricaHeroStage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "children",
+        "disciplines",
+        "label"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "FabricaMotionController",
+      "filePath": "src/app/proto/curated-home-v2/FabricaMotion.tsx",
+      "exportKind": "named",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ServiceAccordion",
+      "filePath": "src/app/proto/curated-home-v2/FabricaMotion.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "items",
+        "categories"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ContactComposer",
+      "filePath": "src/app/proto/curated-home-v2/FabricaMotion.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "recipient",
+        "labels"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "FabricaSections",
+      "filePath": "src/app/proto/curated-home-v2/FabricaSections.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "projects",
+        "locale",
+        "production"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "HeroExperience",
+      "filePath": "src/app/proto/curated-home-v2/HeroExperience.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "heading",
+        "cta",
+        "statement",
+        "name"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "HeroParticleField",
+      "filePath": "src/app/proto/curated-home-v2/HeroParticleField.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "FabricaMotionController",
+      "filePath": "src/app/proto/curated-home-v2/HomepageMotion.tsx",
+      "exportKind": "named",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ServiceAccordion",
+      "filePath": "src/app/proto/curated-home-v2/HomepageMotion.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "items",
+        "categories",
+        "reduced"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ContactComposer",
+      "filePath": "src/app/proto/curated-home-v2/HomepageMotion.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "recipient",
+        "labels"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "HomepageSections",
+      "filePath": "src/app/proto/curated-home-v2/HomepageSections.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "projects",
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "OutsideHeroPointer",
+      "filePath": "src/app/proto/curated-home-v2/OutsideHeroPointer.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ScrollEntrances",
+      "filePath": "src/app/proto/curated-home-v2/ScrollEntrances.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "StudyPricing",
+      "filePath": "src/app/proto/curated-home-v2/StudyPricing.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/proto/curated-home-v2/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "DirectionPage",
+      "filePath": "src/app/proto/design-system-directions/DirectionPage.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "direction"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "DesignSystemDirectionsIndex",
+      "filePath": "src/app/proto/design-system-directions/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "DesignSystemPage",
+      "filePath": "src/app/proto/design-system/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/proto/fabrica-study/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "PixelMotionDemo",
+      "filePath": "src/app/proto/pixel-motion/PixelMotionDemo.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "PixelMotionPage",
+      "filePath": "src/app/proto/pixel-motion/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "CandidatePage",
+      "filePath": "src/app/proto/portfolio-ai-case-study/CandidatePage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "content",
+        "projectRoute"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "GalleryControls",
+      "filePath": "src/app/proto/portfolio-ai-case-study/GalleryControls.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "children",
+        "title",
+        "previous",
+        "next"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "LiveLaptopPreview",
+      "filePath": "src/app/proto/portfolio-ai-case-study/LiveLaptopPreview.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "src",
+        "title",
+        "variant"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ScrollEntrances",
+      "filePath": "src/app/proto/portfolio-ai-case-study/ScrollEntrances.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "WorkspaceFlow",
+      "filePath": "src/app/proto/portfolio-ai-case-study/WorkspaceFlow.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "content"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/proto/portfolio-ai-case-study/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/proto/portfolio-home-screen/page.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "searchParams"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/proto/v1-home/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/work/autonomous-driving-to-agent/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/work/honda-hmi-design-system/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/work/lincoln-text-expression/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/work/portfolio-operating-system/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/work/rubik-studio/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Button",
+      "filePath": "src/design-system/components/Button/Button.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "className",
+        "variant",
+        "size",
+        "fullWidth",
+        "type"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Card",
+      "filePath": "src/design-system/components/Card/Card.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "className"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "CardMedia",
+      "filePath": "src/design-system/components/Card/Card.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "className"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "CardBody",
+      "filePath": "src/design-system/components/Card/Card.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "className"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "CardTitle",
+      "filePath": "src/design-system/components/Card/Card.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "className"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "CardDescription",
+      "filePath": "src/design-system/components/Card/Card.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "className"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "CardFooter",
+      "filePath": "src/design-system/components/Card/Card.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "className"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Disclosure",
+      "filePath": "src/design-system/components/Disclosure/Disclosure.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "children",
+        "className",
+        "summary"
+      ],
+      "propsExtracted": false,
+      "framework": "react"
+    },
+    {
+      "name": "TextField",
+      "filePath": "src/design-system/components/TextField/TextField.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "className",
+        "description",
+        "error",
+        "id",
+        "label"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "PreviousHomepage",
+      "filePath": "src/app/proto/curated-home-v2/previous/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "DesignSystemDirectionPage",
+      "filePath": "src/app/proto/design-system-directions/[direction]/page.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "params"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ColorGuide",
+      "filePath": "src/app/proto/design-system-directions/deethin-system-v2/Explainers.tsx",
+      "exportKind": "named",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "SpaceGuide",
+      "filePath": "src/app/proto/design-system-directions/deethin-system-v2/Explainers.tsx",
+      "exportKind": "named",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "SurfaceGuide",
+      "filePath": "src/app/proto/design-system-directions/deethin-system-v2/Explainers.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "onOpen"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "MotionGallery",
+      "filePath": "src/app/proto/design-system-directions/deethin-system-v2/Explainers.tsx",
+      "exportKind": "named",
+      "propNames": [
+        "project"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "ArchitectureGuide",
+      "filePath": "src/app/proto/design-system-directions/deethin-system-v2/Explainers.tsx",
+      "exportKind": "named",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "SystemCoverage",
+      "filePath": "src/app/proto/design-system-directions/deethin-system-v2/SystemCoverage.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "SystemPage",
+      "filePath": "src/app/proto/design-system-directions/deethin-system-v2/SystemPage.tsx",
+      "exportKind": "default",
+      "propNames": [
+        "projectHref",
+        "locale"
+      ],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/proto/design-system-directions/deethin-system-v2/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "SystemPage",
+      "filePath": "src/app/proto/design-system-directions/deethin-system/SystemPage.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/proto/design-system-directions/deethin-system/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "SystemPage",
+      "filePath": "src/app/proto/design-system-directions/epple-system/SystemPage.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/proto/design-system-directions/epple-system/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "SystemPage",
+      "filePath": "src/app/proto/design-system-directions/state-of-ai-system/SystemPage.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/proto/design-system-directions/state-of-ai-system/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/proto/portfolio-ai-case-study/en/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/work/portfolio-operating-system/design-system/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/zh/proto/curated-home-v2/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/zh/proto/fabrica-study/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/zh/proto/v1-home/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/zh/work/autonomous-driving-to-agent/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/zh/work/honda-hmi-design-system/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/zh/work/lincoln-text-expression/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/zh/work/portfolio-operating-system/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/zh/work/rubik-studio/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    },
+    {
+      "name": "Page",
+      "filePath": "src/app/zh/work/portfolio-operating-system/design-system/page.tsx",
+      "exportKind": "default",
+      "propNames": [],
+      "propsExtracted": true,
+      "framework": "react"
+    }
+  ],
+  "codeBaselines": {
+    "src/design-system/portfolio/ProjectCard.tsx": "8c6683eaa4c6b0bafbbdb1eef941a46f284fcb8dc9e8e49b5f9b25cc84201a87",
+    "src/design-system/portfolio/project-card.module.css": "d0aea341b7d6607ead13f5c8140e4ef1a0373291be8142bc40c98ece5bbf9fd1",
+    "src/design-system/portfolio/tokens.ts": "f780c70980d80e606389e54bc22f5618d0a76abefed4f115ad85c9578c928883",
+    "src/design-system/components/Button/Button.tsx": "543c7a0244fddd8858d1b42eb756ead485bf195e2bc0437532ab14e79806caaa",
+    "src/design-system/components/Button/Button.module.css": "a04d7d14e97a99b026d02d612b9be262739b070048ade34335d2f8091a4b0d08",
+    "src/design-system/components/Card/Card.tsx": "c8b7ce94baacc22fefcd8106be18457aa334d4ae3d2b2184c56d64f54bc67afe",
+    "src/design-system/components/Card/Card.module.css": "5be558a9af520e4741e4fde495008fab533e967aecad1d293c12ea6ccc4096c4",
+    "src/design-system/components/TextField/TextField.tsx": "ab45b7db57c898c0aaf8bf64390417e4727f4f70e41837e138daaf2c536dad30",
+    "src/design-system/components/TextField/TextField.module.css": "f116fb242653c196b9618b929d718e1643a628c9e84aa28069e74d461402a035"
+  },
+  "baselineLimit": "Code hashes cover the selected independent implementations and their direct styles, plus the token entry file. They do not cover transitive tokens, all inline recipes, or live Figma drift. Figma properties are a dated snapshot; re-read them before applying a change.",
+  "synchronization": {
+    "enabled": false,
+    "mode": "reviewed scoped changes only",
+    "conflictRule": "If both sides changed since a verified baseline, stop for conflict review; never overwrite automatically."
+  }
+}
