@@ -3,14 +3,15 @@
   "title": "Rubik Studio AI Coding Tool",
   "tags": ["ai-related", "hmi"],
   "metadata": {
-    "type": ""
+    "type": "B2B software project",
+    "year": "2024"
   },
   "descriptions": {
     "short": "An internal enterprise AI-assisted programming tool for code development and 3D scene rendering.",
     "detail": ""
   },
   "specs": [],
-  "tokens": [],
+  "tokens": ["AI coding assistant", "IDE workflow", "Developer tools", "3D scene rendering"],
   "assets": {
     "cover": "./cover-spatial-code-edit-v1.png",
     "coverPosition": "center",
