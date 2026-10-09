@@ -13,13 +13,18 @@ export const metadata: Metadata = {
     description: "汽车 HMI、设计系统、内容交互与 AI 辅助产品构建精选项目。",
     locale: "zh_CN",
     url: "/zh",
-    images: [{ url: "/assets/images/honda-hmi-design-system/cover2-display.webp", alt: "Diqing Wu 作品集" }],
+    images: [{
+      url: "/assets/images/portfolio-operating-system/social-preview_CN.webp",
+      width: 1280,
+      height: 960,
+      alt: "笔记本电脑上展示 Diqing Wu 作品集首页",
+    }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Diqing Wu — 产品设计师与 AI 构建者",
     description: "汽车 HMI、设计系统与 AI 辅助产品构建作品集。",
-    images: ["/assets/images/honda-hmi-design-system/cover2-display.webp"],
+    images: ["/assets/images/portfolio-operating-system/social-preview_CN.webp"],
   },
 };
 
