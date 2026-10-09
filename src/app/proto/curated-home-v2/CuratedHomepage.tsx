@@ -12,6 +12,7 @@ import BookmarkNavigation from "./BookmarkNavigation";
 import ScrollEntrances from "./ScrollEntrances";
 import FabricaSections from "./FabricaSections";
 import FabricaHeroStage from "./FabricaHeroStage";
+import HomeEntryPosition from "./HomeEntryPosition";
 import fabricaContent from "@content/prototypes/fabrica-study.json";
 import styles from "./page.module.css";
 
@@ -45,6 +46,7 @@ export default function CuratedHomepageV2({ previous = false, locale = "en", ref
   const disciplines = Array.from(new Set(localizedProjects.flatMap(project => project.tokens))).slice(0, 8);
   return (
     <div className={`${styles.page} ${previous ? "" : styles.animatedPage}`} id="top" lang={locale === "zh" ? "zh-CN" : "en"}>
+        {production && !screenOnly && <HomeEntryPosition />}
         <a className={styles.skipLink} href="#work">{copy.skipLink}</a>
 
         {previous ? <header className={styles.header}>
@@ -79,6 +81,7 @@ export default function CuratedHomepageV2({ previous = false, locale = "en", ref
             <HeroExperience
               name={profile.name.full}
               statement={copy.heroStatement}
+              openingOnEntry={production && !screenOnly}
               heading={<div className={styles.heroHeading}>
                 <h1 id="hero-title">{profile.name.full}</h1>
                 <p>{copy.roleLines[0]}<br />{copy.roleLines[1]}</p>
@@ -90,6 +93,7 @@ export default function CuratedHomepageV2({ previous = false, locale = "en", ref
           </FabricaHeroStage> : <HeroExperience
             name={profile.name.full}
             statement={copy.heroStatement}
+            openingOnEntry={production && !screenOnly}
             heading={<div className={styles.heroHeading}>
               <h1 id="hero-title">{profile.name.full}</h1>
               <p>{copy.roleLines[0]}<br />{copy.roleLines[1]}</p>

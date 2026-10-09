@@ -11,11 +11,12 @@ const easeInOut = (v: number) => {
   return t < .5 ? 4*t*t*t : 1 - (-2*t+2) ** 3/2;
 };
 
-export default function HeroExperience({ heading, cta, statement, name }: {
+export default function HeroExperience({ heading, cta, statement, name, openingOnEntry = false }: {
   heading: ReactNode;
   cta: ReactNode;
   statement: string;
   name: string;
+  openingOnEntry?: boolean;
 }) {
   const heroRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -47,6 +48,9 @@ export default function HeroExperience({ heading, cta, statement, name }: {
     const homeContext = homeCanvas?.getContext("2d", { alpha: false });
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
     const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
+    const isUninterruptedOpening = () => openingOnEntry
+      && (!location.hash || location.hash === "#top")
+      && (window as Window & { __portfolioHomeOpeningActive?: boolean }).__portfolioHomeOpeningActive !== false;
     const renderer = createSmokeRenderer(canvas);
     const glyphs = Array.from(statement);
     const nameGlyphs = Array.from(name);
@@ -86,7 +90,13 @@ export default function HeroExperience({ heading, cta, statement, name }: {
       const ready = elapsed >= doneAt;
       if (ready && phase === "ready") return;
       const next = ready ? "ready" : elapsed >= dockedAt ? "settling" : elapsed >= dockAt ? "docking" : elapsed >= typingAt ? "typing" : elapsed >= popupAt ? "popup" : elapsed >= cursorAt ? "split" : elapsed >= nameAt ? "name" : "reveal";
-      if (next !== phase) { hero.dataset.phase = next; phase = next; }
+      if (next !== phase) {
+        hero.dataset.phase = next;
+        phase = next;
+        if (next === "ready" && openingOnEntry) {
+          (window as Window & { __portfolioHomeOpeningActive?: boolean }).__portfolioHomeOpeningActive = false;
+        }
+      }
       page.style.setProperty("--intro-copy", String(easeOut((elapsed-2.8)/1.2)));
       const nameCount = Math.floor(clamp((elapsed-nameAt)/(nameDoneAt-nameAt))*nameGlyphs.length);
       if (nameCount !== lastNameCount) {
@@ -193,7 +203,7 @@ export default function HeroExperience({ heading, cta, statement, name }: {
     };
     const pointerLeave = () => { pointerActive = false; };
     const scroll = () => {
-      if (scrollY > 8) finish();
+      if (scrollY > 8 && !isUninterruptedOpening()) finish();
       bounds = hero.getBoundingClientRect();
       homeBounds = homeTab?.getBoundingClientRect();
       if (reduced.matches) draw();
@@ -214,7 +224,7 @@ export default function HeroExperience({ heading, cta, statement, name }: {
       return;
     }
     hero.dataset.renderer = "webgl";
-    if (reduced.matches || scrollY > 8 || location.hash) elapsed = doneAt;
+    if (reduced.matches || (scrollY > 8 && !isUninterruptedOpening()) || (location.hash && location.hash !== "#top")) elapsed = doneAt;
     resize(); resume();
     const observer = new ResizeObserver(resize);
     observer.observe(hero);
@@ -248,7 +258,7 @@ export default function HeroExperience({ heading, cta, statement, name }: {
       finePointer.removeEventListener("change", resize);
       page.style.removeProperty("--intro-copy");
     };
-  }, [statement, name, firstName]);
+  }, [statement, name, firstName, openingOnEntry]);
 
   return <section ref={heroRef} className={`${styles.hero} ${styles.experience}`} aria-labelledby="hero-title" data-phase="reveal">
     <canvas ref={canvasRef} className={styles.smokeCanvas} aria-hidden="true" />
